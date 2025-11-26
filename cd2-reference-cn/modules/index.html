@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Modules - CD2 Reference</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../stylesheets/tables.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Modules";
+        var mkdocs_page_input_path = "modules.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CD2 Reference
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Modules</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#caps">Caps</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#darkness">Darkness</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#description">Description</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#difficultysetting">DifficultySetting</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarves">Dwarves</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#enemies-enemiesnosync">Enemies / EnemiesNoSync</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#escortmule">EscortMule</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#maxplayers">MaxPlayers</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#messages">Messages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#name">Name</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nextdifficulty">NextDifficulty</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#nitramultiplier">NitraMultiplier</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pools">Pools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#salvage">Salvage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#usable-fields">Usable fields</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#soundcues">SoundCues</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#specialencounters">SpecialEncounters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resupply">Resupply</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#warnings">Warnings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wavespawners">WaveSpawners</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wavespawners/">(Module) WaveSpawners</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mev-dea/">MEV, DEA and EEE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CD2 Reference</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Modules</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="modules">Modules</h1>
+<p>Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.</p>
+<p class="cn">模块是cd2 有效代码难度中上面的那部分，以下是所有模块的序列（字母顺序排列）</p>
+
+<h2 id="caps">Caps</h2>
+<p>Control for the maximum number of enemies in the map, with the following fields:</p>
+<p class="cn">控制地图中虫量的多少，包含以下字段：</p>
+
+<table>
+<thead>
+
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>翻译</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td>MaxActiveCritters</td>
+<td>Int</td>
+<td>最大非敌对生物数量</td>
+</tr>
+<tr>
+<td>MaxActiveEnemies</td>
+<td>Int</td>
+<td>最大小型生物数量</td>
+
+</tr>
+<tr>
+<td>MaxActiveSwarmers</td>
+<td>Int</td>
+<td>最大大虫数量</td>
+</tr>
+
+</tbody>
+</table>
+<p>Example:</p>
+<p class="cn">示例：</p>
+
+<pre><code class="language-json">&quot;Caps&quot;: {
+    &quot;MaxActiveCritters&quot;: 40,
+    &quot;MaxActiveSwarmers&quot;: [90, 120, 180, 180],
+    &quot;MaxActiveEnemies&quot;: [90, 120, 180, 180]
+}
+</code></pre>
+<p>When the number of enemies in the map reach their cap, new enemies will be prevented from spawning and some existing enemies will despawn. The exact mechanics behind this behaviour are not completely understood. </p>
+<p class="cn">虫量刷到上限之后，新敌人生成会被阻止，已有敌人可能被移除（官难掏蛋一般一次掏几个的原因），具体的机制未完全明确</p>
+
+<h2 id="darkness">Darkness</h2>
+<p>The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields (descriptions provided by @noskill):</p>
+<p class="cn">Darkness 这个模块用于控制太空站与任务中照明与光照有关的部分，包含以下字段。（描述来自@noskill这个人，佬）</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Comment</th>
+<th>翻译</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FlashlightStrength</td>
+<td>Float</td>
+<td>1?</td>
+<td>Headlight light strength, affects both range and strength of the light.</td>
+<td>荧光棒，影响范围与亮度。</td>
+
+</tr>
+<tr>
+<td>PlayerIllumination</td>
+<td>Float</td>
+<td>1?</td>
+<td>Light strength in a radius around the player. Only affects strength and not radius.</td>
+<td>玩家手电筒光照强度，仅影响亮度不影响范围。</td>
+
+</tr>
+<tr>
+<td>FlareMax</td>
+<td>Int</td>
+<td>4</td>
+<td>Maximum number of flares that the player can keep.</td>
+<td>玩家能携带的最大荧光棒数量。</td>
+
+</tr>
+<tr>
+<td>FlareStrength</td>
+<td>Float</td>
+<td>1?</td>
+<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.</td>
+<td>荧光棒的光照强度与范围，超过 3 无明显变化。</td>
+</tr>
+<tr>
+<td>FlareDuration</td>
+<td>Float</td>
+<td>30</td>
+<td>Duration of the player flares.</td>
+<td>荧光棒发光持续时间。</td>
+
+</tr>
+<tr>
+<td>FlareProductionTime</td>
+<td>Float</td>
+<td>12</td>
+<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.</td>
+<td>荧光棒冷却时间，不建议在任务中修改。</td>
+</tr>
+
+<tr>
+<td>EnvironmentalLight</td>
+<td>Float</td>
+<td>1?</td>
+<td>Environmental (cave) light. Affects both radius and strength.</td>
+<td>洞穴环境光亮度。</td>
+
+</tr>
+<tr>
+<td>DisableFog</td>
+<td>Bool</td>
+<td>False</td>
+<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.</td>
+<td>禁用迷雾，使洞穴看起来更暗，任务中别修改。</td>
+</tr>
+
+<tr>
+<td>FlareGunStrength</td>
+<td>Float</td>
+<td>1?</td>
+<td>Strength of Scout's flare gun flares.</td>
+<td>侦察照明弹亮度</td>
+
+</tr>
+<tr>
+<td>FlareGunDuration</td>
+<td>Float</td>
+<td>Depends on flare gun stats</td>
+<td>Duration of Scout's flare gun flares.</td>
+<td>侦察照明弹持续时间，基于你的加点。</td>
+
+</tr>
+</tbody>
+</table>
+<h2 id="description">Description</h2>
+<p>A short explanation of the difficulty.</p>
+<p>“Description”用于粗略介绍难度</p>
+
+<p>Example:</p>
+<p>比如:</p>
+
+<pre><code class="language-json">{
+    &quot;Description&quot;: &quot;Hazard 6 with double enemies.&quot;
+}
+</code></pre>
+<h2 id="difficultysetting">DifficultySetting</h2>
+<p>Main controls for enemy resistance, swarm and wave intervals and enemy counts. </p>
+<p class="cn">“DifficultySetting”模块用于控制敌人抗性、潮间隔和虫量等重要因素。</p>
+
+<P>The descriptions here are very summarized, please check <a href="https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0">A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic</a>, a CD1 guide explaining most of the fields inside this module foe details. </P>
+<p class="cn">这里的说明比较简略，因为cd1和这个地方大致一样。（参考已有的cd1的说明就好了）</p>
+
+<P>To see the values of these fields for the vanilla Hazards and some others, please check the <a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview">DRG Hazard Scaling</a> file.</P>
+<p>官方的难度可以参考DRG Hazard Scaling这个文件（去原网站看）</p>
+
+<table>
+<thead>
+
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>翻译(有则去看cd1的说明)</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td>BaseHazard</td>
+<td>Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the <code>BaseHazard</code> specified here.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistance</td>
+<td>Affects the damage resistance of the three dreadnought variants.</td>
+<td></td>  
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistanceB</td>
+<td>Affects the damage resistance of the Korlok Tyrant Weed.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistanceC</td>
+<td>Affects the damage resistance of the OMEN Tower.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistanceD</td>
+<td>Affects the damage resistance of Elite enemies.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnemyDamageResistance</td>
+<td>Damage resistance of most larger enemies in the game: praetorians, oppressors, menaces, goo bombers, bulk detonators, etc.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>SmallEnemyDamageResistance</td>
+<td>Damage resistance of everything not covered by the other resistance fields: grunts, mactera, swarmers, etc.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EncounterDifficulty</td>
+<td>Difficulty of the encounters, waves that appear when the players come within a certain distance of an unexplored cave.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>StationaryDifficulty</td>
+<td>How many stationary enemies will spawn.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnemyCountModifier</td>
+<td>A global multiplier on the number of enemies that will spawn in waves, swarms, constant pressure, extraction, among others.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnemyWaveInterval</td>
+<td>Interval in seconds between swarms (announced).</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnemyNormalWaveInterval</td>
+<td>Interval in seconds between normal (non-announced) waves.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnemyNormalWaveDifficulty</td>
+<td>How many enemies will spawn in a normal wave.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnemyDiversity</td>
+<td>Determines how many enemies will spawn in a given spawn event, given an <code>EnemyPool</code>.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>StationaryEnemyDiversity</td>
+<td>Enemy diversity roll for stationary enemies (everything in the <code>StationaryPool</code>).</td>
+<td></td>
+</tr>
+
+<tr>
+<td>VeteranNormal</td>
+<td>Percentage of Grunt and Mactera veterans promoting from the non-veteran variants.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>VeteranLarge</td>
+<td>Percentage of Oppressors promoting to veterans from Praetorians.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>EnviromentalDamageModifier</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>PointExtractionScalar</td>
+<td>Interval between swarms in Point Extraction, taking effect after the first swarm. The value is capped at 1 and the formula seems to be Interval = 165/ PointExtractionScalar.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>FriendlyFireModifier</td>
+<td>How much friendly fire players deal to each other.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>WaveStartDelayScale</td>
+<td>Adds (or subtracts) a delay for the first swarm in a mission. The delay in seconds will be 150 · WaveStartDelayScale. The default is zero; if negative (eg. -1), a swarm will spawn directly at mission start.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>SpeedModifier</td>
+<td>Global modifier affecting the speed of ground enemies. Mactera are unaffected.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>AttackCooldownModifier</td>
+<td>Global modifier affecting the speed of enemy attack animations.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ProjectileSpeedModifier</td>
+<td>Global modifier affecting the speed of all projectiles.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>HealthRegenerationMax</td>
+<td>Maximum health that the dwarves regenerate naturally to.</td>
+<td></td>
+</tr>
+
+<tr>
+<td>ReviveHealthRatio</td>
+<td>Health points after revive.</td>
+<td></td>
+</tr>
+
+</tbody>
+</table>
+<h2 id="dwarves">Dwarves</h2>
+<p>Offers some controls related to the players.</p>
+<p class="cn">提供与玩家有关的一些参数。</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<td>Default</td>
+<th>Description</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FallDamageModifier</td>
+<td>Default: 0.175</td>
+<td></td>
+<td>摔落伤害</td>
+</tr>
+
+<tr>
+<td>FallDamageStartVelocity</td>
+<td>Default: 1000</td>
+<td>Multiplier for player shield capacity.</td>
+<td>开始计算衰落伤害的速度</td>
+</tr>
+
+<tr>
+<td>RegenHealthPerSecond</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>RegenDelayAfterDamage</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Scale</td>
+<td></td>
+<td>Player size.</td>
+<td>玩家体型比例</td>
+</tr>
+
+</tbody>
+</table>
+<h2 id="enemies-enemiesnosync">Enemies / EnemiesNoSync</h2>
+<p>See the <a href="../enemies/">Enemies/EnemiesNoSync</a> section.</p>
+<p>详情见<a href="../enemies/"></a>部分</p>
+<h2 id="escortmule">EscortMule</h2>
+<p>Controls for the Drilldozer in Escort missions.</p>
+<p>控制 大运朵朵的 属性 字段部分</p>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Comments</th>
+<th>翻译（cd1有的请参考cd1文档）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HealPerTickNormal</td>
+<td>Float</td>
+<td>13</td>
+<td>Currently unsupported.</td>
+<td>每刻回血量，目前不支持</td>
+</tr>
+
+<tr>
+<td>HealPerTickUnderAttack</td>
+<td>Float</td>
+<td>4.5</td>
+<td>Currently unsupported.</td>
+<td>被攻击时每刻回血量，目前不支持</td>
+</tr>
+
+<tr>
+<td>MaxAttackersOmoranFight</td>
+<td>Float</td>
+<td>6</td>
+<td>Currently unsupported.</td>
+<td>没看懂，可能是 心石阶段最大虫量？目前不支持</td>
+</tr>
+
+<tr>
+<td>MaxHealth</td>
+<td>Float</td>
+<td>520</td>
+<td>Currently unsupported.</td>
+<td>朵朵最大血量，目前不支持</td>
+</tr>
+
+<tr>
+<td>FriendlyFireModifier</td>
+<td>Float</td>
+<td>0.1</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>NeutralDamageModifier</td>
+<td>Float</td>
+<td>0.1</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>BigHitDamageModifier</td>
+<td>Float</td>
+<td>0.5</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>BigHitDamageReductionThreshold</td>
+<td>Float</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>PST_PoisonResistance</td>
+<td>Float</td>
+<td>0.25</td>
+<td>Currently unsupported.</td>
+<td>毒抗，目前不支持</td>
+</tr>
+
+<tr>
+<td>PST_RadiationResistance</td>
+<td>Float</td>
+<td>0.5</td>
+<td>Currently unsupported.</td>
+<td>辐抗，目前不支持</td>
+</tr>
+
+<tr>
+<td>PST_ExplosionResistance</td>
+<td>Float</td>
+<td>0.5</td>
+<td>Currently unsupported.</td>
+<td>爆抗，目前不支持</td>
+</tr>
+
+</tbody>
+</table>
+<h2 id="maxplayers">MaxPlayers 最多玩家数</h2>
+<p>A field accepting an int specifying the maximum number of players allowed in the lobby. </p>
+<p>一个可以设定大厅允许的最大玩家数的字段</p>
+
+<pre><code class="language-json">{
+    &quot;MaxPlayers&quot;: 16
+}
+</code></pre>
+<h2 id="messages">Messages 信息</h2>
+<p>A module that allows CD2 to send messages to chat in response to events happening during the mission. It has The following fields:</p>
+<p>这个模块允许 CD2在任务期间发生某些事件时向聊天框发送信息</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Send</td>
+<td>Boolean</td>
+<td>False</td>
+<td>Send chat message when true</td>
+<td></td>
+</tr>
+
+<tr>
+<td>SendOnChange</td>
+<td>Boolean</td>
+<td>False</td>
+<td>Send chat message when another value (e.g. message) changes</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Type</td>
+<td>String</td>
+<td>Game</td>
+<td>Options:  Game, Normal, Delux, Developer, Streamer, Modder</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Sender</td>
+<td>String</td>
+<td>CD2</td>
+<td>Name of the Sender</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Message</td>
+<td>String</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+</tbody>
+</table>
+
+<p>Examples:</p>
+<p>示例:</p>
+<p>The following snippet sends a message on chat when the next resupply is available.</p>
+<p>以下字段会在下一次补给可用时发送消息</p>
+
+<pre><code class="language-json">...,
+&quot;Messages&quot;: [
+    {
+      &quot;Message&quot;: &quot;!!! Resupply Available !!!&quot;,
+      &quot;Send&quot;: {
+        &quot;Mutate&quot;: &quot;IfFloat&quot;,
+        &quot;Value&quot;: {
+          &quot;Mutate&quot;: &quot;DepositedResource&quot;,
+          &quot;Resource&quot;: &quot;Nitra&quot;
+        },
+        &quot;&gt;=&quot;: 60,
+        &quot;Then&quot;: true,
+        &quot;Else&quot;: false
+      }
+    }
+],
+...
+</code></pre>
+<p>The following snippet sends a message on chat when a player dies.</p>
+<p>以下部分会在有玩家死亡时发送消息</p>
+
+<pre><code class="language-json">...,
+&quot;Messages&quot;: [
+    {
+      &quot;Send&quot;: {
+        &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+        &quot;RiseOnly&quot;: true,
+        &quot;Value&quot;: {
+          &quot;Mutate&quot;: &quot;DwarvesDown&quot;
+        }
+      },
+      &quot;Type&quot;: &quot;Delux&quot;,
+      &quot;Sender&quot;: &quot;Karl&quot;,
+      &quot;Message&quot;: {
+        &quot;Mutate&quot;: &quot;RandomChoice&quot;,
+        &quot;Choices&quot;: [
+          &quot;Stop Dying&quot;,
+          &quot;Skill Issue&quot;
+        ]
+      }
+    }
+],
+...
+</code></pre>
+<h2 id="name">Name</h2>
+<p>The name of the difficulty. This field is necessary to be able to save the file in the in-game CD2 dropdown.
+Example:</p>
+<p>难度的名称，这个部分是必要的，以便于cd2在下拉菜单保存文件。比如</p>
+
+<pre><code class="language-json">{
+    &quot;Name&quot;: &quot;Hazard 6x2 40 nitra&quot;
+}
+</code></pre>
+<h2 id="nextdifficulty">NextDifficulty Next难度</h2>
+<p><code>NextDifficulty</code> allows CD2 to automatically pick another difficulty at two specific moments:</p>
+<p>允许CD2在2个特定时刻选择另一个难度</p>
+<ol>
+<li>When launching a mission from the space rig. </li>
+<p>在太空站台开始任务时，</p>
+<li>When a mission is finished.</li>
+<p>在任务完成后。</p>
+</ol>
+<p>There are many different uses for this field but a typical application is, using the <code>RandomChoice</code> mutator, choosing a difficulty at random when launching a mission:</p>
+<p>这个字段有很多不同的用途，比较典型的是使用RandomChoice的MUTATOR，在启动任务时随机选择一个难度</p>
+<pre><code class="language-json">{ 
+ &quot;Name&quot;: &quot;Difficulty Roulette&quot;, 
+ &quot;NextDifficulty&quot;: {
+  &quot;Mutate&quot;: &quot;RandomChoice&quot;,
+  &quot;Choices&quot;: [&quot;6x2&quot;, &quot;6x2-ultra&quot;, &quot;7x2&quot;, &quot;DIIa8&quot;, &quot;ND&quot;]
+ }
+}
+</code></pre>
+<p>Where it is understood that all the names in the <code>Choices</code> field are other difficulties existing in your CD2 list. The same snippet can be used to change the difficulty at random in deep dive stages. </p>
+<p>你可以理解为，Choice字段中的难度是你在CD2列表中存在的其它难度。相同的字段可以运用于深浅随机改变难度。</p>
+
+<p>If you don't want the difficulty to change when launching a mission from the Space Rig, the <code>IfOnSpaceRig</code> mutator can be used as follows: </p>
+<P>如果你不希望在太空站启动任务时更改难度，可以使用IfOnSpaceRig的MUTATOR,如下示例</P>
+<pre><code class="language-json">{
+  &quot;NextDifficulty&quot;: {
+    &quot;Mutate&quot;: &quot;IfOnSpaceRig&quot;,
+    &quot;Then&quot;: &quot;&quot;,
+    &quot;Else&quot;: &quot;My Next Difficulty&quot;
+  }
+}
+</code></pre>
+<h3 id="different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive每个深浅阶段的不同难度，</h3>
+<p>This is a common application of <code>NextDifficulty</code> allowing to mimic the increasing difficulty of the vanilla Deep Dive with whatever set of three difficulties you choose. The way to set it up is as follows: let's say that we want to play Hazard 5x2 on Stage 1, Hazard 6x2 on Stage 2 and ND on Stage 3. We will need the three files saved in Custom Difficulty, and then we would add the following to each:</p>
+<p>这是 NextDifficulty的一个常见应用，允许模仿原版深浅中逐渐增加的难度，使用你选择的三个难度。设置方法如下：假想你想在第一阶段玩 5x2，第二阶段玩6x2，第三阶段玩ND（一个国外的有名难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
+
+<pre><code class="language-json">{
+    &quot;Name&quot;: &quot;Hazard 5x2&quot;,
+    ...
+    &quot;NextDifficulty&quot;: &quot;Hazard 6x2&quot;,
+    ...
+}
+</code></pre>
+<pre><code class="language-json">{
+    &quot;Name&quot;: &quot;Hazard 6x2&quot;,
+    ...
+    &quot;NextDifficulty&quot;: &quot;ND&quot;,
+    ...
+}
+</code></pre>
+<p>The ND file, being the one played in stage 3, doesn't need any modifications. In addition to editing the files for stage 1 and 2, you will need a "starter" file:</p>
+<p>ND这个难度不需要任何修改。除了编辑第一阶段和第二阶段的文件外，你还需要一个“启动器”。</p>
+<pre><code class="language-json">{
+    &quot;Name&quot;: &quot;Dive Starter&quot;,
+    &quot;NextDifficulty&quot;: &quot;Hazard 5x2&quot;
+}
+</code></pre>
+<p>This Dive Starter will be the file you will select while on the Space Rig before starting the dive, and it should point to the difficulty you want to play on the first stage.</p>
+<p>这个 Dive Starter 文件是你在太空平台上开始深潜之前选择的文件，它应该是你想在第一阶段玩的难度。</p>
+<h2 id="nitramultiplier">NitraMultiplier</h2>
+<p>A special module that accepts a float and controls the amount of nitra generated in the map. It has a default of 1. The following snippet would generate twice the amount of nitra in a certain mission:</p>
+<p>一个特殊模块，可以通过修改点数控制地图中生成的硝石数量，默认为1，以下字段就是让地图生成2倍硝石的示例</p>
+
+<pre><code class="language-json">{
+    &quot;NitraMultiplier&quot;: 2
+}
+</code></pre>
+<h2 id="pools">Pools</h2>
+<p><code>Pools</code> is where enemies can be added or removed from the different pools in the game. For more information, <a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing">this document</a> is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in <code>Pools</code> are:</p>
+<p>Pools 是敌人可以从游戏中的不同敌人池中添加或移除的地方。更多的信息，请参阅本文件中对怪池系统的解释，以及它们如何用于决定任务中出现的敌人。其中接受的字段有以下内容：</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MinPoolSize</td>
+<td>Int</td>
+</tr>
+<tr>
+<td>DisruptiveEnemyPoolCount</td>
+<td>Int (min, max)</td>
+</tr>
+<tr>
+<td>StationaryEnemycount</td>
+<td>Int (min, max)</td>
+</tr>
+<tr>
+<td>CommonEnemies</td>
+<td>*</td>
+</tr>
+<tr>
+<td>SpecialEnemies</td>
+<td>*</td>
+</tr>
+<tr>
+<td>DisruptiveEnemies</td>
+<td>*</td>
+</tr>
+<tr>
+<td>StationaryPool</td>
+<td>*</td>
+</tr>
+<tr>
+<td>EnemyPool</td>
+<td>*</td>
+</tr>
+</tbody>
+</table>
+<p>The fields marked with <code>*</code> accept the <code>Add</code> (list), <code>Remove</code> (list) and <code>Clear</code> (bool) fields for adding and removing enemies at will. The <code>EnemyPool</code> can be freely manipulated with <a href="../mutators/">mutators</a> during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. <strong>It is not recommended to mutate the other pools.</strong> </p>
+<p>带有✳标记的字段接受Add、Remove和Clear，用于按需添加或移除。EnemyPool在任务过程中可以通过Mutate自由编辑，允许根据游戏条件添加和溢出敌人。其它池子不推荐使用</p>
+<p>Example:</p>
+<p>比如:</p>
+
+<pre><code class="language-json">{
+    &quot;Pools&quot;: {
+    &quot;MinPoolSize&quot;: 30,
+    &quot;DisruptiveEnemyPoolCount&quot;: {
+      &quot;min&quot;: 8,
+      &quot;max&quot;: 8
+    },
+    &quot;StationaryEnemyCount&quot;: {
+      &quot;Min&quot;: 6,
+      &quot;Max&quot;: 6
+    },
+    &quot;CommonEnemies&quot;: {
+      &quot;Add&quot;: [
+        &quot;ED_JellyBreeder_Swarm&quot;,
+        &quot;ED_PatrolBot&quot;,
+        &quot;ED_Sentinel&quot;,
+        &quot;ED_Bomber_Explosive&quot;
+      ]
+    },
+    &quot;StationaryPool&quot;: {
+      &quot;Add&quot;: [&quot;ED_ShootingPlant_NukeSingle&quot;],
+      &quot;Remove&quot;: []
+    }
+  }
+}
+</code></pre>
+<h2 id="salvage">Salvage 搜救（骡局）</h2>
+<p>A special module offering customization options for Salvage missions. It contains three submodules: <code>MiniMules</code>, <code>Uplink</code> and <code>Refuel</code> with the following fields:</p>
+<p>一个提供骡子自定义选项的模块，包括以下三个子模块：找骡子修骡子、信号上传、补充燃料（三个阶段），具有以下字段</p>
+<table>
+<thead>
+<tr>
+<th>Submodule</th>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MiniMules</td>
+<td>ScanUsable</td>
+<td>Usable</td>
+<td></td>
+<td>Settings for e holding to scan for legs</td>
+<td>可否扫描骡腿</td>
+</tr>
+<tr>
+<td>MiniMules</td>
+<td>RepairUsable</td>
+<td>Usable</td>
+<td></td>
+<td>Settings for e holding to repair the minimule</td>
+<td>可否修骡子</td>
+</tr>
+<tr>
+<td>MiniMules</td>
+<td>LegsRequired</td>
+<td>Int</td>
+<td>3</td>
+<td>Number of legs that must be attached before allowing repair</td>
+<td>设置修一个骡子需要的骡腿</td>
+</tr>
+<tr>
+<td>MiniMules</td>
+<td>LegsPerMule</td>
+<td>Int</td>
+<td>4</td>
+<td>Number of legs to spawn per minimule</td>
+<td>每个骡子周围生成的骡腿</td>
+</tr>
+<tr>
+<td>MiniMules</td>
+<td>LegDistance</td>
+<td>Float</td>
+<td>1500</td>
+<td>Untested, should be distance legs spawn from the minimules</td>
+<td>每个骡腿距离骡子的距离，未测试</td>
+</tr>
+<tr>
+<td>MiniMules</td>
+<td>Count</td>
+<td>Int</td>
+<td>2</td>
+<td>Number of minimules to spawn (or 1.5x on long Salvage)</td>
+<td>骡子总量</td>
+</tr>
+<tr>
+<td>MiniMules</td>
+<td>NitraToGive</td>
+<td>Int</td>
+<td>50</td>
+<td>Nitra given by the mules after repairing them</td>
+<td>修完骡子给的硝石量</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>----------------------</td>
+<td>------</td>
+<td>-------</td>
+<td>--------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>Uplink</td>
+<td>RepairUsable</td>
+<td>Usable</td>
+<td></td>
+<td>Settings for holding e to activate the uplink</td>
+<td>是否能按E激活上传</td>
+</tr>
+<tr>
+<td>Uplink</td>
+<td>Scale</td>
+<td>Float</td>
+<td>1</td>
+<td>Size of the triangulation zone</td>
+<td>上传区域大小</td>
+</tr>
+<tr>
+<td>Uplink</td>
+<td>Duration</td>
+<td>Float</td>
+<td>80</td>
+<td>Defense duration in seconds</td>
+<td>上传时间</td>
+</tr>
+<tr>
+<td>Uplink</td>
+<td>ExtraDefenderBonus</td>
+<td>Float</td>
+<td>0.25</td>
+<td></td>
+<td>上传区域给矮人的额外抗性</td>
+</tr>
+<tr>
+<td>Uplink</td>
+<td>DisableLeaveShout</td>
+<td>Bool</td>
+<td>false</td>
+<td>Disables mission control messages when there are no players in the defense area.</td>
+<td>让上传区域没人的时候不许管理层叫</td>
+</tr>
+<tr>
+<td>Uplink</td>
+<td>LeavePenaltyMultiplier</td>
+<td>Float</td>
+<td>1</td>
+<td>1 means vanilla penalty (2x the speed progress normally increases)</td>
+<td>离开上传区域掉进度的速度？</td>
+</tr>
+<tr>
+<td>---------</td>
+<td>----------------------</td>
+<td>------</td>
+<td>-------</td>
+<td>--------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td>Refuel</td>
+<td>RepairUsable</td>
+<td>Usable</td>
+<td></td>
+<td></td>
+<td>可否交互</td>
+</tr>
+<tr>
+<td>Refuel</td>
+<td>Scale</td>
+<td>Float</td>
+<td>1</td>
+<td>Size of the triangulation zone</td>
+<td>refuel区域大小</td>
+</tr>
+<tr>
+<td>Refuel</td>
+<td>Duration</td>
+<td>Float</td>
+<td>100</td>
+<td>Defense duration in seconds</td>
+<td>refuel所需时间</td>
+</tr>
+<tr>
+<td>Refuel</td>
+<td>ExtraDefenderBonus</td>
+<td>Float</td>
+<td>0.25</td>
+<td></td>
+<td>refuel区域给矮人的额外抗性</td>
+</tr>
+<tr>
+<td>Refuel</td>
+<td>DisableLeaveShout</td>
+<td>Bool</td>
+<td>false</td>
+<td></td>
+<td>让refuel区域没人的时候不许管理层叫</td>
+</tr>
+<tr>
+<td>Refuel</td>
+<td>LeavePenaltyMultiplier</td>
+<td>Float</td>
+<td>1</td>
+<td>0 means no lost progress if leaving the defense area</td>
+<td>refuel区域所需最少人数</td>
+</tr>
+</tbody>
+</table>
+<p>Example: a salvage where each mule spawns 20 legs and requires 15 to be repaired, and the area of the uplink bubble is 1.5x the normal.</p>
+<p>示例：一个骡局，每个骡子生成20条腿，需要15条腿修好，上传区域大小是正常的1.5倍</p>
+<pre><code class="language-json">{
+    &quot;Salvage&quot;: {
+       &quot;MiniMules&quot;: {
+            &quot;LegsPerMule&quot;: 20,
+            &quot;LegsRequired&quot;: 15
+        },
+        &quot;Uplink&quot;: {
+            &quot;Scale&quot;: 1.5
+        }
+    }
+}
+</code></pre>
+<p>Another example: the number of legs is randomized every mission.</p>
+<p>另一个示例：让每个任务中骡腿的数量变为从数组中随机抽取。</p>
+<pre><code class="language-json">{
+    &quot;Salvage&quot;: {
+        &quot;MiniMules&quot;: {
+            &quot;LegsRequired&quot;: {
+                &quot;Mutate&quot;: &quot;RandomChoice&quot;,
+                &quot;Choices&quot;: [3, 4, 5, 6, 7]
+            }
+            &quot;LegsPerMule&quot;: 12
+        }
+    }
+}
+</code></pre>
+<p>Please see the <code>BySalvagePhase</code> <a href="../mutators/">mutator</a> for values that need to change during different phases of the mission. </p>
+<p>对于任务不同阶段改变数值的Mutator怎么控制，参考 BySalvagePhase mutator。</p>
+<h3 id="usable-fields"><code>Usable</code> fields</h3>
+<p>Some of the fields in the table above are marked as <code>Usable</code>. These affect how the E key interactions work in some instances such as mule repairing. They accept the following fields:</p>
+<p>上述字段被标记为 Usable的，这些字段会影响某些情况下 E 键交互的方式，例如修理骡子</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CoopUse</td>
+<td>Boolean</td>
+<td>TODO</td>
+<td>是否允许多玩家协作交互</td>
+</tr>
+<tr>
+<td>CoopUseMultiplier</td>
+<td>Float</td>
+<td>Increases or decreases the speed boost granted when multiple players are interacting. Defaults to 1.</td>
+<td>多玩家交互时的速度加成倍数</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Int</td>
+<td>Sets up the priority of the E actions.</td>
+<td>设置交互优先级</td>
+</tr>
+<tr>
+<td>ResetOnFail</td>
+<td>Boolean</td>
+<td>TODO</td>
+<td>交互失败时是否重置进度</td>
+</tr>
+<tr>
+<td>UseText</td>
+<td>String</td>
+<td>TODO</td>
+<td>交互时显示的文本</td>
+</tr>
+<tr>
+<td>UseCooldown</td>
+<td>Float</td>
+<td>Cooldown before interaction can happen again.</td>
+<td>再次交互前的冷却时间</td>
+</tr>
+<tr>
+<td>UseDuration</td>
+<td>Float</td>
+<td>Duration of the E interaction.</td>
+<td>E键交互的持续时间</td>
+</tr>
+</tbody>
+</table>
+<p>Some examples of use. The following snippet makes the uplink repair faster than normal when more than 1 player is interacting:</p>
+<p>使用示例:以下代码让多个玩家参与交互时比正常速度更快：</p>
+<pre><code class="language-json">{
+    &quot;Salvage&quot;: {
+        &quot;Uplink&quot;: {
+            &quot;RepairUsable&quot;: {
+                &quot;CoopUseMultiplier&quot;: 5
+            }
+        }
+    }
+}
+</code></pre>
+<p>The following snippet changes the duration of the mule repair based on how many players are interacting, and buffs the speed boost of multiple players:</p>
+<p>以下代码根据参与修骡的玩家数改变修理时间，并增强多人交互时加速效果：</p>
+<pre><code class="language-json">{
+    &quot;Salvage&quot;: {
+        &quot;MiniMules&quot;: {
+            &quot;RepairUsable&quot;: {
+                &quot;UseDuration&quot;: {
+                    &quot;Mutate&quot;: &quot;ByPlayerCount&quot;,
+                    &quot;Values&quot;: [10, 20, 30, 40]
+                },
+                &quot;CoopUseMultiplier&quot;: 5
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="soundcues">SoundCues 整点动静</h2>
+<p>A module that allows CD2 to play a sound in response to events happening during the mission. It has two fields: a boolean <code>Play</code> which accepts mutators and a <code>Cue</code> which accepts the path to the sound you want to play. As an example, the following snippet plays a laughing sound when a player dies:</p>
+<p>它包含2个字段，Play（true/false决定是否播放）；Cue（b动静文件路径）。示例：以下字段会在玩家死的时候嘻嘻哈哈</p>
+<pre><code class="language-json">...,
+ &quot;SoundCues&quot;: [
+    {
+      &quot;Play&quot;: {
+        &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+        &quot;RiseOnly&quot;: true,
+        &quot;Value&quot;: {
+          &quot;Mutate&quot;: &quot;DwarvesDown&quot;
+        }
+      },
+      &quot;Cue&quot;: &quot;/Game/Audio/SFX/Environment/Pumpkin/Pumpkin_EvilLaughter_01_Cue.Pumpkin_EvilLaughter_01_Cue&quot;
+    }
+  ],
+...
+</code></pre>
+<p>The game has a lot of available sounds, but to play them outside the game you will need the game files and either Unreal Engine 4.27 or FModel.</p>
+<p>游戏内有大量可用音效，但如果想在游戏外播放，需要提取游戏文件，并使用 Unreal 4.27 或 FModel 工具。</p>
+<h2 id="specialencounters">SpecialEncounters 特殊遭遇事件</h2>
+<p>This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100 % functional as some of the encounters depend on the seasons system which CD2 cannot control for now. Each <code>SpecialEncounter</code> accepts the following fields:</p>
+<p>此模块控制一些随机事件（如Korlok、Bet-C等）的概率。请注意，此模块并非100%功能正常，因为某些遭遇依赖于CD2目前无法控制的赛季系统。
+每个<code>SpecialEncounter</code>接受以下字段：</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BaseChance</td>
+<td>Float</td>
+<td>基础概率</td>
+</tr>
+<tr>
+<td>Enemy</td>
+<td>Descriptor</td>
+<td>敌人描述符</td>
+</tr>
+<tr>
+<td>CanSpawnInDeepDive</td>
+<td>Bool</td>
+<td>是否能在深潜中生成</td>
+</tr>
+</tbody>
+</table>
+<p>The vanilla <code>SpecialEncounters</code> would look like:</p>
+<p>原版<code>SpecialEncounters</code>如下所示：</p>
+<pre><code class="language-json">{
+    &quot;SpecialEncounters&quot;: [
+    {
+      &quot;Enemy&quot;: &quot;ED_InfectedMule&quot;,
+      &quot;BaseChance&quot;: 0.05,
+      &quot;CanSpawnInDeepDive&quot;: true
+    },
+    {
+      &quot;Enemy&quot;: &quot;ED_Spider_ExploderTank_King&quot;,
+      &quot;BaseChance&quot;: 0.03,
+      &quot;CanSpawnInDeepDive&quot;: false
+    },
+    {
+      &quot;Enemy&quot;: &quot;ED_HydraWeed&quot;,
+      &quot;BaseChance&quot;: 0.05,
+      &quot;CanSpawnInDeepDive&quot;: false
+    },
+    {
+      &quot;Enemy&quot;: &quot;ED_Terminator&quot;,
+      &quot;BaseChance&quot;: 0.03,
+      &quot;CanSpawnInDeepDive&quot;: true
+    }
+  ]
+}
+</code></pre>
+<p>Example: set all special encounters to zero.</p>
+<p>示例：禁用所有特殊遭遇</p>
+<pre><code class="language-json">{
+    &quot;SpecialEncounters&quot;: []
+}
+</code></pre>
+<p><code>SpecialEncounters</code> can accept any enemy descriptor in its <code>Enemy</code> field and it can be used to make sure there's exactly 1 such enemy for the whole mission. As an example, some difficulties have exactly 1 Vartok Scalebramble per mission:</p>
+<p><code>SpecialEncounters</code>可以在其<code>Enemy</code>字段中接受任何敌人描述符，并可用于确保任务中固定生成一个这样的敌人。比如，有些难度每局固定生成一个小王草：</p>
+<pre><code class="language-json">{
+    &quot;SpecialEncounters&quot;: [
+        {
+          &quot;BaseChance&quot;: 1.0,
+          &quot;CanSpawnInDeepDive&quot;: true,
+          &quot;Enemy&quot;: &quot;ED_TentaclePlant&quot;
+        }
+      ]
+}
+</code></pre>
+<h2 id="resupply">Resupply 补给</h2>
+<p>This module contains information about the resupply cost. It accepts a single <code>float</code> field <code>Cost</code> that can be <a href="../mutators/">mutated</a>.</p>
+<p>这个模块允许你修改补给有关的数值，他接受带以下字段的配置表：</p>
+<p>Example: a fixed resupply cost of 40 nitra.</p>
+<p>比如：一个只需要40n的补给</p>
+<pre><code class="language-json">{
+    &quot;Resupply&quot;: {
+        &quot;Cost&quot;: 40
+    }
+}
+</code></pre>
+<p>The <code>StartingNitra</code> field from CD1 does not exist in CD2: the same functionality is done with mutators. Example: the first resupply is free, 40 nitra for all others:</p>
+
+<p>cd1里面的开局送硝石量在cd2不存在，但是仍然可以实现相关功能。示例如下：第一次补给免费，其余每次40n。</p>
+<pre><code class="language-json">{
+    &quot;Resupply&quot;: {
+        &quot;Cost&quot;: {
+            &quot;Mutate&quot;: &quot;ByResuppliesCalled&quot;,
+            &quot;Values&quot;: [0, 40]
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-json">{
+    &quot;Resupply&quot;: {
+      &quot;Cost&quot;: {
+        &quot;Mutate&quot;: &quot;IfFloat&quot;,
+        &quot;Value&quot;: {
+          &quot;Mutate&quot;: &quot;ResuppliesCalled&quot;
+        },
+        &quot;==&quot;: 0,
+        &quot;Then&quot;: 0,
+        &quot;Else&quot;: 40
+      }
+    }
+}
+</code></pre>
+<p>While both snippets do the same thing, <code>ByResuppliesCalled</code> is usually more compact when specifying a different cost for the first few supplies.</p>
+
+<p>虽然两个代码片段功能相同，但 ByResuppliesCalled 在指定前几次补给的不同费用时更简洁（比如下面）。</p>
+<p>Example: the cost is 45, but after the 6th resupply it drops to 40. </p>
+
+<p>补给费用为 45硝石，但第 6 次之后降为 40。。</p>
+<pre><code class="language-json">{ 
+  &quot;Resupply&quot;: {
+    &quot;Cost&quot;: {
+      &quot;Mutate&quot;: &quot;IfFloat&quot;,
+      &quot;Value&quot;: {
+        &quot;Mutate&quot;: &quot;ResuppliesCalled&quot;
+      },
+      &quot;&gt;&quot;: 6,
+      &quot;Then&quot;: 40,
+      &quot;Else&quot;: 45
+    }
+  }
+}
+</code></pre>
+<h2 id="warnings">Warnings</h2>
+<p>The <code>Warnings</code> module can be used to ban mission anomalies. It accepts a single <code>Banned</code> field which is one or more from the table below. <strong>Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.</strong> </p>
+
+<p><code>Warnings 模块可用于禁止任务词条。它接受一个 Banned 字段，其值可为下表中的一个或多个。<strong>请注意，禁止影响资源产出的词条（例如矿石天堂或淘金热啥来着）会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</p>
+<table>
+<thead>
+<tr>
+<th>CD2 name</th>
+<th>In-game name</th>
+<th>翻译</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"MMUT_BloodSugar"</td>
+<td>Blood Sugar</td>
+<td>凝血化糖</td>
+</tr>
+<tr>
+<td>"MMUT_ExplosiveEnemies"</td>
+<td>Volatile Guts</td>
+<td>易爆内脏</td>
+</tr>
+<tr>
+<td>"MMUT_ExterminationContract"</td>
+<td>Golden Bugs</td>
+<td>黄金虫群</td>
+</tr>
+<tr>
+<td>"MMUT_GoldRush"</td>
+<td>Gold Rush</td>
+<td>淘金热</td>
+</tr>
+<tr>
+<td>"MMUT_LowGravity"</td>
+<td>Low Gravity</td>
+<td>低倍重力</td>
+</tr>
+<tr>
+<td>"MMUT_OxygenRich"</td>
+<td>Rich Atmosphere</td>
+<td>氧气充裕</td>
+</tr>
+<tr>
+<td>"MMUT_RichInMinerals"</td>
+<td>Mineral Mania</td>
+<td>矿石天堂</td>
+</tr>
+<tr>
+<td>"MMUT_SecretSecondary"</td>
+<td>Secret Secondary</td>
+<td>神秘次要</td>
+</tr>
+<tr>
+<td>"MMUT_Weakspot"</td>
+<td>Critical Weakness</td>
+<td>致命弱点</td>
+</tr>
+<tr>
+<td>"MMUT_XXXP"</td>
+<td>Double XP</td>
+<td>双倍经验</td>
+</tr>
+<tr>
+<td>"WRN_BulletHell"</td>
+<td>Duck and Cover</td>
+<td>远程狂潮？</td>
+</tr>
+<tr>
+<td>"WRN_CaveLeechDen"</td>
+<td>Cave Leech Cluster</td>
+<td>水蛭丛生</td>
+</tr>
+<tr>
+<td>"WRN_ExploderInfestation"</td>
+<td>Exploder Infestation</td>
+<td>自爆群袭</td>
+</tr>
+<tr>
+<td>"WRN_Ghost"</td>
+<td>Haunted Cave</td>
+<td>幽灵大自爆那个</td>
+</tr>
+<tr>
+<td>"WRN_HeroEnemies"</td>
+<td>Elite Enemies</td>
+<td>精英敌人</td>
+</tr>
+<tr>
+<td>"WRN_InfestedEnemies"</td>
+<td>Parasites</td>
+<td>寄生感染</td>
+</tr>
+<tr>
+<td>"WRN_LethalEnemies"</td>
+<td>Lethal Enemies</td>
+<td>致命虫群</td>
+</tr>
+<tr>
+<td>"WRN_MacteraCave"</td>
+<td>Mactera Plague</td>
+<td>异虫蝇瘟疫</td>
+</tr>
+<tr>
+<td>"WRN_NoOxygen"</td>
+<td>Low O2</td>
+<td>氧气稀薄</td>
+</tr>
+<tr>
+<td>"WRN_NoShields"</td>
+<td>Shield Disruption</td>
+<td>护盾瓦解</td>
+</tr>
+<tr>
+<td>"WRN_Plague"</td>
+<td>Lithophage Outbreak</td>
+<td>岩痘爆发</td>
+</tr>
+<tr>
+<td>"WRN_RegenerativeEnemies"</td>
+<td>Regenerative Enemies</td>
+<td>虫群再生</td>
+</tr>
+<tr>
+<td>"WRN_RivalIncursion"</td>
+<td>Rival Presence</td>
+<td>强敌入侵</td>
+</tr>
+<tr>
+<td>"WRN_RockInfestation"</td>
+<td>Ebonite Outbreak</td>
+<td>矿化爆发</td>
+</tr>
+<tr>
+<td>"WRN_Swarmagedon</td>
+<td>Swarmageddon</td>
+<td>蜂拥群袭</td>
+</tr>
+</tbody>
+</table>
+<p>Example: ban Swarmageddon and Low O2 from a difficulty.</p>
+
+<p>示例：在难度中禁止蜂拥群袭与氧气稀薄。</p>
+<pre><code class="language-json">{
+    &quot;Warnings&quot;: {
+        &quot;Banned&quot;: [
+            &quot;WRN_Swarmagedon&quot;,
+            &quot;WRN_NoOxygen&quot;
+        ]
+    }
+}
+</code></pre>
+<h2 id="wavespawners">WaveSpawners</h2>
+<p>See the <a href="../wavespawners/">WaveSpawners</a> section. </p>
+
+<p>请查看波次生成器部分</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../basics/" class="btn btn-neutral float-left" title="CD2基础"><span class="icon icon-circle-arrow-left"></span> 上一页</a>
+        <a href="../enemies/" class="btn btn-neutral float-right" title="(模块) Enemies / EnemiesNoSync">下一页 <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  使用 <a href="https://www.mkdocs.org/">MkDocs</a> 构建，采用 <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> 主题，由 <a href="https://readthedocs.org">Read the Docs</a> 提供。
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../basics/" style="color: #fcfcfc">&laquo; 上一页</a></span>
+    
+    
+      <span><a href="../enemies/" style="color: #fcfcfc">下一页 &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
