@@ -1,12 +1,12 @@
-CD2 Mod Reference — Chinese Translation中文翻译版
+# CD2 Mod Reference — Chinese Translation中文翻译版
 
-📘 About This Project关于本项目 
+## 📘 About This Project关于本项目 
 
 This repository contains a Chinese translation of the CD2 Mod Reference, which was primarily written by vonacht, created together with Brain, and includes additional contributions from carrot, spy, noskill, and others.
 
 本仓库收录的是 CD2 Mod Reference 的中文翻译。原参考文档主要由 vonacht 编写，由 Brain 与其共同制作，并有 carrot、spy、noskill 等多位作者的协作与贡献。
 
-📄 Scope of This Translation翻译说明
+## 📄 Scope of This Translation翻译说明
 
 This project provides translation only.
 
@@ -22,7 +22,7 @@ https://vonacht.github.io/cd2reference/
 英文原文请访问：
 https://vonacht.github.io/cd2reference/
 
-🙏 Credits & Acknowledgements致谢
+## 🙏 Credits & Acknowledgements致谢
 
 Special thanks to:
 特别感谢：
@@ -40,13 +40,15 @@ This translation exists solely to help more players learn and understand the CD2
 
 本翻译仅用于帮助更多玩家学习和理解 CD2 的 难度编写。
 
-Tip: https://seasonsc.github.io/CD2-reference-cn/ 便于网站查询
+## 🔗 Tip  
+如果你更习惯在网页上阅读，你可以访问在线版中文文档：  
+https://seasonsc.github.io/CD2-reference-cn/
 
-FINISHED WORK 已完成的部分
+## 📘 FINISHED WORK 已完成进度
 - [] Introduction
 - [] FAQ
-- [x] The Basics of CD2
-- [x] Modules
+- [x] The Basics of CD2(基础)
+- [x] Modules（模块）
 - [] (Module)Enemies/EnemiesNoSync
 - [] (Module)Direct
 - [] (Module)WaveSpawners
