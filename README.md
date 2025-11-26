@@ -39,3 +39,17 @@ carrot、spy、noskill 等以及所有参与原 cd2-reference 的贡献者。
 This translation exists solely to help more players learn and understand the CD2 mod system.
 
 本翻译仅用于帮助更多玩家学习和理解 CD2 的 难度编写。
+
+FINISHED WORK 已完成的部分
+- [] Introduction
+- [] FAQ
+- [x] The Basics of CD2
+- [x] Modules
+- [] (Module)Enemies/EnemiesNoSync
+- [] (Module)Direct
+- [] (Module)WaveSpawners
+- [] Projectiles
+- [] Mutators
+- [] MEV,DEA, and EEE
+- [] Tutorials
+- [] Resources
