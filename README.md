@@ -1,6 +1,6 @@
 CD2 Mod Reference — Chinese Translation中文翻译版
 
-📘 About This Project关于本项目
+📘 About This Project关于本项目 
 
 This repository contains a Chinese translation of the CD2 Mod Reference, which was primarily written by vonacht, created together with Brain, and includes additional contributions from carrot, spy, noskill, and others.
 
@@ -39,6 +39,8 @@ carrot、spy、noskill 等以及所有参与原 cd2-reference 的贡献者。
 This translation exists solely to help more players learn and understand the CD2 mod system.
 
 本翻译仅用于帮助更多玩家学习和理解 CD2 的 难度编写。
+
+Tip: https://seasonsc.github.io/CD2-reference-cn/ 便于网站查询
 
 FINISHED WORK 已完成的部分
 - [] Introduction
