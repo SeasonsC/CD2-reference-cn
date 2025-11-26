@@ -2,9 +2,9 @@ CD2 Mod Reference — Chinese Translation中文翻译版
 
 📘 About This Project关于本项目
 
-This repository contains a Chinese translation of the CD2 Mod Reference originally created by Brain and primarily written by vonacht, with contributions from carrot, spy, noskill, and others.
+This repository contains a Chinese translation of the CD2 Mod Reference, which was primarily written by vonacht, created together with Brain, and includes additional contributions from carrot, spy, noskill, and others.
 
-本仓库收录的是 CD2 Mod Reference 的中文翻译。原参考文档由 Brain 制作 CD2、并由 vonacht 主要编写，另外还有 carrot、spy、noskill 等多位作者的贡献。
+本仓库收录的是 CD2 Mod Reference 的中文翻译。原参考文档主要由 vonacht 编写，由 Brain 与其共同制作，并有 carrot、spy、noskill 等多位作者的协作与贡献。
 
 📄 Scope of This Translation翻译说明
 
