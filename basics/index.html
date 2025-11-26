@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>The Basics of CD2 - CD2 Reference</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../stylesheets/tables.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "The Basics of CD2";
+        var mkdocs_page_input_path = "basics.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CD2 Reference
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">The Basics of CD2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#the-cd2-gui">The CD2 GUI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#the-cd2-files">The CD2 files</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wavespawners/">(Module) WaveSpawners</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mev-dea/">MEV, DEA and EEE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CD2 Reference</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">The Basics of CD2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="the-basics-of-cd2">The basics of CD2</h1>
+                <p class="cn">CD2 基础知识</p>
+<h2 id="the-cd2-gui">The CD2 GUI</h2>
+<p>CD2 features a simple GUI compatible with both ModHub and UUI:</p>
+<p class="cn">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI，比 ModHub 更好看更好用）。</p>
+<figure>
+  <img alt="CD2modhub" src="../pictures/cd2-modhub.png" />
+  <figcaption>Main CD2 screen in Modhub.</figcaption>
+  <p class="cn">Modhub 中的 CD2 主界面（原文有截图和cd1差不多）。</p>
+</figure>
+<p>The files for your difficulties can be pasted and edited in the text box. After clicking <code>Save</code>, the file will be saved based on the name in the <code>Name</code> top level field; if the file already existed, it will be overwritten. Difficulties get saved inside your mod config. You can check all your difficulties by clicking on the drop-down menu.</p>
+<p class="cn">你的难度可以在文本框中粘贴/编辑。点击Save后，这个难度会根据name后面的部分命名保存。如果你已经有这个难度了，就会覆写旧难度。你保存的难度，可以通过下拉菜单检查。</p>
+
+<p>The <code>Reset</code> button sets a difficulty as a default upon starting the game.</p>
+<p class="cn">Reset 会将当前难度设为默认难度。</p>
+
+<h2 id="the-cd2-files">The CD2 files</h2>
+<ul>
+<li>CD2 files are in the <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format.</li>
+<p class="cn">CD2 文件使用 <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> 格式。</p>
+
+<li>CD1 files are not compatible with CD2.</li>
+<p class="cn">CD1 难度文件与 CD2 不兼容。</p>
+
+<li>The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</li>
+<p class="cn"> 大概是说其顶层模块部分具有不同功能<a href="../modules/">模块（modules）</a></p>
+
+<li>If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </li>
+<p class="cn">如果 CD2 文件中缺少某个模块或字段，则会使用 BaseHazard 中的默认值。BaseHazard 可以在 DifficultySetting 模块中指定。如果未指定，则默认使用 Hazard 5。</p>
+
+<li>A file that is just <code>{}</code> represents vanilla Hazard 5. </li>
+<p class="cn">一个内容仅为 <code>{}</code> 的文件就代表原版 Hazard 5。</p>
+
+<li>Most fields that admit floats or ints accept also an array of the same type:</li>
+<p class="cn">大多数接受浮点数或整数的字段，也可以接受相同类型的数组：</p>
+</ul>
+<pre><code class="language-json">{
+    &quot;Caps&quot;: {
+        &quot;MaxActiveEnemies&quot;: [90, 120, 180, 180]
+    }
+}
+</code></pre>
+<p>which means that <code>MaxActiveEnemies</code> scales with the number of players, 1 to 4, with the values specified inside. The arrays can be as large as desired to accomodate for 4+ player lobbies:</p>
+<p class="cn">例如上面这个例子，MaxActiveEnemies 会随着玩家人数（1～4人）变化，依次使用数组中的数值。你也可以拓展你这个数组，以适应4人以上的情况：</p>
+
+<pre><code class="language-json">{
+    &quot;Caps&quot;: {
+        &quot;MaxActiveEnemies&quot;: [90, 120, 180, 180, 210, 210, 240, 240]
+    }
+}
+</code></pre>
+<p>If the lobby has more players than indices in the array, the last value is used.</p>
+<p class="cn">如果玩家人数超过数组长度，则会使用数组的最后一个值。</p>
+<ul>
+<li>Most fields can change based on gameplay conditions using <a href="../mutators/">mutators</a>. The best way to learn how to use them is to look at already existing difficulties and trying to understand what they do.</li>
+<p class="cn">大多数字段都可以使用 <a href="../mutators/">mutators</a> 根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。</p>
+
+</ul>
+<p>The following is a very simple file for Hazard 5x2, that is, vanilla Hazard 5 with double enemies and a 60 nitra resupply cost:</p>
+<p class="cn">下面是一个 5x2难度的实例，即在5级难度的基础上，让敌人数量翻倍，且补给消耗为60n：</p>
+
+<pre><code class="language-json">{
+  &quot;Name&quot;: &quot;Hazard 5x2&quot;,
+  &quot;Caps&quot;: {
+    &quot;MaxActiveSwarmers&quot;: [ 90, 120, 180 ],
+    &quot;MaxActiveEnemies&quot;: [ 90, 120, 180 ]
+  },
+  &quot;Resupply&quot;: {
+    &quot;Cost&quot;: 60
+  },
+  &quot;DifficultySetting&quot;: {
+    &quot;BaseHazard&quot;: &quot;Hazard 5&quot;,
+    &quot;EnemyCountModifier&quot;: [ 1.7, 1.7, 2.5, 3 ]
+  }
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../faq/" class="btn btn-neutral float-left" title="FAQ"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../modules/" class="btn btn-neutral float-right" title="Modules">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../faq/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../modules/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
