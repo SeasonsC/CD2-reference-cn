@@ -50,7 +50,7 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 
 ## 📘 FINISHED WORK 已完成进度
 - [] Introduction
-- [] FAQ
+- [x] FAQ
 - [x] The Basics of CD2(基础)
 - [x] Modules（模块）
 - [] (Module)Enemies/EnemiesNoSync
