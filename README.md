@@ -40,9 +40,13 @@ This translation exists solely to help more players learn and understand the CD2
 
 本翻译仅用于帮助更多玩家学习和理解 CD2 的 难度编写。
 
-## 🔗 Tip  
-如果你更习惯在网页上阅读，你可以访问在线版中文文档：  
+## 💡 Tip 提示
+If you prefer reading on a webpage, you can visit the online Chinese version here:
 https://seasonsc.github.io/CD2-reference-cn/
+如果你更习惯在网页上阅读，你可以访问在线版中文文档：  https://seasonsc.github.io/CD2-reference-cn/
+
+Due to my limited understanding, some translations may contain inaccuracies. Feedback and corrections from the community are very welcome.
+由于个人水平有限，翻译中可能仍有不准确之处，欢迎各位大佬指正。
 
 ## 📘 FINISHED WORK 已完成进度
 - [] Introduction
