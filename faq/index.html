@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>FAQ - CD2 Reference</title>
+    <title>FAQ - CD2 Reference 常见疑问</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -41,21 +41,21 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction介绍</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">FAQ</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">FAQ常见疑问</a>
     <ul class="current">
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2</a>
+                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2基础部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules模块</a>
                 </li>
               </ul>
               <ul>
@@ -71,7 +71,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles</a>
+                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles发射物</a>
                 </li>
               </ul>
               <ul>
@@ -87,7 +87,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources</a>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources资源</a>
                 </li>
               </ul>
       </div>
@@ -116,36 +116,66 @@
                 <h1 id="cd2-faq">CD2 FAQ</h1>
 <ul>
 <li><strong>Q: Where can I get the mod?</strong></li>
+<li><strong>问：我在那里可以获得这个模组？</strong></li>
+
 <li>A: The mod right now is in open beta and the .pak file can be found in the Practical DRG discord server. The mod integration loader is recommended.
-<br/></li>
+<li>答：该模组目前处于公开测试阶段，pak 文件可在 Practical DRG 的 Discord 服务器中获取，推荐使用 Mod Integration Loader来加载模组。</li>
+  <br/></li>
 <li><strong>Q: Can I use this at the same time as CD1?</strong></li>
+<li><strong>问：我能同时使用CD1和CD2吗？</strong></li>
+
 <li>A: No. Only enable one CD version at a time. If you want to join CD1 lobbies while having CD2 enabled yourself and not suffer a desync in the nitra cost of resupplies,
 there is a cd1-client.pak available in PDRG that allows to do that.
+<li>答:不可以。一次只能启用一个 CD 版本,如果你在启用 CD2 的情况下想进入 CD1 的房间并避免受到补给需求硝石不同步的折磨，可以使用 PDRG 内提供的 cd1-client.pak。</li>
 <br/></li>
 <li><strong>Q: How can I use this?</strong></li>
+<li><strong>问：我该如何使用它？</strong></li>
+
 <li>A: Drag and drop the zip file into MINT and press install mods. You do not need to extract the pak from the zip to install.
+<li>答：将 zip 文件拖入 MINT 并点击 Install Mods 即可安装，不需要从 zip 中解压 pak 文件。</li>
 <br/></li>
 <li><strong>Q: Do clients need CD2 to play in my CD2 lobby?</strong></li>
+<li><strong>问：客机想进入我CD2的房间刚需CD2吗？</strong></li>
+
 <li>A: Clients only need CD2 if you use certain features. For instance, difficulties that use the Enemies module will require that all clients have CD2. If the EnemiesNoSync module is used instead, clients will no longer need CD2. 
 <a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa">On Pubbing With CD2</a> is a guide by @Spy detailing which CD2 features are incompatible with pubbing and is a recommended read.
+<li>答：客机只有在你使用部分CD2特定功能时才刚需CD2模组。例如，使用 Enemies 模块的难度要求所有客机都安装 CD2；若换成 EnemiesNoSync 模块，则客机无需安装。@Spy 的《On Pubbing With CD2》指南详细说明了哪些 CD2 功能不适合匹配游玩，推荐阅读。</li>
 <br/></li>
+
 <li><strong>Q: Why aren't my original CD1 difficulties compatible with CD2?</strong></li>
+<li><strong>问：为什么我原来的 CD1 难度文件不能与 CD2 兼容？</strong></li>
+
 <li>A: Custom Difficulty v2 is a complete redesign and it uses top level names to denote independent modules.
 If you need to port something from CD1 to CD2, there is <a href="https://github.com/vonacht/cd2ifier/tree/main/src">a script</a> that automatically does the translation. Alternatively, you can
 post the file in the PDRG forums asking for help in running the script or making the port yourself. 
+<li>Custom Difficulty v2 是个完全重做的版本，它使用top level来标识独立模块。如果你需要将 CD1 的内容迁移到 CD2，可以使用自动转换脚本。或者，你也可以在 PDRG 论坛发布文件，寻求他人协助运行脚本或帮你进行迁移。</li>
 <br/></li>
+
 <li><strong>Q: Does CD2 support more than 4 players?</strong></li>
+<li><strong>问:CD2 支持超过 4 人的房间吗？</strong></li>
+
 <li>A: Yes CD2 has complete support for more than 4 player lobbies. Any player-count depedent field can be extended to any number of players. Additionally, you can specify <code>MaxPlayers: 8</code> in your difficulty to set the max players count.
+<li>答：是的，CD2 完全支持超过 4 人的房间。所有与玩家数量相关的字段都可以扩展为任意人数。此外，你可以在难度文件中设置 MaxPlayers: 8 来指定最大玩家数量(可能有MPB的功能？没试过)。</li>
 <br/></li>
 <li><strong>Q: Will changing the difficulty mid mission break the game like in CD1?</strong></li>
+<li><strong>问：在中途修改难度会像 CD1 那样让游戏崩溃吗？</strong></li>
+
 <li>A: No. That has not been observed in any of the testing so far.
+<li>答：不会，到目前为止的测试中未出现任何类似问题。</li>
 <br/></li>
 <li><strong>Q: Is this compatible with MEV/DEA and other similar expansion mods?</strong></li>
+<li><strong>问：它与 MEV/DEA 等敌人扩展模组兼容吗？</strong></li>
+
 <li>A: Yes, this is fully compatible with the most common enemy expansion mods!
+<li>答：是的，它与目前最常见的敌人扩展模组完全兼容！</li>
 <br/></li>
+
 <li><strong>Q: Is CD2 compatible with Deep Dives?</strong></li>
+<li><strong>问:CD2 与深潜（Deep Dive）模式兼容吗？</strong></li>
+
 <li>A: Yes, and it doesn't need any extra mods. Just select your chosen difficulty and go into the dive. There is also the possibility of choosing a different difficulty for each stage similar to the vanilla dive, please see the <code>NextDifficulty</code> section in <a href="../modules/">Modules</a> to see how to do it. 
-<br/></li>
+<li>答：是的，而且不需要额外模组，只需选择好难度再进入深潜即可。你也可以像原版深潜那样为每一阶段设置不同难度，请参考 Modules 中的 NextDifficulty 部分了解配置方式。</li>
+ <br/></li>
 </ul>
               
             </div>
