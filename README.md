@@ -49,7 +49,7 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 由于个人水平有限，翻译中可能仍有不准确之处，欢迎各位大佬指正。
 
 ## 📘 FINISHED WORK 已完成进度
-- [] Introduction
+- [x] Introduction
 - [x] FAQ
 - [x] The Basics of CD2(基础)
 - [x] Modules（模块）
