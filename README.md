@@ -53,7 +53,7 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 - [x] FAQ
 - [x] The Basics of CD2(基础)
 - [x] Modules（模块）
-- [] (Module)Enemies/EnemiesNoSync
+- [x] (Module)Enemies/EnemiesNoSync
 - [] (Module)Direct
 - [] (Module)WaveSpawners
 - [] Projectiles
