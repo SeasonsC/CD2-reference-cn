@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> CD2 Reference
+          <a href="." class="icon icon-home"> CD2 Reference CD2参考文档
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -41,25 +41,25 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Introduction介绍</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#main-sections">Main Sections</a>
+    <li class="toctree-l2"><a class="reference internal" href="#main-sections">Main Sections主要章节</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#update-log">Update Log</a>
+    <li class="toctree-l2"><a class="reference internal" href="#update-log">Update Log更新日志</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ</a>
+                <li class="toctree-l1"><a class="reference internal" href="faq/">FAQ常见问题</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="basics/">The Basics of CD2</a>
+                <li class="toctree-l1"><a class="reference internal" href="basics/">The Basics of CD2基础部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="modules/">Modules</a>
+                <li class="toctree-l1"><a class="reference internal" href="modules/">Modules模块</a>
                 </li>
               </ul>
               <ul>
@@ -75,7 +75,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="projectiles/">Projectiles</a>
+                <li class="toctree-l1"><a class="reference internal" href="projectiles/">Projectiles发射物</a>
                 </li>
               </ul>
               <ul>
@@ -91,7 +91,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="resources/">Resources</a>
+                <li class="toctree-l1"><a class="reference internal" href="resources/">Resources资源</a>
                 </li>
               </ul>
       </div>
@@ -101,14 +101,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">CD2 Reference</a>
+          <a href=".">CD2 Reference CD2 参考文档</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Introduction</li>
+      <li class="breadcrumb-item active">Introduction介绍</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -117,46 +117,90 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="introduction">Introduction</h1>
+                <h1 id="introduction">Introduction介绍</h1>
 <p>This document serves as a reference for Custom Difficulty 2, a mod for <a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/">Deep Rock Galactic</a> which allows the creation of new hazards, or difficulties. Developed by @TheBrain as a successor to the Custom Difficulty mod, CD2 features many improvements over the flexibility and possibilities offered to difficulty designers:</p>
+<p>本文档是深岩银河自定义难度2模组的参考文档,它允许你创建新的难度。CD2由@Brain开发，作为Cusotm Difficulty（CD1）的迭代版本，相比CD1拥有更高的灵活性和更多的可能</p>
 <ul>
 <li>Allows players to a have a much finer control over many aspects of the gameplay by introducing <a href="mutators/">mutators</a>, control flow structures similar to those found in common programming languages. </li>
+<li>通过引入类似编程结构的 Mutators，让玩家可以更细致地控制游戏逻辑。</li>
+
 <li>Exposes many <a href="enemies/">enemy</a> controls to change their behaviour, spawning mechanics and even aspect by featuring custom materials replication to clients.</li>
+<li>开放大量敌人控制项，可自由修改它们的行为、生成机制，甚至外观。</li>
+
 <li>Allows manipulating the enemy pools live during a mission based on gameplay conditions.</li>
+<li>也允许在任务中即时调整敌人池。</li>
 <li>Offers many features not available in CD1 such as controls for illumination, player scale, the amount of nitra in the map, etc.</li>
-<li>... and many others.</li>
+<li>加入了很多CD1没有的功能，比如光照、玩家体型、地图硝石数量的控制功能等等</li>
+
+<li>... and many others.以及更多内容</li>
 </ul>
-<h2 id="main-sections">Main Sections</h2>
+<h2 id="main-sections">Main Sections主要章节</h2>
 <ul>
-<li><a href="basics/">Basics</a>. The basics of CD2.</li>
-<li><a href="modules/">Modules</a>. A list of the top level modules for a valid CD2 file.</li>
-<li><a href="enemies/">Enemies</a>. Reference for the <code>Enemies</code> or <code>EnemiesNoSync</code> modules.</li>
+<li><a href="basics/">Basics</a>. The basics of CD2.基础部分</li>
+<li><a href="modules/">Modules</a>. A list of the top level modules for a valid CD2 file.模块部分</li>
+<li><a href="enemies/">Enemies</a>. Reference for the <code>Enemies</code> or <code>EnemiesNoSync</code> modules.敌人部分</li>
 <li><a href="direct/">Direct</a>. A compilation of <code>Direct</code> enemy controls with default values.</li>
 <li><a href="wavespawners/">Wave Spawners</a>. Reference for the <code>WaveSpawners</code> module.</li>
-<li><a href="projectiles/">Projectiles</a>. Reference for the <code>Projectile</code> field of enemy descriptors.</li>
+<li><a href="projectiles/">Projectiles</a>. Reference for the <code>Projectile</code> field of enemy descriptors.发射物部分</li>
 <li><a href="mutators/">Mutators</a>. A list of currently supported mutators.</li>
 <li><a href="grouped_cooldowns/">Tutorials</a>. An assortment of small guides related to different CD2 topics.</li>
 <li><a href="mev-dea/">MEV, DEA and EEE</a>. A reference for the MEV and DEA mods and links to the EEE reference, used to add new enemy variants into the game.</li>
-<li><a href="resources/">Resources</a>. Useful links related to Custom Difficulty.</li>
+<li><a href="resources/">Resources</a>. Useful links related to Custom Difficulty.相关资源</li>
 </ul>
 <figure>
   <img alt="CD2modhub" src="pictures/cd2-modhub.png" />
-  <figcaption>Main CD2 screen in Modhub.</figcaption>
+  <figcaption>Main CD2 screen in Modhub.Modhub 中的 CD2 主界面</figcaption>
 </figure>
-<h2 id="update-log">Update Log</h2>
+<h2 id="update-log">Update Log更新日志</h2>
 <ul>
 <li>4-Dec-2024: Updated for CD2-v9: added <code>ByEscortPhase</code> and <code>ByRefineryPhase</code> mutators.</li>
+<li>2024-12-04,CD2-v9:添加 <code>ByEscortPhase</code>和 <code>ByRefineryPhase</code> Mutator。</li>
+</ul>
+<ul>
 <li>25-Dec-2024: Updated for CD2-v10: added the <a href="projectiles/">Projectiles</a> page, added the <a href="mev-dea/">MEV and DEA</a> page, added an explanation for elite and veteran enemies in <a href="enemies/">Enemies</a>, added the explanation for the new <code>Spawner</code> enemy control, and some minor corrections. </li>
+<li>2024-12-25,CD2-v10:添加 "Projectile"页面、"MEV、DEA"页面，添加"精英敌人与变种设置"的介绍，添加了"Spawner"模块的介绍，和一些小修正。</li>
+</ul>
+<ul>
 <li>29-Jan-2025: Updated for CD2-v11: added the <code>Direct</code> and <code>UsesBiomeVariants</code> enemy controls and the <code>BySaboPhase</code> mutator.</li>
+<li>2025-1-29，CD2-v11:添加了 "Direct"和 "UsesBiomeVariants" 的Enemies片段，以及 "BySaboPhase"的Mutator</li>
+</ul>
+<ul>
 <li>20-Feb-2025: Partial update for CD2-v12: added the <code>DefenseProgress</code> and <code>ByResuppliesCalled</code> mutators, added the <code>Salvage</code> module and the <code>BySalvagePhase</code> mutator.</li>
+<li>2025-2-20,CD2-v12:新增 "DefenseProgress"和 "ByResuppliesCalled"的 Mutate，新增 "Salvage"模块和 "BySalvagePhase" 的mutate</li>
+</ul>
+<ul>
 <li>28-Feb-2025: Added @Carrot's projectile resource to the <a href="resources/">Resources</a> and <a href="projectiles/">Projectiles</a> tabs, added @Spy's guide to pubbing with CD2 to <a href="resources/">Resources</a> and to the FAQ, added EEE's reference to <a href="projectiles/">Projectiles</a> and to <a href="mev-dea/">MEV, DEA and EEE</a>.</li>
+<li>2025-2-28:在 Resources 与 Projectiles 标签页中加入 @Carrot 提供的发射物汇总；在 Resources 与 FAQ 中加入 @Spy 提供的 CD1支持功能指南；在 Projectiles 与 MEV、DEA 和 EEE 页面加入 EEE 的参考资料</li>
+</ul>
+<ul>
 <li>11-Mar-2025: Update for CD2-v13: added the legacy pawn stats to <a href="enemies/">enemy controls</a>, added BySecondary and DwarfCount mutators, added Darkness module descriptions, added Salvage.Minimules.NitraToGive to the Salvage module </li>
+<li>2025-3-11,CD2-v13:在敌人控制中加入legacy pawn 属性；新增 BySecondary 与 DwarfCount 的mutate；补充了 Darkness 模块的介绍；在 Salvage 模块新增 Salvage/Minimules/NitraToGive 字段。</li>
+</ul>
+<ul>
 <li>22-Mar-2025: Update for CD2-v14: added the Dense Biozone option to the ByBiome mutator, added descriptions to Movement enemy module provided by @emctwo.</li>
+<li>2025-3-22,CD2-v14:为 ByBiome 的mutate加入 Dense Biozone 选项；加入 @emctwo 提供的 Movement 敌人模块描述。</li>
+</ul>
+<ul>
 <li>25-May-2025: Update for CD2-v15: added the <code>Diversity</code> option to the <a href="wavespawners/">wavespawner</a> section, added the new <code>Trigger</code> mutators to the <a href="mutators/">mutators</a> section, added the <code>Heal</code> advanced controls and the new <code>Outline</code> control to <a href="enemies/">enemies</a>.</li>
+<li>2025-5-25,CD2-v15:为 wavespawner 章节加入 Diversity 选项；在Mutators章节加入新的 Trigger 系列mutate；在敌人模块新增 Heal （HealRaw等）控制与 Outline 控制。</li>
+</ul>
+<ul>
 <li>2-Jun-2025: Clarified the section about the differences between <code>Enemies</code> and <code>EnemiesNoSync</code> in <a href="enemies/">Enemies</a>; removed the DEA enemy list from <a href="mev-dea/">MEV, DEA and EEE</a> and added a link to the mod in mod.io and to the official list.</li>
+<li>2025-6-2:在 Enemies 页面中澄清 Enemies 与 EnemiesNoSync 的差别；在 MEV、DEA 和 EEE 页面移除 DEA 敌人列表，改为添加 mod.io 页面与官方列表的链接。</li>
+</ul>
+<ul>
 <li>23-Jul-2025: Added the <a href="direct/">Direct</a> page.</li>
+<li>2025-7-23:添加了 "Direct" 页面</li>
+</ul>
+<ul>
 <li>15-Aug-2025: Added the <code>Usable</code> table in the <code>Salvage</code> module in Modules and some examples.</li>
+<li>2025-8-15:在 Modules的 "Salvage"部分添加了 "Usable"表格和部分示例 </li>
+</ul>
+<ul>
 <li>11-Nov-2025: Update for CD2-v16: added the <code>Countdown</code>, <code>EnemiesRecentlySpawned</code>, <code>Int2String</code>, <code>Float2String</code> and the <code>Join</code> mutators; added the <code>Messages</code> and <code>SoundCues</code> module; added the <code>FallDamageStartVelocity</code> and <code>FallDamageModifier</code> in the <code>Dwarves</code> module.</li>
+<li>2025-11-11,CD2-v16:新增 Countdown、EnemiesRecentlySpawned、Int2String、Float2String 与 Join 的Mutate；新增 Messages 与 SoundCues 模块；在 Dwarves 模块新增 FallDamageStartVelocity 与 FallDamageModifier的控制。</li>
+</ul>
+<ul>
 </ul>
               
             </div>
