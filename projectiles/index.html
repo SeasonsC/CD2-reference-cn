@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Projectiles - CD2 Reference</title>
+    <title>Projectiles - CD2 Reference发射物 - CD2指南</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> CD2 Reference
+          <a href=".." class="icon icon-home"> CD2 Reference CD2指南
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -41,19 +41,19 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction介绍</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ常见问题</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2</a>
+                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2基础部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules模块部分</a>
                 </li>
               </ul>
               <ul>
@@ -69,15 +69,15 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Projectiles</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Projectiles发射物</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#list-of-game-projectiles">List of game projectiles</a>
+    <li class="toctree-l2"><a class="reference internal" href="#list-of-game-projectiles">List of game projectiles游戏内发射物</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#list-of-mev-projectiles">List of MEV projectiles</a>
+    <li class="toctree-l2"><a class="reference internal" href="#list-of-mev-projectiles">List of MEV projectiles MEV模组内发射物</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#list-of-dea-projectiles">List of DEA projectiles</a>
+    <li class="toctree-l2"><a class="reference internal" href="#list-of-dea-projectiles">List of DEA projectiles DEA模组内发射物</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#list-of-eee-projectiles">List of EEE projectiles</a>
+    <li class="toctree-l2"><a class="reference internal" href="#list-of-eee-projectiles">List of EEE projectiles EEE模组内发射物</a>
     </li>
     </ul>
                 </li>
@@ -95,7 +95,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources</a>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources 资源</a>
                 </li>
               </ul>
       </div>
@@ -112,7 +112,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Projectiles</li>
+      <li class="breadcrumb-item active">Projectiles发射物</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -121,8 +121,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="projectiles">Projectiles</h1>
+                <h1 id="projectiles">Projectiles发射物</h1>
 <p><code>Projectile</code> is an optional field in enemy descriptors. It allows changing the projectiles of ranged enemies to any other projectile in the game. As an example, the following snippet produces a septic that throws driller's snowball:</p>
+<p>Projectile 是敌人描述符中的一个可选字段,它允许你把远程敌人使用的发射物替换为游戏中的任意其他发射物，例如，下面的代码片段会让一个 番茄 攻击者发射 钻机 的雪球：</p>
 <pre><code class="language-json">&quot;ED_Ice_Septic&quot;: {
   &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
   &quot;Projectile&quot;: &quot;PRJ_Crye_SnowBall_C&quot;
@@ -133,472 +134,627 @@
 </figure>
 <ul>
 <li>This feature doesn't require <code>Enemies</code> and can use <code>EnemiesNoSync</code> instead so clients without CD2 can still see the changed projectiles.</li>
+<li>这个功能不需要Enemies，你可以使用EnemiesNoSync，这样没有安装CD2的客机也可以看到改变的发射物。</li>
 <li>The name of the projectile can omit the "_C" at the end. </li>
+<li>发射物名称可以省略末尾的 “_C”。</li>
 <li>CD2 scans the game files for the projectiles so modders can add new ones themselves. Below the following list there is a section with the projectiles added by MEV and DEA, two common mods that add new enemies to the game. </li>
+<li>CD2 会扫描游戏文件中的发射物，所以模组作者可以自行添加新的发射物。在下面的列表之中，还有 MEV 与 DEA两个模组 添加的弹射物，这两个模组都是为游戏添加了新敌人的模组。</li>
 <li>The <code>Projectile</code> field can be mutated. </li>
+<li>Projectile 字段是可以被 Mutate 的。</li>
 </ul>
-<h2 id="list-of-game-projectiles">List of game projectiles</h2>
+<h2 id="list-of-game-projectiles">List of game projectiles游戏内置的发射物列表</h2>
 <p>See also <a href="https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0">this spreadsheet</a> compiled by @Carrot which adds a lot more detail to the following list, dividing the projectiles according to their categories, damage and type.</p>
+<p>此外请参阅由 @Carrot 编写的电子文档，其中提供了更详细的分类方式，包括发射物的类别、伤害与类型。</p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
+<th>翻译（仅来源）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>"BP_BoscoAbillityProjectile_C"</td>
+<td>Bosco</td>
 </tr>
 <tr>
 <td>"BP_Bosco_FoamGlob_C"</td>
+<td>Bosco</td>
 </tr>
 <tr>
 <td>"BP_Bosco_Rocket_Frag_C"</td>
+<td>Bosco</td>
 </tr>
 <tr>
 <td>"BP_Bosco_Rocket_Ice_C"</td>
+<td>Bosco</td>
 </tr>
 <tr>
 <td>"BP_CameraDrone_FlareProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"BP_ClusterFragment_MicroMissileLauncher_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"BP_FoamRocket_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"BP_MicroRocket_Base_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"BP_MicroRocket_HE_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_AcidDrop_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_AcidDrop_Ice_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BaseBigGooProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BaseGooProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BaseNormalGooProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Base_Spider_Lobber_Projectile_C"</td>
+<td>番茄</td>
 </tr>
 <tr>
 <td>"PRJ_BigGooProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BigGooProjectile_Trail_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BigGoo_Buckshot_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BombSpitter_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BomberGoo_C"</td>
+<td>轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_BomberIce_C"</td>
+<td>轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_Bomber_Fire_C"</td>
+<td>轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_Boss_Twin_Stomp_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_BreederEgg_C"</td>
+<td>水母</td>
 </tr>
 <tr>
 <td>"PRJ_CactusSpike_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_CaretakerBarrier_C"</td>
+<td>看守着-屏障</td>
 </tr>
 <tr>
 <td>"PRJ_ChargedBlasterShot_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Crawler_DeathProjectile2_C"</td>
+<td>猴子</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_ChemicalExplosionProjecitle_C"</td>
+<td>侦察化学弩</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_FireProjectile_C"</td>
+<td>侦察火弩</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_IceProjectile_C"</td>
+<td>侦察冰弩</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_PheromoneProjectile_C"</td>
+<td>侦察信息素弩</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_Projectile_C"</td>
+<td>侦察</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_TaserProjectile_C"</td>
+<td>侦察</td>
 </tr>
 <tr>
 <td>"PRJ_Crye_SnowBall_C"</td>
+<td>钻机雪球</td>
 </tr>
 <tr>
 <td>"PRJ_Cryocannon_C"</td>
+<td>钻机冰锥</td>
 </tr>
 <tr>
 <td>"PRJ_DrippingPlant_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_ExploderTankClusterBomb_C"</td>
+<td>大自爆</td>
 </tr>
 <tr>
 <td>"PRJ_ExplosiveBombDrop_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_FacilityTentacleProjectile_C"</td>
+<td>看守着触手</td>
 </tr>
 <tr>
 <td>"PRJ_FacilityTurretLaser_Sniper_C"</td>
+<td>狙击炮台</td>
 </tr>
 <tr>
 <td>"PRJ_Facility_Barrier_Base_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Facility_Laser_Base_C"</td>
+<td>连射炮台</td>
 </tr>
 <tr>
 <td>"PRJ_FacilityturretLaser_Burst_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_FlameWall_C"</td>
+<td>钻机灼热</td>
 </tr>
 <tr>
 <td>"PRJ_FlareGun_Projectile01_C"</td>
+<td>侦察照明弹</td>
 </tr>
 <tr>
 <td>"PRJ_FlyingSmartRock_C"</td>
+<td>飞石</td>
 </tr>
 <tr>
 <td>"PRJ_Foam_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_FriendlyInfectedMuleGrenade_C"</td>
+<td>Bet-C</td>
 </tr>
 <tr>
 <td>"PRJ_GooProjectile_Fragment_Base_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_GooProjectile_Fragment_GooBomoberSpecial_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_GooProjectile_Fragment_Normal_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_GrenadeAxe_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_GrenadeLauncher_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Grenade_HackeShredder_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Grenade_StickySmall_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_GuntowerLineProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_HomingDrone_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeedSpawn_C"</td>
+<td>王草</td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeedSpawn_HealingPod_C"</td>
+<td>王草-治愈</td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeed_Shooter_C"</td>
+<td>王草-新芽</td>
 </tr>
 <tr>
 <td>"PRJ_InfectedMuleGrenade_C"</td>
+<td>Bet-C</td>
 </tr>
 <tr>
 <td>"PRJ_LargeStabbyThorn_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_LineCutter2_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_C"</td>
+<td>异虫蝇</td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_Elite_C"</td>
+<td>精英异虫蝇</td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Buck_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Cluster_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Dumbfire_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Mine_Head_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_PlasmaBurster_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Mortar_Autocannon_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_NormalBlasterShot_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_NormalGooProjectile_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_OmmoranEnergySprite_C"</td>
+<td>心石</td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotLaser_Flying_C"</td>
+<td>巡逻机器人</td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotLaser_Flying_Hacked_C"</td>
+<td>巡逻机器人-友方</td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotLaser_Hacked_C"</td>
+<td>巡逻机器人-友方</td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotLaser_New_C"</td>
+<td>巡逻机器人</td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotRocket_C"</td>
+<td>巡逻机器人</td>
 </tr>
 <tr>
 <td>"PRJ_PlasmaCarbineShot_Big_C"</td>
+<td>侦察？</td>
 </tr>
 <tr>
 <td>"PRJ_PlasmaCarbineShot_C"</td>
+<td>侦察？</td>
 </tr>
 <tr>
 <td>"PRJ_PlatformMaker_C"</td>
+<td>工程？</td>
 </tr>
 <tr>
 <td>"PRJ_PowerupSphere_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_ProjectileBarf_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_RedThorn_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_RockpoxBomber_PlagueDrop_C"</td>
+<td>岩痘轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_Breede_VomitedLarva_C"</td>
+<td>岩痘大水母</td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_Breeder_WormVomit_C"</td>
+<td>岩痘大水母</td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_PlagueGlob_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_PlagueGlob_PlagueShark_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_SentryOvercharge_Projectile_C"</td>
+<td>工程炮台</td>
 </tr>
 <tr>
 <td>"PRJ_ShootingPlant_C"</td>
+<td>吐珠</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Boss_Heavy_C"</td>
+<td>巢主</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Boss_Heavy_FireballBallistics_C"</td>
+<td>巢主</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Boss_Twin_Mine_C"</td>
+<td>双子</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Boss_Twin_Multifireball_C"</td>
+<td>双子</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Lobber_Projectile_C"</td>
+<td>番茄</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Lobber_Projectile_Fragment_C"</td>
+<td>番茄</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_RapidShooter_C"</td>
+<td>速射</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_C"</td>
+<td>吐酸</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_Ground_C"</td>
+<td>吐酸</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_Queen_C"</td>
+<td>吐酸皇后</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_Rockpox_Plague_C"</td>
+<td>岩痘吐酸</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Spitter_C"</td>
+<td>吐丝</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Tank_Boss_C"</td>
+<td>巢主</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Tank_Boss_Eggshot_C"</td>
+<td>无畏</td>
 </tr>
 <tr>
 <td>"PRJ_StaticBomber_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_TentaclePlant_New_C"</td>
+<td>小王草</td>
 </tr>
 <tr>
 <td>"PRJ_Terminator_Barrier_C"</td>
+<td>娃娃机</td>
 </tr>
 <tr>
 <td>"PRJ_TripleShooter_C"</td>
+<td>三鄂</td>
 </tr>
 <tr>
 <td>"PRJ_Turret_Barrier_C"</td>
+<td>推斥炮台</td>
 </tr>
 <tr>
 <td>"PRJ_WoodlouseAttack_C"</td>
+<td>大运</td>
 </tr>
 </tbody>
 </table>
-<h2 id="list-of-mev-projectiles">List of MEV projectiles</h2>
+<h2 id="list-of-mev-projectiles">List of MEV projectiles MEV 发射物列表</h2>
 <p>To make use of these you will need to have MEV installed.</p>
+<p>要使用这些发射物，你需要安装 MEV 模组。</p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>"PRJ_ExploderTankClusterBomb_Quacke_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_FacilityTurretLaser_Sniper_Slow_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_GrenadeLauncher_Hyper_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeed_Shooter_STE_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeed_Shooter_STE_web_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeed_Shooter_Sound_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeed_Shooter_Sound_Web_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Hyper2_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_electric_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_fire_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_ice_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_poison_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotRocket_fast_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_PatrolBotRocket_slow_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Roll2_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Roll_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Spawn_Enemy_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Spider_RapidShooter_Turbo_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Spider_RapidShooter_electric_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Spider_RapidShooter_fire_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Spider_RapidShooter_ice_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_Spider_RapidShooter_poison_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_SpitballerNukeEX_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_SpitballerNuke_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_TripleShooter_electric_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_TripleShooter_fire_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_TripleShooter_ice_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_TripleShooter_poison_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_WoodlouseAttack_electric_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_WoodlouseAttack_fire_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_WoodlouseAttack_ice_C"</td>
+<td></td>
 </tr>
 <tr>
 <td>"PRJ_WoodlouseAttack_poison_C"</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="list-of-dea-projectiles">List of DEA projectiles</h2>
+<h2 id="list-of-dea-projectiles">List of DEA projectiles DEA 发射物列表</h2>
 <p>To make use of these you will need to have DEA installed. Comments by mod author @donnie_danko.</p>
+<p>要使用这些发射物，你需要安装 DEA模组。本部分包含模组作者 @donnie_danko 的部分注释。</p>
 <table>
 <thead>
 <tr>
@@ -610,102 +766,128 @@
 <tr>
 <td>PRJ_AcidBomber_Drop</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_AcidBomber_Shot</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
+<td></td>
 <td>PRJ_Exploder_SpawnShot</td>
 <td>Used by Bomber_Exploder</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Exploder_SpawnShot_Baller</td>
 <td>Used by ShootingPlant_Spawner_Boomer</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Fanatic_Fireball</td>
 <td>All variants</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Ice_Shooter</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PRJ_Mactera_Breach</td>
 <td>Used by Mactera_Brendle and Mactera_Brooter</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Nukebomber_Bomb</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PRJ_Nukebomber_Shot</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_PheroShot and PRJ_SpawnDrop</td>
 <td>Used by Parabomber</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_RJ_Lobber</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PRJ_Sniper_Turret_Slow</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spawninator_One_Meatball</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PRJ_Spawninator_Two_Meatball</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spawnshot</td>
 <td>Used by _Slobber and _Shooter_Spawner</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_SpawnshotEX</td>
 <td>Used by Fauxnought and ShootingPlant_SpawnerEX</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spawnshot_Dense</td>
 <td>Used by _SlobberEX, _Shooter_SpawnerEX, and ShootingPlant_Spawner</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Shooter</td>
 <td>Ceiling grooter</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Shooter_Ground</td>
 <td>Grooter and wall variant</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Spitter</td>
 <td>Gritters</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Spitter_Cyan</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Spitter_Pink</td>
 <td>STE_MarkedForDeath_Spitter</td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Spitter_Stagger</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Spitter_White</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td>PRJ_Spider_Tank_Boss</td>
 <td>Used by Shooter_Fire</td>
+<td></td>
 </tr>
 </tbody>
 </table>
