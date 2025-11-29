@@ -56,7 +56,7 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 - [x] (Module)Enemies/EnemiesNoSync
 - [] (Module)Direct
 - [] (Module)WaveSpawners
-- [] Projectiles
+- [x] Projectiles  [一半]
 - [] Mutators
 - [] MEV,DEA, and EEE
 - [] Tutorials
