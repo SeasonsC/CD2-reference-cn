@@ -59,5 +59,5 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 - [x] Projectiles  [一半]
 - [] Mutators
 - [] MEV,DEA, and EEE
-- [] Tutorials
-- [] Resources
+- [x] Tutorials
+- [x] Resources
