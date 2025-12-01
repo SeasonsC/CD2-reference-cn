@@ -61,3 +61,7 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 - [] MEV,DEA, and EEE
 - [x] Tutorials
 - [x] Resources
+
+## 校准-未开始
+
+## 考试周繁忙-
