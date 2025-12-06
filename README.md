@@ -49,19 +49,23 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 由于个人水平有限，翻译中可能仍有不准确之处，欢迎各位大佬指正。
 
 ## 📘 FINISHED WORK 已完成进度
-- [x] Introduction
-- [x] FAQ
+- [x] Introduction介绍
+- [x] FAQ常见问题
 - [x] The Basics of CD2(基础)
 - [x] Modules（模块）
-- [x] (Module)Enemies/EnemiesNoSync
-- [] (Module)Direct
-- [] (Module)WaveSpawners
-- [x] Projectiles  [一半]
-- [] Mutators
+- [x] (Module)Enemies/EnemiesNoSync敌人配置
+- [] (Module)Direct基础属性
+- [x] (Module)WaveSpawners波次生成器
+- [x] Projectiles  发射物[一半]
+- [] Mutators 动态参数与逻辑控制
 - [] MEV,DEA, and EEE
-- [x] Tutorials
-- [x] Resources
+- [x] Tutorials 教程
+- [x] Resources 资源
 
 ## 校准-未开始
 
 ## 考试周繁忙-
+
+## 感谢
+
+感谢Kugua的翻译帮助
