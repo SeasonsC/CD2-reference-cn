@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>(Module) WaveSpawners - CD2 Reference</title>
+    <title>(Module) WaveSpawners - CD2 Reference 波次生成器-CD2指南</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> CD2 Reference
+          <a href=".." class="icon icon-home"> CD2 Reference CD2指南
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -41,41 +41,41 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction介绍</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ常见问题</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2</a>
+                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2基础部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules模块部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync</a>
+                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync敌人配置 (客机 同步/非同步)</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct</a>
+                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct基础属性</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">(Module) WaveSpawners</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">(Module) WaveSpawners波次生成器</a>
     <ul class="current">
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles</a>
+                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles发射物</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators</a>
+                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators动态参数与逻辑控制</a>
                 </li>
               </ul>
               <ul>
@@ -83,11 +83,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials</a>
+                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials教程</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources</a>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources资源</a>
                 </li>
               </ul>
       </div>
@@ -97,14 +97,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">CD2 Reference</a>
+          <a href="..">CD2 Reference CD2指南</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">(Module) WaveSpawners</li>
+      <li class="breadcrumb-item active">(Module) WaveSpawners 波次生成器</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -115,6 +115,7 @@
               
                 <h1 id="wave-spawners">Wave Spawners</h1>
 <p>Wave spawners are a feature of CD2 that allow the creation of unnanounced enemy waves with various degrees of flexibility. The following basic example spawns a wave of difficulty 100 composed of only grunts every 90 seconds in 3 locations around the player:</p>
+<p>波次生成器是CD2的一项功能，它允许你灵活的创建无宣告潮。下面的示例会每90秒在玩家周围的三个距离为10的位置生成一个总点数为100的只包含战士异虫的无宣告潮</p>
 <pre><code class="language-json">{
     &quot;WaveSpawners&quot;: 
         {
@@ -128,73 +129,75 @@
 }
 </code></pre>
 <p>The following table shows the valid fields inside a <code>WaveSpawner</code>:</p>
+<p>下列表格展示了WaveSpawner可使用的字段</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
+<th>Field字段</th>
+<th>Type类型</th>
+<th>Description描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Enabled</td>
-<td>Bool</td>
-<td>Whether the wave spawner is active (true) or not (false).</td>
+<td>Bool布尔值</td>
+<td>Whether the wave spawner is active (true) or not (false).启用与否</td>
 </tr>
 <tr>
-<td>Name</td>
-<td>String</td>
-<td>A description. Doesn't have any effect.</td>
+<td>Name名称</td>
+<td>String字符串</td>
+<td>A description. Doesn't have any effect.介绍，无影响</td>
 </tr>
 <tr>
-<td>Interval</td>
-<td>Float</td>
-<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.</td>
+<td>Interval间隔</td>
+<td>Float浮点数</td>
+<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.波次生成器启用后，会间隔 "x(x为 Interval设置时间)" 秒才生成首波敌人（除非 SpawnOnEnable[启用即刻生成] 为 true）。之后波次会每间隔"x"秒重复生成一次，直到被禁用。</td>
 </tr>
 <tr>
-<td>Enemies</td>
-<td>[List]</td>
-<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.</td>
+<td>Enemies敌人</td>
+<td>[List]列表</td>
+<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.要生成的敌人列表，若省略此字段则会生成敌人池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</td>
 </tr>
 <tr>
-<td>Difficulty</td>
-<td>Float</td>
-<td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.</td>
+<td>Difficulty难度点数</td>
+<td>Float浮点数</td>
+<td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.分配给该波次的总难度点数，依照Enemies中各敌人的 DifficultyRating 进行数量分配。</td>
 </tr>
 <tr>
-<td>Distance</td>
-<td>Float</td>
-<td>Distance where the enemies will spawn relative to the player.</td>
+<td>Distance距离</td>
+<td>Float浮点数</td>
+<td>Distance where the enemies will spawn relative to the player.敌人相对玩家的生成距离</td>
 </tr>
 <tr>
-<td>Diversity</td>
-<td>Int</td>
-<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.</td>
+<td>Diversity多样性</td>
+<td>Int整数</td>
+<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.若 Enemies 留空，Spawner会使用敌人池中所有敌人和难度的默认多样性。本字段允许为该无宣告潮单独指定多样性参数。</td>
 </tr>
 <tr>
-<td>Locations</td>
-<td>Int</td>
-<td>Number of spawn points.</td>
+<td>Locations刷潮点</td>
+<td>Int整数</td>
+<td>Number of spawn points.刷潮地点数量</td>
 </tr>
 <tr>
-<td>SpawnOnEnable</td>
-<td>Bool</td>
-<td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.</td>
+<td>SpawnOnEnable启用即刻生成</td>
+<td>Bool布尔值</td>
+<td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.若为 true，Spawner会在启用的瞬间立即生成敌人，跳过首次 Interval时间，默认为 False。</td>
 </tr>
 <tr>
 <td>UnlockInterval</td>
-<td>Bool</td>
-<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.</td>
+<td>Bool布尔值</td>
+<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.若为 true，改变间隔时间会立即修改当前计时器；若为 false，下波刷潮时间在设置后会被锁定直到刷潮后在更新（例如敌人实际生成后再更新Interval时间）。默认为 False。</td>
 </tr>
 <tr>
-<td>PauseOnDisable</td>
-<td>Bool</td>
-<td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.</td>
+<td>PauseOnDisable禁用后暂停</td>
+<td>Bool布尔值</td>
+<td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.若为 true，当WaveSpawner被禁用时倒计时暂停，重新启用后再继续计时；若为 false，重新启用WaveSpawner后倒计时都会重新计时。默认为 False</td>
 </tr>
 </tbody>
 </table>
 <p>All <code>WaveSpawner</code> fields can be mutated. The following snippet shows a popular spawner useful in Elimination missions, which spawns a bulk detonator with descriptor <code>ED_WeakBulk</code>, defined in the <code>Enemies</code> module, whenever there is a dreadnought on the map:</p>
+<p>所有 WaveSpawner 字段都可以被 Mutator 控制，下列代码展示了一个消灭任务中的实用spawner。当地图中出现无畏异虫时，会生成一个由 "Enemies"模块定义的 "ED_WeakBulk(削弱大自爆)"</p>
 <pre><code class="language-json">{
     &quot;WaveSpawners&quot;: [
         {
@@ -220,7 +223,7 @@
 }
 </code></pre>
 <p>There are a special group of <code>Trigger</code> mutators that can be used to gain a lot of control on enabling and disabling the wavespawners based on game conditions: please see their docs at the bottom of the <a href="../mutators/#trigger-mutators">mutator section</a>.</p>
-              
+<p>此外还有一组特殊的 触发式 Mutator，可以根据游戏条件启用/禁用波次生成器，请参阅 Mutator 章节底部的相关文档。</p>              
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
