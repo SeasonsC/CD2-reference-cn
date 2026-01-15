@@ -64,7 +64,6 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 
 ## 校准-未开始
 
-## 考试周繁忙-
 
 ## 感谢
 
