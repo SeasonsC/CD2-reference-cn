@@ -57,7 +57,7 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 - [] (Module)Direct基础属性
 - [x] (Module)WaveSpawners波次生成器
 - [x] Projectiles  发射物[一半]
-- [] Mutators 动态参数与逻辑控制
+- [x] Mutators 动态参数与逻辑控制
 - [] MEV,DEA, and EEE
 - [x] Tutorials 教程
 - [x] Resources 资源
