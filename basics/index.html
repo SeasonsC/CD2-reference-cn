@@ -136,22 +136,22 @@
 <h2 id="the-cd2-files">The CD2 files</h2>
 <ul>
 <li>CD2 files are in the <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format.</li>
-<p class="cn">CD2 文件使用 <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> 格式。</p>
+<li>CD2 文件使用 <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> 格式。</li>
 
 <li>CD1 files are not compatible with CD2.</li>
-<p class="cn">CD1 难度文件与 CD2 不兼容。</p>
+<li>CD1 难度文件与 CD2 不兼容。</li>
 
 <li>The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</li>
-<p class="cn"> 顶层模块部分具有不同功能<a href="../modules/">模块（modules）</a></p>
+<li> 顶层模块部分具有不同功能<a href="../modules/">模块（modules）</a></li>
 
 <li>If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </li>
-<p class="cn">如果 CD2 文件中缺少某个模块或字段，则会使用 BaseHazard 中的默认值。BaseHazard 可以在 DifficultySetting 模块中指定。如果未指定，则默认使用 Hazard 5。</p>
+<li>如果 CD2 文件中缺少某个模块或字段，则会使用 BaseHazard 中的默认值。BaseHazard 可以在 DifficultySetting 模块中指定。如果未指定，则默认使用 Hazard 5。</p>
 
 <li>A file that is just <code>{}</code> represents vanilla Hazard 5. </li>
-<p class="cn">一个内容仅为 <code>{}</code> 的文件就代表原版 Hazard 5。</p>
+<li>一个内容仅为 <code>{}</code> 的文件就代表原版 Hazard 5。</li>
 
 <li>Most fields that admit floats or ints accept also an array of the same type:</li>
-<p class="cn">大多数接受浮点数或整数的字段，也可以接受相同类型的数组：</p>
+<li>大多数接受浮点数或整数的字段，也可以接受相同类型的数组：</li>
 </ul>
 <pre><code class="language-json">{
     &quot;Caps&quot;: {
