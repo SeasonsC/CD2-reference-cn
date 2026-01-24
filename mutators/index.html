@@ -269,10 +269,10 @@
               
                 <h1 id="mutators">Mutators 动态参数与逻辑控制</h1>
 <p>Here follows an alphabetized list of mutators for CD2.</p>
-<p>下面是CD2中按字母先后顺序排序的Mutators列表</p>
+<p>下面是CD2中按字母先后顺序排序的Mutators列表【注： 示例代码中的中文 对于格式是有问题的，仅用作参考】</p>
 <h2 id="accumulate">Accumulate（累加）</h2>
 <p><code>Accumulate</code> can track changes in other mutators by adding to a starting <code>Initial</code> number. In addition, it also supports clamping the accumulated value with <code>Min</code> and <code>Max</code>. If used with a constant value, it can be used to make a simple counter.</p>
-<p><code>Accumulate</code>可以通过在一个初始值上进行加和，来跟踪其它mutators的变化。此外，它还支持使用"Clamp"来限制累计值的范围。如果与一个常数值一起使用，它就可以被用作一个简单的计数器</p>
+<p><code>Accumulate</code>可以从 Initial 指定的初始值上开始累加，以跟踪其它 Mutators 的变化。此外，还可通过使用"Min"和"Max"对累计值进行范围限定。若与常数值配合使用，即可实现一个简单的计数器</p>
 <p>Example: the value of the following snippet starts at 0 and would cap at 10 after roughly 10 seconds.</p>
 <p>示例：下面这段代码的数值会从 0 开始计数，在大约 10 秒后达到上限10。</p>
 <pre><code class="language-json">{
@@ -513,12 +513,12 @@ Supported mission types:</p>
 <h2 id="bytime">ByTime（根据时间）</h2>
 <p>Change a value over time. Time matches the mission clock in the escape menu in-game, including starting before players receive control of their dwarves.
 The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - StartDelay)</code>.</p>
-<P>根据时间推移改变数值。时间与Esc菜单内的任务计时一致，其中包括了玩家能实际操控矮人前的时间。数值由公式 y=kx+b决定[k：rateofchange；x：实际时间-StartDelay；b：InitialValue初始值]</P>
+<P>根据时间推移改变数值。时间与游戏内Esc菜单内的任务计时一致，包括玩家获得矮人控制权之前的时间。数值由以下公式 计算: InitialValue + RateOfChange * Max(0, Time - StartDelay)</P>
 <p>Parameters:</p>
 <ul>
 <li><code>InitialValue</code> - Value at time 0 and up until StartDelay  在时间为0以及正式开始计时前所使用的值</li>
 <li><code>StartDelay</code> - Time in seconds to stay at the InitialValue before changing.  在开始变化前停留在初始值的时间</li>
-<li><code>RateOfChange</code> - Rate per second to change the value.  数值每秒变化的速率</li>
+<li><code>RateOfChange</code> - Rate per second to change the value.  数值每秒的变化量</li>
 </ul>
 <p>Example: </p>
 <P>示例：</P>
@@ -721,7 +721,7 @@ Example:</p>
 
 <h2 id="duringeggambush">DuringEggAmbush（蛋潮期间）</h2>
 <p>Returns True during a non-announced wave after pulling an egg in Egg Hunts. As an example of use, the following snippet increases the <code>EnemyCountModifier</code> only during Egg waves, to make them more challenging. The <code>StartingAt</code> and <code>StoppingAfter</code> tries to make the increase affect only the current egg wave. </p>
-<p>在Egg任务中偷蛋后处于无宣告潮期间时，返回True。作为示例，下列代码片段仅在蛋潮期间提高 EnemyCountMOdifier,以增加其挑战性。其中，StartingAt 和 StoppingAfter 的设置旨在确保使该增幅仅作用于当前这一波蛋潮。</p>
+<p>在 虫蛋收集 任务中偷蛋后触发无宣告潮时，返回True。作为示例，下列代码片段仅在此类无宣告潮期间提高 EnemyCountMOdifier,以增加其挑战性。其中，StartingAt 和 StoppingAfter 的设置旨在确保使该增幅仅作用于当前这一波无宣告潮。</p>
 <pre><code class="language-json">{
 &quot;DifficultySetting&quot;:
     {
@@ -874,7 +874,7 @@ Example:</p>
 </code></pre>
 <h2 id="enemiesrecentlyspawned">EnemiesRecentlySpawned（近期生成敌人计数）</h2>
 <p>This mutator tracks enemies that spawned in the last <code>Seconds</code> seconds. You can track a single enemy descriptor with <code>ED</code> or multiple descriptors with <code>EDs</code>: in the last case, the mutator will return the sum of all spawned enemies that match the descriptors. If empty, the mutator will track all enemies. </p>
-<p>该 mutator 用于统计 Seconds 秒内生成的敌人数量，你可以通过 ED 指定单个敌人描述符，或用 Eds 指定多个敌人描述符。若是指定多个敌人描述符，则返回的是所有匹配描述符的敌人生成总数。若未指定描述符，则统计所有敌人</p>
+<p>该 Mutator 用于统计最近 Seconds 秒内生成的敌人数量，你可以通过 ED 指定单个敌人描述符，或用 EDs 指定多个敌人描述符。若使用后者，将返回所有匹配描述符的敌人生成总数。若未指定描述符，则统计所有敌人</p>
 <p>Example: returns how many enemies spawned in the last 60 seconds.</p>
 <p>示例：返回最近60s内生成的全部敌人数</p>
 <pre><code class="language-json">{  
@@ -948,7 +948,7 @@ Example:</p>
 }
 </code></pre>
 <p>Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest addition mutators:</p>
-<p>自 CD2 v15 起，可以直接指定多个 ED，而无需嵌套加法变异器：</p>
+<p>自 CD2 v15 起，可以直接指定多个 ED，而无需嵌套加法 Mutators ：</p>
 <pre><code class="language-json">{
     {
       &quot;Mutate&quot;: &quot;EnemyCount&quot;,
@@ -1277,7 +1277,7 @@ Example:</p>
   ]
 </code></pre>
 <p>The chain of mutators is the same, but now a <code>TriggerFixedDuration</code> has been added on top which will grant a 20 second window for the wavespawner to be active. Since its <code>Interval</code> is set to 1, this will generate 20 spawn events in total. </p>
-<p>该示例中的 Mutator 链与之前相同，但在最外层添加了 TriggerFixedDuration，为波次生成器提供一个持续 20 秒的激活窗口。由于其 Interval 设置为 1，这将总共触发 20 次生成事件。</p>
+<p>该示例的 Mutator 链与之前相同，但在最外层添加了 TriggerFixedDuration，为波次生成器提供了一个持续 20 秒的激活窗口。由于其 Interval 设置为 1(秒)，这将总共触发 20 次生成事件。</p>
               
             </div>
           </div><footer>
