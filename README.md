@@ -54,15 +54,15 @@ Due to my limited understanding, some translations may contain inaccuracies. Fee
 - [x] The Basics of CD2(基础)
 - [x] Modules（模块）
 - [x] (Module)Enemies/EnemiesNoSync敌人配置
-- [] (Module)Direct基础属性
+- [x] (Module)Direct基础属性
 - [x] (Module)WaveSpawners波次生成器
-- [x] Projectiles  发射物[一半]
+- [x] Projectiles  发射物[选]
 - [x] Mutators 动态参数与逻辑控制
-- [] MEV,DEA, and EEE
+- [x] MEV,DEA, and EEE
 - [x] Tutorials 教程
 - [x] Resources 资源
 
-## 校准-未开始
+## 校准-进行中
 
 
 ## 感谢
