@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>(Module) Direct - CD2 Reference</title>
+    <title>(Module) Direct - CD2 Reference基础属性</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -31,7 +31,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> CD2 Reference
+          <a href=".." class="icon icon-home"> CD2 Reference CD2指南
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -41,225 +41,225 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction介绍</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ常见问题</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2</a>
+                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2基础部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules</a>
+                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules模块部分</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync</a>
+                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync敌人配置 (客机 同步/非同步)</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">(Module) Direct</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">(Module) Direct基础属性</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#ed_pumpkinlootbug">ED_PumpkinLootBug</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_pumpkinlootbug">ED_PumpkinLootBug  掠夺虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_flea">ED_Flea</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_flea">ED_Flea  脓蚤</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_hoarder">ED_Spider_Hoarder</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_hoarder">ED_Spider_Hoarder  嗜矿异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_prospector">ED_Prospector</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_prospector">ED_Prospector  勘探无人机</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_barrageinfector">ED_BarrageInfector</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_barrageinfector">ED_BarrageInfector  瘟疫霰射吐珠</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_caveleech">ED_CaveLeech</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_caveleech">ED_CaveLeech  洞穴水蛭</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_crawler">ED_Crawler</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_crawler">ED_Crawler  匍行核岩孽生兽</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spiderspawner">ED_SpiderSpawner</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spiderspawner">ED_SpiderSpawner  异虫母巢</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber">ED_Bomber</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber">ED_Bomber  粘液轰炸蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber_explosive">ED_Bomber_Explosive</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber_explosive">ED_Bomber_Explosive  爆炸轰炸蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber_ice">ED_Bomber_Ice</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber_ice">ED_Bomber_Ice  冰霜轰炸蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_grabber">ED_Grabber</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_grabber">ED_Grabber  捕手蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_shooter_amber">ED_Mactera_Shooter_Amber</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_shooter_amber">ED_Mactera_Shooter_Amber  氪化吐刺异虫蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_shooter_heavyveteran">ED_Mactera_Shooter_HeavyVeteran</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_shooter_heavyveteran">ED_Mactera_Shooter_HeavyVeteran  坚甲异虫蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_shooter_normal">ED_Mactera_Shooter_Normal</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_shooter_normal">ED_Mactera_Shooter_Normal  吐刺异虫蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_tripleshooter">ED_Mactera_TripleShooter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_mactera_tripleshooter">ED_Mactera_TripleShooter  三颚异虫蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_hydraweed">ED_HydraWeed</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_hydraweed">ED_HydraWeed  科洛克王草</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_infestationlarva">ED_InfestationLarva</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_infestationlarva">ED_InfestationLarva  肉食幼虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_jelly_spawn">ED_Jelly_Spawn</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_jelly_spawn">ED_Jelly_Spawn  纳多赛特饲育水母幼体</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ed_jelly_swarmer">ED_Jelly_Swarmer</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_jellybreeder">ED_JellyBreeder</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_jellybreeder">ED_JellyBreeder  纳多赛特饲育水母</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_infectedmule">ED_InfectedMule</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_infectedmule">ED_InfectedMule  战斗矿骡BET-C</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber_rockpox_plague">ED_Bomber_Rockpox_Plague</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_bomber_rockpox_plague">ED_Bomber_Rockpox_Plague  岩痘粘液轰炸蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_rockpoxplague">ED_Spider_Grunt_RockpoxPlague</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_rockpoxplague">ED_Spider_Grunt_RockpoxPlague  岩痘战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_rockpoxplague">ED_Spider_Tank_RockpoxPlague</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_rockpoxplague">ED_Spider_Tank_RockpoxPlague  岩痘禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_jellybreeder_rockpoxplague">ED_JellyBreeder_RockpoxPlague</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_jellybreeder_rockpoxplague">ED_JellyBreeder_RockpoxPlague  岩痘纳多赛特饲育水母</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_exploder_rockpox_plague">ED_Spider_Exploder_Rockpox_Plague</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_exploder_rockpox_plague">ED_Spider_Exploder_Rockpox_Plague  岩痘自爆异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_plaguelarva">ED_PlagueLarva</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_plaguelarva">ED_PlagueLarva  岩痘幼虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_plagueshark">ED_PlagueShark</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_plagueshark">ED_PlagueShark  成熟岩痘幼虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooter_rockpox_plague">ED_Spider_Shooter_Rockpox_Plague</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooter_rockpox_plague">ED_Spider_Shooter_Rockpox_Plague  岩痘吐酸异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_walkingplagueheart">ED_WalkingPlagueheart</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_walkingplagueheart">ED_WalkingPlagueheart  岩痘腐化者</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_patrolbot">ED_PatrolBot</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_patrolbot">ED_PatrolBot  巡逻机器人</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_patrolbot_caretaker">ED_PatrolBot_Caretaker</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_patrolbot_caretaker">ED_PatrolBot_Caretaker  看守者召唤的巡逻机器人</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_shredder">ED_Shredder</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_shredder">ED_Shredder  粉碎者</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_terminator">ED_Terminator</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_terminator">ED_Terminator  深渊复仇者</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_shark">ED_Shark</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_shark">ED_Shark  纳亚卡鲨虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_shootingplant">ED_ShootingPlant</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_shootingplant">ED_ShootingPlant  瘟疫吐珠</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_buffer">ED_Spider_Buffer</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_buffer">ED_Spider_Buffer  典狱长</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_charger">ED_Spider_Charger</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_charger">ED_Spider_Charger  瞬移禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_exploder">ED_Spider_Exploder</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_exploder">ED_Spider_Exploder  自爆异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_exploder_warning">ED_Spider_Exploder_Warning</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_exploder_warning">ED_Spider_Exploder_Warning  自爆群袭刷新的自爆异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_explodertank">ED_Spider_ExploderTank</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_explodertank">ED_Spider_ExploderTank  大自爆虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_explodertankghost">ED_Spider_ExploderTankGhost</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_explodertankghost">ED_Spider_ExploderTankGhost  恐怖存在</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_explodertank_king">ED_Spider_ExploderTank_King</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_explodertank_king">ED_Spider_ExploderTank_King  自爆王虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_drone">ED_Spider_Drone</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_drone">ED_Spider_Drone  模型异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt">ED_Spider_Grunt</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt">ED_Spider_Grunt  战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunttutorial">ED_Spider_GruntTutorial</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunttutorial">ED_Spider_GruntTutorial  典狱长召唤的战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_ice">ED_Spider_Grunt_Ice</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_ice">ED_Spider_Grunt_Ice  冰封岩层的战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_mutated">ED_Spider_Grunt_Mutated</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_mutated">ED_Spider_Grunt_Mutated  放射性禁区的战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_attacker">ED_Spider_Grunt_Attacker</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_attacker">ED_Spider_Grunt_Attacker  刀锋异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_guard">ED_Spider_Grunt_Guard</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_guard">ED_Spider_Grunt_Guard  护卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_rock">ED_Spider_Grunt_Rock</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_rock">ED_Spider_Grunt_Rock  矿化战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_lobber">ED_Spider_Lobber</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_lobber">ED_Spider_Lobber  脓毒异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_rapidshooter">ED_Spider_RapidShooter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_rapidshooter">ED_Spider_RapidShooter  速射酸虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_amber_shooter">ED_Spider_Amber_Shooter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_amber_shooter">ED_Spider_Amber_Shooter  氪化吐酸异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooter">ED_Spider_Shooter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooter">ED_Spider_Shooter  吐酸异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooter_ground">ED_Spider_Shooter_Ground</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooter_ground">ED_Spider_Shooter_Ground  迫击吐酸异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooterqueen">ED_Spider_ShooterQueen</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shooterqueen">ED_Spider_ShooterQueen  酸液皇后</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_spitter">ED_Spider_Spitter</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_spitter">ED_Spider_Spitter  吐丝异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_stalker">ED_Spider_Stalker</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_stalker">ED_Spider_Stalker  潜行异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_stinger">ED_Spider_Stinger</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_stinger">ED_Spider_Stinger  蛭尾异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer">ED_Spider_Swarmer</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer">ED_Spider_Swarmer  蜂拥异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer_ice">ED_Spider_Swarmer_Ice</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer_ice">ED_Spider_Swarmer_Ice  冰封岩层的蜂拥异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer_mutated">ED_Spider_Swarmer_Mutated</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer_mutated">ED_Spider_Swarmer_Mutated  放射性禁区的蜂拥异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer_pheromone_nofx">ED_Spider_Swarmer_Pheromone_NOFX</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_swarmer_pheromone_nofx">ED_Spider_Swarmer_Pheromone_NOFX  无畏异虫召唤的蜂拥异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_spawn">ED_Spider_Spawn</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_spawn">ED_Spider_Spawn  异虫幼虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank">ED_Spider_Tank</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank">ED_Spider_Tank  禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_ice">ED_Spider_Tank_Ice</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_ice">ED_Spider_Tank_Ice  寒霜禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_mutated">ED_Spider_Tank_Mutated</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_mutated">ED_Spider_Tank_Mutated  放射性禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_amber">ED_Spider_Tank_Amber</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_amber">ED_Spider_Tank_Amber  氪化禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_rock">ED_Spider_Tank_Rock</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_rock">ED_Spider_Tank_Rock  矿化禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shieldtank">ED_Spider_ShieldTank</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_shieldtank">ED_Spider_ShieldTank  暴君异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_boss_heavy">ED_Spider_Boss_Heavy</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_boss_heavy">ED_Spider_Boss_Heavy  巢主无畏异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_heavyspawn">ED_Spider_Tank_HeavySpawn</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_heavyspawn">ED_Spider_Tank_HeavySpawn  哨卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_boss">ED_Spider_Tank_Boss</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_boss">ED_Spider_Tank_Boss  无畏异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_boss_twina">ED_Spider_Boss_TwinA</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_boss_twina">ED_Spider_Boss_TwinA  强弩无畏异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_boss_twinb">ED_Spider_Boss_TwinB</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_boss_twinb">ED_Spider_Boss_TwinB  重斧无畏异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_tentacleplant">ED_TentaclePlant</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_tentacleplant">ED_TentaclePlant  瓦托克鳞甲荆丛</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_woodlouse">ED_Woodlouse</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_woodlouse">ED_Woodlouse  丘罗那地虱</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_woodlouse_youngling">ED_Woodlouse_Youngling</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_woodlouse_youngling">ED_Woodlouse_Youngling  丘罗那地虱幼体</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_greategghunt_springbunny">ED_GreatEggHunt_SpringBunny</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_greategghunt_springbunny">ED_GreatEggHunt_SpringBunny  春季兔兔</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_halloween_skull">ED_Halloween_Skull</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_halloween_skull">ED_Halloween_Skull  万圣骷髅头</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_nisse">ED_Nisse</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_nisse">ED_Nisse  圣诞小精灵</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_rock_warning">ED_Spider_Grunt_Rock_Warning</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_grunt_rock_warning">ED_Spider_Grunt_Rock_Warning  矿化爆发的矿化战士异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_rock_warning">ED_Spider_Tank_Rock_Warning</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_spider_tank_rock_warning">ED_Spider_Tank_Rock_Warning  矿化爆发的矿化禁卫异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_flyingsmartrock">ED_FlyingSmartRock</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_flyingsmartrock">ED_FlyingSmartRock  飞石</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_facilityturret_barrier">ED_FacilityTurret_Barrier</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_facilityturret_barrier">ED_FacilityTurret_Barrier  推斥炮塔</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_facilityturret_burst">ED_FacilityTurret_Burst</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_facilityturret_burst">ED_FacilityTurret_Burst   连射炮塔</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_facilityturret_sniper">ED_FacilityTurret_Sniper</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_facilityturret_sniper">ED_FacilityTurret_Sniper  狙击炮塔</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_insectswarm_spawner">ED_InsectSwarm_Spawner</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_insectswarm_spawner">ED_InsectSwarm_Spawner  雷鸣蜂巢</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_eggspider">ED_EggSpider</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_eggspider">ED_EggSpider  异虫蛋的蜂拥异虫</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ed_tunnelswarmer">ED_TunnelSwarmer</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ed_tunnelswarmer">ED_TunnelSwarmer  异虫隧道刷新的蜂拥异虫</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../wavespawners/">(Module) WaveSpawners</a>
+                <li class="toctree-l1"><a class="reference internal" href="../wavespawners/">(Module) WaveSpawners波次生成器</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles</a>
+                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles发射物</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators</a>
+                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators动态参数与逻辑控制</a>
                 </li>
               </ul>
               <ul>
@@ -267,11 +267,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials</a>
+                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials教程</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources</a>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources资源</a>
                 </li>
               </ul>
       </div>
@@ -299,7 +299,8 @@
               
                 <h1 id="direct-enemy-controls"><code>Direct</code> enemy controls</h1>
 <p>The following list was compiled by @TheBrain. It is not exhaustive and it is not guaranteed for all fields to work in-game. </p>
-<h2 id="ed_pumpkinlootbug">ED_PumpkinLootBug</h2>
+<p>以下表格由 @TheBrain 汇总整理，它并不完全详尽，也不能保证所有字段能在局内生效[注：这个地方 大部分用不到，需要用的可以自己查询{Ctrl+F 输入对应虫子}，一般是控制Boss单位如王草、无畏系列那些，所以不会翻译]</p>
+<h2 id="ed_pumpkinlootbug">ED_PumpkinLootBug  掠夺虫</h2>
 <table>
 <thead>
 <tr>
@@ -386,7 +387,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_flea">ED_Flea</h2>
+<h2 id="ed_flea">ED_Flea  脓蚤</h2>
 <table>
 <thead>
 <tr>
@@ -509,7 +510,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_hoarder">ED_Spider_Hoarder</h2>
+<h2 id="ed_spider_hoarder">ED_Spider_Hoarder  嗜矿异虫</h2>
 <table>
 <thead>
 <tr>
@@ -640,7 +641,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_prospector">ED_Prospector</h2>
+<h2 id="ed_prospector">ED_Prospector 勘探无人机</h2>
 <table>
 <thead>
 <tr>
@@ -975,7 +976,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_barrageinfector">ED_BarrageInfector</h2>
+<h2 id="ed_barrageinfector">ED_BarrageInfector  瘟疫霰射吐珠</h2>
 <table>
 <thead>
 <tr>
@@ -1082,7 +1083,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_caveleech">ED_CaveLeech</h2>
+<h2 id="ed_caveleech">ED_CaveLeech  洞穴水蛭</h2>
 <table>
 <thead>
 <tr>
@@ -1189,7 +1190,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_crawler">ED_Crawler</h2>
+<h2 id="ed_crawler">ED_Crawler  匍行核岩孽生兽</h2>
 <table>
 <thead>
 <tr>
@@ -1292,7 +1293,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spiderspawner">ED_SpiderSpawner</h2>
+<h2 id="ed_spiderspawner">ED_SpiderSpawner  异虫母巢</h2>
 <table>
 <thead>
 <tr>
@@ -1423,7 +1424,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_bomber">ED_Bomber</h2>
+<h2 id="ed_bomber">ED_Bomber  粘液轰炸蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1438,7 +1439,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_bomber_explosive">ED_Bomber_Explosive</h2>
+<h2 id="ed_bomber_explosive">ED_Bomber_Explosive  爆炸轰炸蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1461,7 +1462,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_bomber_ice">ED_Bomber_Ice</h2>
+<h2 id="ed_bomber_ice">ED_Bomber_Ice  冰霜轰炸蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1476,7 +1477,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_grabber">ED_Grabber</h2>
+<h2 id="ed_grabber">ED_Grabber  捕手蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1543,7 +1544,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_mactera_shooter_amber">ED_Mactera_Shooter_Amber</h2>
+<h2 id="ed_mactera_shooter_amber">ED_Mactera_Shooter_Amber  氪化吐刺异虫蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1582,7 +1583,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_mactera_shooter_heavyveteran">ED_Mactera_Shooter_HeavyVeteran</h2>
+<h2 id="ed_mactera_shooter_heavyveteran">ED_Mactera_Shooter_HeavyVeteran  坚甲异虫蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1613,7 +1614,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_mactera_shooter_normal">ED_Mactera_Shooter_Normal</h2>
+<h2 id="ed_mactera_shooter_normal">ED_Mactera_Shooter_Normal  吐刺异虫蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1628,7 +1629,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_mactera_tripleshooter">ED_Mactera_TripleShooter</h2>
+<h2 id="ed_mactera_tripleshooter">ED_Mactera_TripleShooter  三颚异虫蝇</h2>
 <table>
 <thead>
 <tr>
@@ -1667,7 +1668,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_hydraweed">ED_HydraWeed</h2>
+<h2 id="ed_hydraweed">ED_HydraWeed  科洛克王草</h2>
 <table>
 <thead>
 <tr>
@@ -1850,7 +1851,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_infestationlarva">ED_InfestationLarva</h2>
+<h2 id="ed_infestationlarva">ED_InfestationLarva  肉食幼虫</h2>
 <table>
 <thead>
 <tr>
@@ -1881,7 +1882,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_jelly_spawn">ED_Jelly_Spawn</h2>
+<h2 id="ed_jelly_spawn">ED_Jelly_Spawn  纳多赛特饲育水母幼体</h2>
 <table>
 <thead>
 <tr>
@@ -1915,7 +1916,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_jellybreeder">ED_JellyBreeder</h2>
+<h2 id="ed_jellybreeder">ED_JellyBreeder 纳多赛特饲育水母</h2>
 <table>
 <thead>
 <tr>
@@ -1930,7 +1931,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_infectedmule">ED_InfectedMule</h2>
+<h2 id="ed_infectedmule">ED_InfectedMule  战斗矿骡BET-C</h2>
 <table>
 <thead>
 <tr>
@@ -2197,7 +2198,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_bomber_rockpox_plague">ED_Bomber_Rockpox_Plague</h2>
+<h2 id="ed_bomber_rockpox_plague">ED_Bomber_Rockpox_Plague  岩痘粘液轰炸蝇</h2>
 <table>
 <thead>
 <tr>
@@ -2296,7 +2297,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_rockpoxplague">ED_Spider_Grunt_RockpoxPlague</h2>
+<h2 id="ed_spider_grunt_rockpoxplague">ED_Spider_Grunt_RockpoxPlague  岩痘战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -2431,7 +2432,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_rockpoxplague">ED_Spider_Tank_RockpoxPlague</h2>
+<h2 id="ed_spider_tank_rockpoxplague">ED_Spider_Tank_RockpoxPlague  岩痘禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -2586,7 +2587,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_jellybreeder_rockpoxplague">ED_JellyBreeder_RockpoxPlague</h2>
+<h2 id="ed_jellybreeder_rockpoxplague">ED_JellyBreeder_RockpoxPlague  岩痘纳多赛特饲育水母</h2>
 <table>
 <thead>
 <tr>
@@ -2773,7 +2774,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_exploder_rockpox_plague">ED_Spider_Exploder_Rockpox_Plague</h2>
+<h2 id="ed_spider_exploder_rockpox_plague">ED_Spider_Exploder_Rockpox_Plague  岩痘自爆异虫</h2>
 <table>
 <thead>
 <tr>
@@ -2924,7 +2925,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_plaguelarva">ED_PlagueLarva</h2>
+<h2 id="ed_plaguelarva">ED_PlagueLarva  岩痘幼虫</h2>
 <table>
 <thead>
 <tr>
@@ -2967,7 +2968,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_plagueshark">ED_PlagueShark</h2>
+<h2 id="ed_plagueshark">ED_PlagueShark  成熟岩痘幼虫</h2>
 <table>
 <thead>
 <tr>
@@ -3082,7 +3083,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_shooter_rockpox_plague">ED_Spider_Shooter_Rockpox_Plague</h2>
+<h2 id="ed_spider_shooter_rockpox_plague">ED_Spider_Shooter_Rockpox_Plague  岩痘吐酸异虫</h2>
 <table>
 <thead>
 <tr>
@@ -3245,7 +3246,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_walkingplagueheart">ED_WalkingPlagueheart</h2>
+<h2 id="ed_walkingplagueheart">ED_WalkingPlagueheart  岩痘腐化者</h2>
 <table>
 <thead>
 <tr>
@@ -4028,7 +4029,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_patrolbot">ED_PatrolBot</h2>
+<h2 id="ed_patrolbot">ED_PatrolBot  巡逻机器人</h2>
 <table>
 <thead>
 <tr>
@@ -4255,7 +4256,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_patrolbot_caretaker">ED_PatrolBot_Caretaker</h2>
+<h2 id="ed_patrolbot_caretaker">ED_PatrolBot_Caretaker  看守者召唤的巡逻机器人</h2>
 <table>
 <thead>
 <tr>
@@ -4270,7 +4271,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_shredder">ED_Shredder</h2>
+<h2 id="ed_shredder">ED_Shredder  粉碎者</h2>
 <table>
 <thead>
 <tr>
@@ -4285,7 +4286,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_terminator">ED_Terminator</h2>
+<h2 id="ed_terminator">ED_Terminator  深渊复仇者</h2>
 <table>
 <thead>
 <tr>
@@ -4452,7 +4453,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_shark">ED_Shark</h2>
+<h2 id="ed_shark">ED_Shark  纳亚卡鲨虫</h2>
 <table>
 <thead>
 <tr>
@@ -4575,7 +4576,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_shootingplant">ED_ShootingPlant</h2>
+<h2 id="ed_shootingplant">ED_ShootingPlant  瘟疫吐珠</h2>
 <table>
 <thead>
 <tr>
@@ -4662,7 +4663,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_buffer">ED_Spider_Buffer</h2>
+<h2 id="ed_spider_buffer">ED_Spider_Buffer  典狱长</h2>
 <table>
 <thead>
 <tr>
@@ -4749,7 +4750,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_charger">ED_Spider_Charger</h2>
+<h2 id="ed_spider_charger">ED_Spider_Charger 瞬移禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -4812,7 +4813,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_exploder">ED_Spider_Exploder</h2>
+<h2 id="ed_spider_exploder">ED_Spider_Exploder  自爆异虫</h2>
 <table>
 <thead>
 <tr>
@@ -4895,7 +4896,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_exploder_warning">ED_Spider_Exploder_Warning</h2>
+<h2 id="ed_spider_exploder_warning">ED_Spider_Exploder_Warning  自爆群袭刷新的自爆异虫</h2>
 <table>
 <thead>
 <tr>
@@ -4910,7 +4911,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_explodertank">ED_Spider_ExploderTank</h2>
+<h2 id="ed_spider_explodertank">ED_Spider_ExploderTank  大自爆虫</h2>
 <table>
 <thead>
 <tr>
@@ -5077,7 +5078,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_explodertankghost">ED_Spider_ExploderTankGhost</h2>
+<h2 id="ed_spider_explodertankghost">ED_Spider_ExploderTankGhost  恐怖存在</h2>
 <table>
 <thead>
 <tr>
@@ -5132,7 +5133,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_explodertank_king">ED_Spider_ExploderTank_King</h2>
+<h2 id="ed_spider_explodertank_king">ED_Spider_ExploderTank_King  自爆王虫</h2>
 <table>
 <thead>
 <tr>
@@ -5223,7 +5224,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_drone">ED_Spider_Drone</h2>
+<h2 id="ed_spider_drone">ED_Spider_Drone  模型异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5266,7 +5267,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt">ED_Spider_Grunt</h2>
+<h2 id="ed_spider_grunt">ED_Spider_Grunt  战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5281,7 +5282,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunttutorial">ED_Spider_GruntTutorial</h2>
+<h2 id="ed_spider_grunttutorial">ED_Spider_GruntTutorial  典狱长召唤的战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5296,7 +5297,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_ice">ED_Spider_Grunt_Ice</h2>
+<h2 id="ed_spider_grunt_ice">ED_Spider_Grunt_Ice  冰封岩层的战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5311,7 +5312,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_mutated">ED_Spider_Grunt_Mutated</h2>
+<h2 id="ed_spider_grunt_mutated">ED_Spider_Grunt_Mutated  放射性禁区的战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5326,7 +5327,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_attacker">ED_Spider_Grunt_Attacker</h2>
+<h2 id="ed_spider_grunt_attacker">ED_Spider_Grunt_Attacker  刀锋异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5345,7 +5346,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_guard">ED_Spider_Grunt_Guard</h2>
+<h2 id="ed_spider_grunt_guard">ED_Spider_Grunt_Guard  护卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5376,7 +5377,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_rock">ED_Spider_Grunt_Rock</h2>
+<h2 id="ed_spider_grunt_rock">ED_Spider_Grunt_Rock  矿化战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5391,7 +5392,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_lobber">ED_Spider_Lobber</h2>
+<h2 id="ed_spider_lobber">ED_Spider_Lobber  脓毒异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5406,7 +5407,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_rapidshooter">ED_Spider_RapidShooter</h2>
+<h2 id="ed_spider_rapidshooter">ED_Spider_RapidShooter  速射酸虫</h2>
 <table>
 <thead>
 <tr>
@@ -5489,7 +5490,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_amber_shooter">ED_Spider_Amber_Shooter</h2>
+<h2 id="ed_spider_amber_shooter">ED_Spider_Amber_Shooter  氪化吐酸异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5544,7 +5545,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_shooter">ED_Spider_Shooter</h2>
+<h2 id="ed_spider_shooter">ED_Spider_Shooter  吐酸异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5559,7 +5560,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_shooter_ground">ED_Spider_Shooter_Ground</h2>
+<h2 id="ed_spider_shooter_ground">ED_Spider_Shooter_Ground  迫击吐酸异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5574,7 +5575,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_shooterqueen">ED_Spider_ShooterQueen</h2>
+<h2 id="ed_spider_shooterqueen">ED_Spider_ShooterQueen  酸液皇后</h2>
 <table>
 <thead>
 <tr>
@@ -5617,7 +5618,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_spitter">ED_Spider_Spitter</h2>
+<h2 id="ed_spider_spitter">ED_Spider_Spitter  吐丝异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5656,7 +5657,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_stalker">ED_Spider_Stalker</h2>
+<h2 id="ed_spider_stalker">ED_Spider_Stalker  潜行异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5675,7 +5676,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_stinger">ED_Spider_Stinger</h2>
+<h2 id="ed_spider_stinger">ED_Spider_Stinger  蛭尾异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5810,7 +5811,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_swarmer">ED_Spider_Swarmer</h2>
+<h2 id="ed_spider_swarmer">ED_Spider_Swarmer  蜂拥异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5869,7 +5870,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_swarmer_ice">ED_Spider_Swarmer_Ice</h2>
+<h2 id="ed_spider_swarmer_ice">ED_Spider_Swarmer_Ice  冰封岩层的蜂拥异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5884,7 +5885,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_swarmer_mutated">ED_Spider_Swarmer_Mutated</h2>
+<h2 id="ed_spider_swarmer_mutated">ED_Spider_Swarmer_Mutated  放射性禁区的蜂拥异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5951,7 +5952,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_swarmer_pheromone_nofx">ED_Spider_Swarmer_Pheromone_NOFX</h2>
+<h2 id="ed_spider_swarmer_pheromone_nofx">ED_Spider_Swarmer_Pheromone_NOFX  无畏异虫召唤的蜂拥异虫</h2>
 <table>
 <thead>
 <tr>
@@ -5966,7 +5967,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_spawn">ED_Spider_Spawn</h2>
+<h2 id="ed_spider_spawn">ED_Spider_Spawn  异虫幼虫</h2>
 <table>
 <thead>
 <tr>
@@ -5989,7 +5990,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank">ED_Spider_Tank</h2>
+<h2 id="ed_spider_tank">ED_Spider_Tank  禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6016,7 +6017,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_ice">ED_Spider_Tank_Ice</h2>
+<h2 id="ed_spider_tank_ice">ED_Spider_Tank_Ice  寒霜禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6043,7 +6044,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_mutated">ED_Spider_Tank_Mutated</h2>
+<h2 id="ed_spider_tank_mutated">ED_Spider_Tank_Mutated  放射性禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6114,7 +6115,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_amber">ED_Spider_Tank_Amber</h2>
+<h2 id="ed_spider_tank_amber">ED_Spider_Tank_Amber  氪化禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6169,7 +6170,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_rock">ED_Spider_Tank_Rock</h2>
+<h2 id="ed_spider_tank_rock">ED_Spider_Tank_Rock  矿化禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6188,7 +6189,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_shieldtank">ED_Spider_ShieldTank</h2>
+<h2 id="ed_spider_shieldtank">ED_Spider_ShieldTank  暴君异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6239,7 +6240,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_boss_heavy">ED_Spider_Boss_Heavy</h2>
+<h2 id="ed_spider_boss_heavy">ED_Spider_Boss_Heavy  巢主无畏异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6378,7 +6379,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_heavyspawn">ED_Spider_Tank_HeavySpawn</h2>
+<h2 id="ed_spider_tank_heavyspawn">ED_Spider_Tank_HeavySpawn  哨卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6457,7 +6458,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_boss">ED_Spider_Tank_Boss</h2>
+<h2 id="ed_spider_tank_boss">ED_Spider_Tank_Boss  无畏异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6604,7 +6605,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_boss_twina">ED_Spider_Boss_TwinA</h2>
+<h2 id="ed_spider_boss_twina">ED_Spider_Boss_TwinA  强弩无畏异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6639,7 +6640,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_boss_twinb">ED_Spider_Boss_TwinB</h2>
+<h2 id="ed_spider_boss_twinb">ED_Spider_Boss_TwinB  重斧无畏异虫</h2>
 <table>
 <thead>
 <tr>
@@ -6706,7 +6707,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_tentacleplant">ED_TentaclePlant</h2>
+<h2 id="ed_tentacleplant">ED_TentaclePlant  瓦托克鳞甲荆丛</h2>
 <table>
 <thead>
 <tr>
@@ -6813,7 +6814,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_woodlouse">ED_Woodlouse</h2>
+<h2 id="ed_woodlouse">ED_Woodlouse  丘罗那地虱</h2>
 <table>
 <thead>
 <tr>
@@ -6948,7 +6949,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_woodlouse_youngling">ED_Woodlouse_Youngling</h2>
+<h2 id="ed_woodlouse_youngling">ED_Woodlouse_Youngling  丘罗那地虱幼体</h2>
 <table>
 <thead>
 <tr>
@@ -6999,7 +7000,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_greategghunt_springbunny">ED_GreatEggHunt_SpringBunny</h2>
+<h2 id="ed_greategghunt_springbunny">ED_GreatEggHunt_SpringBunny  春季兔兔</h2>
 <table>
 <thead>
 <tr>
@@ -7074,7 +7075,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_halloween_skull">ED_Halloween_Skull</h2>
+<h2 id="ed_halloween_skull">ED_Halloween_Skull  万圣骷髅头</h2>
 <table>
 <thead>
 <tr>
@@ -7181,7 +7182,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_nisse">ED_Nisse</h2>
+<h2 id="ed_nisse">ED_Nisse  圣诞小精灵</h2>
 <table>
 <thead>
 <tr>
@@ -7260,7 +7261,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_grunt_rock_warning">ED_Spider_Grunt_Rock_Warning</h2>
+<h2 id="ed_spider_grunt_rock_warning">ED_Spider_Grunt_Rock_Warning  矿化爆发的矿化战士异虫</h2>
 <table>
 <thead>
 <tr>
@@ -7275,7 +7276,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_spider_tank_rock_warning">ED_Spider_Tank_Rock_Warning</h2>
+<h2 id="ed_spider_tank_rock_warning">ED_Spider_Tank_Rock_Warning  矿化爆发的矿化禁卫异虫</h2>
 <table>
 <thead>
 <tr>
@@ -7294,7 +7295,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_flyingsmartrock">ED_FlyingSmartRock</h2>
+<h2 id="ed_flyingsmartrock">ED_FlyingSmartRock  飞石</h2>
 <table>
 <thead>
 <tr>
@@ -7401,7 +7402,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_facilityturret_barrier">ED_FacilityTurret_Barrier</h2>
+<h2 id="ed_facilityturret_barrier">ED_FacilityTurret_Barrier  推斥炮塔</h2>
 <table>
 <thead>
 <tr>
@@ -7448,7 +7449,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_facilityturret_burst">ED_FacilityTurret_Burst</h2>
+<h2 id="ed_facilityturret_burst">ED_FacilityTurret_Burst  连射炮塔</h2>
 <table>
 <thead>
 <tr>
@@ -7559,7 +7560,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_facilityturret_sniper">ED_FacilityTurret_Sniper</h2>
+<h2 id="ed_facilityturret_sniper">ED_FacilityTurret_Sniper  狙击炮塔</h2>
 <table>
 <thead>
 <tr>
@@ -7734,7 +7735,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_insectswarm_spawner">ED_InsectSwarm_Spawner</h2>
+<h2 id="ed_insectswarm_spawner">ED_InsectSwarm_Spawner  雷鸣蜂巢</h2>
 <table>
 <thead>
 <tr>
@@ -7785,7 +7786,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_eggspider">ED_EggSpider</h2>
+<h2 id="ed_eggspider">ED_EggSpider  异虫蛋的蜂拥异虫</h2>
 <table>
 <thead>
 <tr>
@@ -7844,7 +7845,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="ed_tunnelswarmer">ED_TunnelSwarmer</h2>
+<h2 id="ed_tunnelswarmer">ED_TunnelSwarmer  异虫隧道刷新的蜂拥异虫</h2>
 <table>
 <thead>
 <tr>
