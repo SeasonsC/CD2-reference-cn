@@ -501,7 +501,7 @@
 </table>
 <h2 id="enemies-enemiesnosync">Enemies / EnemiesNoSync</h2>
 <p>See the <a href="../enemies/">Enemies/EnemiesNoSync</a> section.</p>
-<p>详情见<a href="../enemies/"></a>部分</p>
+<p>详情见<a href="../enemies/">Enemies/EnemiesNoSync</a>部分</p>
 <h2 id="escortmule">EscortMule护送任务</h2>
 <p>Controls for the Drilldozer in Escort missions.</p>
 <p>控制 朵朵属性 的字段部分</p>
@@ -706,7 +706,7 @@
 <h2 id="name">Name</h2>
 <p>The name of the difficulty. This field is necessary to be able to save the file in the in-game CD2 dropdown.
 Example:</p>
-<p>难度的名称，这个部分是必要的，以便于cd2在下拉菜单保存文件。比如</p>
+<p>难度名称。此字段为必填项，用于在游戏内 CD2 下拉菜单中识别并保存该配置。例如：</p>
 
 <pre><code class="language-json">{
     &quot;Name&quot;: &quot;Hazard 6x2 40 nitra&quot;
@@ -857,7 +857,7 @@ Example:</p>
 </code></pre>
 <h2 id="salvage">Salvage 搜救行动</h2>
 <p>A special module offering customization options for Salvage missions. It contains three submodules: <code>MiniMules</code>, <code>Uplink</code> and <code>Refuel</code> with the following fields:</p>
-<p>一个提供骡子自定义选项的模块，包括以下三个子模块：骡子、信号上传、补充燃料（三个阶段），具有以下字段</p>
+<p>一个专为 搜救行动任务 提供自定义选项的模块，包括三个子模块：MiniMules、Uplink、Refuel，各具有以下字段</p>
 <table>
 <thead>
 <tr>
@@ -1020,7 +1020,7 @@ Example:</p>
 </tbody>
 </table>
 <p>Example: a salvage where each mule spawns 20 legs and requires 15 to be repaired, and the area of the uplink bubble is 1.5x the normal.</p>
-<p>示例：一个骡局，每个骡子生成20条腿，需要15条腿修好，上传区域大小是正常的1.5倍</p>
+<p>示例：一次搜救行动，每个骡子生成20条腿，各自需要15条腿才能修好，且上传区域大小是正常的1.5倍</p>
 <pre><code class="language-json">{
     &quot;Salvage&quot;: {
        &quot;MiniMules&quot;: {
@@ -1034,7 +1034,7 @@ Example:</p>
 }
 </code></pre>
 <p>Another example: the number of legs is randomized every mission.</p>
-<p>另一个示例：让每个任务中骡腿的数量变为从数组中随机抽取。</p>
+<p>另一个示例：让每个任务中修骡需要的腿数量从数组中随机抽取。</p>
 <pre><code class="language-json">{
     &quot;Salvage&quot;: {
         &quot;MiniMules&quot;: {
