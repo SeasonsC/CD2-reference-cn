@@ -115,7 +115,7 @@
               
                 <h1 id="wave-spawners">Wave Spawners</h1>
 <p>Wave spawners are a feature of CD2 that allow the creation of unnanounced enemy waves with various degrees of flexibility. The following basic example spawns a wave of difficulty 100 composed of only grunts every 90 seconds in 3 locations around the player:</p>
-<p>波次生成器是CD2的一项功能，它允许你灵活的创建无宣告潮。下面的示例会每90秒在玩家周围的三个距离为10的位置生成一个总点数为100的只包含战士异虫的无宣告潮</p>
+<p>波次生成器是 CD2 的一项功能，可用于灵活的创建无宣告潮。下面的示例每90秒会在玩家周围的三个位置生成一波难度总点数为 100、仅由战士异虫组成的无宣告潮</p>
 <pre><code class="language-json">{
     &quot;WaveSpawners&quot;: 
         {
@@ -187,17 +187,17 @@
 <tr>
 <td>UnlockInterval</td>
 <td>Bool布尔值</td>
-<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.若为 true，改变间隔时间会立即修改当前计时器；若为 false，下波刷潮时间在设置后会被锁定直到刷潮后在更新（例如敌人实际生成后再更新Interval时间）。默认为 False。</td>
+<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.若为 true，改变间隔时间会立即更新当前计时器；若为 true，修改 <code>Interval</code> 会立即更新当前倒计时；若为 false，则下 一次生成的时间在倒计时开始时即已确定，并保持不变，直至该次敌人生成完成（此后才会根据新的 Interval 计时）。默认为 false。</td>
 </tr>
 <tr>
 <td>PauseOnDisable禁用后暂停</td>
 <td>Bool布尔值</td>
-<td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.若为 true，当WaveSpawner被禁用时倒计时暂停，重新启用后再继续计时；若为 false，重新启用WaveSpawner后倒计时都会重新计时。默认为 False</td>
+<td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.若为 true，当WaveSpawner被禁用时倒计时暂停，重新启用后再继续计时；若为 false，重新启用WaveSpawner后倒计时将重置。默认为 False</td>
 </tr>
 </tbody>
 </table>
 <p>All <code>WaveSpawner</code> fields can be mutated. The following snippet shows a popular spawner useful in Elimination missions, which spawns a bulk detonator with descriptor <code>ED_WeakBulk</code>, defined in the <code>Enemies</code> module, whenever there is a dreadnought on the map:</p>
-<p>所有 WaveSpawner 字段都可以被 Mutator 控制，下列代码展示了一个消灭任务中的实用spawner。当地图中出现无畏异虫时，会生成一个由 "Enemies"模块定义的 "ED_WeakBulk(削弱大自爆)"</p>
+<p>所有 WaveSpawner 字段都可以被 Mutator 进行动态控制，下列代码展示了一个消灭任务中的实用 wavespawner 。当地图中出现无畏异虫时，会生成一个由 "Enemies"模块定义的 "ED_WeakBulk(削弱大自爆)"</p>
 <pre><code class="language-json">{
     &quot;WaveSpawners&quot;: [
         {
