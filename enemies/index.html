@@ -83,9 +83,9 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#caveleech">CaveLeech水蛭</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#grabber">Grabber抱抱</a>
+    <li class="toctree-l2"><a class="reference internal" href="#grabber">Grabber捕手蝇</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#jellybreeder">JellyBreeder大水母</a>
+    <li class="toctree-l2"><a class="reference internal" href="#jellybreeder">JellyBreeder纳多赛特饲育水母</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#spawner">Spawner</a>
     </li>
@@ -147,18 +147,18 @@
               
                 <h1 id="enemies-enemiesnosync">Enemies / EnemiesNoSync</h1>
 <p>This module contains the enemy descriptors. The name of the module can be either <code>Enemies</code> or <code>EnemiesNoSync</code>, but never both at the same time. The choice of which to use depends on if you want your difficulty to be pubbable, that is, to be played with players that do not have CD2 installed:</p>
-<p>该模块包含敌人描述符(属性设置那些),模块的名称可以是Enemies或EnemiesNoSync，但不能同时使用两者。</p>
+<p>该模块包含敌人描述符。模块名称可以是 Enemies 或 EnemiesNoSync，但二者不可同时使用。具体选择取决于你是否希望自己的难度支持“公开匹配”，即允许未安装 CD2 的玩家加入游戏。</p>
 <ul>
 <li>Some CD2 features require being replicated to the clients, such as the <code>Scale</code> enemy control or the customization of enemy looks (materials). <code>Enemies</code> can replicate these characteristics to players, but in exchange it will force the clients to use CD2 or they will suffer a disconnect upon mission start. </li>
-<li>CD2的一些功能需要同步到客机，例如敌人尺寸控制或敌人外观（材质）定制。Enemies模块可以将这些特征同步给玩家，但这样会强制客机使用CD2，否则在任务开始时将断开连接。</li>
+<li>CD2 的某些功能需要同步到客户端，例如敌人的缩放控制（Scale）或外观（材质）自定义。Enemies 可将这些特性同步至客户端，但会强制客户端必须安装 CD2，否则任务开始时将断开连接。</li>
 <li><code>EnemiesNoSync</code> doesn't do replication to clients. A difficulty with <code>EnemiesNoSync</code> is compatible with all clients, regardless of whether they use CD1, CD2 or nothing at all. When you use <code>EnemiesNoSync</code> you are implicitly stating that you didn't use any features that require replication.</li>
-<li>EnemiesNoSync不会同步到客户端,使用EnemiesNoSync的难度设置与所有客户端兼容，无论是使用CD1、CD2的人，亦或者一个都没有的。使用EnemiesNoSync时，意味着你没有使用任何需要同步的功能。</li>
+<li>EnemiesNoSync 不会向客户端同步任何数据。使用 EnemiesNoSync 的难度配置可兼容所有客户端，无论其是否安装了 CD1、CD2，或两者皆未安装。选择 EnemiesNoSync 即表示你未使用任何需要同步的功能。</li>
 <ul>
 </ul>
 
 </ul>
 <p>To see which features require the <code>Enemies</code> module, please check the following guide by @Spy: <a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa">On Pubbing With CD2</a>.</p>
-<p>要查看哪些功能是Enemies模块的，请参考@Spy提供的以下指南：《On Pubbing With CD2》（网站里面有自己去看）。</p>
+<p>要查看哪些功能是Enemies模块的，请参考@Spy提供的以下指南：《On Pubbing With CD2》。</p>
 <h2 id="descriptor-controls">Descriptor controls</h2>
 <table>
 <thead>
@@ -307,7 +307,7 @@
 <td>If True, the enemy will have a boss bar in the player UI similar to the vanilla dreadnoughts. The name in the bar will be the descriptor's <code>DisplayName</code>.</td>
 </tr>
 <tr>
-<td>JellyBreeder大水母</td>
+<td>JellyBreeder水母饲育控制</td>
 <td>[[JellyBreeder]]</td>
 <td>See the <code>JellyBreeder</code> module below for special breeder controls.</td>
 </tr>
@@ -454,7 +454,7 @@
 <p>This module allows to give a permanent outline to an enemy, as if someone had pinged it. </p>
 <p>此模块允许为敌人设置一个永久的轮廓，就像有人标记了它一样。</p>
 <p>It is usually used to mark dangerous enemies like breeders or ranged threats so you can see them through walls. </p>
-<p>通常用于标记危险的敌人，如繁殖者或远程威胁，以便你能穿墙看到它们。</p>
+<p>通常用于标记危险的敌人，如大水母或远程威胁，以便你能穿墙看到它们。</p>
 <p>It accepts two fields: <code>Enable</code>, which accepts a boolean, and <code>Type</code>, which accepts one of the following: <code>Enemy</code> (red outline, default), <code>Friendly</code>, <code>Neutral</code> and <code>Item</code>.</p>
 <p>它接受两个字段：Enable（true/false）和Type，Type接受以下之一：敌人（红色轮廓，默认）、友好、 中立和物品。</p>
 <pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
@@ -505,7 +505,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 
 <h3 id="elite-variants-for-all-enemies">Elite variants for all enemies让所有敌人都有精英变种</h3>
 <p>Setting <code>Elite</code> to true or to some float number will only work directly for those enemies that have a vanilla elite variant: guards, grabbers, praetorians, bulks, menaces and trijaws. For the rest of the enemies, an elite base must be specified by setting <code>ForceEliteBase</code> to some existing ED that has an elite variant. As an example, the following snippet creates an elite septic spreader, which won't work without the <code>ForceEliteBase</code>:</p>
-<p>将Elite设置为true或某个浮动数值只会直接作用于那些具有原版精英变体的敌人：守卫、抱抱和三鄂等等。对于其他敌人，必须通过设置ForceEliteBase为没有精英变体的现有ED来精英化。例如，以下代码片段创建了一个精英番茄，如果没有ForceEliteBase将无法生效：</p>
+<p>将Elite设置为true或某个浮动数值只会直接作用于那些具有原版精英变体的敌人：守卫、捕手蝇和三颚等等。对于其他敌人，必须通过设置ForceEliteBase为没有精英变体的现有ED来精英化。例如，以下代码片段创建了一个精英脓毒异虫，如果没有ForceEliteBase将无法生效：</p>
 
 <pre><code class="language-json">&quot;ED_Elite_Septic_Spreader&quot;: {
     &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
@@ -557,7 +557,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
     }
 </code></pre>
 <p><code>CustomVeterans</code> also allows specifying a mutator to decide which enemies to spawn, which can give more control. One useful use case is to limit the amount of veterans of a certain type:</p>
-<p>CustomVeterans还允许指定 MUTATE 来决定生成哪些敌人，能让你控制的更精细。一个实例就是限制某种类型的变种数量：</p>
+<p>CustomVeterans还允许指定一个 Mutator，用于决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
 <pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
       &quot;CustomVeterans&quot;: {
         &quot;Mutate&quot;: &quot;RandomChoice&quot;,
@@ -583,7 +583,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 <p>CD2 allows specifying a list of <code>Materials</code> in individual enemy descriptors to customize how the enemies look. This feature requires <code>Enemies</code> for clients to be able to see the changes.</p>
 <p>CD2允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用Enemies，客户端才能看到变化。（cd1和纯净客机不支持）</p>
 <p>Example: create an orange septic.</p>
-<p>示例：创建一个橙色的番茄。</p>
+<p>示例：创建一个橙色的脓毒异虫。</p>
 <pre><code class="language-json">{
     &quot;Enemies&quot;: {
         &quot;ED_Spider_Lobber&quot;: {
@@ -835,7 +835,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </table>
 <h2 id="grabber">Grabber捕手蝇</h2>
 <p>Special controls for grabbers.</p>
-<p>控制抱抱</p>
+<p>控制捕手蝇</p>
 <table>
 <thead>
 <tr>
