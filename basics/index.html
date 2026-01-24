@@ -121,11 +121,11 @@
                 <p class="cn">CD2 基础知识</p>
 <h2 id="the-cd2-gui">The CD2 GUI</h2>
 <p>CD2 features a simple GUI compatible with both ModHub and UUI:</p>
-<p class="cn">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI，比 ModHub 更好看更好用）。</p>
+<p class="cn">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI）。</p>
 <figure>
   <img alt="CD2modhub" src="../pictures/cd2-modhub.png" />
   <figcaption>Main CD2 screen in Modhub.</figcaption>
-  <p class="cn">Modhub 中的 CD2 主界面（原文有截图和cd1差不多）。</p>
+  <p class="cn">Modhub 中的 CD2 主界面。</p>
 </figure>
 <p>The files for your difficulties can be pasted and edited in the text box. After clicking <code>Save</code>, the file will be saved based on the name in the <code>Name</code> top level field; if the file already existed, it will be overwritten. Difficulties get saved inside your mod config. You can check all your difficulties by clicking on the drop-down menu.</p>
 <p class="cn">你的难度可以在文本框中粘贴/编辑。点击Save后，这个难度会根据name后面的部分命名保存。如果你已经有这个难度了，就会覆写旧难度。你保存的难度，可以通过下拉菜单检查。</p>
@@ -142,7 +142,7 @@
 <p class="cn">CD1 难度文件与 CD2 不兼容。</p>
 
 <li>The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</li>
-<p class="cn"> 大概是说其顶层模块部分具有不同功能<a href="../modules/">模块（modules）</a></p>
+<p class="cn"> 顶层模块部分具有不同功能<a href="../modules/">模块（modules）</a></p>
 
 <li>If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </li>
 <p class="cn">如果 CD2 文件中缺少某个模块或字段，则会使用 BaseHazard 中的默认值。BaseHazard 可以在 DifficultySetting 模块中指定。如果未指定，则默认使用 Hazard 5。</p>
@@ -172,7 +172,7 @@
 <p class="cn">如果玩家人数超过数组长度，则会使用数组的最后一个值。</p>
 <ul>
 <li>Most fields can change based on gameplay conditions using <a href="../mutators/">mutators</a>. The best way to learn how to use them is to look at already existing difficulties and trying to understand what they do.</li>
-<p class="cn">大多数字段都可以使用 <a href="../mutators/">mutators</a> 根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。</p>
+<li>大多数字段都可以使用 <a href="../mutators/">mutators</a> 根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。</li>
 
 </ul>
 <p>The following is a very simple file for Hazard 5x2, that is, vanilla Hazard 5 with double enemies and a 60 nitra resupply cost:</p>
