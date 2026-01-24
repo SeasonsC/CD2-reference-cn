@@ -161,7 +161,7 @@
               
                 <h1 id="modules">Modules模块</h1>
 <p>Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.</p>
-<p class="cn">模块是cd2 有效代码难度中上面的那部分，以下是所有模块的序列（字母顺序排列）</p>
+<p class="cn">模块是有效 CD2 JSON 配置文件中的顶层字段名称。以下列出了当前可用的所有模块（按字母顺序排列）。</p>
 
 <h2 id="caps">Caps</h2>
 <p>Control for the maximum number of enemies in the map, with the following fields:</p>
@@ -203,11 +203,11 @@
 }
 </code></pre>
 <p>When the number of enemies in the map reach their cap, new enemies will be prevented from spawning and some existing enemies will despawn. The exact mechanics behind this behaviour are not completely understood. </p>
-<p class="cn">虫量刷到上限之后，新敌人生成会被阻止，已有敌人可能被移除（官难掏蛋一般一次掏几个的原因），具体的机制未完全明确</p>
+<p class="cn">虫量刷到上限之后，新敌人生成会被阻止，已有敌人可能被移除，具体的机制未完全明确</p>
 
 <h2 id="darkness">Darkness</h2>
 <p>The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields (descriptions provided by @noskill):</p>
-<p class="cn">Darkness 这个模块用于控制太空站与任务中照明与光照有关的部分，包含以下字段。（描述来自@noskill这个人，佬）</p>
+<p class="cn">Darkness 这个模块用于控制太空站与任务中照明与光照有关的部分，包含以下字段。（描述来自@noskill这个佬）</p>
 
 <table>
 <thead>
@@ -293,7 +293,7 @@
 </table>
 <h2 id="description">Description</h2>
 <p>A short explanation of the difficulty.</p>
-<p>“Description”用于粗略介绍难度</p>
+<p>Description 用于简要说明该难度</p>
 
 <p>Example:</p>
 <p>比如:</p>
@@ -310,7 +310,7 @@
 <p class="cn">这里的说明比较简略，因为cd1和这个地方大致一样。（参考已有的cd1的说明就好了）</p>
 
 <P>To see the values of these fields for the vanilla Hazards and some others, please check the <a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview">DRG Hazard Scaling</a> file.</P>
-<p>官方的难度可以参考DRG Hazard Scaling这个文件（去原网站看）</p>
+<p>官方的难度可以参考DRG Hazard Scaling这个文件[Resource里面]</p>
 
 <table>
 <thead>
@@ -328,7 +328,7 @@
 </tr>
 
 <tr>
-<td>ExtraLargeEnemyDamageResistance无畏、看守着抗性</td>
+<td>ExtraLargeEnemyDamageResistance无畏、看守者抗性</td>
 <td>Affects the damage resistance of the three dreadnought variants.</td>
 </tr>
 
@@ -443,12 +443,12 @@
 </tr>
 
 <tr>
-<td>HealthRegenerationMax残血后最大回血量</td>
+<td>HealthRegenerationMax残血后最大回血比例</td>
 <td>Maximum health that the dwarves regenerate naturally to.</td>
 </tr>
 
 <tr>
-<td>ReviveHealthRatio复活后回血量</td>
+<td>ReviveHealthRatio复活后回血比例</td>
 <td>Health points after revive.</td>
 </tr>
 
@@ -732,10 +732,10 @@ Example:</p>
 }
 </code></pre>
 <p>Where it is understood that all the names in the <code>Choices</code> field are other difficulties existing in your CD2 list. The same snippet can be used to change the difficulty at random in deep dive stages. </p>
-<p>你可以理解为，Choice字段中的难度是你在CD2列表中存在的其它难度。相同的字段可以运用于深浅随机改变难度。</p>
+<p>Choices字段中列出的名称，必须是 CD2 难度列表中已存在的其他难度。相同的配置片段也可用于 深潜 阶段，以实现随机切换难度。</p>
 
 <p>If you don't want the difficulty to change when launching a mission from the Space Rig, the <code>IfOnSpaceRig</code> mutator can be used as follows: </p>
-<P>如果你不希望在太空站启动任务时更改难度，可以使用IfOnSpaceRig的MUTATOR,如下示例</P>
+<P>如果你不希望从太空站启动任务时难度发生变化，可使用 IfOnSpaceRig Mutator，示例如下：</P>
 <pre><code class="language-json">{
   &quot;NextDifficulty&quot;: {
     &quot;Mutate&quot;: &quot;IfOnSpaceRig&quot;,
@@ -744,9 +744,9 @@ Example:</p>
   }
 }
 </code></pre>
-<h3 id="different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive每个深浅阶段的不同难度，</h3>
+<h3 id="different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive每个深潜阶段的不同难度，</h3>
 <p>This is a common application of <code>NextDifficulty</code> allowing to mimic the increasing difficulty of the vanilla Deep Dive with whatever set of three difficulties you choose. The way to set it up is as follows: let's say that we want to play Hazard 5x2 on Stage 1, Hazard 6x2 on Stage 2 and ND on Stage 3. We will need the three files saved in Custom Difficulty, and then we would add the following to each:</p>
-<p>这是 NextDifficulty的一个常见应用，允许模仿原版深浅中逐渐增加的难度，使用你选择的三个难度。设置方法如下：假想你想在第一阶段玩 5x2，第二阶段玩6x2，第三阶段玩ND（一个国外的有名难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
+<p>这是 NextDifficulty的一个常见应用，允许模仿原版深潜中逐渐增加的难度，使用你选择的三个难度。设置方法如下：假想你想在第一阶段玩 5x2，第二阶段玩6x2，第三阶段玩ND（一个国外的有名难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
 
 <pre><code class="language-json">{
     &quot;Name&quot;: &quot;Hazard 5x2&quot;,
@@ -763,7 +763,7 @@ Example:</p>
 }
 </code></pre>
 <p>The ND file, being the one played in stage 3, doesn't need any modifications. In addition to editing the files for stage 1 and 2, you will need a "starter" file:</p>
-<p>ND这个难度不需要任何修改。除了编辑第一阶段和第二阶段的文件外，你还需要一个“启动器”。</p>
+<p>"ND"这个文件(国外社区的一个难度，即第三阶段所使用的难度)不需要任何修改。除了编辑第一阶段和第二阶段的文件外，你还需要一个“起始文件”。</p>
 <pre><code class="language-json">{
     &quot;Name&quot;: &quot;Dive Starter&quot;,
     &quot;NextDifficulty&quot;: &quot;Hazard 5x2&quot;
@@ -825,7 +825,7 @@ Example:</p>
 </tbody>
 </table>
 <p>The fields marked with <code>*</code> accept the <code>Add</code> (list), <code>Remove</code> (list) and <code>Clear</code> (bool) fields for adding and removing enemies at will. The <code>EnemyPool</code> can be freely manipulated with <a href="../mutators/">mutators</a> during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. <strong>It is not recommended to mutate the other pools.</strong> </p>
-<p>带有✳标记的字段接受Add、Remove和Clear，用于按需添加或移除。EnemyPool在任务过程中可以通过Mutate自由编辑，允许根据游戏条件添加和溢出敌人。其它池子不推荐使用</p>
+<p>带有✳标记的字段接受Add、Remove和Clear，用于按需添加或移除。EnemyPool在任务过程中可以通过Mutate自由编辑，允许根据游戏条件添加和溢出敌人。其它池子不推荐使用 Mutator实时更改</p>
 <p>Example:</p>
 <p>比如:</p>
 
@@ -855,7 +855,7 @@ Example:</p>
   }
 }
 </code></pre>
-<h2 id="salvage">Salvage 搜救（骡局）</h2>
+<h2 id="salvage">Salvage 搜救行动</h2>
 <p>A special module offering customization options for Salvage missions. It contains three submodules: <code>MiniMules</code>, <code>Uplink</code> and <code>Refuel</code> with the following fields:</p>
 <p>一个提供骡子自定义选项的模块，包括以下三个子模块：骡子、信号上传、补充燃料（三个阶段），具有以下字段</p>
 <table>
@@ -1011,7 +1011,7 @@ Example:</p>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>LeavePenaltyMultiplier[refuel区域所需最少人数]</td>
+<td>LeavePenaltyMultiplier离开上传区域掉进度的速度</td>
 <td>Float</td>
 <td>1</td>
 <td>0 means no lost progress if leaving the defense area</td>
@@ -1128,7 +1128,7 @@ Example:</p>
 </code></pre>
 <h2 id="soundcues">SoundCues 整点动静</h2>
 <p>A module that allows CD2 to play a sound in response to events happening during the mission. It has two fields: a boolean <code>Play</code> which accepts mutators and a <code>Cue</code> which accepts the path to the sound you want to play. As an example, the following snippet plays a laughing sound when a player dies:</p>
-<p>它包含2个字段，Play（true/false决定是否播放）；Cue（b动静文件路径）。示例：以下字段会在玩家死的时候嘻嘻哈哈</p>
+<p>它包含2个字段，Play（true/false决定是否播放）；Cue（动静文件路径）。示例：以下字段会在玩家死的时候嘻嘻哈哈</p>
 <pre><code class="language-json">...,
  &quot;SoundCues&quot;: [
     {
@@ -1229,8 +1229,7 @@ Example:</p>
 }
 </code></pre>
 <p>The <code>StartingNitra</code> field from CD1 does not exist in CD2: the same functionality is done with mutators. Example: the first resupply is free, 40 nitra for all others:</p>
-
-<p>cd1里面的开局送硝石量在cd2不存在，但是仍然可以实现相关功能。示例如下：第一次补给免费，其余每次40n。</p>
+<p>CD1 中的 StartingNitra 字段在 CD2 中已不存在，但可通过 Mutator 实现相同功能。示例如下：第一次补给免费，后续每次消耗40n。</p>
 <pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: {
@@ -1277,7 +1276,7 @@ Example:</p>
 <h2 id="warnings">Warnings</h2>
 <p>The <code>Warnings</code> module can be used to ban mission anomalies. It accepts a single <code>Banned</code> field which is one or more from the table below. <strong>Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.</strong> </p>
 
-<p><code>Warnings</code>  模块可用于禁止任务词条。它接受一个 Banned 字段，其值可为下表中的一个或多个。<strong>请注意，禁止影响资源产出的词条（例如矿石天堂或淘金热啥来着）会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
+<p><code>Warnings</code>  模块可用于禁止任务词条。它接受一个 Banned 字段，其值可为下表中的一个或多个。<strong>请注意，禁止影响资源产出的词条会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
 <table>
 <thead>
 <tr>
