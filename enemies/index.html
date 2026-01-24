@@ -505,7 +505,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 
 <h3 id="elite-variants-for-all-enemies">Elite variants for all enemies让所有敌人都有精英变种</h3>
 <p>Setting <code>Elite</code> to true or to some float number will only work directly for those enemies that have a vanilla elite variant: guards, grabbers, praetorians, bulks, menaces and trijaws. For the rest of the enemies, an elite base must be specified by setting <code>ForceEliteBase</code> to some existing ED that has an elite variant. As an example, the following snippet creates an elite septic spreader, which won't work without the <code>ForceEliteBase</code>:</p>
-<p>将Elite设置为true或某个浮动数值只会直接作用于那些具有原版精英变体的敌人：守卫、捕手蝇和三颚等等。对于其他敌人，必须通过设置ForceEliteBase为没有精英变体的现有ED来精英化。例如，以下代码片段创建了一个精英脓毒异虫，如果没有ForceEliteBase将无法生效：</p>
+<p>将Elite设置为true或某个浮点数，，仅对原版已具备精英变体的敌人直接生效，如守卫、捕手蝇、禁卫、、大自爆、速射和三颚等等。对于其他敌人，必须通过 ForceEliteBase 指定一个已有精英变体的敌人描述符（ED） 作为模板。例如，以下代码片段创建了一个精英脓毒异虫，如果没有ForceEliteBase 则无法生成其精英变体：</p>
 
 <pre><code class="language-json">&quot;ED_Elite_Septic_Spreader&quot;: {
     &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
@@ -514,12 +514,12 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 }
 </code></pre>
 <p>The type of elite specified as base can modify the characteristics of your custom elite descriptor, feel free to experiment. </p>
-<p>你选择的 ForceEliteBase 能够影响你想要elite的敌人，尽管尝试</p>
+<p>你选择的 ForceEliteBase 能够影响你想要自定义 elite 的敌人的属性，尽管尝试</p>
 
 
 <h3 id="veteran-control">Veteran control变种控制</h3>
 <p>Veterans allow some enemies to promote to other enemies. In vanilla the veteran classes are hardcoded (for example, oppressors are praetorians that got promoted with a probability given by the <code>VeteranLarge</code> setting in <a href="../modules/">DifficultySetting</a>). CD2 improves the system by allowing the player to create their own custom veteran classes. There are currently two ways to interact with the veteran system:</p>
-<p>变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过DifficultySetting中的VeteranLarge设置以一定概率晋升为暴君的）。CD2改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
+<p>变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过DifficultySetting中的VeteranLarge设置以一定概率变异为暴君的）。CD2改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
 <ul>
 <li><code>VeteranClasses</code> accepts a list of descriptors that the base descriptor can promote to. <code>VeteranClasses</code> uses <code>VeteranNormal</code> probablities unless <code>UsesVeteranLarge</code> is set to true. The following snippet shows an example:</li>
 <li>VeteranClasses接受一个描述符列表，以控制虫子可以变异为哪些虫子。VeteranClasses使用VeteranNormal的概率，除非将UsesVeteranLarge设置为true。以下代码片段展示了一个例子：</li>
@@ -578,7 +578,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
     },
 </code></pre>
 <p>This snippet gives a very high chance of wardens to spawn until there are 5 of them in the map, at which point the probability to get more warden promotions will drop to 0.</p>
-<p>这个代码片段给了典狱长很高的生成几率，直到地图上有5个典狱长变异成更多典狱长的概率将下降为0。</p>
+<p>这个代码片段给了典狱长很高的生成几率，直到地图上有5只典狱长；此后，战士异虫变异为典狱长的概率将下降为0。</p>
 <h3 id="custom-materials">Custom materials自定义材质</h3>
 <p>CD2 allows specifying a list of <code>Materials</code> in individual enemy descriptors to customize how the enemies look. This feature requires <code>Enemies</code> for clients to be able to see the changes.</p>
 <p>CD2允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用Enemies，客户端才能看到变化。（cd1和纯净客机不支持）</p>
@@ -1224,7 +1224,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>FreezeTemperature</td>
 <td>Float</td>
-<td>冻结温度阈值</td>
+<td>冻结温度阈值(注意：冰冻的应该为负值)</td>
 </tr>
 <tr>
 <td>UnfreezeTemperature</td>
