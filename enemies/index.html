@@ -515,15 +515,15 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 }
 </code></pre>
 <p>The type of elite specified as base can modify the characteristics of your custom elite descriptor, feel free to experiment. </p>
-<p>你选择的 ForceEliteBase 能够影响你想要自定义 elite 的敌人的属性，尽管尝试</p>
+<p>你选择的 ForceEliteBase 能够影响你想要自定义精英变种的敌人的属性，尽管尝试</p>
 
 
-<h3 id="veteran-control">Veteran control变种控制</h3>
+<h3 id="veteran-control">Veteran control(变种控制)</h3>
 <p>Veterans allow some enemies to promote to other enemies. In vanilla the veteran classes are hardcoded (for example, oppressors are praetorians that got promoted with a probability given by the <code>VeteranLarge</code> setting in <a href="../modules/">DifficultySetting</a>). CD2 improves the system by allowing the player to create their own custom veteran classes. There are currently two ways to interact with the veteran system:</p>
 <p>变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过DifficultySetting中的VeteranLarge设置以一定概率变异为暴君的）。CD2改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
 <ul>
 <li><code>VeteranClasses</code> accepts a list of descriptors that the base descriptor can promote to. <code>VeteranClasses</code> uses <code>VeteranNormal</code> probablities unless <code>UsesVeteranLarge</code> is set to true. The following snippet shows an example:</li>
-<li>VeteranClasses接受一个描述符列表，以控制虫子可以变异为哪些虫子。VeteranClasses使用VeteranNormal的概率，除非将UsesVeteranLarge设置为true。以下代码片段展示了一个例子：</li>
+<li>VeteranClasses接受一个描述符列表，以控制基础敌人可以变异为哪些敌人。VeteranClasses使用 VeteranNormal 的概率，除非将 UsesVeteranLarge 设置为true。以下代码片段展示了一个例子：</li>
 </ul>
 <pre><code class="language-json">&quot;DifficultySetting&quot;: {
     &quot;VeteranNormal&quot;: {
@@ -544,10 +544,10 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 }
 </code></pre>
 <p>With these settings, Grunts will promote to acid and web spitters with a 20 % chance each time they spawn. One disadvantage of this approach is that <code>VeternalNormal</code> and <code>VeteranLarge</code> are global.</p>
-<p>通过这种设置时，小战士每次生成时都有20%的概率变种为吐酸/吐丝。这种方法的一个缺点是，VeteranNormal和VeteranLarge是全局设置（不单独自定义就是都采用这个值）。</p>
+<p>通过此设置，小战士每次生成时都有20%的概率变种为吐酸异虫/吐丝异虫。这种方法的一个缺点是，VeteranNormal 和 VeteranLarge 是全局设置（即所有使用该配置的都采用这个值）。</p>
 <ul>
 <li>The second way is <code>CustomVeterans</code>, which bypasses the <code>VeternalNormal</code> and <code>VeteranLarge</code> settings and lets the user specify the probability directly. The following snippet whould work exactly as the one before, but now the probabilities are contained to the grunt descriptor instead of being global:</li>
-<li>第二种方式是CustomVeterans，它绕过了VeteranNormal和VeteranLarge的设置，允许你直接指定变种率。以下代码片段功能与之前的完全相同，但现在概率仅作用于战士异虫，而不是全局生效：</li>
+<li>第二种方式是 CustomVeterans，它绕过了VeteranNormal和VeteranLarge的设置，允许你单独指定变异率。以下代码片段功能与之前的完全相同，但现在概率仅作用于战士异虫，而非全局生效：</li>
 </ul>
 <pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
      &quot;CustomVeterans&quot;: {
@@ -558,7 +558,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
     }
 </code></pre>
 <p><code>CustomVeterans</code> also allows specifying a mutator to decide which enemies to spawn, which can give more control. One useful use case is to limit the amount of veterans of a certain type:</p>
-<p>CustomVeterans还允许指定一个 Mutator，用于决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
+<p>CustomVeterans还允许通过 Mutator 来决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
 <pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
       &quot;CustomVeterans&quot;: {
         &quot;Mutate&quot;: &quot;RandomChoice&quot;,
@@ -579,10 +579,11 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
     },
 </code></pre>
 <p>This snippet gives a very high chance of wardens to spawn until there are 5 of them in the map, at which point the probability to get more warden promotions will drop to 0.</p>
-<p>这个代码片段给了典狱长很高的生成几率，直到地图上有5只典狱长；此后，战士异虫变异为典狱长的概率将下降为0。</p>
-<h3 id="custom-materials">Custom materials自定义材质</h3>
+<p>当地图上典狱长数量未达到5只时，该代码片段会赋予其极高的生成概率；一旦达到5只，战士异虫变异为典狱长的概率将降至零。</p>
+
+<h3 id="custom-materials">Custom materials(自定义材质)</h3>
 <p>CD2 allows specifying a list of <code>Materials</code> in individual enemy descriptors to customize how the enemies look. This feature requires <code>Enemies</code> for clients to be able to see the changes.</p>
-<p>CD2允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用Enemies，客户端才能看到变化。（cd1和纯净客机不支持）</p>
+<p>CD2允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用 Enemies 模块，客户端才能看到变化。（未安装 CD2 的客户端不支持）</p>
 <p>Example: create an orange septic.</p>
 <p>示例：创建一个橙色的脓毒异虫。</p>
 <pre><code class="language-json">{
@@ -599,10 +600,10 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 </figure>
 <p>Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in <a href="https://mod.io/g/drg/m/sandbox-utilities">Sandbox Utilities</a> and changing them, and you will be able to see the change in real time. This procedure is explained in <a href="../media/Materials-1.pdf">this document</a> by @TheBrain.
 If you wish to leave a slot with the default material, both <code>""</code> and <code>Default</code> work.</p>
-<p>每个敌人有一定数量的材质槽，有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并找到新材质的最佳方式是将敌人生成在沙盒工具中并进行更改，可以让你实时看到变化。这个过程在 @TheBrain的文档中有说明，如果你希望将材质槽留空以使用默认材质，可以使用""或Default。</p>
-<h2 id="resistances">Resistances抗性</h2>
+<p>每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在沙盒工具中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用""或Default都可以。</p>
+<h2 id="resistances">Resistances(抗性)</h2>
 <p>Fields for the resistances submodule. These controls can be used to define resistances to all types of damage in the game. <code>DamageMultiplier</code> is the catch-all for all damage types.</p>
-<p>抗性子模块的字段，这些控制可以用来定义敌人对所有类型伤害的抗性，DamageMultiplier是所有伤害类型的通用抗性设置。</p>
+<p>Resistances 模块的字段，这些控制项可以用来定义敌人对所有类型伤害的抗性，DamageMultiplier 是适用于所有伤害类型的通用设置。</p>
 <table>
 <thead>
 <tr>
@@ -615,73 +616,73 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>InvulnerableToNonDefinedResistances</td>
 <td>Boolean</td>
-<td>免疫未定义抗性</td>
+<td>免疫未定义的伤害类型</td>
 </tr>
 <tr>
 <td>DamageMultiplier</td>
 <td>Float</td>
-<td>受到伤害倍数</td>
+<td>受到的所有类型伤害的倍数</td>
 </tr>
 <tr>
 <td>FireDamageMultiplier</td>
 <td>Float</td>
-<td>火</td>
+<td>火伤害倍数</td>
 </tr>
 <tr>
 <td>CorrosiveDamageMultiplier</td>
 <td>Float</td>
-<td>腐蚀（泥）</td>
+<td>腐蚀伤害倍数（典型的如:泥枪）</td>
 </tr>
 <tr>
 <td>ElectricDamageMultiplier</td>
 <td>Float</td>
-<td>电</td>
+<td>电伤害倍数</td>
 </tr>
 <tr>
 <td>ColdDamageMultiplier</td>
 <td>Float</td>
-<td>冰</td>
+<td>冰伤害倍数</td>
 </tr>
 <tr>
 <td>KineticDamageMultiplier</td>
 <td>Float</td>
-<td>动能</td>
+<td>动能伤害倍数</td>
 </tr>
 <tr>
 <td>PhysicalDamageMultiplier</td>
 <td>Float</td>
-<td>近战</td>
+<td>物理伤害倍数(近战)</td>
 </tr>
 <tr>
 <td>ExplosionDamageMultiplier</td>
 <td>Float</td>
-<td>爆炸</td>
+<td>爆炸伤害倍数</td>
 </tr>
 <tr>
 <td>InternalDamageMultiplier</td>
 <td>Float</td>
-<td>内部</td>
+<td>内部伤害倍数</td>
 </tr>
 <tr>
 <td>RadiationDamageMultiplier</td>
 <td>Float</td>
-<td>辐射</td>
+<td>辐射伤害倍数</td>
 </tr>
 <tr>
 <td>PoisonDamageMultiplier</td>
 <td>Float</td>
-<td>毒（屁雷）</td>
+<td>毒伤害倍数（典型的如：屁雷）</td>
 </tr>
 <tr>
 <td>PiercingDamageMultiplier</td>
 <td>Float</td>
-<td>穿刺（弩）</td>
+<td>穿刺伤害倍数（典型的如：弩）</td>
 </tr>
 </tbody>
 </table>
-<h2 id="movement">Movement移动</h2>
+<h2 id="movement">Movement(移动)</h2>
 <p>The following values are all multipliers with defaults of 1. The following descriptions are provided by @emctwo. </p>
-<p>以下值都是倍增器，默认值为1。以下描述由 @emctwo 提供。</p>
+<p>以下值均为倍率，默认值为1。描述由 @emctwo 提供。</p>
 <table>
 <thead>
 <tr>
@@ -692,68 +693,68 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </thead>
 <tbody>
 <tr>
-<td>MaxPawnSpeed最大速度</td>
+<td>MaxPawnSpeed  最大速度</td>
 <td>Float</td>
 <td>Multiplies the maximum speed of the enemy.</td>
 </tr>
 <tr>
-<td>StrafeSpeed转向速度</td>
+<td>StrafeSpeed 侧移速度</td>
 <td>Float</td>
 <td>Multiplies enemy speed when strafing (enemy movement changes to strafe when they are close to a player).</td>
 </tr>
 <tr>
-<td>MinSlowdownAngle最小转向减速角度</td>
+<td>MinSlowdownAngle  最小转向减速角度</td>
 <td>Float</td>
 <td>When enemies turn they tend to slow down; this field multiplies the minimum angle for the speed change.</td>
 </tr>
 <tr>
-<td>MaxSlowdownAngle最大转向减速角度</td>
+<td>MaxSlowdownAngle  最大转向减速角度</td>
 <td>Float</td>
 <td>When enemies turn they tend to slow down; this field multiplies the maximum angle for the speed change.</td>
 </tr>
 <tr>
-<td>MaxStrafeDistance最大开始转向距离</td>
+<td>MaxStrafeDistance 最大侧移起始距离</td>
 <td>Float</td>
 <td>The distance to a player where the enemy starts to strafe.</td>
 </tr>
 <tr>
-<td>AlignDirectionSpeed转向速度</td>
+<td>AlignDirectionSpeed 转向速度</td>
 <td>Float</td>
 <td>Multiplies how quickly the enemy turns.</td>
 </tr>
 <tr>
-<td>FleeSpeedBoostMultiplier恐惧逃离速度</td>
+<td>FleeSpeedBoostMultiplier  恐惧逃离速度</td>
 <td>Float</td>
 <td>Multiplies enemy speed when feared.</td>
 </tr>
 <tr>
-<td>MaxAcceleration最大加速度</td>
+<td>MaxAcceleration 最大加速度</td>
 <td>Float</td>
 <td>Multiplies how quickly the enemy can change speed.</td>
 </tr>
 <tr>
-<td>MaxBrakingDeceleration最大减速度</td>
+<td>MaxBrakingDeceleration  最大减速度</td>
 <td>Float</td>
 <td>Affects how quickly the enemy slows down, which mostly changes how far away from the player they start to slow down.</td>
 </tr>
 <tr>
-<td>PathfinderSize寻路距离大小</td>
+<td>PathfinderSize  寻路距离大小</td>
 <td>Currently Unsupported</td>
 <td></td>
 </tr>
 <tr>
-<td>AlignToTargetMinRequiredAngle敌人开始转向所需的最小偏角</td>
+<td>AlignToTargetMinRequiredAngle 转向对齐最小所需角度</td>
 <td>Float</td>
 <td>The minimal angle required between the enemy's forward direction and the player position to start turning.</td>
 </tr>
 <tr>
-<td>PathfinderPreference寻路优先级</td>
+<td>PathfinderPreference  寻路优先级</td>
 <td>Currently Unsupported</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="caveleech">CaveLeech水蛭</h2>
+<h2 id="caveleech">CaveLeech(水蛭)</h2>
 <p>Special controls for cave leeches.</p>
 <p>水蛭的特殊控制</p>
 <table>
@@ -834,7 +835,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tr>
 </tbody>
 </table>
-<h2 id="grabber">Grabber捕手蝇</h2>
+<h2 id="grabber">Grabber(捕手蝇)</h2>
 <p>Special controls for grabbers.</p>
 <p>控制捕手蝇</p>
 <table>
@@ -933,7 +934,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tr>
 </tbody>
 </table>
-<h2 id="jellybreeder">JellyBreeder水母</h2>
+<h2 id="jellybreeder">JellyBreeder(水母)</h2>
 <p>Special controls for breeders.</p>
 <p>控制水母</p>
 <table>
@@ -1096,9 +1097,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
   }
 }
 </code></pre>
-<h2 id="spawner">Spawner生成器</h2>
+<h2 id="spawner">Spawner(生成器)</h2>
 <p><code>Spawner</code> is a special submodule that allows any enemy to periodically spawn other enemies with different flexilibity options. It contains the following fields:</p>
-<p>Spawner是一个特殊子模块，允许任何敌人定期生成其他敌人，并提供不同的灵活选项。它包含以下字段：</p>
+<p> Spawner 是一个特殊子模块，允许任何敌人周期性生成其他敌人，并提供多种灵活的选项。它包含以下字段：</p>
 <table>
 <thead>
 <tr>
@@ -1180,9 +1181,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </code></pre>
 <p>All fields inside the <code>Spawner</code> can be mutated.</p>
 <p>所有 Spawner模块内的字段可以被 Mutate控制</p>
-<h2 id="temperature">Temperature温度</h2>
+<h2 id="temperature">Temperature(温度)</h2>
 <p>Special temperature controls to change how enemies react to heat and cold.</p>
-<p>温度控制，用于改变敌人对热和冷的反应。</p>
+<p>特殊的温度控制，用于改变敌人对高温和低温的反应。</p>
 <table>
 <thead>
 <tr>
@@ -1210,7 +1211,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>OnFireHeatRange</td>
 <td>Float</td>
-<td>着火后热源作用范围</td>
+<td>着火后作为热源的作用范围</td>
 </tr>
 <tr>
 <td>BurnTemperature</td>
@@ -1255,7 +1256,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>MaxColdSlowdown</td>
 <td>Float</td>
-<td>低温导致的最最大减速比例</td>
+<td>低温导致的最大减速比例</td>
 </tr>
 </tbody>
 </table>
