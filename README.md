@@ -6,6 +6,8 @@ This repository contains a Chinese translation of the CD2 Mod Reference, which w
 
 本仓库收录的是 CD2 Mod Reference 的中文翻译。原参考文档主要由 vonacht 编写，由 Brain 与其共同制作，并有 carrot、spy、noskill 等多位作者的协作与贡献。
 
+注意：本项目为 **非官方** 的中文翻译项目。  
+
 ## 📄 Scope of This Translation翻译说明
 
 This project provides translation only.
@@ -27,11 +29,12 @@ https://vonacht.github.io/cd2reference/
 Special thanks to:
 特别感谢：
 
+vonacht — for authoring most of the documentation and granting translation permission.
+vonacht —— 撰写了主要内容并授权进行翻译。
+
 Brain — for creating CD2 and writing parts of the reference.
 Brain —— 创建了 CD2，并撰写了部分文档内容。
 
-vonacht — for authoring most of the documentation and granting translation permission.
-vonacht —— 撰写了主要内容并授权进行翻译。
 
 carrot, spy, noskill, and all contributors who helped build the original cd2-reference.
 carrot、spy、noskill 等以及所有参与原 cd2-reference 的贡献者。
