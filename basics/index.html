@@ -119,7 +119,7 @@
               
                 <h1 id="the-basics-of-cd2">The basics of CD2</h1>
                 <p class="cn">CD2 基础知识</p>
-<h2 id="the-cd2-gui">The CD2 GUI</h2>
+<h2 id="the-cd2-gui">The CD2 GUI(CD2 界面)</h2>
 <p>CD2 features a simple GUI compatible with both ModHub and UUI:</p>
 <p class="cn">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI）。</p>
 <figure>
@@ -128,12 +128,12 @@
   <p class="cn">Modhub 中的 CD2 主界面。</p>
 </figure>
 <p>The files for your difficulties can be pasted and edited in the text box. After clicking <code>Save</code>, the file will be saved based on the name in the <code>Name</code> top level field; if the file already existed, it will be overwritten. Difficulties get saved inside your mod config. You can check all your difficulties by clicking on the drop-down menu.</p>
-<p class="cn">你的难度可以在文本框中粘贴/编辑。点击Save后，这个难度会根据name后面的部分命名保存。如果你已经有这个难度了，就会覆写旧难度。你保存的难度，可以通过下拉菜单检查。</p>
+<p class="cn">你的难度可以在文本框中粘贴或编辑。点击Save后，该难度会根据顶层字段 name 后面的部分命名保存。如果同名难度已存在，则会覆写旧难度。你保存的难度均存于模组配置中，可以通过下拉菜单查看。</p>
 
 <p>The <code>Reset</code> button sets a difficulty as a default upon starting the game.</p>
-<p class="cn">Reset 会将当前难度设为默认难度。</p>
+<p class="cn">Reset 会将当前难度设为游戏启动时的默认难度。</p>
 
-<h2 id="the-cd2-files">The CD2 files</h2>
+<h2 id="the-cd2-files">The CD2 files (CD2难度文件要求)</h2>
 <ul>
 <li>CD2 files are in the <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> format.</li>
 <li>CD2 文件使用 <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> 格式。</li>
@@ -142,7 +142,7 @@
 <li>CD1 难度文件与 CD2 不兼容。</li>
 
 <li>The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</li>
-<li> 顶层模块部分具有不同功能<a href="../modules/">模块（modules）</a></li>
+<li>顶层模块部分为具有不同功能<a href="../modules/">Modules(模块部分)</a></li>
 
 <li>If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </li>
 <li>如果 CD2 文件中缺少某个模块或字段，则会使用 BaseHazard 中的默认值。BaseHazard 可以在 DifficultySetting 模块中指定。如果未指定，则默认使用 Hazard 5。</p>
@@ -160,7 +160,7 @@
 }
 </code></pre>
 <p>which means that <code>MaxActiveEnemies</code> scales with the number of players, 1 to 4, with the values specified inside. The arrays can be as large as desired to accomodate for 4+ player lobbies:</p>
-<p class="cn">例如上面这个例子，MaxActiveEnemies 会随着玩家人数（1～4人）变化，依次使用数组中的数值。你也可以拓展你这个数组，以适应4人以上的情况：</p>
+<p class="cn">例如上面这个例子,MaxActiveEnemies 会随着玩家人数(1~4人)变化,依次使用数组中的数值。你也可以拓展这个数组,以适应4人以上的情况:</p>
 
 <pre><code class="language-json">{
     &quot;Caps&quot;: {
@@ -172,11 +172,11 @@
 <p class="cn">如果玩家人数超过数组长度，则会使用数组的最后一个值。</p>
 <ul>
 <li>Most fields can change based on gameplay conditions using <a href="../mutators/">mutators</a>. The best way to learn how to use them is to look at already existing difficulties and trying to understand what they do.</li>
-<li>大多数字段都可以使用 <a href="../mutators/">mutators</a> 根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。</li>
+<li>大多数字段都可以使用 <a href="../mutators/">Mutators</a> 根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。</li>
 
 </ul>
 <p>The following is a very simple file for Hazard 5x2, that is, vanilla Hazard 5 with double enemies and a 60 nitra resupply cost:</p>
-<p class="cn">下面是一个 5x2难度的实例，即在5级难度的基础上，让敌人数量翻倍，且补给消耗为60n：</p>
+<p class="cn">下面是一个 5x2难度的实例,即在5级难度的基础上,让敌人数量翻倍,且补给消耗为60n:</p>
 
 <pre><code class="language-json">{
   &quot;Name&quot;: &quot;Hazard 5x2&quot;,
