@@ -224,14 +224,14 @@
 <td>FlashlightStrength手电筒亮度</td>
 <td>Float</td>
 <td>1?</td>
-<td>Headlight light strength, affects both range and strength of the light.手电筒，影响范围与亮度。</td>
+<td>Headlight light strength, affects both range and strength of the light.手电筒，影响光照范围与亮度。</td>
 
 </tr>
 <tr>
 <td>PlayerIllumination玩家自带光源</td>
 <td>Float</td>
 <td>1?</td>
-<td>Light strength in a radius around the player. Only affects strength and not radius.玩家自身光照强度，仅影响亮度不影响范围。</td>
+<td>Light strength in a radius around the player. Only affects strength and not radius.玩家周围半径内的光照强度，仅影响亮度，不影响范围。</td>
 
 </tr>
 <tr>
@@ -251,47 +251,47 @@
 <td>FlareDuration荧光棒持续时间</td>
 <td>Float</td>
 <td>30</td>
-<td>Duration of the player flares.荧光棒发光持续时间。</td>
+<td>Duration of the player flares.玩家荧光棒发光的持续时间。</td>
 
 </tr>
 <tr>
 <td>FlareProductionTime荧光棒冷却时间</td>
 <td>Float</td>
 <td>12</td>
-<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.荧光棒冷却时间，不建议在任务中修改。</td>
+<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.玩家荧光棒的冷却时间,注意:不建议在任务中修改。</td>
 </tr>
 
 <tr>
 <td>EnvironmentalLight环境光照</td>
 <td>Float</td>
 <td>1?</td>
-<td>Environmental (cave) light. Affects both radius and strength.洞穴环境光亮度。</td>
+<td>Environmental (cave) light. Affects both radius and strength.洞穴环境光亮度，影响光照范围和亮度。</td>
 
 </tr>
 <tr>
 <td>DisableFog禁用迷雾</td>
 <td>Bool</td>
 <td>False</td>
-<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎不能再次打开。</td>
+<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</td>
 </tr>
 
 <tr>
 <td>FlareGunStrength侦察照明弹亮度</td>
 <td>Float</td>
 <td>1?</td>
-<td>Strength of Scout's flare gun flares.</td>
+<td>Strength of Scout's flare gun flares.侦察照明弹的光照强度</td>
 
 </tr>
 <tr>
 <td>FlareGunDuration侦察照明弹持续时间</td>
 <td>Float</td>
 <td>Depends on flare gun stats</td>
-<td>Duration of Scout's flare gun flares.</td>
+<td>Duration of Scout's flare gun flares.侦察照明弹的发光持续时间。</td>
 
 </tr>
 </tbody>
 </table>
-<h2 id="description">Description</h2>
+<h2 id="description">Description(描述)</h2>
 <p>A short explanation of the difficulty.</p>
 <p>Description 用于简要说明该难度</p>
 
@@ -302,15 +302,15 @@
     &quot;Description&quot;: &quot;Hazard 6 with double enemies.&quot;
 }
 </code></pre>
-<h2 id="difficultysetting">DifficultySetting</h2>
+<h2 id="difficultysetting">DifficultySetting(难度设置)</h2>
 <p>Main controls for enemy resistance, swarm and wave intervals and enemy counts. </p>
-<p class="cn">“DifficultySetting”模块用于控制敌人抗性、潮间隔和虫量等重要因素。</p>
+<p class="cn">“DifficultySetting”模块主要用于控制敌人抗性、虫潮间隔和敌人数量等核心因素。</p>
 
 <P>The descriptions here are very summarized, please check <a href="https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0">A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic</a>, a CD1 guide explaining most of the fields inside this module foe details. </P>
-<p class="cn">这里的说明比较简略，因为cd1和这个地方大致一样。（参考已有的cd1的说明就好了）</p>
+<p class="cn">此处说明比较简略，详情请参考《深岩银河自定义难度快速入门》，一份基于 CD1编写的指南,解释了了本模块中的大部分字段(因为cd1和这个地方大致一样)</p>
 
 <P>To see the values of these fields for the vanilla Hazards and some others, please check the <a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview">DRG Hazard Scaling</a> file.</P>
-<p>官方的难度可以参考DRG Hazard Scaling这个文件[Resource里面]</p>
+<p>若要查看原版难度及其他的一些难度(如6级、7级),请查阅《DRG Hazard Scaling》这个文件[Resource里面]</p>
 
 <table>
 <thead>
@@ -328,87 +328,87 @@
 </tr>
 
 <tr>
-<td>ExtraLargeEnemyDamageResistance无畏、看守者抗性</td>
+<td>ExtraLargeEnemyDamageResistance 无畏、看守者抗性</td>
 <td>Affects the damage resistance of the three dreadnought variants.</td>
 </tr>
 
 <tr>
-<td>ExtraLargeEnemyDamageResistanceB王草抗性</td>
+<td>ExtraLargeEnemyDamageResistanceB  王草抗性</td>
 <td>Affects the damage resistance of the Korlok Tyrant Weed.</td>
 </tr>
 
 <tr>
-<td>ExtraLargeEnemyDamageResistanceC除虫器抗性</td>
+<td>ExtraLargeEnemyDamageResistanceC  除虫器抗性</td>
 <td>Affects the damage resistance of the OMEN Tower.</td>
 </tr>
 
 <tr>
-<td>ExtraLargeEnemyDamageResistanceD精英抗性</td>
+<td>ExtraLargeEnemyDamageResistanceD  精英抗性</td>
 <td>Affects the damage resistance of Elite enemies.</td>
 </tr>
 
 <tr>
-<td>EnemyDamageResistance普通敌人抗性</td>
+<td>EnemyDamageResistance 普通敌人抗性</td>
 <td>Damage resistance of most larger enemies in the game: praetorians, oppressors, menaces, goo bombers, bulk detonators, etc.</td>
 </tr>
 
 <tr>
-<td>SmallEnemyDamageResistance小型敌人抗性（包括不限于战士三兄弟、异虫蝇一家）</td>
+<td>SmallEnemyDamageResistance  小型敌人抗性（包括不限于战士三兄弟）</td>
 <td>Damage resistance of everything not covered by the other resistance fields: grunts, mactera, swarmers, etc.</td>
 </tr>
 
 <tr>
-<td>EncounterDifficulty遭遇潮点数</td>
+<td>EncounterDifficulty 遭遇潮点数</td>
 <td>Difficulty of the encounters, waves that appear when the players come within a certain distance of an unexplored cave.</td>
 </tr>
 
 <tr>
-<td>StationaryDifficulty固定点数</td>
+<td>StationaryDifficulty  固定点数</td>
 <td>How many stationary enemies will spawn.</td>
 </tr>
 
 <tr>
-<td>EnemyCountModifier敌人数量</td>
+<td>EnemyCountModifier  敌人数量</td>
 <td>A global multiplier on the number of enemies that will spawn in waves, swarms, constant pressure, extraction, among others.</td>
 </tr>
 
 <tr>
-<td>EnemyWaveInterval播报潮间隔</td>
+<td>EnemyWaveInterval 播报潮间隔</td>
 <td>Interval in seconds between swarms (announced).</td>
 </tr>
 
 <tr>
-<td>EnemyNormalWaveInterval自然潮间隔</td>
+<td>EnemyNormalWaveInterval 自然潮间隔</td>
 <td>Interval in seconds between normal (non-announced) waves.</td>
 </tr>
 
 <tr>
-<td>EnemyNormalWaveDifficulty自然潮点数</td>
+<td>EnemyNormalWaveDifficulty 自然潮点数</td>
 <td>How many enemies will spawn in a normal wave.</td>
 </tr>
 
 <tr>
-<td>EnemyDiversity敌人多样性</td>
+<td>EnemyDiversity  敌人多样性</td>
 <td>Determines how many enemies will spawn in a given spawn event, given an <code>EnemyPool</code>.</td>
 </tr>
 
 <tr>
-<td>StationaryEnemyDiversity固定敌人多样性</td>
+<td>StationaryEnemyDiversity  固定敌人多样性</td>
 <td>Enemy diversity roll for stationary enemies (everything in the <code>StationaryPool</code>).</td>
 </tr>
 
 <tr>
-<td>VeteranNormal小型敌人变异率</td>
+<td>VeteranNormal 小型敌人变异率</td>
 <td>Percentage of Grunt and Mactera veterans promoting from the non-veteran variants.</td>
 </tr>
 
 <tr>
-<td>VeteranLarge大型敌人变异率</td>
+<td>VeteranLarge  大型敌人变异率</td>
 <td>Percentage of Oppressors promoting to veterans from Praetorians.</td>
 </tr>
 
 <tr>
-<td>EnviromentalDamageModifier环境伤害</td>
+<td>EnviromentalDamageModifier  环境伤害</td>
 <td></td>
 </tr>
 
@@ -418,43 +418,43 @@
 </tr>
 
 <tr>
-<td>FriendlyFireModifier友伤系数</td>
+<td>FriendlyFireModifier  友伤系数</td>
 <td>How much friendly fire players deal to each other.</td>
 </tr>
 
 <tr>
-<td>WaveStartDelayScale播报潮延迟</td>
+<td>WaveStartDelayScale 播报潮延迟</td>
 <td>Adds (or subtracts) a delay for the first swarm in a mission. The delay in seconds will be 150 · WaveStartDelayScale. The default is zero; if negative (eg. -1), a swarm will spawn directly at mission start.</td>
 </tr>
 
 <tr>
-<td>SpeedModifier虫子移速</td>
+<td>SpeedModifier 敌人移速</td>
 <td>Global modifier affecting the speed of ground enemies. Mactera are unaffected.</td>
 </tr>
 
 <tr>
-<td>AttackCooldownModifier虫子攻速</td>
+<td>AttackCooldownModifier  敌人攻速</td>
 <td>Global modifier affecting the speed of enemy attack animations.</td>
 </tr>
 
 <tr>
-<td>ProjectileSpeedModifier发射物速度</td>
+<td>ProjectileSpeedModifier 敌人发射物速度</td>
 <td>Global modifier affecting the speed of all projectiles.</td>
 </tr>
 
 <tr>
-<td>HealthRegenerationMax残血后最大回血比例</td>
+<td>HealthRegenerationMax 残血后最大回血比例（若该比例足够高，则可做到呼吸回血）</td>
 <td>Maximum health that the dwarves regenerate naturally to.</td>
 </tr>
 
 <tr>
-<td>ReviveHealthRatio复活后回血比例</td>
+<td>ReviveHealthRatio 复活后回血比例</td>
 <td>Health points after revive.</td>
 </tr>
 
 </tbody>
 </table>
-<h2 id="dwarves">Dwarves</h2>
+<h2 id="dwarves">Dwarves(矮人属性)</h2>
 <p>Offers some controls related to the players.</p>
 <p class="cn">提供与玩家有关的一些参数。</p>
 
@@ -468,43 +468,44 @@
 </thead>
 <tbody>
 <tr>
-<td>FallDamageModifier摔落伤害</td>
+<td>FallDamageModifier  摔落伤害</td>
 <td>Default: 0.175</td>
 <td></td>
 </tr>
 
 <tr>
-<td>FallDamageStartVelocity开始计算摔落伤害的速度</td>
+<td>FallDamageStartVelocity 开始计算摔落伤害的速度</td>
 <td>Default: 1000</td>
 <td>Multiplier for player shield capacity.</td>
 </tr>
 
 <tr>
-<td>RegenHealthPerSecond每秒回复血量</td>
+<td>RegenHealthPerSecond  每秒回复血量</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
-<td>RegenDelayAfterDamage受致命伤后回复延迟</td>
+<td>RegenDelayAfterDamage 受致命伤后回复延迟</td>
 <td></td>
 <td></td>
 </tr>
 
 <tr>
-<td>Scale玩家体型比例</td>
+<td>Scale 玩家体型比例</td>
 <td></td>
 <td>Player size.</td>
 </tr>
 
 </tbody>
 </table>
-<h2 id="enemies-enemiesnosync">Enemies / EnemiesNoSync</h2>
+<h2 id="enemies-enemiesnosync">Enemies / EnemiesNoSync(敌人配置[客服端同步/不同步])</h2>
 <p>See the <a href="../enemies/">Enemies/EnemiesNoSync</a> section.</p>
 <p>详情见<a href="../enemies/">Enemies/EnemiesNoSync</a>部分</p>
-<h2 id="escortmule">EscortMule护送任务</h2>
+
+<h2 id="escortmule">EscortMule(护送任务)</h2>
 <p>Controls for the Drilldozer in Escort missions.</p>
-<p>控制 朵朵属性 的字段部分</p>
+<p>控制护送任务重 朵朵属性 的字段部分</p>
 
 <table>
 <thead>
@@ -517,77 +518,77 @@
 </thead>
 <tbody>
 <tr>
-<td>HealPerTickNormal每刻回血量</td>
+<td>HealPerTickNormal 每刻回血量</td>
 <td>Float</td>
 <td>13</td>
 <td>Currently unsupported.</td>
 </tr>
 
 <tr>
-<td>HealPerTickUnderAttack被攻击时每刻回血量</td>
+<td>HealPerTickUnderAttack  被攻击时每刻回血量</td>
 <td>Float</td>
 <td>4.5</td>
 <td>Currently unsupported.</td>
 </tr>
 
 <tr>
-<td>MaxAttackersOmoranFight心石阶段最多攻击朵朵虫量？</td>
+<td>MaxAttackersOmoranFight 心石阶段最多攻击朵朵虫量?</td>
 <td>Float</td>
 <td>6</td>
 <td>Currently unsupported.</td>
 </tr>
 
 <tr>
-<td>MaxHealth最大血量</td>
+<td>MaxHealth 最大血量</td>
 <td>Float</td>
 <td>520</td>
 <td>Currently unsupported.</td>
 </tr>
 
 <tr>
-<td>FriendlyFireModifier友伤系数</td>
+<td>FriendlyFireModifier  友伤系数</td>
 <td>Float</td>
 <td>0.1</td>
 <td></td> 
 </tr>
 
 <tr>
-<td>NeutralDamageModifier中立生物伤害系数</td>
+<td>NeutralDamageModifier 中立生物伤害系数</td>
 <td>Float</td>
 <td>0.1</td>
 <td></td>
 </tr>
 
 <tr>
-<td>BigHitDamageModifier减伤系数</td>
+<td>BigHitDamageModifier  减伤系数</td>
 <td>Float</td>
 <td>0.5</td>
 <td></td>
 </tr>
 
 <tr>
-<td>BigHitDamageReductionThreshold减伤判定阈值</td>
+<td>BigHitDamageReductionThreshold  减伤判定阈值</td>
 <td>Float</td>
 <td>6</td>
 <td></td>
 </tr>
 
 <tr>
-<td>PST_PoisonResistance毒抗</td>
+<td>PST_PoisonResistance  毒抗</td>
 <td>Float</td>
 <td>0.25</td>
 <td>Currently unsupported.</td>
 </tr>
 
 <tr>
-<td>PST_RadiationResistance辐射抗性</td>
+<td>PST_RadiationResistance 辐射抗性</td>
 <td>Float</td>
 <td>0.5</td>
 <td>Currently unsupported.</td>
 </tr>
 
 <tr>
-<td>PST_ExplosionResistance爆炸抗性</td>
+<td>PST_ExplosionResistance 爆炸抗性</td>
 <td>Float</td>
 <td>0.5</td>
 <td>Currently unsupported.</td>
@@ -595,17 +596,17 @@
 
 </tbody>
 </table>
-<h2 id="maxplayers">MaxPlayers 最多玩家数</h2>
+<h2 id="maxplayers">MaxPlayers(最多玩家数)</h2>
 <p>A field accepting an int specifying the maximum number of players allowed in the lobby. </p>
-<p>一个可以设定大厅允许的最大玩家数的字段</p>
+<p>一个整数字段，用于设定大厅允许的最大玩家数</p>
 
 <pre><code class="language-json">{
     &quot;MaxPlayers&quot;: 16
 }
 </code></pre>
-<h2 id="messages">Messages 信息</h2>
+<h2 id="messages">Messages(信息)</h2>
 <p>A module that allows CD2 to send messages to chat in response to events happening during the mission. It has The following fields:</p>
-<p>这个模块允许 CD2在任务期间发生某些事件时向聊天框发送信息</p>
+<p>该模块允许 CD2 在任务期间发生某些事件时,向聊天框发送信息。它包含以下字段:</p>
 <table>
 <thead>
 <tr>
@@ -617,7 +618,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Send</td>
+<td>Send  发送条件</td>
 <td>Boolean</td>
 <td>False</td>
 <td>Send chat message when true</td>
@@ -627,25 +628,25 @@
 <td>SendOnChange</td>
 <td>Boolean</td>
 <td>False</td>
-<td>Send chat message when another value (e.g. message) changes</td>
+<td>Send chat message when another value (e.g. message) changes 当另一个值发生变化时发送消息(例如：倒计时性质的消息)</td>
 </tr>
 
 <tr>
-<td>Type</td>
+<td>Type  发送人类别</td>
 <td>String</td>
 <td>Game</td>
 <td>Options:  Game, Normal, Delux, Developer, Streamer, Modder</td>
 </tr>
 
 <tr>
-<td>Sender</td>
+<td>Sender  发送人名称</td>
 <td>String</td>
 <td>CD2</td>
 <td>Name of the Sender</td>
 </tr>
 
 <tr>
-<td>Message</td>
+<td>Message 发送的消息</td>
 <td>String</td>
 <td></td>
 <td></td>
@@ -657,7 +658,7 @@
 <p>Examples:</p>
 <p>示例:</p>
 <p>The following snippet sends a message on chat when the next resupply is available.</p>
-<p>以下字段会在下一次补给可用时发送消息</p>
+<p>以下字段会在下一次补给可用时发送消息：</p>
 
 <pre><code class="language-json">...,
 &quot;Messages&quot;: [
@@ -678,7 +679,7 @@
 ...
 </code></pre>
 <p>The following snippet sends a message on chat when a player dies.</p>
-<p>以下部分会在有玩家死亡时发送消息</p>
+<p>以下字段会在有玩家死亡时发送消息：</p>
 
 <pre><code class="language-json">...,
 &quot;Messages&quot;: [
@@ -703,7 +704,7 @@
 ],
 ...
 </code></pre>
-<h2 id="name">Name</h2>
+<h2 id="name">Name(名称)</h2>
 <p>The name of the difficulty. This field is necessary to be able to save the file in the in-game CD2 dropdown.
 Example:</p>
 <p>难度名称。此字段为必填项，用于在游戏内 CD2 下拉菜单中识别并保存该配置。例如：</p>
@@ -712,9 +713,9 @@ Example:</p>
     &quot;Name&quot;: &quot;Hazard 6x2 40 nitra&quot;
 }
 </code></pre>
-<h2 id="nextdifficulty">NextDifficulty Next难度</h2>
+<h2 id="nextdifficulty">NextDifficulty（Next难度）</h2>
 <p><code>NextDifficulty</code> allows CD2 to automatically pick another difficulty at two specific moments:</p>
-<p>允许CD2在2个特定时刻选择另一个难度</p>
+<p>允许 CD2 在两个特定时刻自动选择另一个难度</p>
 <ol>
 <li>When launching a mission from the space rig. </li>
 <p>在太空站台开始任务时，</p>
@@ -722,7 +723,7 @@ Example:</p>
 <p>在任务完成后。</p>
 </ol>
 <p>There are many different uses for this field but a typical application is, using the <code>RandomChoice</code> mutator, choosing a difficulty at random when launching a mission:</p>
-<p>这个字段有很多不同的用途，比较典型的是使用RandomChoice的MUTATOR，在启动任务时随机选择一个难度</p>
+<p>该字段有很多不同的用途，比较典型的是使用 RandomChoice 的 MUTATOR ，在启动任务时随机选择一个难度</p>
 <pre><code class="language-json">{ 
  &quot;Name&quot;: &quot;Difficulty Roulette&quot;, 
  &quot;NextDifficulty&quot;: {
@@ -732,7 +733,7 @@ Example:</p>
 }
 </code></pre>
 <p>Where it is understood that all the names in the <code>Choices</code> field are other difficulties existing in your CD2 list. The same snippet can be used to change the difficulty at random in deep dive stages. </p>
-<p>Choices字段中列出的名称，必须是 CD2 难度列表中已存在的其他难度。相同的配置片段也可用于 深潜 阶段，以实现随机切换难度。</p>
+<p>Choices 字段中列出的名称，必须是 CD2 难度列表中已存在的其他难度。相同的配置片段也可用于 深潜阶段，以实现随机切换难度。</p>
 
 <p>If you don't want the difficulty to change when launching a mission from the Space Rig, the <code>IfOnSpaceRig</code> mutator can be used as follows: </p>
 <P>如果你不希望从太空站启动任务时难度发生变化，可使用 IfOnSpaceRig Mutator，示例如下：</P>
@@ -746,7 +747,7 @@ Example:</p>
 </code></pre>
 <h3 id="different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive每个深潜阶段的不同难度，</h3>
 <p>This is a common application of <code>NextDifficulty</code> allowing to mimic the increasing difficulty of the vanilla Deep Dive with whatever set of three difficulties you choose. The way to set it up is as follows: let's say that we want to play Hazard 5x2 on Stage 1, Hazard 6x2 on Stage 2 and ND on Stage 3. We will need the three files saved in Custom Difficulty, and then we would add the following to each:</p>
-<p>这是 NextDifficulty的一个常见应用，允许模仿原版深潜中逐渐增加的难度，使用你选择的三个难度。设置方法如下：假想你想在第一阶段玩 5x2，第二阶段玩6x2，第三阶段玩ND（一个国外的有名难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
+<p>这是 NextDifficulty的一个常见应用，通过使用你选择的三个难度，来模仿原版深潜中逐渐增加的难度。设置方法如下：假想你想在第一阶段玩 5*2，第二阶段玩6*2，第三阶段玩ND（一个国外社区的难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
 
 <pre><code class="language-json">{
     &quot;Name&quot;: &quot;Hazard 5x2&quot;,
@@ -771,17 +772,18 @@ Example:</p>
 </code></pre>
 <p>This Dive Starter will be the file you will select while on the Space Rig before starting the dive, and it should point to the difficulty you want to play on the first stage.</p>
 <p>这个 Dive Starter 文件是你在太空平台上开始深潜之前选择的文件，它应该是你想在第一阶段玩的难度。</p>
+
 <h2 id="nitramultiplier">NitraMultiplier</h2>
 <p>A special module that accepts a float and controls the amount of nitra generated in the map. It has a default of 1. The following snippet would generate twice the amount of nitra in a certain mission:</p>
-<p>一个特殊模块，可以通过修改点数控制地图中生成的硝石数量，默认为1，以下字段就是让地图生成2倍硝石的示例</p>
+<p>一个特殊模块，可以通过修改浮点数值来控制地图中生成的硝石数量，默认为1，以下字段会让地图生成 2 倍硝石:</p>
 
 <pre><code class="language-json">{
     &quot;NitraMultiplier&quot;: 2
 }
 </code></pre>
-<h2 id="pools">Pools</h2>
+<h2 id="pools">Pools(怪池)</h2>
 <p><code>Pools</code> is where enemies can be added or removed from the different pools in the game. For more information, <a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing">this document</a> is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in <code>Pools</code> are:</p>
-<p>Pools 是敌人可以从游戏中的不同敌人池中添加或移除的地方。更多的信息，请参阅本文件中对怪池系统的解释，以及它们如何用于决定任务中出现的敌人。其中接受的字段有以下内容：</p>
+<p>Pools 模块是用于从游戏中的不同怪池中添加或移除敌人的地方。更多的信息请参阅<a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing">文件</a>中对怪池系统的解释，以及决定任务中出现那些敌人的原理。其接受的字段有以下内容：</p>
 <table>
 <thead>
 <tr>
