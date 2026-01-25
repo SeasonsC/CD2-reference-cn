@@ -150,7 +150,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Modules模块</li>
+      <li class="breadcrumb-item active">Modules(模块)</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -159,13 +159,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="modules">Modules模块</h1>
+                <h1 id="modules">Modules(模块)</h1>
 <p>Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.</p>
 <p class="cn">模块是有效 CD2 JSON 配置文件中的顶层字段名称。以下列出了当前可用的所有模块（按字母顺序排列）。</p>
 
-<h2 id="caps">Caps</h2>
+<h2 id="caps">Caps(虫量上限)</h2>
 <p>Control for the maximum number of enemies in the map, with the following fields:</p>
-<p class="cn">控制地图中虫量的多少，包含以下字段：</p>
+<p class="cn">控制地图中敌人数量的多少,包含以下字段:</p>
 
 <table>
 <thead>
@@ -182,12 +182,12 @@
 <td>Int</td>
 </tr>
 <tr>
-<td>MaxActiveEnemies最大小型生物数量</td>
+<td>MaxActiveEnemies最大大型生物数量</td>
 <td>Int</td>
 
 </tr>
 <tr>
-<td>Max Active Swarmers最大大型生物数量</td>
+<td>Max Active Swarmers最大小型生物数量</td>
 <td>Int</td>
 </tr>
 
@@ -203,11 +203,11 @@
 }
 </code></pre>
 <p>When the number of enemies in the map reach their cap, new enemies will be prevented from spawning and some existing enemies will despawn. The exact mechanics behind this behaviour are not completely understood. </p>
-<p class="cn">虫量刷到上限之后，新敌人生成会被阻止，已有敌人可能被移除，具体的机制未完全明确</p>
+<p class="cn">当地图中的敌人数量达到上限后，新敌人生成将无法生成，并且部分已有敌人可能会被移除，具体的机制尚未完全明确</p>
 
-<h2 id="darkness">Darkness</h2>
+<h2 id="darkness">Darkness（光照控制）</h2>
 <p>The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields (descriptions provided by @noskill):</p>
-<p class="cn">Darkness 这个模块用于控制太空站与任务中照明与光照有关的部分，包含以下字段。（描述来自@noskill这个佬）</p>
+<p class="cn">Darkness 模块用于控制太空站与任务中照明与光照，包含以下字段。（描述来自@noskill）</p>
 
 <table>
 <thead>
