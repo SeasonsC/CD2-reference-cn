@@ -805,19 +805,19 @@ Example:</p>
 <td>Int (min, max)</td>
 </tr>
 <tr>
-<td>CommonEnemies</td>
+<td>CommonEnemies </td>
 <td>*</td>
 </tr>
 <tr>
-<td>SpecialEnemies</td>
+<td>SpecialEnemies  特殊敌人池</td>
 <td>*</td>
 </tr>
 <tr>
-<td>DisruptiveEnemies</td>
+<td>DisruptiveEnemies 破坏性敌人池</td>
 <td>*</td>
 </tr>
 <tr>
-<td>StationaryPool</td>
+<td>StationaryPool  固定敌人池</td>
 <td>*</td>
 </tr>
 <tr>
@@ -827,7 +827,7 @@ Example:</p>
 </tbody>
 </table>
 <p>The fields marked with <code>*</code> accept the <code>Add</code> (list), <code>Remove</code> (list) and <code>Clear</code> (bool) fields for adding and removing enemies at will. The <code>EnemyPool</code> can be freely manipulated with <a href="../mutators/">mutators</a> during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. <strong>It is not recommended to mutate the other pools.</strong> </p>
-<p>带有✳标记的字段接受Add、Remove和Clear，用于按需添加或移除。EnemyPool在任务过程中可以通过Mutate自由编辑，允许根据游戏条件添加和溢出敌人。其它池子不推荐使用 Mutator实时更改</p>
+<p>带有✳标记的字段可接受Add、Remove和Clear，用于按需添加或移除敌人。EnemyPool在任务过程中可以通过 Mutator 自由编辑，允许根据游戏条件动态添减敌人。其它池子不推荐使用 Mutator 实时更改</p>
 <p>Example:</p>
 <p>比如:</p>
 
@@ -873,49 +873,49 @@ Example:</p>
 <tbody>
 <tr>
 <td>MiniMules</td>
-<td>ScanUsable可否扫描骡腿</td>
+<td>ScanUsable  可否扫描骡腿</td>
 <td>Usable</td>
 <td></td>
 <td>Settings for e holding to scan for legs</td>
 </tr>
 <tr>
 <td>MiniMules</td>
-<td>RepairUsable可否修骡子</td>
+<td>RepairUsable  可否修骡子</td>
 <td>Usable</td>
 <td></td>
 <td>Settings for e holding to repair the minimule</td>
 </tr>
 <tr>
 <td>MiniMules</td>
-<td>LegsRequired需要的骡腿数量</td>
+<td>LegsRequired  每个骡子需要的骡腿数量</td>
 <td>Int</td>
 <td>3</td>
 <td>Number of legs that must be attached before allowing repair</td>
 </tr>
 <tr>
 <td>MiniMules</td>
-<td>LegsPerMule每个骡子周围生成的骡腿</td>
+<td>LegsPerMule 每个骡子周围生成的骡腿</td>
 <td>Int</td>
 <td>4</td>
 <td>Number of legs to spawn per minimule</td>
 </tr>
 <tr>
 <td>MiniMules</td>
-<td>LegDistance每个骡腿距离骡子的距离</td>
+<td>LegDistance 每个骡腿距离骡子的距离</td>
 <td>Float</td>
 <td>1500</td>
 <td>Untested, should be distance legs spawn from the minimules</td>
 </tr>
 <tr>
 <td>MiniMules</td>
-<td>Count骡子总量</td>
+<td>Count 骡子总量</td>
 <td>Int</td>
 <td>2</td>
 <td>Number of minimules to spawn (or 1.5x on long Salvage)</td>
 </tr>
 <tr>
 <td>MiniMules</td>
-<td>NitraToGive修完骡子给的硝石量</td>
+<td>NitraToGive 修完骡子给的硝石量</td>
 <td>Int</td>
 <td>50</td>
 <td>Nitra given by the mules after repairing them</td>
@@ -929,42 +929,42 @@ Example:</p>
 </tr>
 <tr>
 <td>Uplink</td>
-<td>RepairUsable可否激活上传</td>
+<td>RepairUsable  可否激活上传</td>
 <td>Usable</td>
 <td></td>
 <td>Settings for holding e to activate the uplink</td>
 </tr>
 <tr>
 <td>Uplink</td>
-<td>Scale上传区域大小</td>
+<td>Scale 上传区域大小</td>
 <td>Float</td>
 <td>1</td>
 <td>Size of the triangulation zone</td>
 </tr>
 <tr>
 <td>Uplink</td>
-<td>Duration上传需要时间</td>
+<td>Duration  上传需要时间</td>
 <td>Float</td>
 <td>80</td>
 <td>Defense duration in seconds</td>
 </tr>
 <tr>
 <td>Uplink</td>
-<td>ExtraDefenderBonus额外抗性</td>
+<td>ExtraDefenderBonus  额外抗性</td>
 <td>Float</td>
 <td>0.25</td>
 <td></td>
 </tr>
 <tr>
 <td>Uplink</td>
-<td>DisableLeaveShout让上传区域没人的时候不许管理层叫</td>
+<td>DisableLeaveShout 让上传区域没人的时候不许任务管理中心警告</td>
 <td>Bool</td>
 <td>false</td>
 <td>Disables mission control messages when there are no players in the defense area.</td>
 </tr>
 <tr>
 <td>Uplink</td>
-<td>LeavePenaltyMultiplier离开上传区域掉进度的速度</td>
+<td>LeavePenaltyMultiplier  离开上传区域掉进度的速度</td>
 <td>Float</td>
 <td>1</td>
 <td>1 means vanilla penalty (2x the speed progress normally increases)</td>
@@ -978,42 +978,42 @@ Example:</p>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>RepairUsable可否交互</td>
+<td>RepairUsable  可否交互</td>
 <td>Usable</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>Scale区域大小</td>
+<td>Scale 区域大小</td>
 <td>Float</td>
 <td>1</td>
 <td>Size of the triangulation zone</td>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>Duration所需时间</td>
+<td>Duration  所需时间</td>
 <td>Float</td>
 <td>100</td>
 <td>Defense duration in seconds</td>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>ExtraDefenderBonus额外抗性</td>
+<td>ExtraDefenderBonus  额外抗性</td>
 <td>Float</td>
 <td>0.25</td>
 <td></td>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>DisableLeaveShout让refuel区域没人的时候不许管理层叫</td>
+<td>DisableLeaveShout让refuel 让上传区域没人的时候不许任务管理中心警告</td>
 <td>Bool</td>
 <td>false</td>
 <td></td>
 </tr>
 <tr>
 <td>Refuel</td>
-<td>LeavePenaltyMultiplier离开上传区域掉进度的速度</td>
+<td>LeavePenaltyMultiplier  离开上传区域掉进度的速度</td>
 <td>Float</td>
 <td>1</td>
 <td>0 means no lost progress if leaving the defense area</td>
@@ -1050,10 +1050,10 @@ Example:</p>
 }
 </code></pre>
 <p>Please see the <code>BySalvagePhase</code> <a href="../mutators/">mutator</a> for values that need to change during different phases of the mission. </p>
-<p>对于任务不同阶段改变数值的Mutator怎么控制，参考 BySalvagePhase mutator。</p>
+<p>对于需要根据处于任务不同阶段而改变的数值，请查阅 BySalvagePhase mutator。</p>
 <h3 id="usable-fields"><code>Usable</code> fields</h3>
 <p>Some of the fields in the table above are marked as <code>Usable</code>. These affect how the E key interactions work in some instances such as mule repairing. They accept the following fields:</p>
-<p>上述字段被标记为 Usable的，这些字段会影响某些情况下 E 键交互的方式，例如修理骡子</p>
+<p>上述表格中被标记为 Usable的字段，会影响某些情况下 E 键交互的方式，例如修理骡子。它们接受以下字段:</p>
 <table>
 <thead>
 <tr>
@@ -1064,44 +1064,44 @@ Example:</p>
 </thead>
 <tbody>
 <tr>
-<td>CoopUse是否允许多玩家协作交互</td>
+<td>CoopUse 是否允许多玩家协作交互</td>
 <td>Boolean</td>
 <td>TODO</td>
 </tr>
 <tr>
-<td>CoopUseMultiplier多玩家交互时的速度加成倍数</td>
+<td>CoopUseMultiplier 多玩家交互时的速度加成倍数</td>
 <td>Float</td>
 <td>Increases or decreases the speed boost granted when multiple players are interacting. Defaults to 1.</td>
 </tr>
 <tr>
-<td>Priority设置交互优先级</td>
+<td>Priority  交互优先级</td>
 <td>Int</td>
 <td>Sets up the priority of the E actions.</td>
 </tr>
 <tr>
-<td>ResetOnFail交互失败时是否重置进度</td>
+<td>ResetOnFail 交互失败时是否重置进度</td>
 <td>Boolean</td>
 <td>TODO</td>
 </tr>
 <tr>
-<td>UseText交互时显示的文本</td>
+<td>UseText 交互时显示的文本</td>
 <td>String</td>
 <td>TODO</td>
 </tr>
 <tr>
-<td>UseCooldown再次交互前的冷却时间</td>
+<td>UseCooldown 再次交互前的冷却时间</td>
 <td>Float</td>
 <td>Cooldown before interaction can happen again.</td>
 </tr>
 <tr>
-<td>UseDuration交互所需时间</td>
+<td>UseDuration 交互所需时间</td>
 <td>Float</td>
 <td>Duration of the E interaction.</td>
 </tr>
 </tbody>
 </table>
 <p>Some examples of use. The following snippet makes the uplink repair faster than normal when more than 1 player is interacting:</p>
-<p>使用示例:以下代码让多个玩家参与交互时比正常速度更快：</p>
+<p>使用示例:以下字段可在多个玩家参与交互时，让 Uplink的修复速度更快：</p>
 <pre><code class="language-json">{
     &quot;Salvage&quot;: {
         &quot;Uplink&quot;: {
@@ -1113,7 +1113,7 @@ Example:</p>
 }
 </code></pre>
 <p>The following snippet changes the duration of the mule repair based on how many players are interacting, and buffs the speed boost of multiple players:</p>
-<p>以下代码根据参与修骡的玩家数改变修理时间，并增强多人交互时加速效果：</p>
+<p>以下字段根据参与修骡的玩家数动态调整改变修理骡子的时间，并增强多人交互时加速修理速度：</p>
 <pre><code class="language-json">{
     &quot;Salvage&quot;: {
         &quot;MiniMules&quot;: {
@@ -1128,9 +1128,9 @@ Example:</p>
     }
 }
 </code></pre>
-<h2 id="soundcues">SoundCues 整点动静</h2>
+<h2 id="soundcues">SoundCues(声音提示)</h2>
 <p>A module that allows CD2 to play a sound in response to events happening during the mission. It has two fields: a boolean <code>Play</code> which accepts mutators and a <code>Cue</code> which accepts the path to the sound you want to play. As an example, the following snippet plays a laughing sound when a player dies:</p>
-<p>它包含2个字段，Play（true/false决定是否播放）；Cue（动静文件路径）。示例：以下字段会在玩家死的时候嘻嘻哈哈</p>
+<p>该模块允许 CD2 在任务中发生某些事件时播放音效。它包含两个字段，Play（true/false决定是否播放，可用 Mutators 动态调整）；Cue（音效文件路径）。示例：以下字段会在玩家死亡的时候嘻嘻哈哈</p>
 <pre><code class="language-json">...,
  &quot;SoundCues&quot;: [
     {
@@ -1147,11 +1147,10 @@ Example:</p>
 ...
 </code></pre>
 <p>The game has a lot of available sounds, but to play them outside the game you will need the game files and either Unreal Engine 4.27 or FModel.</p>
-<p>游戏内有大量可用音效，但如果想在游戏外播放，需要提取游戏文件，并使用 Unreal 4.27 或 FModel 工具。</p>
-<h2 id="specialencounters">SpecialEncounters 特殊遭遇事件</h2>
+<p>游戏内有大量可用音效，但如果想在游戏外播放，则需要提取游戏文件，并使用 Unreal 4.27 或 FModel 工具。</p>
+<h2 id="specialencounters">SpecialEncounters(特殊遭遇事件)</h2>
 <p>This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100 % functional as some of the encounters depend on the seasons system which CD2 cannot control for now. Each <code>SpecialEncounter</code> accepts the following fields:</p>
-<p>此模块控制一些随机事件（如Korlok、Bet-C等）的概率。请注意，此模块并非100%功能正常，因为某些遭遇依赖于CD2目前无法控制的赛季系统。
-每个<code>SpecialEncounter</code>接受以下字段：</p>
+<p>该模块用于控制一些随机特殊遭遇事件（如Korlok、Bet-C等）的出现概率。请注意，该模块不能100%正常运行，因为某些遭遇依赖于 CD2 目前无法控制的赛季系统。每个<code>SpecialEncounter</code>接受以下字段：</p>
 <table>
 <thead>
 <tr>
@@ -1161,21 +1160,21 @@ Example:</p>
 </thead>
 <tbody>
 <tr>
-<td>BaseChance基础概率</td>
+<td>BaseChance  基础概率</td>
 <td>Float</td>
 </tr>
 <tr>
-<td>Enemy敌人描述符</td>
+<td>Enemy 敌人描述符</td>
 <td>Descriptor</td>
 </tr>
 <tr>
-<td>CanSpawnInDeepDive是否能在深潜中生成</td>
+<td>CanSpawnInDeepDive  是否能在深潜中生成</td>
 <td>Bool</td>
 </tr>
 </tbody>
 </table>
 <p>The vanilla <code>SpecialEncounters</code> would look like:</p>
-<p>原版<code>SpecialEncounters</code>如下所示：</p>
+<p>原版<code>SpecialEncounters</code>配置如下所示：</p>
 <pre><code class="language-json">{
     &quot;SpecialEncounters&quot;: [
     {
@@ -1208,7 +1207,7 @@ Example:</p>
 }
 </code></pre>
 <p><code>SpecialEncounters</code> can accept any enemy descriptor in its <code>Enemy</code> field and it can be used to make sure there's exactly 1 such enemy for the whole mission. As an example, some difficulties have exactly 1 Vartok Scalebramble per mission:</p>
-<p><code>SpecialEncounters</code>可以在其<code>Enemy</code>字段中接受任何敌人描述符，并可用于确保任务中固定生成一个这样的敌人。比如，有些难度每局固定生成一个小王草：</p>
+<p><code>SpecialEncounters</code>可在其<code>Enemy</code>字段中接受任何敌人描述符，并可用于确保任务中固定生成一个这样的敌人。示例，某些难度每局固定生成一个小王草：</p>
 <pre><code class="language-json">{
     &quot;SpecialEncounters&quot;: [
         {
@@ -1219,11 +1218,11 @@ Example:</p>
       ]
 }
 </code></pre>
-<h2 id="resupply">Resupply 补给</h2>
+<h2 id="resupply">Resupply(补给)</h2>
 <p>This module contains information about the resupply cost. It accepts a single <code>float</code> field <code>Cost</code> that can be <a href="../mutators/">mutated</a>.</p>
-<p>这个模块允许你修改补给有关的数值，他接受带以下字段的配置表：</p>
+<p>该模块包含补给消耗的设置，它仅接受一个名为 Cost 的浮点数字段(注:该字段可被 Mutator 动态调整)：</p>
 <p>Example: a fixed resupply cost of 40 nitra.</p>
-<p>比如：一个只需要40n的补给</p>
+<p>示例：只需要40n的补给</p>
 <pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: 40
@@ -1257,10 +1256,11 @@ Example:</p>
 </code></pre>
 <p>While both snippets do the same thing, <code>ByResuppliesCalled</code> is usually more compact when specifying a different cost for the first few supplies.</p>
 
-<p>虽然两个代码片段功能相同，但 ByResuppliesCalled 在指定前几次补给的不同费用时更简洁（比如下面）。</p>
+<p>虽然两个代码片段功能相同，但 ByResuppliesCalled 在指定前几次补给的不同费用时更简洁。</p>
+
 <p>Example: the cost is 45, but after the 6th resupply it drops to 40. </p>
 
-<p>补给费用为 45硝石，但第 6 次之后降为 40。。</p>
+<p>示例:补给消耗 45硝石，但第 6 次之后降为 40。。</p>
 <pre><code class="language-json">{ 
   &quot;Resupply&quot;: {
     &quot;Cost&quot;: {
@@ -1275,10 +1275,10 @@ Example:</p>
   }
 }
 </code></pre>
-<h2 id="warnings">Warnings</h2>
+<h2 id="warnings">Warnings(禁用任务词条)</h2>
 <p>The <code>Warnings</code> module can be used to ban mission anomalies. It accepts a single <code>Banned</code> field which is one or more from the table below. <strong>Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.</strong> </p>
 
-<p><code>Warnings</code>  模块可用于禁止任务词条。它接受一个 Banned 字段，其值可为下表中的一个或多个。<strong>请注意，禁止影响资源产出的词条会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
+<p><code>Warnings</code>  模块可用于禁止任务词条。它接受一个 Banned 字段，其值可为下表中的一个或多个。<strong>请注意，禁用影响资源产出的词条（如矿石天堂/淘金热潮）会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
 <table>
 <thead>
 <tr>
@@ -1417,7 +1417,7 @@ Example:</p>
 </table>
 <p>Example: ban Swarmageddon and Low O2 from a difficulty.</p>
 
-<p>示例：在难度中禁止蜂拥群袭与氧气稀薄。</p>
+<p>示例：在难度中禁止蜂拥群袭与氧气稀薄词条。</p>
 <pre><code class="language-json">{
     &quot;Warnings&quot;: {
         &quot;Banned&quot;: [
