@@ -61,7 +61,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct基础属性</a>
+                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct底层属性</a>
                 </li>
               </ul>
               <ul class="current">
@@ -133,35 +133,35 @@
 <table>
 <thead>
 <tr>
-<th>Field字段</th>
-<th>Type类型</th>
-<th>Description描述</th>
+<th>Field字 段</th>
+<th>Type  类型</th>
+<th>Description 描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Enabled</td>
-<td>Bool布尔值</td>
+<td>Bool  布尔值</td>
 <td>Whether the wave spawner is active (true) or not (false).启用与否</td>
 </tr>
 <tr>
-<td>Name名称</td>
-<td>String字符串</td>
-<td>A description. Doesn't have any effect.介绍，无影响</td>
+<td>Namem 名字</td>
+<td>String  字符串</td>
+<td>A description. Doesn't have any effect. 介绍，无影响</td>
 </tr>
 <tr>
-<td>Interval间隔</td>
-<td>Float浮点数</td>
-<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.波次生成器启用后，会间隔 "x(x为 Interval设置时间)" 秒才生成首波敌人（除非 SpawnOnEnable[启用即刻生成] 为 true）。之后波次会每间隔"x"秒重复生成一次，直到被禁用。</td>
+<td>Interval  间隔</td>
+<td>Float 浮点数</td>
+<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.  波次生成器启用后，会等待 "Interval" 秒才生成首波敌人（除非 SpawnOnEnable[启用即刻生成] 为 true）。之后波次会每间隔"Interval"秒生成一次，直到被禁用。</td>
 </tr>
 <tr>
-<td>Enemies敌人</td>
-<td>[List]列表</td>
-<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.要生成的敌人列表，若省略此字段则会生成敌人池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</td>
+<td>Enemies 敌人</td>
+<td>[List]  列表</td>
+<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.要生成的敌人列表，若省略此字段则可能会生成敌人池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</td>
 </tr>
 <tr>
-<td>Difficulty难度点数</td>
-<td>Float浮点数</td>
+<td>Difficulty  难度点数</td>
+<td>Float 浮点数</td>
 <td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.分配给该波次的总难度点数，依照Enemies中各敌人的 DifficultyRating 进行数量分配。</td>
 </tr>
 <tr>
@@ -172,26 +172,26 @@
 <tr>
 <td>Diversity多样性</td>
 <td>Int整数</td>
-<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.若 Enemies 留空，Spawner会使用敌人池中所有敌人和难度的默认多样性。本字段允许为该无宣告潮单独指定多样性参数。</td>
+<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner. 若 Enemies 留空，Spawner会使用敌人池中所有敌人和难度的默认多样性。该字段允许为该无宣告潮单独指定多样性参数。</td>
 </tr>
 <tr>
-<td>Locations刷潮点</td>
-<td>Int整数</td>
-<td>Number of spawn points.刷潮地点数量</td>
+<td>Locations 刷潮点</td>
+<td>Int 整数</td>
+<td>Number of spawn points. 刷潮地点数量</td>
 </tr>
 <tr>
-<td>SpawnOnEnable启用即刻生成</td>
-<td>Bool布尔值</td>
+<td>SpawnOnEnable 启用即刻生成</td>
+<td>Bool  布尔值</td>
 <td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.若为 true，Spawner会在启用的瞬间立即生成敌人，跳过首次 Interval时间，默认为 False。</td>
 </tr>
 <tr>
 <td>UnlockInterval</td>
-<td>Bool布尔值</td>
+<td>Bool  布尔值</td>
 <td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.若为 true，改变间隔时间会立即更新当前计时器；若为 true，修改 <code>Interval</code> 会立即更新当前倒计时；若为 false，则下 一次生成的时间在倒计时开始时即已确定，并保持不变，直至该次敌人生成完成（此后才会根据新的 Interval 计时）。默认为 false。</td>
 </tr>
 <tr>
-<td>PauseOnDisable禁用后暂停</td>
-<td>Bool布尔值</td>
+<td>PauseOnDisable  禁用后暂停</td>
+<td>Bool  布尔值</td>
 <td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.若为 true，当WaveSpawner被禁用时倒计时暂停，重新启用后再继续计时；若为 false，重新启用WaveSpawner后倒计时将重置。默认为 False</td>
 </tr>
 </tbody>
