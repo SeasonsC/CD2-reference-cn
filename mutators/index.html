@@ -119,6 +119,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#drillercount">DrillerCount（钻机数量检测）</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#DroppodDistance">DroppodDistance(空降舱距离)</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#duringdefend">DuringDefend（守点期间）</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#duringdread">DuringDread（对战无畏异虫期间）</a>
@@ -163,6 +165,10 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#enemycount">EnemyCount（当前敌人计数）</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#EnemyHealth">EnemyHealth(敌人血量比例)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#EnemyDistance">EnemyDistance(敌人距离)</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#engineercount">EngineerCount（工程数量计数）</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#float2string">Float2String（浮点数转字符串）</a>
@@ -183,9 +189,15 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#join">Join（字符串拼接）</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#LockFloat, LockBoolean, LockString">LockFloat, LockBoolean, LockString</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#max">Max（最大值）</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#min">Min（最小值）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#MuleDroppodDistance">MuleDroppodDistance(矿骡与空降仓的距离)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#Nonzero">Nonzero(非零判断)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#random">Random（随机值）</a>
     </li>
@@ -199,7 +211,11 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#resupplyusesconsumed">ResupplyUsesConsumed（已消耗补给使用次数）</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#SecondaryFinished">SecondaryFinished</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#scoutcount">ScoutCount（侦察数量计数）</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#Select">Select（选择）</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#squarewave">SquareWave（轮切）</a>
     </li>
@@ -234,6 +250,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../mev-dea/">MEV, DEA and EEE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Common edits/">Common edits</a>
                 </li>
               </ul>
               <ul>
@@ -439,7 +459,7 @@ Supported mission types:</p>
 </code></pre>
 <h2 id="bysecondary">BySecondary（根据次要目标）</h2>
 <p>Can be used to detect secondary objectives both on normal missions and on deep dives. The objectives have the following names:</p>
-<p>可以用于检测普通任务/深潜任务中的次要物品。物品名称如下</p>
+<p>可以用于检测普通任务/深潜任务中的次要目标完成情况。次要目标名称如下</p>
 <table>
 <thead>
 <tr>
@@ -562,7 +582,7 @@ The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - Sta
 <h2 id="byresuppliescalled">ByResuppliesCalled（根据呼叫补给次数）</h2>
 <p>Allows specifying an array with indexes 0, 1, 2, etc, where the values at each index become valid when the number of resupplies corresponding to said index have been called.
 The most typical use is specifying a varying number of resupply costs. For example:</p>
-<p>你可以指定一个数组（例如 [0, 1, 2, …]），当呼叫补给的次数达到某个数值时，就使用数组中对应位置的值。最常见的用法是让每次呼叫补给所消耗的资源随着呼叫次数动态变化。例如：</p>
+<p>你可以指定一个数组（例如 [0, 1, 2, …]），当呼叫补给的次数达到某个数值时，就使用数组中对应位置的值。最常见的用法是让每次呼叫补给所消耗的硝石随着呼叫次数动态变化。例如：</p>
 <pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: {
@@ -706,6 +726,18 @@ Example:</p>
 <h2 id="drillercount">DrillerCount（钻机数量检测）</h2>
 <p>Number of drillers in the lobby.</p>
 <P>检测大厅中的钻机数量</P>
+
+<h2 id="DroppodDistance">DroppodDistance(空降舱距离)</h2>
+<p>Returns an average of the distance in cm between players and drop pod during mission extraction. It accepts the following fields:</p>
+<P>返回任务撤离阶段玩家与空降舱之间距离的平均值（单位为cm），它接受以下字段</P>
+<ul>
+<li><code>Default</code>: the default value to return when there is no drop pod.</li>
+<li>Default:当任务中不存在空降舱时返回的默认值</li>
+<li><code>IncludeDowned</code>: a boolean which indicates whether to include dead dwarves in the average.</li>
+<li>IncludeDowned:一个布尔字段，决定是否将倒地的矮人纳入计算</li>
+</ul>
+<p>See also: <code>MuleDroppodDistance</code> mutator.</p>
+<p>另请看： MuleDroppodDistance Mutator</p>
 
 <h2 id="duringdefend">DuringDefend（守点期间）</h2>
 <p>Becomes true when a black box, uplink or cell refuel is active.</p>
@@ -931,6 +963,30 @@ Example:</p>
 <p>which will start the timer whenever one of the enemies inside the array spawns. </p>
 <p>当数组中的任意一个敌人生成时，冷却计时器便会启动。</p>
 
+<h2 id="EnemyHealth">EnemyHealth(敌人血量比例)</h2>
+<p>This mutator returns the health of a descriptor or group of descriptors. The mutator can be configured to return the maximum, minimum, or average health among enemies with a descriptor. This value is a percentage between 0 and 1. A Default can (and should) be specified. It accepts the following fields:</p>
+<p>该 Mutator 用于获得指定敌人(通过ED/EDs来指定) 的血量比例，同时该 Mutator可配置为返回这些敌人血量比例的最大值、最小值或平均值。该值是一个介于 0~1之间的百分比，建议设定一个 Default值。该 Mutator 接受以下字段</p>
+<ul>
+<li><code>ED</code> or <code>EDs</code>: the descriptor or descriptors of the enemy or group of enemies you want to track.</li>
+<li>ED/EDs:通过指定 ED/EDs 来决定检测那些敌人</li>
+<li><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</li>
+<li>Default:当没有匹配的存活敌人时返回的值，默认为0</li>
+<li><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Average</code>.</li>
+<li>Type:统计方式，包括 Min、Max、Average，默认为 Average。</li>
+</ul>
+
+<h2 id="EnemyDistance">EnemyDistance(敌人距离)</h2>
+<p>This mutator returns the distance of enemies of a descriptor or descriptors. The mutator can be configured to return the maximum, minimum, or average distance to the closest living player among enemies. Distance is in cm. A Default can (and should) be specified based on desired behavior. It accepts the following fields:</p>
+<p>该 Mutator 用于计算指定敌人(ED/EDs)到玩家的距离,同时该 Mutator可配置为计算这些敌人到最近存活玩家的距离的最大值、最小值、平均值。返回距离单位 为cm，建议根据预期行为设定一个 Default值。该 Mutator接受以下字段</p>
+<ul>
+<li><code>ED</code> or <code>EDs</code>: the descriptor or descriptors of the enemy or group of enemies you want to track.</li>
+<li>ED/EDs:通过指定 ED/EDs 来决定检测那些敌人</li>
+<li><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</li>
+<li>Default:当没有匹配的存活敌人时返回的值，默认为0</li>
+<li><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Min</code>.</li>
+<li>Type:统计方式，包括 Min、Max、Average，默认为 Average。</li>
+</ul>
+
 <h2 id="enemycount">EnemyCount（当前敌人计数）</h2>
 <p>Count the number of enemies currently alive on the map. Optionally, this can get the count of a specific enemy descriptor.It's possible for this monitor to drift slightly from the actual count if base game events don't fire, but it should always be correct.</p>
 <p>统计当前地图上存活的敌人总数。可选地，也可仅统计某一特定敌人描述符的存活数量。若基础游戏事件未能正常触发，该计数可能与实际数量略有偏差，但通常应保持准确。</p>
@@ -1029,6 +1085,22 @@ Example:</p>
 <p>Returns the minimum of a value.</p>
 <P>返回给定数值中的最小值</P>
 
+<h2 id="MuleDroppodDistance">MuleDroppodDistance(矿骡与空降仓的距离)</h2>
+<p>Returns an average of the distance in cm between the mule and the drop pod during mission extraction. It accepts the following fields:</p>
+<p>返回任务撤离阶段矿骡与空降舱之间距离的平均值(单位为cm)，它接受以下字段</p>
+
+<ul>
+  <li><code>Default</code>: the default value to return when there is no drop pod or there is no mule.</li>
+  <li>Default:当任务中没有矿骡/空降舱时返回的默认值</li>
+</ul>
+
+<p>See also: <code>DroppodDistance</code> mutator.</p>
+<p>另请看： "DroppodDistance" Mutator</p>
+
+<h2 id="Nonzero">Nonzero(非零判断)</h2>
+<p>Accepts an integer or float Value and returns the boolean false if zero, true otherwise.</p>
+<p>该 Mutator 接受一个 整数/浮点数，若该值为0 返回false，反之为 true</p>
+
 <h2 id="random">Random（随机值）</h2>
 <p>Continuously samples a float number between <code>Min</code> and <code>Max</code>, uniformly.</p>
 <p>在 Min 和 Max 之间持续生成均匀分布的随机浮点数。</p>
@@ -1100,9 +1172,44 @@ Example:</p>
 <p>The number of uses that have been consumed from resupplies this mission.</p>
 <p>本任务中已经从补给中消耗的使用次数总数。</p>
 
+<h2 id="SecondaryFinished">SecondaryFinished(根据次要完成情况)</h2>
+<p>Returns a boolean which is true when all secondary objectives have been completed, or when there are no secondary objectives (like in Sandbox).</p>
+<p>当所有次要目标均完成，或者当前任务中不存在次要目标时（如 沙盒内），返回 true</p>
+
 <h2 id="scoutcount">ScoutCount（侦察数量计数）</h2>
 <p>Number of scouts in the lobby. </p>
 <p>返回大厅中侦察的数量。</p>
+
+<h2 id="Select">Select(选择)</h2>
+<p>Similar to a switch statement in programming languages, this mutator allows to select different options based on a string value. It is very useful when used together with global variables from the <code>Var</code> module:</p>
+<p>类似于编程语言中的 switch 语句,该 Mutator可以根据一个字符串值选择不同的配置选项。当它配合 Vars 模块使用时，会非常有用</p>
+<pre><code class="language-json">
+  ...,
+"Vars": {
+    "Pressure": {
+        "Type": "String",
+        "Value": "Easy"
+    }
+},
+"DifficultySetting": {
+    "EnemyCountModifier": {
+        "Mutate": "Multiply",
+        "BaseValues": {
+            "Mutate": "ByPlayerCount",
+            "Values": [1.9, 2.1, 2.7, 3.3]
+        },
+        "Multiplier": {
+            "Mutate": "Select",
+            "Select": {"Var": "Pressure"}
+            "Default": 1,
+            "Easy": 1, 
+            "Hard": 1.3 
+        }
+    }
+},
+...
+</code></pre>
+
 
 <h2 id="squarewave">SquareWave（轮切）</h2>
 <p>Alternates between two values with a given period.</p>
