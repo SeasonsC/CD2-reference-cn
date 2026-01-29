@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Common edits - CD2 Reference 教程-CD2指南</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../stylesheets/tables.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tutorials";
+        var mkdocs_page_input_path = "grouped_cooldowns.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CD2 Reference CD2指南
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction介绍</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ常见问题</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2基础部分</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules模块部分</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync敌人配置 (客机 同步/非同步)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct底层属性</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../wavespawners/">(Module) WaveSpawners波次生成器</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles发射物</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators动态参数与逻辑控制</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mev-dea/">MEV, DEA and EEE</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Common Edits</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials教程</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../resources/">Resources资源</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CD2 Reference CD2指南</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Common Edits</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tutorials">Common Edits</h1>
+<h2 id="Increase or decrease the number of enemies">Increase or decrease the number of enemies</h2>
+<p>If you enjoy a certain difficulty file but you think the number of enemies is either too small or too big, you can modify it to your taste with a very simple edit: look for the <code>EnemyCountModifier</code> (ECM) field inside <code>DifficultySettings</code>. The ECM works as a global multiplier for all spawn events in the difficulty, so you just need to increase it or decrease it however you like. As an example, the following snippet is from Hazard 6x2:</a>.</p>
+<p></p>
+
+<pre><code class="language-json">
+...,
+"DifficultySetting": {
+        "EnemyCountModifier": [
+            2,
+            2.1,
+            2.7,
+            3.3
+        ]
+}
+...,
+</code></pre>
+<p>so if we wanted to create Hazard 6x4 we would double these values:</p>
+<p></p>
+
+<pre><code class="language-json">
+...,
+"DifficultySetting": {
+        "EnemyCountModifier": [
+            4,
+            4.2,
+            5.4,
+            6.6
+        ]
+}
+...,
+</code></pre>
+
+<p>Depending on how many enemies you want to get you might have to edit also the <code>MaxActiveEnemies</code> cap in <code>Caps</code>:</p>
+<p></p>
+
+<pre><code class="language-json">
+...,
+"Caps": {
+        "MaxActiveCritters": 40,
+        "MaxActiveSwarmers": [
+            60,
+            120,
+            180,
+            180
+        ],
+        "MaxActiveEnemies": [
+            100,
+            120,
+            180,
+            180
+        ]
+    }
+...,
+</code></pre>
+<p>When the number of enemies in a mission goes above <code>MaxActiveEnemies</code> the game will despawn some of them, although this behaviour is not completely understood. Take into account that increasing the enemy cap will negatively affect the frame rate and going above 300 is not recommended.</p>
+<p></p>
+
+<h2 id="Removing vanilla enemies from a difficulty">Removing vanilla enemies from a difficulty</h2>
+<p>Are you a solo player that hates stingtails or stalkers? Or maybe you want to remove younglings from Salt Pits? This is one of the most common edits and it's really easy to do. You will need two things:</p>
+<p></p>
+<ul>
+  <li>1. Know the in-game name of the enemy you want to remove (the descriptor's name)</li>
+  <li></li>
+  <li>2. Know the vanilla pool the enemy is in by default</li>
+  <li></li>
+</ul>
+<p>For the first, check the table in Resources. As an example, if you wanted to remove stalkers the name you'd need is <code>ED_Spider_Stalker</code>. For the second, locate your enemy in the following (slightly incomplete) table:</p>
+<p></p>
+<table>
+<thead>
+<tr>
+<th>Pool</th>
+<th>Pools module field</th>
+<th>Enemies</th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Common Pool</td>
+    <td>CommonEnemies</td>
+    <td>Grunts, Praetorians</td>
+  </tr>
+  <tr>
+    <td>Disruptor Pool</td>
+    <td>DisruptiveEnemies</td>
+    <td>Menaces, Wardens, Bulk Detonators, Stingtails, Shellbacks, Grabbers, Goo Bombers, Stalkers</td>
+  </tr>
+    <tr>
+    <td>Special Pool</td>
+    <td>SpecialEnemies</td>
+    <td>Swarmers, Exploders, Web Spitters, Acid Spitters, Septic Spreaders, Mactera Spawns and Trijaws</td>
+  </tr>
+    <tr>
+    <td>Stationary Pool</td>
+    <td>StationaryPool</td>
+    <td>Breeders, Swarmer Nexii, Spitballers, Cave Leech, Barragers, Vartok Scalebramble</td>
+  </tr>
+</tbody>
+</table>
+<p>Once you know the original pool where your enemy is, just remove it. For example, removing stalkers and septics from a difficulty:</p>
+<p></p>
+
+<pre><code class="language-json">
+...,
+"Pools": {
+    "DisruptiveEnemies": {
+        "Remove": ["ED_Spider_Stalker"]
+    },
+    "SpecialEnemies": {
+        "Remove": ["ED_Spider_Lobber"]
+    }
+}
+...,
+</code></pre>
+
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../mev-dea/" class="btn btn-neutral float-left" title="MEV, DEA and EEE"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../resources/" class="btn btn-neutral float-right" title="Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../mev-dea/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../resources/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
