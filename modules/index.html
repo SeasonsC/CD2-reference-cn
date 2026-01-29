@@ -97,6 +97,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#resupply">Resupply补给</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#Vars">Vars全局变量池</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#warnings">Warnings禁用任务词条</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#wavespawners">WaveSpawners波次生成器</a>
@@ -126,6 +128,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../mev-dea/">MEV, DEA and EEE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Common edits/">Common edits</a>
                 </li>
               </ul>
               <ul>
@@ -1275,6 +1281,112 @@ Example:</p>
   }
 }
 </code></pre>
+<h2 id="Vars">Vars(全局变量池)</h2>
+<p>A module to store global variables, which allow communication between modules. Vars is structured as a dictionary of names and values with the following fields:</p>
+<p>该模块用于储存全局变量，同时支持模块间通信。它采用字典结构，每个变量包含以下字段</p>
+<ul>
+<li><code>Type</code>: the variable type. Can be one of the following: Boolean, String, Float or Strings, the latter used for arrays of String.</li>
+<li>Type: 变量类型，可选类型包括 Boolean、String、Float、Strings ( Strings 表示字符串数组 )</li>
+<li><code>Watch</code>: a boolean which will show the variable's value in the UI for debugging.</li>
+<li>Watch: 布尔字段，用于选择是否在 UI 中显示该变量的值以便调试</li>
+<li><code>Value</code>: the variable's value, which can be mutated.</li>
+<li>Value: 变量的值，可被 Mutators 修改</li>
+</ul>
+<p>A variable defined in <code>Vars</code> can be later used in any place which accepts a value of the same type by using {<code>"Var": "MyVariable"</code>}. Variables are all updated at once so they will always be consistent across modules, but the implementation can cause up to 500 ms of delay between the variable state and the true game state.</p>
+<p>在 Vars 中定义的变量，可在任何需要对应类型值的地方通过{"Var": "MyVariable"}引用。所有变量会在同一时刻统一更新，因此模块间状态始终保持一致，但这种实现方式可能导致变量实际状态与真实游戏状态之间存在 500ms 的延迟</p>
+<ul>
+
+</ul>
+<p></p>
+<p></p>
+<pre><code class="language-json">
+...,
+"Vars": {
+    "Debug": {
+      "Type": "Boolean",
+      "Value": false
+    },
+    "MuleDistanceToDroppod": {
+      "Type": "Float",
+      "Value": { "Mutate": "MuleDistanceToDroppod" },
+      "Watch": { "Var": "Debug" }
+    },
+    "PressureDifficulty": {
+      "Type": "String",
+      "Value": "Medium"
+    },
+    "EaseOffOnDowns": {
+      "Type": "Boolean",
+      "Value": true
+    },
+    "EDs": {
+      "Type": "Strings",
+      "Value": ["ED_1", "ED_2", "ED_3"]
+    },
+    "SecondaryUnfinishedPunishment": {
+      "Type": "Float",
+      "Value": {
+        "Mutate": "LockFloat",
+        "Lock": { "Mutate": "SecondaryFinished" },
+        "Value": { "Mutate": "ByTime", "RateOfChange": 0.01 }
+      }
+    }
+},
+...,
+</code></pre>
+<p>The following snippet allows the user to have a toggle for adding or removing stingtails in a difficulty:</p>
+<p>以下代码片段允许用户通过 "Stingtails"这个变量的值 来决定是否在难度配置中添加蛭尾异虫：</p>
+<pre><code class="language-json">
+...,
+"Vars": {
+    "Stingtails": {
+        "Type": "Boolean",
+        "Value": true 
+    }
+},
+"Pools": {
+    "EnemyPool": {
+        "Remove": [
+            {
+                "Mutate": "If",
+                "Condition": {"Var": "Stingtails"},
+                "Then": [],
+                "Else": "ED_Spider_Stinger"
+            }
+        ]
+    }
+}
+...
+</code></pre>
+<p>The following snippet allows the user to select an easy or a hard version of the difficulty by using a variable for the EnemyCountModifier and the Select mutator:</p>
+<p>以下代码片段允许用户通过 "Pressure"这个变量的值 选择难度的“简单”或“困难”版本，方法是将该变量用于 EnemyCountModifier 并配合 Select Mutator：</p>
+<pre><code class="language-json">
+...,
+"Vars": {
+    "Pressure": {
+        "Type": "String",
+        "Value": "Easy"
+    }
+},
+"DifficultySetting": {
+    "EnemyCountModifier": {
+        "Mutate": "Multiply",
+        "BaseValues": {
+            "Mutate": "ByPlayerCount",
+            "Values": [1.9, 2.1, 2.7, 3.3]
+        },
+        "Multiplier": {
+            "Mutate": "Select",
+            "Select": {"Var": "Pressure"}
+            "Default": 1,
+            "Easy": 1, 
+            "Hard": 1.3 
+        }
+    }
+},
+...
+</code></pre>
+
 <h2 id="warnings">Warnings(禁用任务词条)</h2>
 <p>The <code>Warnings</code> module can be used to ban mission anomalies. It accepts a single <code>Banned</code> field which is one or more from the table below. <strong>Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.</strong> </p>
 
