@@ -8,7 +8,8 @@
     <title>Projectiles - CD2 Reference发射物 - CD2指南</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <script>!function(){try{var t=localStorage.getItem('ds-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+        
         <link href="../stylesheets/tables.css" rel="stylesheet" />
     
       <script>
@@ -21,8 +22,7 @@
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -127,18 +127,18 @@
               
                 <h1 id="projectiles">Projectiles发射物</h1>
 <p><code>Projectile</code> is an optional field in enemy descriptors. It allows changing the projectiles of ranged enemies to any other projectile in the game. As an example, the following snippet produces a septic that throws driller's snowball:</p>
-<p>Projectile 是敌人描述符中的一个可选字段,它允许你把远程敌人使用的发射物替换为游戏中的任意其他发射物，例如，下面的代码片段会让一个 脓毒异虫 发射 钻机 的雪球：</p>
+<p><code>Projectile</code> 是敌人描述符中的一个可选字段，它允许你把远程敌人使用的发射物替换为游戏中的任意其他发射物，例如，下面的代码片段会让一个脓毒异虫发射钻机的雪球：</p>
 <pre><code class="language-json">&quot;ED_Ice_Septic&quot;: {
   &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
   &quot;Projectile&quot;: &quot;PRJ_Crye_SnowBall_C&quot;
 }
 </code></pre>
 <figure>
-  <img alt="CD2modhub" src="../pictures/ice-spreader.gif" />
+  <img loading="lazy" alt="CD2modhub" src="../pictures/ice-spreader.gif" />
 </figure>
 <ul>
 <li>This feature doesn't require <code>Enemies</code> and can use <code>EnemiesNoSync</code> instead so clients without CD2 can still see the changed projectiles.</li>
-<li>这个功能不需要Enemies，你可以使用EnemiesNoSync，这样没有安装CD2的客机也可以看到改变的发射物。</li>
+<li>这个功能不需要<code>Enemies</code>，你可以使用<code>EnemiesNoSync</code>，这样即使没有安装CD2的客机也可以看到新的发射物。</li>
 </ul>
 <ul>
 <li>The name of the projectile can omit the "_C" at the end. </li>
@@ -146,17 +146,17 @@
 </ul>
 <ul>
 <li>CD2 scans the game files for the projectiles so modders can add new ones themselves. Below the following list there is a section with the projectiles added by MEV and DEA, two common mods that add new enemies to the game. </li>
-<li>CD2 会扫描游戏文件中的发射物，所以模组作者可以自行添加新的发射物。在下面的列表之中，还有 MEV 与 DEA两个模组 添加的发射物，这两个模组都是为游戏添加了新敌人的模组。</li>
+<li>CD2 会扫描游戏文件中的发射物，所以模组作者可以自行添加新的发射物。在下面的列表之中，还有 MEV 与 DEA两个模组 添加的发射物，这两个都是为游戏添加新敌人的常见模组。</li>
 </ul>
 <ul>
 <li>The <code>Projectile</code> field can be mutated. </li>
-<li>Projectile 字段是可以被 Mutator 控制的。</li>
+<li><code>Projectile</code> 字段是可以被 Mutator 控制的。</li>
 </ul>
 <ul>
 </ul>
-<h2 id="list-of-game-projectiles">List of game projectiles游(戏内置的发射物列表)</h2>
+<h2 id="list-of-game-projectiles">List of game projectiles（游戏内置的发射物列表）</h2>
 <p>See also <a href="https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0">this spreadsheet</a> compiled by @Carrot which adds a lot more detail to the following list, dividing the projectiles according to their categories, damage and type.</p>
-<p>此外请参阅由 @Carrot 编写的电子文档，其中提供了更详细的分类方式【这个包含 类型/种类/伤害】，包括发射物的类别、伤害与类型。</p>
+<p>此外请参阅由 @Carrot 编写的<a href="https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0">电子表格</a>，其中提供了更详细的分类方式，包括发射物的类别、伤害与类型。</p>
 <table>
 <thead>
 <tr>
@@ -183,19 +183,19 @@
 </tr>
 <tr>
 <td>"BP_CameraDrone_FlareProjectile_C"</td>
-<td>Bosco？</td>
+<td>侦察照明弹</td>
 </tr>
 <tr>
 <td>"BP_ClusterFragment_MicroMissileLauncher_C"</td>
-<td>Bosco？</td>
+<td>枪手集术轰炸</td>
 </tr>
 <tr>
 <td>"BP_FoamRocket_C"</td>
-<td>Bosco？</td>
+<td>泡沫枪？</td>
 </tr>
 <tr>
 <td>"BP_MicroRocket_Base_C"</td>
-<td>Bosco？</td>
+<td>枪手</td>
 </tr>
 <tr>
 <td>"BP_MicroRocket_HE_C"</td>
@@ -203,23 +203,23 @@
 </tr>
 <tr>
 <td>"PRJ_AcidDrop_C"</td>
-<td>禁卫？</td>
+<td>轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_AcidDrop_Ice_C"</td>
-<td>冰霜禁卫？</td>
+<td>冰霜轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_BaseBigGooProjectile_C"</td>
-<td>钻机泥枪？</td>
+<td>钻机泥枪</td>
 </tr>
 <tr>
 <td>"PRJ_BaseGooProjectile_C"</td>
-<td>钻机泥枪？</td>
+<td>钻机泥枪</td>
 </tr>
 <tr>
 <td>"PRJ_BaseNormalGooProjectile_C"</td>
-<td>PRJ_BaseNormalGooProjectile_C</td>
+<td>钻机泥枪</td>
 </tr>
 <tr>
 <td>"PRJ_Base_Spider_Lobber_Projectile_C"</td>
@@ -227,19 +227,19 @@
 </tr>
 <tr>
 <td>"PRJ_BigGooProjectile_C"</td>
-<td>钻机泥枪？</td>
+<td>钻机泥枪</td>
 </tr>
 <tr>
 <td>"PRJ_BigGooProjectile_Trail_C"</td>
-<td>钻机泥枪？</td>
+<td>钻机泥枪</td>
 </tr>
 <tr>
 <td>"PRJ_BigGoo_Buckshot_C"</td>
-<td>钻机泥枪？</td>
+<td>钻机泥枪</td>
 </tr>
 <tr>
 <td>"PRJ_BombSpitter_C"</td>
-<td>钻机泥枪？</td>
+<td>???</td>
 </tr>
 <tr>
 <td>"PRJ_BomberGoo_C"</td>
@@ -247,15 +247,15 @@
 </tr>
 <tr>
 <td>"PRJ_BomberIce_C"</td>
-<td>轰炸蝇</td>
+<td>冰霜轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_Bomber_Fire_C"</td>
-<td>轰炸蝇</td>
+<td>火焰轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_Boss_Twin_Stomp_C"</td>
-<td>双子无畏</td>
+<td>重斧</td>
 </tr>
 <tr>
 <td>"PRJ_BreederEgg_C"</td>
@@ -263,7 +263,7 @@
 </tr>
 <tr>
 <td>"PRJ_CactusSpike_C"</td>
-<td></td>
+<td>仙人掌？</td>
 </tr>
 <tr>
 <td>"PRJ_CaretakerBarrier_C"</td>
@@ -271,11 +271,11 @@
 </tr>
 <tr>
 <td>"PRJ_ChargedBlasterShot_C"</td>
-<td>钻机副武？</td>
+<td>钻机离子枪</td>
 </tr>
 <tr>
 <td>"PRJ_Crawler_DeathProjectile2_C"</td>
-<td>猴子</td>
+<td>亚空间猴子</td>
 </tr>
 <tr>
 <td>"PRJ_Crossbow_ChemicalExplosionProjecitle_C"</td>
@@ -299,7 +299,7 @@
 </tr>
 <tr>
 <td>"PRJ_Crossbow_TaserProjectile_C"</td>
-<td>侦察电击怒？</td>
+<td>侦察电击弩</td>
 </tr>
 <tr>
 <td>"PRJ_Crye_SnowBall_C"</td>
@@ -311,15 +311,15 @@
 </tr>
 <tr>
 <td>"PRJ_DrippingPlant_C"</td>
-<td>？</td>
+<td>无效</td>
 </tr>
 <tr>
 <td>"PRJ_ExploderTankClusterBomb_C"</td>
-<td>大自爆</td>
+<td>大自爆爆炸的球</td>
 </tr>
 <tr>
 <td>"PRJ_ExplosiveBombDrop_C"</td>
-<td>爆炸轰炸蝇？/BET-C？</td>
+<td>爆炸轰炸蝇</td>
 </tr>
 <tr>
 <td>"PRJ_FacilityTentacleProjectile_C"</td>
@@ -335,15 +335,15 @@
 </tr>
 <tr>
 <td>"PRJ_Facility_Laser_Base_C"</td>
-<td>连射炮台</td>
+<td>巡逻机器人？</td>
 </tr>
 <tr>
 <td>"PRJ_FacilityturretLaser_Burst_C"</td>
-<td></td>
+<td>连射炮塔</td>
 </tr>
 <tr>
 <td>"PRJ_FlameWall_C"</td>
-<td>钻机灼热浪潮</td>
+<td>灼热浪潮</td>
 </tr>
 <tr>
 <td>"PRJ_FlareGun_Projectile01_C"</td>
@@ -363,43 +363,43 @@
 </tr>
 <tr>
 <td>"PRJ_GooProjectile_Fragment_Base_C"</td>
-<td></td>
+<td>轰炸蝇？</td>
 </tr>
 <tr>
 <td>"PRJ_GooProjectile_Fragment_GooBomoberSpecial_C"</td>
-<td></td>
+<td>轰炸蝇？</td>
 </tr>
 <tr>
 <td>"PRJ_GooProjectile_Fragment_Normal_C"</td>
-<td></td>
+<td>轰炸蝇？</td>
 </tr>
 <tr>
 <td>"PRJ_GrenadeAxe_C"</td>
-<td></td>
+<td>钻机斧头</td>
 </tr>
 <tr>
 <td>"PRJ_GrenadeLauncher_C"</td>
-<td></td>
+<td>钻机高爆手雷</td>
 </tr>
 <tr>
 <td>"PRJ_Grenade_HackeShredder_C"</td>
-<td></td>
+<td>工程蜂群手雷</td>
 </tr>
 <tr>
 <td>"PRJ_Grenade_StickySmall_C"</td>
-<td></td>
+<td>枪手粘性手雷</td>
 </tr>
 <tr>
 <td>"PRJ_GuntowerLineProjectile_C"</td>
-<td>除虫器？</td>
+<td>除虫器-底层激光</td>
 </tr>
 <tr>
 <td>"PRJ_HomingDrone_C"</td>
-<td>除虫器？</td>
+<td>除虫器无人机</td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeedSpawn_C"</td>
-<td>王草</td>
+<td>生成新芽/治愈果实（无效）</td>
 </tr>
 <tr>
 <td>"PRJ_HydraWeedSpawn_HealingPod_C"</td>
@@ -415,11 +415,11 @@
 </tr>
 <tr>
 <td>"PRJ_LargeStabbyThorn_C"</td>
-<td></td>
+<td>树洞扎人植物</td>
 </tr>
 <tr>
 <td>"PRJ_LineCutter2_C"</td>
-<td>除虫器？</td>
+<td>工程等离子切割器</td>
 </tr>
 <tr>
 <td>"PRJ_Mactera_Shooter_C"</td>
@@ -431,35 +431,35 @@
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Buck_C"</td>
-<td></td>
+<td>枪手</td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_C"</td>
-<td></td>
+<td>枪手</td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Cluster_C"</td>
-<td></td>
+<td>枪手</td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Dumbfire_C"</td>
-<td></td>
+<td>枪手</td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_Mine_Head_C"</td>
-<td></td>
+<td>枪手</td>
 </tr>
 <tr>
 <td>"PRJ_MicroMissile_PlasmaBurster_C"</td>
-<td></td>
+<td>枪手贯穿</td>
 </tr>
 <tr>
 <td>"PRJ_Mortar_Autocannon_C"</td>
-<td></td>
+<td>枪手迫击炮模组</td>
 </tr>
 <tr>
 <td>"PRJ_NormalBlasterShot_C"</td>
-<td></td>
+<td>钻机离子枪</td>
 </tr>
 <tr>
 <td>"PRJ_NormalGooProjectile_C"</td>
@@ -491,27 +491,27 @@
 </tr>
 <tr>
 <td>"PRJ_PlasmaCarbineShot_Big_C"</td>
-<td>侦察？</td>
+<td>侦察卡宾枪-秒杀</td>
 </tr>
 <tr>
 <td>"PRJ_PlasmaCarbineShot_C"</td>
-<td>侦察？</td>
+<td>侦察卡宾枪</td>
 </tr>
 <tr>
 <td>"PRJ_PlatformMaker_C"</td>
-<td>工程？</td>
+<td>工程平台枪</td>
 </tr>
 <tr>
 <td>"PRJ_PowerupSphere_C"</td>
-<td></td>
+<td>重击加速冷却的那个东西</td>
 </tr>
 <tr>
 <td>"PRJ_ProjectileBarf_C"</td>
-<td></td>
+<td>岩痘腐化者</td>
 </tr>
 <tr>
 <td>"PRJ_RedThorn_C"</td>
-<td></td>
+<td>地形的刺？</td>
 </tr>
 <tr>
 <td>"PRJ_RockpoxBomber_PlagueDrop_C"</td>
@@ -519,23 +519,23 @@
 </tr>
 <tr>
 <td>"PRJ_Rockpox_Breede_VomitedLarva_C"</td>
-<td>岩痘大水母</td>
+<td>生1个岩痘幼虫</td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_Breeder_WormVomit_C"</td>
-<td>岩痘大水母</td>
+<td>生2个岩痘幼虫</td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_PlagueGlob_C"</td>
-<td></td>
+<td>岩痘</td>
 </tr>
 <tr>
 <td>"PRJ_Rockpox_PlagueGlob_PlagueShark_C"</td>
-<td></td>
+<td>岩痘幼虫</td>
 </tr>
 <tr>
 <td>"PRJ_SentryOvercharge_Projectile_C"</td>
-<td>工程炮台</td>
+<td>工程炮台-鞭策</td>
 </tr>
 <tr>
 <td>"PRJ_ShootingPlant_C"</td>
@@ -575,11 +575,11 @@
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_Ground_C"</td>
-<td>吐酸</td>
+<td>迫击吐酸</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_Queen_C"</td>
-<td>吐酸皇后</td>
+<td>酸液皇后</td>
 </tr>
 <tr>
 <td>"PRJ_Spider_Shooter_Rockpox_Plague_C"</td>
@@ -595,11 +595,11 @@
 </tr>
 <tr>
 <td>"PRJ_Spider_Tank_Boss_Eggshot_C"</td>
-<td>无畏</td>
+<td>无畏红蜂拥球</td>
 </tr>
 <tr>
 <td>"PRJ_StaticBomber_C"</td>
-<td></td>
+<td>马桶</td>
 </tr>
 <tr>
 <td>"PRJ_TentaclePlant_New_C"</td>
@@ -623,7 +623,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="list-of-mev-projectiles">List of MEV projectiles(MEV 发射物列表)</h2>
+<h2 id="list-of-mev-projectiles">List of MEV projectiles（MEV 发射物列表）</h2>
 <p>To make use of these you will need to have MEV installed.</p>
 <p>要使用这些发射物，你需要安装 MEV 模组。</p>
 <table>
@@ -764,9 +764,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="list-of-dea-projectiles">List of DEA projectiles(DEA 发射物列表)</h2>
+<h2 id="list-of-dea-projectiles">List of DEA projectiles（DEA 发射物列表）</h2>
 <p>To make use of these you will need to have DEA installed. Comments by mod author @donnie_danko.</p>
-<p>要使用这些发射物，你需要安装 DEA模组。本部分包含模组作者 @donnie_danko 的部分注释。</p>
+<p>要使用这些发射物，你需要安装 DEA 模组。本部分包含模组作者 @donnie_danko 的部分注释。</p>
 <table>
 <thead>
 <tr>
@@ -903,8 +903,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="list-of-eee-projectiles">List of EEE projectiles</h2>
+<h2 id="list-of-eee-projectiles">List of EEE projectiles（EEE 追加发射物列表）</h2>
 <p>See <a href="https://github.com/Elytras/ElytrasEnemiesExpansion/blob/main/EEE%20ReadMe.txt">this resource</a> maintained by @math.h, the creator of EEE. </p>
+<p>该资源由 EEE 模组作者 @math.h 维护。</p>
               
             </div>
           </div><footer>
@@ -931,11 +932,9 @@
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
+
       <span><a href="../wavespawners/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
+
       <span><a href="../mutators/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>

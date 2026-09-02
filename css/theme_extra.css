@@ -195,3 +195,328 @@ td, th {
     flex: 1;
     text-align: center;
 }
+
+
+/* ============================================================
+   CD2 Reference —— 排版与视觉优化（纯外观层，不改任何内容/结构）
+   覆盖 mkdocs ReadTheDocs 主题默认样式；全站 13 页共用本文件，一处生效。
+   ============================================================ */
+:root {
+  --ds-page-bg: #0b0f14;
+  --ds-surface: #0d1117;
+  --ds-panel: #161b22;
+  --ds-text: #e6edf3;
+  --ds-strong: #f0f6fc;
+  --ds-muted: #8b949e;
+  --ds-accent: #388bfd;
+  --ds-accent-d: #58a6ff;
+  --ds-visited: #a371f7;
+  --ds-border: #21262d;
+  --ds-border-soft: #30363d;
+  --ds-code-bg: #161b22;
+  --ds-code-fg: #ff7b72;
+  --ds-font: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ds-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* ---------- 版心与留白 ---------- */
+.wy-nav-content-wrap { background: var(--ds-page-bg) !important; }
+.wy-nav-content {
+  max-width: 860px;
+  padding: 3rem 2.5rem;
+  margin: 0 auto;
+  background: transparent;
+}
+
+/* ---------- 字体与正文 ---------- */
+body { font-family: var(--ds-font); color: var(--ds-text); background: var(--ds-page-bg); }
+/* 主题给 body.wy-body-for-nav 设了浅色 #fcfcfc，需强覆盖为深色，否则正文下方会露出大片白框 */
+body.wy-body-for-nav { background: var(--ds-page-bg) !important; }
+.rst-content, .rst-content p, .rst-content .section { line-height: 1.75; }
+.rst-content p { font-size: 16px; margin: 0 0 1.25em; }
+/* 列表：更舒适的呼吸感（方案A：行高 1.8 + 每条 0.5em 间距） */
+.rst-content ul, .rst-content ol { line-height: 1.8; margin: 0 0 1.25em; }
+.rst-content ul li, .rst-content ol li { line-height: 1.8; margin: 0 0 0.5em; }
+
+/* ---------- 标题阶梯 ---------- */
+.rst-content h1, .rst-content h2, .rst-content h3, .rst-content h4, .rst-content h5, .rst-content h6,
+.rst-content .toctree-wrapper > p.caption {
+  font-family: var(--ds-font);
+  color: var(--ds-strong);
+  font-weight: 650;
+  line-height: 1.3;
+  margin: 0 0 0.75em;
+}
+.rst-content h1 { font-size: 1.75rem; }
+.rst-content h2 { font-size: 1.5rem; }
+.rst-content h3 { font-size: 1.25rem; }
+.rst-content h4 { font-size: 1.125rem; }
+.rst-content h5 { font-size: 1rem; }
+.rst-content h6 { font-size: 0.875rem; color: var(--ds-muted); }
+
+/* ---------- 链接 ---------- */
+a { color: var(--ds-accent); text-decoration: none; }
+a:hover { color: var(--ds-accent-d); }
+a:visited { color: var(--ds-visited); }
+/* 内联代码统一为同一种蓝（含链接代码、已访问链接代码），避免出现紫色/深浅不一 */
+.rst-content a code, a code, a:visited code { color: #79c0ff; }
+
+/* ---------- 代码 ---------- */
+code, .rst-content code, .rst-content tt {
+  font-family: var(--ds-mono);
+  font-size: 0.875em;
+  background: var(--ds-code-bg);
+  border: 1px solid var(--ds-border-soft);
+  border-radius: 4px;
+  color: #79c0ff;               /* 内联代码用蓝，与 JSON 键一致（对应翻译里的字段名） */
+  padding: 0.15em 0.4em;
+}
+.rst-content pre {
+  background: var(--ds-code-bg);
+  border: 1px solid var(--ds-border-soft);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+.rst-content pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--ds-text);
+  font-size: 0.875rem;
+  border-radius: 0;
+}
+/* 代码块高亮（方案A：原生 JS 轻量分色）键=蓝 / 字符串=绿 / 数字=橙 / 布尔·null=紫 */
+.hljs { background: transparent !important; color: var(--ds-text) !important; }
+.hljs-attr { color: #79c0ff !important; }
+.hljs-string { color: #7ee787 !important; }
+.hljs-number { color: #ffa657 !important; }
+.hljs-literal { color: #d2a8ff !important; }
+.hljs-comment { color: #8b949e !important; }
+
+/* ---------- 表格 ---------- */
+.rst-content table {
+  font-size: 0.875rem;
+  border-collapse: collapse;
+  width: auto;
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+  background: var(--ds-surface);
+  color: var(--ds-text);
+}
+.rst-content table th, .rst-content table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ds-border);
+  line-height: 1.55;
+  text-align: left;
+  vertical-align: top;
+  color: var(--ds-text);
+  white-space: normal !important;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+.rst-content table thead th { background: var(--ds-panel); font-weight: 600; border-bottom: 1px solid var(--ds-border); white-space: nowrap !important; word-break: normal; }
+/* 取消斑马纹，所有单元格统一透明底（避免浅底让文字看不清） */
+.rst-content table tr td { background: transparent !important; }
+/* 表头行里若用了 <td>（如某些翻译表），也按表头处理，避免被染成浅底白块 */
+.rst-content table thead td { background: var(--ds-panel); font-weight: 600; white-space: nowrap !important; word-break: normal; }
+
+/* ---------- 侧边栏：白字 + 淡蓝选中 ---------- */
+.wy-nav-side { background: var(--ds-surface); border-right: 1px solid var(--ds-border); color: var(--ds-text); }
+.wy-side-nav-search { background: var(--ds-surface); color: var(--ds-strong); border-bottom: 1px solid var(--ds-border-soft); }
+.wy-side-nav-search > a { color: var(--ds-strong); }
+.wy-side-nav-search > a:hover { background: transparent; }
+.wy-side-nav-search > div.version { color: var(--ds-muted); }
+.wy-side-nav-search input[type=text] { background: var(--ds-panel); border-color: var(--ds-border); color: var(--ds-text); }
+.wy-menu-vertical header, .wy-menu-vertical p.caption { color: var(--ds-muted); }
+.wy-menu-vertical a,
+.wy-menu-vertical li a,
+.wy-menu-vertical li.toctree-l2 a,
+.wy-menu-vertical li.toctree-l3 a,
+.wy-menu-vertical li.toctree-l4 a,
+.wy-menu-vertical li.toctree-l5 a,
+.wy-menu-vertical li.toctree-l6 a { color: #f0f6fc !important; background: transparent !important; text-decoration: none; }
+.wy-menu-vertical a:hover,
+.wy-menu-vertical li.current a:hover { background: #1c2333 !important; color: #fff !important; }
+.wy-menu-vertical li.current { background: transparent; }
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.on > a,
+.wy-menu-vertical li.toctree-l1.current > a,
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l4.current > a,
+.wy-menu-vertical li.toctree-l5.current > a,
+.wy-menu-vertical li.toctree-l6.current > a {
+  background: #17324b !important;
+  color: #e6f0ff !important;
+  border-left: 3px solid #388bfd !important;
+  font-weight: 600;
+}
+.wy-menu-vertical li.current > a:hover { background: #1b3a5c !important; }
+.wy-menu-vertical li button.toctree-expand { color: #c6cdd5 !important; }
+
+/* ---------- 顶部移动导航 ---------- */
+.wy-nav-top { background: var(--ds-surface); color: var(--ds-strong); border-bottom: 1px solid var(--ds-border); }
+.wy-nav-top a, .wy-nav-top i { color: var(--ds-strong); }
+
+/* ---------- 提示块 ---------- */
+.rst-content .admonition, .rst-content .warning {
+  border: 1px solid var(--ds-border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: var(--ds-surface);
+  color: var(--ds-text);
+}
+.rst-content .admonition-title {
+  background: transparent;
+  color: var(--ds-strong);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ds-border-soft);
+  margin: -1rem -1rem 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+/* ---------- 页脚上下页 ---------- */
+.rst-footer-buttons { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--ds-border-soft); }
+.rst-footer-buttons .btn { background: var(--ds-panel); border: 1px solid var(--ds-border); border-radius: 8px; color: var(--ds-accent); }
+
+/* ---------- 移动端自适应 ---------- */
+@media screen and (max-width: 768px) {
+  .wy-nav-content { padding: 1.5rem 1.25rem; }
+  .rst-content h1 { font-size: 1.5rem; }
+  .rst-content h2 { font-size: 1.375rem; }
+  .rst-content h3 { font-size: 1.125rem; }
+}
+
+/* ---------- ① 左侧导航：所有页面默认收起（无痕迹），鼠标靠近左缘自动展开 300px ----------
+   有右侧目录的页面：收起时右侧目录显示；展开时右侧目录隐藏（互斥）。
+   没有右侧目录的页面：收起时正文填满可用空间。 */
+@media screen and (min-width: 769px) {
+  .wy-nav-side { width: 0 !important; overflow: hidden; transition: width 0.25s ease; }
+  .wy-nav-content-wrap { margin-left: 30px !important; transition: margin-left 0.25s ease; }
+  body.ds-nav-open .wy-nav-side { width: 300px !important; }
+  body.ds-nav-open .wy-nav-content-wrap { margin-left: 300px !important; }
+  /* 底部「上一页/下一页」随侧边栏一同出现/隐藏 */
+  .rst-versions { width: 0 !important; overflow: hidden; opacity: 0; transition: width 0.25s ease, opacity 0.25s ease; }
+  body.ds-nav-open .rst-versions { width: 300px !important; opacity: 1; }
+  /* 正文：收起时居中并加宽填充（无右侧目录时填满；有则右侧被目录占用） */
+  .wy-nav-content-wrap .wy-nav-content { margin: 0 auto; max-width: 860px; }
+  body:not(.ds-nav-open) .wy-nav-content-wrap .wy-nav-content { max-width: min(1280px, 100%); }
+  /* 侧边栏导航项：字号收紧 + 允许长词折行，避免溢出/被裁切 */
+  .wy-menu-vertical a,
+  .wy-menu-vertical li > a {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    padding: 0.32em 0.9em;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+  .wy-menu-vertical header,
+  .wy-menu-vertical p.caption { padding: 0 1.1em; }
+}
+
+/* ============================================================
+   右侧“本页目录”栏：把二级/三级标题移到右侧（大屏显示）
+   小屏回退为左侧完整导航，避免丢失章节导航。
+   ============================================================ */
+html, body { background: var(--ds-page-bg); }
+.ds-toc { display: none; scrollbar-width: none; -ms-overflow-style: none; }
+.ds-toc::-webkit-scrollbar { display: none; width: 0; }
+.ds-toc-inner { padding: 2rem 1rem 3rem; }
+.ds-toc-inner h4 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ds-muted);
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+}
+.ds-toc-inner ul { list-style: none; margin: 0; padding: 0; }
+.ds-toc-inner li { margin: 0.45rem 0; }
+.ds-toc-inner a { color: #c6cdd5; font-size: 0.8rem; line-height: 1.65; white-space: normal; word-break: keep-all; overflow-wrap: break-word; }
+.ds-toc-inner a:hover { color: #fff; }
+.ds-toc-inner a.current { color: var(--ds-accent); }
+.ds-toc-inner .toc-l3 { padding-left: 0.9rem; }
+.ds-toc-inner .toc-l3 a { font-size: 0.8rem; color: #aab2bd; }
+
+@media screen and (min-width: 1024px) {
+  /* 右侧目录：仅在页面确实生成了目录（body.ds-has-toc）时显示并预留空间 */
+  body.ds-has-toc .ds-toc { display: block; position: fixed; top: 0; right: 0; bottom: 0; width: 250px; overflow-y: auto; overflow-x: hidden; background: var(--ds-surface); border-left: 1px solid var(--ds-border); z-index: 100; }
+  body.ds-has-toc .wy-nav-content-wrap { margin-right: 250px; }
+  /* 左侧侧边栏展开时：右侧目录隐藏（互斥，只保留一个侧栏），给正文更多空间 */
+  body.ds-nav-open.ds-has-toc .ds-toc { display: none; }
+  body.ds-nav-open.ds-has-toc .wy-nav-content-wrap { margin-right: 0; }
+  /* 左侧只保留一级页面，二/三级移到右侧 */
+  body.ds-has-toc .wy-menu-vertical .toctree-l2,
+  body.ds-has-toc .wy-menu-vertical .toctree-l3,
+  body.ds-has-toc .wy-menu-vertical .toctree-l4 { display: none; }
+}
+@media screen and (max-width: 1023px) {
+  .ds-toc { display: none; }
+}
+
+/* ============================================================
+   浅色模式（白底黑字）：跟随系统 / 手动切换
+   data-theme 由 <head> 早期脚本按偏好设定；此处只翻转“中性色”，
+   强调色/链接蓝/代码高亮等“颜色效果”保持不变。
+   ============================================================ */
+[data-theme="light"] {
+  --ds-page-bg: #ffffff;
+  --ds-surface: #f6f8fa;
+  --ds-panel: #e9edf1;
+  --ds-text: #1f2328;
+  --ds-strong: #0a0c10;
+  --ds-muted: #59636e;
+  --ds-accent: #0969da;
+  --ds-accent-d: #0550ae;
+  --ds-visited: #8250df;
+  --ds-border: #d0d7de;
+  --ds-border-soft: #d8dee4;
+  --ds-code-bg: #f6f8fa;
+}
+/* 侧边栏/目录里的正文文字翻成深色（白底黑字）；强调/代码高亮颜色不变 */
+[data-theme="light"] .wy-menu-vertical a,
+[data-theme="light"] .wy-menu-vertical li a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l2 a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l3 a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l4 a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l5 a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l6 a { color: #24292f !important; }
+[data-theme="light"] .wy-menu-vertical a:hover,
+[data-theme="light"] .wy-menu-vertical li.current a:hover { background: #d0d7de !important; color: #000 !important; }
+[data-theme="light"] .wy-menu-vertical li.current > a,
+[data-theme="light"] .wy-menu-vertical li.on > a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l1.current > a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l2.current > a,
+[data-theme="light"] .wy-menu-vertical li.toctree-l3.current > a { background: #ddf4ff !important; color: #0969da !important; border-left-color: #0969da !important; }
+[data-theme="light"] .wy-menu-vertical li.current > a:hover { background: #cfe8ff !important; }
+[data-theme="light"] .wy-menu-vertical li button.toctree-expand { color: #59636e !important; }
+[data-theme="light"] .wy-side-nav-search input[type=text] { background: #fff; border-color: #d0d7de; color: #1f2328; }
+[data-theme="light"] .wy-nav-top a, [data-theme="light"] .wy-nav-top i { color: #1f2328; }
+[data-theme="light"] .ds-toc-inner a { color: #57606a; }
+[data-theme="light"] .ds-toc-inner a:hover { color: #000; }
+[data-theme="light"] .ds-toc-inner .toc-l3 a { color: #59636e; }
+/* 浅色模式下：之前太淡的“浅蓝”加深，其它代码高亮色也一起加深，保证浅底可读 */
+[data-theme="light"] code,
+[data-theme="light"] .rst-content code,
+[data-theme="light"] .rst-content tt,
+[data-theme="light"] .rst-content a code,
+[data-theme="light"] a code,
+[data-theme="light"] a:visited code { color: #0969da; }
+[data-theme="light"] .hljs { color: #1f2328 !important; }
+[data-theme="light"] .hljs-attr { color: #0969da !important; }
+[data-theme="light"] .hljs-string { color: #116329 !important; }
+[data-theme="light"] .hljs-number { color: #953800 !important; }
+[data-theme="light"] .hljs-literal { color: #6f42c1 !important; }
+[data-theme="light"] .hljs-comment { color: #6e7781 !important; }
+
+/* ---------- 主题切换控件（位于左侧边栏底部） ---------- */
+.ds-theme-switch { margin: 1rem 1rem 2rem; padding: 0.7rem 0.8rem; background: var(--ds-panel); border: 1px solid var(--ds-border); border-radius: 8px; }
+.ds-theme-switch .ds-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ds-muted); margin: 0 0 0.5rem; display: block; }
+.ds-theme-switch button { background: transparent; border: 1px solid var(--ds-border); border-radius: 5px; color: var(--ds-text); font-size: 0.78rem; margin: 0 0.3rem 0.3rem 0; padding: 0.28rem 0.5rem; cursor: pointer; }
+.ds-theme-switch button:hover { border-color: var(--ds-accent); color: var(--ds-accent); }
+.ds-theme-switch button.active { background: #17324b; border-color: #388bfd; color: #e6f0ff; }
+[data-theme="light"] .ds-theme-switch button.active { background: #ddf4ff; border-color: #0969da; color: #0969da; }
+

@@ -8,7 +8,8 @@
     <title>(Module) Enemies / EnemiesNoSync - CD2 Reference 敌人配置 (客机 同步/非同步)</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <script>!function(){try{var t=localStorage.getItem('ds-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+        
         <link href="../stylesheets/tables.css" rel="stylesheet" />
     
       <script>
@@ -21,8 +22,7 @@
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -63,33 +63,37 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#enemy-controls">Enemy controls</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#heal-advanced-mode">Heal advanced mode回血模块</a>
+    <li class="toctree-l3"><a class="reference internal" href="#heal-advanced-mode">Heal advanced mode(回血模块)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#outline-special-control">Outline special control轮廓控制</a>
+    <li class="toctree-l3"><a class="reference internal" href="#outline-special-control">Outline special control(轮廓控制)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#direct-special-control">Direct special control特殊控制</a>
+    <li class="toctree-l3"><a class="reference internal" href="#direct-special-control">Direct special control(特殊控制)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#elite-variants-for-all-enemies">Elite variants for all enemies精英</a>
+    <li class="toctree-l3"><a class="reference internal" href="#elite-variants-for-all-enemies">Elite variants for all enemies(精英)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#veteran-control">Veteran control变种</a>
+    <li class="toctree-l3"><a class="reference internal" href="#veteran-control">Veteran control(变种)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#custom-materials">Custom materials自定义材质</a>
+    <li class="toctree-l3"><a class="reference internal" href="#custom-materials">Custom materials(自定义材质)</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resistances">Resistances抗性</a>
+    <li class="toctree-l2"><a class="reference internal" href="#resistances">Resistances(抗性)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#movement">Movement移动</a>
+    <li class="toctree-l2"><a class="reference internal" href="#movement">Movement(移动)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#caveleech">CaveLeech水蛭</a>
+    <li class="toctree-l2"><a class="reference internal" href="#caveleech">CaveLeech(水蛭)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#grabber">Grabber捕手蝇</a>
+    <li class="toctree-l2"><a class="reference internal" href="#grabber">Grabber(捕手蝇)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#jellybreeder">JellyBreeder纳多赛特饲育水母</a>
+    <li class="toctree-l2"><a class="reference internal" href="#jellybreeder">JellyBreeder(纳多赛特饲育水母)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#spawner">Spawner</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#temperature">Temperature温度</a>
+    <li class="toctree-l2"><a class="reference internal" href="#temperature">Temperature(温度)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#DropResource">DropResource(资源掉落)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#Goomba">Goomba(踩踏击杀)</a>
     </li>
     </ul>
                 </li>
@@ -151,19 +155,19 @@
               
                 <h1 id="enemies-enemiesnosync">Enemies / EnemiesNoSync</h1>
 <p>This module contains the enemy descriptors. The name of the module can be either <code>Enemies</code> or <code>EnemiesNoSync</code>, but never both at the same time. The choice of which to use depends on if you want your difficulty to be pubbable, that is, to be played with players that do not have CD2 installed:</p>
-<p>该模块包含敌人描述符。模块名称可以是 Enemies 或 EnemiesNoSync，但二者不可同时使用。具体选择取决于你是否希望自己的难度支持“公开匹配”，即允许未安装 CD2 的玩家加入游戏。</p>
+<p>该模块包含敌人描述符。模块名称可以是 <code>Enemies</code> 或 <code>EnemiesNoSync</code>，但二者不可同时使用。具体选择取决于你是否希望自己的难度支持“公开匹配”，即允许未安装 CD2 的玩家加入游戏。</p>
 <ul>
 <li>Some CD2 features require being replicated to the clients, such as the <code>Scale</code> enemy control or the customization of enemy looks (materials). <code>Enemies</code> can replicate these characteristics to players, but in exchange it will force the clients to use CD2 or they will suffer a disconnect upon mission start. </li>
-<li>CD2 的某些功能需要同步到客户端，例如敌人的缩放控制（Scale）或外观（材质）自定义。Enemies 可将这些特性同步至客户端，但会强制客户端必须安装 CD2，否则任务开始时将断开连接。</li>
+<li>CD2 的某些功能需要同步到客户端，例如敌人的缩放控制（<code>Scale</code>）或外观（材质）自定义。<code>Enemies</code> 可将这些特性同步至客户端，但会强制客户端必须安装 CD2，否则任务开始时将断开连接。</li>
 
 <li><code>EnemiesNoSync</code> doesn't do replication to clients. A difficulty with <code>EnemiesNoSync</code> is compatible with all clients, regardless of whether they use CD1, CD2 or nothing at all. When you use <code>EnemiesNoSync</code> you are implicitly stating that you didn't use any features that require replication.</li>
-<li>EnemiesNoSync 不会向客户端同步任何数据。使用 EnemiesNoSync 的难度配置可兼容所有客户端，无论其是否安装了 CD1、CD2，或两者皆未安装。选择 EnemiesNoSync 即表示你未使用任何需要同步的功能。</li>
+<li><code>EnemiesNoSync</code> 不会向客户端同步任何数据。使用 <code>EnemiesNoSync</code> 的难度配置可兼容所有客户端，无论其是否安装了 CD1、CD2，或两者皆未安装。选择 <code>EnemiesNoSync</code> 即表示你未使用任何需要同步的功能。</li>
 <ul>
 </ul>
 
 </ul>
 <p>To see which features require the <code>Enemies</code> module, please check the following guide by @Spy: <a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa">On Pubbing With CD2</a>.</p>
-<p>要查看哪些功能需要使用 Enemies 模块的，请参考@Spy提供的以下指南：《On Pubbing With CD2》。</p>
+<p>要查看哪些功能需要使用 <code>Enemies</code> 模块的，请参考@Spy提供的以下指南：《<a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa">On Pubbing With CD2</a>》。</p>
 <h2 id="descriptor-controls">Descriptor controls</h2>
 <table>
 <thead>
@@ -440,18 +444,18 @@
 </table>
 <h3 id="heal-advanced-mode"><code>Heal</code> advanced mode</h3>
 <p><code>Heal</code> can accept the following advanced settings:</p>
-<p>Heal模块可以接受以下高级设置：</p>
+<p><code>Heal</code>模块可以接受以下高级设置：</p>
 <ul>
 <li><code>InitialRate</code>: sets the initial healing if positive or bleed if negative. </li>
-<li>初始治疗速率：设置初始治疗量（如果为正）或初始流血量（如果为负）。</li>
+<li><code>InitialRate</code>：设置初始治疗量（如果为正）或初始流血量（如果为负）。</li>
 <ul></ul>
 
 <li><code>FinalRate</code>: sets the value that will be used after <code>SwitchAfter</code> time has passed.</li>
-<li>最终治疗速率：设置在 SwitchAfter 时间后使用的值。</li>
+<li><code>FinalRate</code>：设置在 <code>SwitchAfter</code> 时间后使用的值。</li>
 <ul></ul>
 
 <li><code>SwitchAfter</code>: the time at which the <code>FinalRate</code> will be used. Starts counting on enemy spawn. </li>
-<li>转换时间：转换到FinalRate的时间，计时从敌人生成开始。</li>
+<li><code>SwitchAfter</code>：转换到<code>FinalRate</code>的时间，计时从敌人生成开始。</li>
 <ul></ul>
 
 </ul>
@@ -461,7 +465,7 @@
 <p>It is usually used to mark dangerous enemies like breeders or ranged threats so you can see them through walls. </p>
 <p>通常用于标记危险的敌人，如饲育水母或远程威胁，以便你能穿墙看到它们。</p>
 <p>It accepts two fields: <code>Enable</code>, which accepts a boolean, and <code>Type</code>, which accepts one of the following: <code>Enemy</code> (red outline, default), <code>Friendly</code>, <code>Neutral</code> and <code>Item</code>.</p>
-<p>它接受两个字段：Enable（true/false）和Type，Type 接受以下字段之一：敌人（红色轮廓，默认）、友好、 中立和物品。</p>
+<p>它接受两个字段：<code>Enable</code>（true/false）和<code>Type</code>，<code>Type</code> 接受以下字段之一：<code>Enemy</code>（红色轮廓，默认）、<code>Friendly</code>、<code>Neutral</code>和<code>Item</code>。</p>
 <pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
     &quot;Outline&quot;: {
         &quot;Enabled&quot;: true,
@@ -474,7 +478,7 @@
 <h3 id="direct-special-control"><code>Direct</code> special control特殊控制</h3>
 <p><code>Direct</code> allows to directly change enemy properties as defined in UE4. Many properties that are not directly exposed
 by CD2 can be changed with <code>Direct</code>. For example:</p>
-<p>Direct允许直接更改UE4中定义的敌人属性。许多 CD2 未直接开放的属性可以通过Direct进行更改，比如：</p>
+<p><code>Direct</code>允许直接更改UE4中定义的敌人属性。许多 CD2 未直接开放的属性可以通过<code>Direct</code>进行更改，比如：</p>
 <pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
     &quot;Direct&quot;: {
         &quot;Int:NumClusterBombs&quot;: 200 
@@ -506,11 +510,11 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 }
 </code></pre>
 <p>In the <a href="../direct/">Direct</a> page you can find a non-exhaustive but fairly complete compilation of all the known direct controls.</p>
-<p>在Direct 页面,你可以找到虽然没有穷尽但仍比较完整的能够控制的属性</p>
+<p>在<a href="../direct/">Direct</a> 页面，你可以找到虽然没有穷尽但仍比较完整的所有已知直接控制项的清单</p>
 
 <h3 id="elite-variants-for-all-enemies">Elite variants for all enemies(让所有敌人都有精英变种)</h3>
 <p>Setting <code>Elite</code> to true or to some float number will only work directly for those enemies that have a vanilla elite variant: guards, grabbers, praetorians, bulks, menaces and trijaws. For the rest of the enemies, an elite base must be specified by setting <code>ForceEliteBase</code> to some existing ED that has an elite variant. As an example, the following snippet creates an elite septic spreader, which won't work without the <code>ForceEliteBase</code>:</p>
-<p>将Elite设置为true或某个浮点数，仅对原版已具备精英变种的敌人直接生效，如守卫、捕手蝇、禁卫、大自爆、速射和三颚等等。对于其他敌人，必须通过 ForceEliteBase 指定一个已有精英变体的敌人描述符作为模板。例如，以下代码片段创建了一个精英脓毒异虫，如果没有 ForceEliteBase 则无法生成其精英变种：</p>
+<p>将<code>Elite</code>设置为true或某个浮点数，仅对原版已具备精英变种的敌人直接生效，如守卫、捕手蝇、禁卫、大自爆、速射和三颚等等。对于其他敌人，必须通过 <code>ForceEliteBase</code> 指定一个已有精英变体的敌人描述符作为模板。例如，以下代码片段创建了一个精英脓毒异虫，如果没有 <code>ForceEliteBase</code> 则无法生成其精英变种：</p>
 
 <pre><code class="language-json">&quot;ED_Elite_Septic_Spreader&quot;: {
     &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
@@ -521,13 +525,12 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 <p>The type of elite specified as base can modify the characteristics of your custom elite descriptor, feel free to experiment. </p>
 <p>你选择的 ForceEliteBase 能够影响你想要自定义精英变种的敌人的属性，尽管尝试</p>
 
-
 <h3 id="veteran-control">Veteran control(变种控制)</h3>
 <p>Veterans allow some enemies to promote to other enemies. In vanilla the veteran classes are hardcoded (for example, oppressors are praetorians that got promoted with a probability given by the <code>VeteranLarge</code> setting in <a href="../modules/">DifficultySetting</a>). CD2 improves the system by allowing the player to create their own custom veteran classes. There are currently two ways to interact with the veteran system:</p>
-<p>变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过DifficultySetting中的VeteranLarge设置以一定概率变异为暴君的）。CD2改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
+<p>变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过<a href="../modules/">DifficultySetting</a>中的<code>VeteranLarge</code>设置以一定概率变异为暴君的）。CD2改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
 <ul>
 <li><code>VeteranClasses</code> accepts a list of descriptors that the base descriptor can promote to. <code>VeteranClasses</code> uses <code>VeteranNormal</code> probablities unless <code>UsesVeteranLarge</code> is set to true. The following snippet shows an example:</li>
-<li>VeteranClasses接受一个描述符列表，以控制基础敌人可以变异为哪些敌人。VeteranClasses使用 VeteranNormal 的概率，除非将 UsesVeteranLarge 设置为true。以下代码片段展示了一个例子：</li>
+<li><code>VeteranClasses</code>接受一个描述符列表，以控制基础敌人可以变异为哪些敌人。<code>VeteranClasses</code>使用 <code>VeteranNormal</code> 的概率，除非将 <code>UsesVeteranLarge</code> 设置为true。以下代码片段展示了一个例子：</li>
 </ul>
 <pre><code class="language-json">&quot;DifficultySetting&quot;: {
     &quot;VeteranNormal&quot;: {
@@ -548,10 +551,10 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 }
 </code></pre>
 <p>With these settings, Grunts will promote to acid and web spitters with a 20 % chance each time they spawn. One disadvantage of this approach is that <code>VeternalNormal</code> and <code>VeteranLarge</code> are global.</p>
-<p>通过此设置，小战士每次生成时都有20%的概率变种为吐酸异虫/吐丝异虫。这种方法的一个缺点是，VeteranNormal 和 VeteranLarge 是全局设置（即所有使用该配置的都采用这个值）。</p>
+<p>通过此设置，小战士每次生成时都有20%的概率变种为吐酸异虫/吐丝异虫。这种方法的一个缺点是，<code>VeteranNormal</code> 和 <code>VeteranLarge</code> 是全局设置（即所有使用该配置的都采用这个值）。</p>
 <ul>
 <li>The second way is <code>CustomVeterans</code>, which bypasses the <code>VeternalNormal</code> and <code>VeteranLarge</code> settings and lets the user specify the probability directly. The following snippet whould work exactly as the one before, but now the probabilities are contained to the grunt descriptor instead of being global:</li>
-<li>第二种方式是 CustomVeterans，它绕过了VeteranNormal和VeteranLarge的设置，允许你单独指定变异率。以下代码片段功能与之前的完全相同，但现在概率仅作用于战士异虫，而非全局生效：</li>
+<li>第二种方式是 <code>CustomVeterans</code>，它绕过了<code>VeteranNormal</code>和<code>VeteranLarge</code>的设置，允许你单独指定变异率。以下代码片段功能与之前的完全相同，但现在概率仅作用于战士异虫，而非全局生效：</li>
 </ul>
 <pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
      &quot;CustomVeterans&quot;: {
@@ -562,7 +565,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
     }
 </code></pre>
 <p><code>CustomVeterans</code> also allows specifying a mutator to decide which enemies to spawn, which can give more control. One useful use case is to limit the amount of veterans of a certain type:</p>
-<p>CustomVeterans还允许通过 Mutator 来决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
+<p><code>CustomVeterans</code>还允许通过 Mutator 来决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
 <pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
       &quot;CustomVeterans&quot;: {
         &quot;Mutate&quot;: &quot;RandomChoice&quot;,
@@ -587,7 +590,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 
 <h3 id="custom-materials">Custom materials(自定义材质)</h3>
 <p>CD2 allows specifying a list of <code>Materials</code> in individual enemy descriptors to customize how the enemies look. This feature requires <code>Enemies</code> for clients to be able to see the changes.</p>
-<p>CD2允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用 Enemies 模块，客户端才能看到变化。（未安装 CD2 的客户端不支持）</p>
+<p>CD2允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用 <code>Enemies</code> 模块，客户端才能看到变化。（未安装 CD2 的客户端不支持）</p>
 <p>Example: create an orange septic.</p>
 <p>示例：创建一个橙色的脓毒异虫。</p>
 <pre><code class="language-json">{
@@ -600,14 +603,14 @@ by CD2 can be changed with <code>Direct</code>. For example:</p>
 
 </code></pre>
 <figure>
-  <img alt="CD2modhub" src="../pictures/orange-septic.png" />
+  <img loading="lazy" alt="CD2modhub" src="../pictures/orange-septic.png" />
 </figure>
 <p>Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in <a href="https://mod.io/g/drg/m/sandbox-utilities">Sandbox Utilities</a> and changing them, and you will be able to see the change in real time. This procedure is explained in <a href="../media/Materials-1.pdf">this document</a> by @TheBrain.
 If you wish to leave a slot with the default material, both <code>""</code> and <code>Default</code> work.</p>
-<p>每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在沙盒工具中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用""或Default都可以。</p>
+<p>每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在<a href="https://mod.io/g/drg/m/sandbox-utilities">沙盒工具</a>中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用<code>""</code>或<code>Default</code>都可以。</p>
 <h2 id="resistances">Resistances(抗性)</h2>
 <p>Fields for the resistances submodule. These controls can be used to define resistances to all types of damage in the game. <code>DamageMultiplier</code> is the catch-all for all damage types.</p>
-<p>Resistances 模块的字段，这些控制项可以用来定义敌人对所有类型伤害的抗性，DamageMultiplier 是适用于所有伤害类型的通用设置。</p>
+<p>Resistances 模块的字段，这些控制项可以用来定义敌人对所有类型伤害的抗性，<code>DamageMultiplier</code> 是适用于所有伤害类型的通用设置。</p>
 <table>
 <thead>
 <tr>
@@ -635,7 +638,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>CorrosiveDamageMultiplier</td>
 <td>Float</td>
-<td>腐蚀伤害倍数（典型的如:泥枪）</td>
+<td>腐蚀伤害倍数（典型的如：泥枪）</td>
 </tr>
 <tr>
 <td>ElectricDamageMultiplier</td>
@@ -655,7 +658,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>PhysicalDamageMultiplier</td>
 <td>Float</td>
-<td>物理伤害倍数(近战)</td>
+<td>物理伤害倍数（近战）</td>
 </tr>
 <tr>
 <td>ExplosionDamageMultiplier</td>
@@ -1103,70 +1106,60 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </code></pre>
 <h2 id="spawner">Spawner(生成器)</h2>
 <p><code>Spawner</code> is a special submodule that allows any enemy to periodically spawn other enemies with different flexilibity options. It contains the following fields:</p>
-<p> Spawner 是一个特殊子模块，允许任何敌人周期性生成其他敌人，并提供多种灵活的选项。它包含以下字段：</p>
+<p> <code>Spawner</code> 是一个特殊子模块，允许任何敌人周期性生成其他敌人，并提供多种灵活的选项。它包含以下字段：</p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
 <th>Default</th>
-<th>翻译</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>OnSpawnDelay</td>
-<td>Seconds until the first spawn</td>
+<td>Seconds until the first spawn<br>首次生成前的延迟时间（秒）</td>
 <td>2</td>
-<td>首次生成前的延迟时间（秒）</td>
 </tr>
 <tr>
 <td>OnSpawnCount</td>
-<td>Initial number of enemies to spawn</td>
+<td>Initial number of enemies to spawn<br>初始生成数量</td>
 <td>0</td>
-<td>初始生成数量</td>
 </tr>
 <tr>
 <td>OnDeathCount</td>
-<td>Number of enemies to spawn on death</td>
+<td>Number of enemies to spawn on death<br>宿主死亡时额外生成的数量</td>
 <td>0</td>
-<td>宿主死亡时额外生成的数量</td>
 </tr>
 <tr>
 <td>IntervalSpawnCount</td>
-<td>Number of enemies to spawn periodically</td>
+<td>Number of enemies to spawn periodically<br>每次周期生成的敌人数量</td>
 <td>0</td>
-<td>每次周期生成的敌人数量</td>
 </tr>
 <tr>
 <td>Interval</td>
-<td>Time between interval spawns. Min 0.1 seconds</td>
+<td>Time between interval spawns. Min 0.1 seconds<br>周期生成的时间间隔（秒）</td>
 <td>2</td>
-<td>周期生成的时间间隔（秒）</td>
 </tr>
 <tr>
 <td>ED</td>
-<td>The descriptor to spawn</td>
+<td>The descriptor to spawn<br>要生成的敌人描述符</td>
 <td></td>
-<td>要生成的敌人描述符</td>
 </tr>
 <tr>
 <td>MaxSpawns</td>
-<td>Max alive enemies to be spawned by this spawner. Not compatible with EDs with CustomVeteran</td>
+<td>Max alive enemies to be spawned by this spawner. Not compatible with EDs with CustomVeteran<br>最大同时存活生成数量</td>
 <td>200</td>
-<td>最大同时存活生成数量</td>
 </tr>
 <tr>
 <td>OnDeathKillSpawns</td>
-<td>If true, kill all spawned enemies when the host enemy dies</td>
+<td>If true, kill all spawned enemies when the host enemy dies<br>宿主死亡时杀死所有已生成单位</td>
 <td>False</td>
-<td>宿主死亡时杀死所有已生成单位</td>
 </tr>
 <tr>
 <td>OnlySpawnOnAlert</td>
-<td>Will only spawn once the enemy is alerted</td>
+<td>Will only spawn once the enemy is alerted<br>仅在敌人进入警戒状态后才生成</td>
 <td>True</td>
-<td>仅在敌人进入警戒状态后才生成</td>
 </tr>
 </tbody>
 </table>
@@ -1184,7 +1177,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 }
 </code></pre>
 <p>All fields inside the <code>Spawner</code> can be mutated.</p>
-<p>所有 Spawner模块内的字段可以被 Mutate控制</p>
+<p>所有 <code>Spawner</code> 模块内的字段可以被 <code>Mutator</code> 控制</p>
 <h2 id="temperature">Temperature(温度)</h2>
 <p>Special temperature controls to change how enemies react to heat and cold.</p>
 <p>特殊的温度控制，用于改变敌人对高温和低温的反应。</p>
@@ -1230,7 +1223,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tr>
 <td>FreezeTemperature</td>
 <td>Float</td>
-<td>冻结温度阈值(注意：冰冻的应该为负值)</td>
+<td>冻结温度阈值（注意：冰冻的应该为负值）</td>
 </tr>
 <tr>
 <td>UnfreezeTemperature</td>
@@ -1265,7 +1258,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tbody>
 </table>
 <p>Example: the following snippet use the <code>Temperature</code> module to make dreadnoughts ignitable.</p>
-<p>以下代码片段使用 Temperature 模块让 无畏异虫 变得可以点燃。</p>
+<p>以下代码片段使用 <code>Temperature</code> 模块让 无畏异虫 变得可以点燃。</p>
 <pre><code class="language-json">{ 
     &quot;Enemies&quot;: {
         &quot;ED_Spider_Boss_Heavy&quot;: {
@@ -1283,7 +1276,117 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
     }
 }
 </code></pre>
-              
+
+<h2 id="DropResource">DropResource(资源掉落)</h2>
+<p>Enemies drop resources when they are killed.Mutators on these fields are evaluated between every enemy death.</p>
+<p>令敌人在被击杀时掉落资源。这些字段上的 Mutator 会在每次敌人死亡时进行计算</p>
+<table>
+<thead>
+<tr>
+<th>Field Name(字段名称)</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable(启用与否)</td>
+<td>Boolean</td>
+<td>true</td>
+<td>Whether to drop resources when the enemy dies<br>决定敌人死亡时是否掉落资源</td>
+</tr>
+<tr>
+<td>Resource(资源类型)</td>
+<td>String</td>
+<td>Nitra</td>
+<td>Allowed: Nitra, Gold, Dystrum, Iron, OilShale, RedSugar<br>允许设置为：硝石、黄金、异镝、吸铁石、油页岩和红糖</td>
+</tr>
+<tr>
+<td>Amount(掉落资源数量)</td>
+<td>float</td>
+<td>1</td>
+<td>Amount of resource to drop, or hp heal amount of red sugar<br>掉落资源数量；若为红糖，则表示恢复的生命值量</td>
+</tr>
+<tr>
+<td>LaunchStrength(抛射力度)</td>
+<td>float</td>
+<td>1</td>
+<td>Strength of resource dispersal<br>资源掉落时的抛射力度</td>
+</tr>
+<tr>
+<td>GoombaOnly(仅限踩踏击杀)</td>
+<td>Boolean</td>
+<td>False</td>
+<td>If true, resources are only dropped if the enemy has been goomba'd<br>若为true，则仅当敌人被 踩踏击杀 时才会掉落资源</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="Goomba">Goomba(踩踏击杀)</h2>
+<p>Allows dwarves to damage enemies by jumping/landing on top of the enemy.</p>
+<p>允许矮人通过 跳到敌人身上 后造成伤害（马里奥）</p>
+<table>
+  <thead>
+    <tr>
+      <th>Field name(字段名称)</th>
+      <th>Type(种类)</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Enable(启用与否)</td>
+      <td>Boolean</td>
+      <td>True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Cooldown(冷却时间)</td>
+      <td>Float</td>
+      <td>0.2</td>
+      <td>Minimum time between successive damage to an enemy from goomba tech<br>对同一敌人通过 踩踏造成伤害的最小间隔时间（s）</td>
+    </tr>
+    <tr>
+      <td>MaxAngle(最大角度)</td>
+      <td>Float</td>
+      <td>50</td>
+      <td>Max angle the dwarf may be away from a straight down hit to still be counted for goomba. At 180, all impact directions count.<br>矮人跳跃方向与垂直向下方向的最大允许夹角（单位°）。当设置为180时，任何方向的撞击都有效 </td>
+    </tr>
+    <tr>
+      <td>SpeedThreshold(速度阈值)</td>
+      <td>float</td>
+      <td>300</td>
+      <td>Speed a dwarf must be moving before an impact is considered goomba'ing<br>矮人必须达到的最低下落速度，其撞击才会被判定为踩踏。</td>
+    </tr>
+    <tr>
+      <td>FlattenAmount(压扁程度)</td>
+      <td>Float</td>
+      <td>0</td>
+      <td>Amount to flatten an enemy when it is goomba'd between 0 and 0.7<br>敌人被踩踏时“压扁”视觉效果程度，取值范围为0到0.7。</td>
+    </tr>
+    <tr>
+      <td>DamageMultiplier(伤害倍率)</td>
+      <td>Float</td>
+      <td>0</td>
+      <td>DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage = damage dealt. Because speeds can be high (300-1000), this multiplier may be low.<br>最终伤害 = DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage。由于速度值通常较高（一般在300~1000之间），此倍率通常设为较小数值。</td>
+    </tr>
+    <tr>
+      <td>FlatDamage(固定伤害)</td>
+      <td>float</td>
+      <td>0</td>
+      <td>Flat damage dealt regardless of speed. If not set and damagemultiplier not set, defaults to 10k damage.<br>与速度无关的固定伤害值。若 FlatDamage 和 DamageMultiplier 均未设置，则默认造成 10000 点伤害。</td>
+    </tr>
+    <tr>
+      <td>DamageType(伤害类型)</td>
+      <td>DamageType</td>
+      <td>DMG_Physical</td>
+      <td>Most or all DMG_* types supported e.g. DMG_Burn<br>大多数/所有 种类都支持 DMG_xxx 的语法</td>
+    </tr>
+  </tbody>
+</table>
+
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
@@ -1309,11 +1412,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
+
       <span><a href="../modules/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
+
       <span><a href="../direct/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>

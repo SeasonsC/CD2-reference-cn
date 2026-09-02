@@ -8,7 +8,8 @@
     <title>Modules - CD2 Reference 模块-CD2指南</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <script>!function(){try{var t=localStorage.getItem('ds-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+        
         <link href="../stylesheets/tables.css" rel="stylesheet" />
     
       <script>
@@ -21,8 +22,7 @@
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -76,10 +76,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#name">Name名称</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#nextdifficulty">NextDifficulty Next难度</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive</a>
-    </li>
-        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#nitramultiplier">NitraMultiplier硝石倍数</a>
     </li>
@@ -171,7 +167,7 @@
 
 <h2 id="caps">Caps(虫量上限)</h2>
 <p>Control for the maximum number of enemies in the map, with the following fields:</p>
-<p class="cn">控制地图中敌人数量的多少,包含以下字段:</p>
+<p class="cn">控制地图中敌人数量的多少，包含以下字段：</p>
 
 <table>
 <thead>
@@ -193,7 +189,7 @@
 
 </tr>
 <tr>
-<td>Max Active Swarmers最大小型生物数量</td>
+<td>MaxActiveSwarmers最大小型生物数量</td>
 <td>Int</td>
 </tr>
 
@@ -209,7 +205,7 @@
 }
 </code></pre>
 <p>When the number of enemies in the map reach their cap, new enemies will be prevented from spawning and some existing enemies will despawn. The exact mechanics behind this behaviour are not completely understood. </p>
-<p class="cn">当地图中的敌人数量达到上限后，新敌人生成将无法生成，并且部分已有敌人可能会被移除，具体的机制尚未完全明确</p>
+<p class="cn">当地图中的敌人数量达到上限后，新敌人将无法生成，并且部分已有敌人可能会被移除，具体的机制尚未完全明确</p>
 
 <h2 id="darkness">Darkness（光照控制）</h2>
 <p>The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields (descriptions provided by @noskill):</p>
@@ -230,69 +226,69 @@
 <td>FlashlightStrength手电筒亮度</td>
 <td>Float</td>
 <td>1?</td>
-<td>Headlight light strength, affects both range and strength of the light.手电筒，影响光照范围与亮度。</td>
+<td>Headlight light strength, affects both range and strength of the light.<br>手电筒，影响光照范围与亮度。</td>
 
 </tr>
 <tr>
 <td>PlayerIllumination玩家自带光源</td>
 <td>Float</td>
 <td>1?</td>
-<td>Light strength in a radius around the player. Only affects strength and not radius.玩家周围半径内的光照强度，仅影响亮度，不影响范围。</td>
+<td>Light strength in a radius around the player. Only affects strength and not radius.<br>玩家周围半径内的光照强度，仅影响亮度，不影响范围。</td>
 
 </tr>
 <tr>
 <td>FlareMax最多荧光棒数量</td>
 <td>Int</td>
 <td>4</td>
-<td>Maximum number of flares that the player can keep.玩家能携带的最大荧光棒数量。</td>
+<td>Maximum number of flares that the player can keep.<br>玩家能携带的最大荧光棒数量。</td>
 
 </tr>
 <tr>
 <td>FlareStrength荧光棒亮度</td>
 <td>Float</td>
 <td>1?</td>
-<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.荧光棒的光照强度与范围，超过 3 无明显变化。</td>
+<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.<br>荧光棒的光照强度与范围，超过 3 无明显变化。</td>
 </tr>
 <tr>
 <td>FlareDuration荧光棒持续时间</td>
 <td>Float</td>
 <td>30</td>
-<td>Duration of the player flares.玩家荧光棒发光的持续时间。</td>
+<td>Duration of the player flares.<br>玩家荧光棒发光的持续时间。</td>
 
 </tr>
 <tr>
 <td>FlareProductionTime荧光棒冷却时间</td>
 <td>Float</td>
 <td>12</td>
-<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.玩家荧光棒的冷却时间,注意:不建议在任务中修改。</td>
+<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.<br>玩家荧光棒的冷却时间，注意：不建议在任务中修改。</td>
 </tr>
 
 <tr>
 <td>EnvironmentalLight环境光照</td>
 <td>Float</td>
 <td>1?</td>
-<td>Environmental (cave) light. Affects both radius and strength.洞穴环境光亮度，影响光照范围和亮度。</td>
+<td>Environmental (cave) light. Affects both radius and strength.<br>洞穴环境光亮度，影响光照范围和亮度。</td>
 
 </tr>
 <tr>
 <td>DisableFog禁用迷雾</td>
 <td>Bool</td>
 <td>False</td>
-<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</td>
+<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.<br>禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</td>
 </tr>
 
 <tr>
 <td>FlareGunStrength侦察照明弹亮度</td>
 <td>Float</td>
 <td>1?</td>
-<td>Strength of Scout's flare gun flares.侦察照明弹的光照强度</td>
+<td>Strength of Scout's flare gun flares.<br>侦察照明弹的光照强度</td>
 
 </tr>
 <tr>
 <td>FlareGunDuration侦察照明弹持续时间</td>
 <td>Float</td>
 <td>Depends on flare gun stats</td>
-<td>Duration of Scout's flare gun flares.侦察照明弹的发光持续时间。</td>
+<td>Duration of Scout's flare gun flares.<br>侦察照明弹的发光持续时间。</td>
 
 </tr>
 </tbody>
@@ -302,7 +298,7 @@
 <p>Description 用于简要说明该难度</p>
 
 <p>Example:</p>
-<p>比如:</p>
+<p>比如：</p>
 
 <pre><code class="language-json">{
     &quot;Description&quot;: &quot;Hazard 6 with double enemies.&quot;
@@ -313,10 +309,10 @@
 <p class="cn">“DifficultySetting”模块主要用于控制敌人抗性、虫潮间隔和敌人数量等核心因素。</p>
 
 <P>The descriptions here are very summarized, please check <a href="https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0">A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic</a>, a CD1 guide explaining most of the fields inside this module foe details. </P>
-<p class="cn">此处说明比较简略，详情请参考《深岩银河自定义难度快速入门》，一份基于 CD1编写的指南,解释了了本模块中的大部分字段(因为cd1和这个地方大致一样)</p>
+<p class="cn">此处说明比较简略，详情请参考《<a href="https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0">深岩银河自定义难度快速入门</a>》，一份基于 CD1编写的指南，解释了本模块中的大部分字段的详细信息（因为CD2有大部分字段和CD1一致）</p>
 
 <P>To see the values of these fields for the vanilla Hazards and some others, please check the <a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview">DRG Hazard Scaling</a> file.</P>
-<p>若要查看原版难度及其他的一些难度(如6级、7级),请查阅《DRG Hazard Scaling》这个文件[Resource里面]</p>
+<p>若要查看原版难度及其他的一些难度（如6级、7级），请查阅《<a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview">DRG Hazard Scaling</a>》这个文件[Resource里面]</p>
 
 <table>
 <thead>
@@ -505,13 +501,13 @@
 
 </tbody>
 </table>
-<h2 id="enemies-enemiesnosync">Enemies / EnemiesNoSync(敌人配置[客服端同步/不同步])</h2>
+<h2 id="enemies-enemiesnosync">Enemies / EnemiesNoSync(敌人配置[客户端同步/不同步])</h2>
 <p>See the <a href="../enemies/">Enemies/EnemiesNoSync</a> section.</p>
 <p>详情见<a href="../enemies/">Enemies/EnemiesNoSync</a>部分</p>
 
 <h2 id="escortmule">EscortMule(护送任务)</h2>
 <p>Controls for the Drilldozer in Escort missions.</p>
-<p>控制护送任务重 朵朵属性 的字段部分</p>
+<p>控制护送任务中 朵朵属性 的字段部分</p>
 
 <table>
 <thead>
@@ -612,7 +608,7 @@
 </code></pre>
 <h2 id="messages">Messages(信息)</h2>
 <p>A module that allows CD2 to send messages to chat in response to events happening during the mission. It has The following fields:</p>
-<p>该模块允许 CD2 在任务期间发生某些事件时,向聊天框发送信息。它包含以下字段:</p>
+<p>该模块允许 CD2 在任务期间发生某些事件时，向聊天框发送信息。它包含以下字段：</p>
 <table>
 <thead>
 <tr>
@@ -634,7 +630,7 @@
 <td>SendOnChange</td>
 <td>Boolean</td>
 <td>False</td>
-<td>Send chat message when another value (e.g. message) changes 当另一个值发生变化时发送消息(例如：倒计时性质的消息)</td>
+<td>Send chat message when another value (e.g. message) changes<br>当另一个值发生变化时发送消息（例如：倒计时性质的消息）</td>
 </tr>
 
 <tr>
@@ -662,9 +658,9 @@
 </table>
 
 <p>Examples:</p>
-<p>示例:</p>
+<p>示例：</p>
 <p>The following snippet sends a message on chat when the next resupply is available.</p>
-<p>以下字段会在下一次补给可用时发送消息：</p>
+<p>以下代码片段会在下一次补给可用时发送消息：</p>
 
 <pre><code class="language-json">...,
 &quot;Messages&quot;: [
@@ -685,7 +681,7 @@
 ...
 </code></pre>
 <p>The following snippet sends a message on chat when a player dies.</p>
-<p>以下字段会在有玩家死亡时发送消息：</p>
+<p>以下代码片段会在有玩家死亡时发送消息：</p>
 
 <pre><code class="language-json">...,
 &quot;Messages&quot;: [
@@ -729,7 +725,7 @@ Example:</p>
 <p>在任务完成后。</p>
 </ol>
 <p>There are many different uses for this field but a typical application is, using the <code>RandomChoice</code> mutator, choosing a difficulty at random when launching a mission:</p>
-<p>该字段有很多不同的用途，比较典型的是使用 RandomChoice 的 MUTATOR ，在启动任务时随机选择一个难度</p>
+<p>该字段有很多不同的用途，比较典型的是使用 <code>RandomChoice</code> 的 MUTATOR ，在启动任务时随机选择一个难度</p>
 <pre><code class="language-json">{ 
  &quot;Name&quot;: &quot;Difficulty Roulette&quot;, 
  &quot;NextDifficulty&quot;: {
@@ -739,10 +735,10 @@ Example:</p>
 }
 </code></pre>
 <p>Where it is understood that all the names in the <code>Choices</code> field are other difficulties existing in your CD2 list. The same snippet can be used to change the difficulty at random in deep dive stages. </p>
-<p>Choices 字段中列出的名称，必须是 CD2 难度列表中已存在的其他难度。相同的配置片段也可用于 深潜阶段，以实现随机切换难度。</p>
+<p><code>Choices</code> 字段中列出的名称，必须是 CD2 难度列表中已存在的其他难度。相同的配置片段也可用于 深潜阶段，以实现随机切换难度。</p>
 
 <p>If you don't want the difficulty to change when launching a mission from the Space Rig, the <code>IfOnSpaceRig</code> mutator can be used as follows: </p>
-<P>如果你不希望从太空站启动任务时难度发生变化，可使用 IfOnSpaceRig Mutator，示例如下：</P>
+<P>如果你不希望从太空站启动任务时难度发生变化，可使用 <code>IfOnSpaceRig</code> Mutator，示例如下：</P>
 <pre><code class="language-json">{
   &quot;NextDifficulty&quot;: {
     &quot;Mutate&quot;: &quot;IfOnSpaceRig&quot;,
@@ -751,9 +747,8 @@ Example:</p>
   }
 }
 </code></pre>
-<h3 id="different-difficulties-in-every-stage-of-a-deep-dive">Different difficulties in every stage of a Deep Dive每个深潜阶段的不同难度，</h3>
 <p>This is a common application of <code>NextDifficulty</code> allowing to mimic the increasing difficulty of the vanilla Deep Dive with whatever set of three difficulties you choose. The way to set it up is as follows: let's say that we want to play Hazard 5x2 on Stage 1, Hazard 6x2 on Stage 2 and ND on Stage 3. We will need the three files saved in Custom Difficulty, and then we would add the following to each:</p>
-<p>这是 NextDifficulty的一个常见应用，通过使用你选择的三个难度，来模仿原版深潜中逐渐增加的难度。设置方法如下：假想你想在第一阶段玩 5*2，第二阶段玩6*2，第三阶段玩ND（一个国外社区的难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
+<p>这是 <code>NextDifficulty</code>的一个常见应用，通过使用你选择的三个难度，来模仿原版深潜中逐渐增加的难度。设置方法如下：假想你想在第一阶段玩 5*2，第二阶段玩6*2，第三阶段玩ND（一个国外社区的难度）。我们需要将这三个文件保存在 CD2 中，然后分别为每个文件添加以下内容：</p>
 
 <pre><code class="language-json">{
     &quot;Name&quot;: &quot;Hazard 5x2&quot;,
@@ -770,7 +765,7 @@ Example:</p>
 }
 </code></pre>
 <p>The ND file, being the one played in stage 3, doesn't need any modifications. In addition to editing the files for stage 1 and 2, you will need a "starter" file:</p>
-<p>"ND"这个文件(国外社区的一个难度，即第三阶段所使用的难度)不需要任何修改。除了编辑第一阶段和第二阶段的文件外，你还需要一个“起始文件”。</p>
+<p>"ND"这个文件（国外社区的一个难度，即第三阶段所使用的难度）不需要任何修改。除了编辑第一阶段和第二阶段的文件外，你还需要一个“起始文件”。</p>
 <pre><code class="language-json">{
     &quot;Name&quot;: &quot;Dive Starter&quot;,
     &quot;NextDifficulty&quot;: &quot;Hazard 5x2&quot;
@@ -781,7 +776,7 @@ Example:</p>
 
 <h2 id="nitramultiplier">NitraMultiplier</h2>
 <p>A special module that accepts a float and controls the amount of nitra generated in the map. It has a default of 1. The following snippet would generate twice the amount of nitra in a certain mission:</p>
-<p>一个特殊模块，可以通过修改浮点数值来控制地图中生成的硝石数量，默认为1，以下字段会让地图生成 2 倍硝石:</p>
+<p>一个特殊模块，可以通过修改浮点数值来控制地图中生成的硝石数量，默认为1，以下代码片段会让地图生成 2 倍硝石：</p>
 
 <pre><code class="language-json">{
     &quot;NitraMultiplier&quot;: 2
@@ -789,7 +784,7 @@ Example:</p>
 </code></pre>
 <h2 id="pools">Pools(怪池)</h2>
 <p><code>Pools</code> is where enemies can be added or removed from the different pools in the game. For more information, <a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing">this document</a> is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in <code>Pools</code> are:</p>
-<p>Pools 模块是用于从游戏中的不同怪池中添加或移除敌人的地方。更多的信息请参阅<a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing">文件</a>中对怪池系统的解释，以及决定任务中出现那些敌人的原理。其接受的字段有以下内容：</p>
+<p><code>Pools</code> 模块是用于从游戏中的不同怪池中添加或移除敌人的地方。更多的信息请参阅<a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing">文件</a>中对怪池系统的解释，以及决定任务中出现哪些敌人的原理。其接受的字段有以下内容：</p>
 <table>
 <thead>
 <tr>
@@ -833,9 +828,9 @@ Example:</p>
 </tbody>
 </table>
 <p>The fields marked with <code>*</code> accept the <code>Add</code> (list), <code>Remove</code> (list) and <code>Clear</code> (bool) fields for adding and removing enemies at will. The <code>EnemyPool</code> can be freely manipulated with <a href="../mutators/">mutators</a> during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. <strong>It is not recommended to mutate the other pools.</strong> </p>
-<p>带有✳标记的字段可接受Add、Remove和Clear，用于按需添加或移除敌人。EnemyPool在任务过程中可以通过 Mutator 自由编辑，允许根据游戏条件动态添减敌人。其它池子不推荐使用 Mutator 实时更改</p>
+<p>带有<code>✳</code>标记的字段可接受<code>Add</code>、<code>Remove</code>和<code>Clear</code>，用于按需添加或移除敌人。<code>EnemyPool</code>在任务过程中可以通过 <a href="../mutators/">Mutator</a> 自由编辑，允许根据游戏条件动态添减敌人。其它池子不推荐使用 Mutator 实时更改</p>
 <p>Example:</p>
-<p>比如:</p>
+<p>比如：</p>
 
 <pre><code class="language-json">{
     &quot;Pools&quot;: {
@@ -865,7 +860,7 @@ Example:</p>
 </code></pre>
 <h2 id="salvage">Salvage 搜救行动</h2>
 <p>A special module offering customization options for Salvage missions. It contains three submodules: <code>MiniMules</code>, <code>Uplink</code> and <code>Refuel</code> with the following fields:</p>
-<p>一个专为 搜救行动任务 提供自定义选项的模块，包括三个子模块：MiniMules、Uplink、Refuel，各具有以下字段</p>
+<p>一个专为 搜救行动任务 提供自定义选项的模块，包括三个子模块：<code>MiniMules</code>、<code>Uplink</code>、<code>Refuel</code>，各具有以下字段</p>
 <table>
 <thead>
 <tr>
@@ -1056,10 +1051,10 @@ Example:</p>
 }
 </code></pre>
 <p>Please see the <code>BySalvagePhase</code> <a href="../mutators/">mutator</a> for values that need to change during different phases of the mission. </p>
-<p>对于需要根据处于任务不同阶段而改变的数值，请查阅 BySalvagePhase mutator。</p>
+<p>对于需要根据处于任务不同阶段而改变的数值，请查阅 <code>BySalvagePhase</code> <a href="../mutators/">mutator</a>。</p>
 <h3 id="usable-fields"><code>Usable</code> fields</h3>
 <p>Some of the fields in the table above are marked as <code>Usable</code>. These affect how the E key interactions work in some instances such as mule repairing. They accept the following fields:</p>
-<p>上述表格中被标记为 Usable的字段，会影响某些情况下 E 键交互的方式，例如修理骡子。它们接受以下字段:</p>
+<p>上述表格中被标记为 <code>Usable</code>的字段，会影响某些情况下 E 键交互的方式，例如修理骡子。它们接受以下字段：</p>
 <table>
 <thead>
 <tr>
@@ -1107,7 +1102,7 @@ Example:</p>
 </tbody>
 </table>
 <p>Some examples of use. The following snippet makes the uplink repair faster than normal when more than 1 player is interacting:</p>
-<p>使用示例:以下字段可在多个玩家参与交互时，让 Uplink的修复速度更快：</p>
+<p>使用示例：以下代码片段可在多个玩家参与交互时，让 Uplink的修复速度更快：</p>
 <pre><code class="language-json">{
     &quot;Salvage&quot;: {
         &quot;Uplink&quot;: {
@@ -1119,7 +1114,7 @@ Example:</p>
 }
 </code></pre>
 <p>The following snippet changes the duration of the mule repair based on how many players are interacting, and buffs the speed boost of multiple players:</p>
-<p>以下字段根据参与修骡的玩家数动态调整改变修理骡子的时间，并增强多人交互时加速修理速度：</p>
+<p>以下代码片段根据参与修骡的玩家数动态调整改变修理骡子的时间，并增强多人交互时加速修理速度：</p>
 <pre><code class="language-json">{
     &quot;Salvage&quot;: {
         &quot;MiniMules&quot;: {
@@ -1136,7 +1131,7 @@ Example:</p>
 </code></pre>
 <h2 id="soundcues">SoundCues(声音提示)</h2>
 <p>A module that allows CD2 to play a sound in response to events happening during the mission. It has two fields: a boolean <code>Play</code> which accepts mutators and a <code>Cue</code> which accepts the path to the sound you want to play. As an example, the following snippet plays a laughing sound when a player dies:</p>
-<p>该模块允许 CD2 在任务中发生某些事件时播放音效。它包含两个字段，Play（true/false决定是否播放，可用 Mutators 动态调整）；Cue（音效文件路径）。示例：以下字段会在玩家死亡的时候嘻嘻哈哈</p>
+<p>该模块允许 CD2 在任务中发生某些事件时播放音效。它包含两个字段，<code>Play</code>（true/false决定是否播放，可用 Mutators 动态调整）；<code>Cue</code>（音效文件路径）。示例：以下代码片段会在玩家死亡的时候播放笑声</p>
 <pre><code class="language-json">...,
  &quot;SoundCues&quot;: [
     {
@@ -1226,7 +1221,7 @@ Example:</p>
 </code></pre>
 <h2 id="resupply">Resupply(补给)</h2>
 <p>This module contains information about the resupply cost. It accepts a single <code>float</code> field <code>Cost</code> that can be <a href="../mutators/">mutated</a>.</p>
-<p>该模块包含补给消耗的设置，它仅接受一个名为 Cost 的浮点数字段(注:该字段可被 Mutator 动态调整)：</p>
+<p>该模块包含补给消耗的设置，它仅接受一个名为 <code>Cost</code> 的浮点数字段（注：该字段可被 <a href="../mutators/">Mutator</a> 动态调整）：</p>
 <p>Example: a fixed resupply cost of 40 nitra.</p>
 <p>示例：只需要40n的补给</p>
 <pre><code class="language-json">{
@@ -1236,7 +1231,7 @@ Example:</p>
 }
 </code></pre>
 <p>The <code>StartingNitra</code> field from CD1 does not exist in CD2: the same functionality is done with mutators. Example: the first resupply is free, 40 nitra for all others:</p>
-<p>CD1 中的 StartingNitra 字段在 CD2 中已不存在，但可通过 Mutator 实现相同功能。示例如下：第一次补给免费，后续每次消耗40n。</p>
+<p>CD1 中的 <code>StartingNitra</code> 字段在 CD2 中已不存在，但可通过 Mutator 实现相同功能。示例如下：第一次补给免费，后续每次消耗40n。</p>
 <pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: {
@@ -1262,11 +1257,11 @@ Example:</p>
 </code></pre>
 <p>While both snippets do the same thing, <code>ByResuppliesCalled</code> is usually more compact when specifying a different cost for the first few supplies.</p>
 
-<p>虽然两个代码片段功能相同，但 ByResuppliesCalled 在指定前几次补给的不同费用时更简洁。</p>
+<p>虽然两个代码片段功能相同，但 <code>ByResuppliesCalled</code> 在指定前几次补给的不同费用时更简洁。</p>
 
 <p>Example: the cost is 45, but after the 6th resupply it drops to 40. </p>
 
-<p>示例:补给消耗 45硝石，但第 6 次之后降为 40。。</p>
+<p>示例：补给消耗 45硝石，但第 6 次之后降为 40。。</p>
 <pre><code class="language-json">{ 
   &quot;Resupply&quot;: {
     &quot;Cost&quot;: {
@@ -1286,14 +1281,14 @@ Example:</p>
 <p>该模块用于储存全局变量，同时支持模块间通信。它采用字典结构，每个变量包含以下字段</p>
 <ul>
 <li><code>Type</code>: the variable type. Can be one of the following: Boolean, String, Float or Strings, the latter used for arrays of String.</li>
-<li>Type: 变量类型，可选类型包括 Boolean、String、Float、Strings ( Strings 表示字符串数组 )</li>
+<li><code>Type</code>: 变量类型，可选类型包括 Boolean、String、Float、Strings ( Strings 表示字符串数组 )</li>
 <li><code>Watch</code>: a boolean which will show the variable's value in the UI for debugging.</li>
-<li>Watch: 布尔字段，用于选择是否在 UI 中显示该变量的值以便调试</li>
+<li><code>Watch</code>: 布尔字段，用于选择是否在 UI 中显示该变量的值以便调试</li>
 <li><code>Value</code>: the variable's value, which can be mutated.</li>
-<li>Value: 变量的值，可被 Mutators 修改</li>
+<li><code>Value</code>: 变量的值，可被 Mutators 修改</li>
 </ul>
 <p>A variable defined in <code>Vars</code> can be later used in any place which accepts a value of the same type by using {<code>"Var": "MyVariable"</code>}. Variables are all updated at once so they will always be consistent across modules, but the implementation can cause up to 500 ms of delay between the variable state and the true game state.</p>
-<p>在 Vars 中定义的变量，可在任何需要对应类型值的地方通过{"Var": "MyVariable"}引用。所有变量会在同一时刻统一更新，因此模块间状态始终保持一致，但这种实现方式可能导致变量实际状态与真实游戏状态之间存在 500ms 的延迟</p>
+<p>在 <code>Vars</code> 中定义的变量，可在任何需要对应类型值的地方通过{<code>"Var": "MyVariable"</code>}引用。所有变量会在同一时刻统一更新，因此模块间状态始终保持一致，但这种实现方式可能导致变量实际状态与真实游戏状态之间存在 500ms 的延迟</p>
 <ul>
 
 </ul>
@@ -1390,7 +1385,7 @@ Example:</p>
 <h2 id="warnings">Warnings(禁用任务词条)</h2>
 <p>The <code>Warnings</code> module can be used to ban mission anomalies. It accepts a single <code>Banned</code> field which is one or more from the table below. <strong>Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.</strong> </p>
 
-<p><code>Warnings</code>  模块可用于禁止任务词条。它接受一个 Banned 字段，其值可为下表中的一个或多个。<strong>请注意，禁用影响资源产出的词条（如矿石天堂/淘金热潮）会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
+<p><code>Warnings</code>  模块可用于禁止任务词条。它接受一个 <code>Banned</code> 字段，其值可为下表中的一个或多个。<strong>请注意，禁用影响资源产出的词条（如矿石天堂/淘金热潮）会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
 <table>
 <thead>
 <tr>
@@ -1542,7 +1537,7 @@ Example:</p>
 <h2 id="wavespawners">WaveSpawners</h2>
 <p>See the <a href="../wavespawners/">WaveSpawners</a> section. </p>
 
-<p>请查看波次生成器部分</p>
+<p>请查看<a href="../wavespawners/">波次生成器</a>部分</p>
               
             </div>
           </div><footer>
@@ -1569,11 +1564,9 @@ Example:</p>
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
+
       <span><a href="../basics/" style="color: #fcfcfc">&laquo; 上一页</a></span>
-    
-    
+
       <span><a href="../enemies/" style="color: #fcfcfc">下一页 &raquo;</a></span>
     
   </span>

@@ -8,7 +8,8 @@
     <title>The Basics of CD2 - CD2 Reference 基础部分-CD2指南</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <script>!function(){try{var t=localStorage.getItem('ds-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+        
         <link href="../stylesheets/tables.css" rel="stylesheet" />
     
       <script>
@@ -21,8 +22,7 @@
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -127,15 +127,15 @@
 <p>CD2 features a simple GUI compatible with both ModHub and UUI:</p>
 <p class="cn">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI）。</p>
 <figure>
-  <img alt="CD2modhub" src="../pictures/cd2-modhub.png" />
+  <img loading="lazy" alt="CD2modhub" src="../pictures/cd2-modhub.png" />
   <figcaption>Main CD2 screen in Modhub.</figcaption>
   <p class="cn">Modhub 中的 CD2 主界面。</p>
 </figure>
 <p>The files for your difficulties can be pasted and edited in the text box. After clicking <code>Save</code>, the file will be saved based on the name in the <code>Name</code> top level field; if the file already existed, it will be overwritten. Difficulties get saved inside your mod config. You can check all your difficulties by clicking on the drop-down menu.</p>
-<p class="cn">你的难度可以在文本框中粘贴或编辑。点击Save后，该难度会根据顶层字段 name 后面的部分命名保存。如果同名难度已存在，则会覆写旧难度。你保存的难度均存于模组配置中，可以通过下拉菜单查看。</p>
+<p class="cn">你的难度可以在文本框中粘贴或编辑。点击<code>Save</code>后，该难度会根据顶层字段 <code>Name</code> 后面的部分命名保存。如果同名难度已存在，则会覆写旧难度。你保存的难度均存于模组配置中，可以通过下拉菜单查看。</p>
 
 <p>The <code>Reset</code> button sets a difficulty as a default upon starting the game.</p>
-<p class="cn">Reset 会将当前难度设为游戏启动时的默认难度。</p>
+<p class="cn"><code>Reset</code> 会将当前难度设为游戏启动时的默认难度。</p>
 
 <h2 id="the-cd2-files">The CD2 files (CD2难度文件要求)</h2>
 <ul>
@@ -146,10 +146,10 @@
 <li>CD1 难度文件与 CD2 不兼容。</li>
 
 <li>The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</li>
-<li>顶层模块部分为具有不同功能<a href="../modules/">Modules(模块部分)</a></li>
+<li>文件的顶层字段就是各种具有不同功能的<a href="../modules/">Modules(模块部分)</a></li>
 
 <li>If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </li>
-<li>如果 CD2 文件中缺少某个模块或字段，则会使用 BaseHazard 中的默认值。BaseHazard 可以在 DifficultySetting 模块中指定。如果未指定，则默认使用 Hazard 5。</p>
+<li>如果 CD2 文件中缺少某个模块或字段，则会使用 <code>BaseHazard</code> 中的默认值。<code>BaseHazard</code> 可以在 <code>DifficultySetting</code> 模块中指定。如果未指定，则默认使用 Hazard 5。</li>
 
 <li>A file that is just <code>{}</code> represents vanilla Hazard 5. </li>
 <li>一个内容仅为 <code>{}</code> 的文件就代表原版 Hazard 5。</li>
@@ -164,7 +164,7 @@
 }
 </code></pre>
 <p>which means that <code>MaxActiveEnemies</code> scales with the number of players, 1 to 4, with the values specified inside. The arrays can be as large as desired to accomodate for 4+ player lobbies:</p>
-<p class="cn">例如上面这个例子,MaxActiveEnemies 会随着玩家人数(1~4人)变化,依次使用数组中的数值。你也可以拓展这个数组,以适应4人以上的情况:</p>
+<p class="cn">例如上面这个例子，<code>MaxActiveEnemies</code> 会随着玩家人数（1~4人）变化，依次使用数组中的数值。你也可以拓展这个数组，以适应 4 人以上的情况：</p>
 
 <pre><code class="language-json">{
     &quot;Caps&quot;: {
@@ -180,7 +180,7 @@
 
 </ul>
 <p>The following is a very simple file for Hazard 5x2, that is, vanilla Hazard 5 with double enemies and a 60 nitra resupply cost:</p>
-<p class="cn">下面是一个 5x2难度的实例,即在5级难度的基础上,让敌人数量翻倍,且补给消耗为60n:</p>
+<p class="cn">下面是一个 Hazard 5x2 难度的实例，即在 5 级难度的基础上，让敌人数量翻倍，且补给消耗为 60 硝石：</p>
 
 <pre><code class="language-json">{
   &quot;Name&quot;: &quot;Hazard 5x2&quot;,
@@ -223,11 +223,9 @@
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
+
       <span><a href="../faq/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
+
       <span><a href="../modules/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>

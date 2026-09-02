@@ -8,7 +8,8 @@
     <title>Mutators - CD2 Reference动态参数与逻辑控制</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    <script>!function(){try{var t=localStorage.getItem('ds-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+        
         <link href="../stylesheets/tables.css" rel="stylesheet" />
     
       <script>
@@ -21,8 +22,7 @@
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
+
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -75,173 +75,181 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Mutators动态参数与逻辑控制</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#accumulate">Accumulate（累加）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#accumulate">Accumulate(累加)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#add-subtract-multiply-divide-pow-modulo-round-ceil-floor">Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#add-subtract-multiply-divide-pow-modulo-round-ceil-floor">Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#and-or-not">And, Or, Not（与、或、非）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#and-or-not">And, Or, Not(与、或、非)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bybiome">ByBiome（根据生物群系）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bybiome">ByBiome(根据生物群系)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#byddstage">ByDDStage（根据深潜阶段）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#byddstage">ByDDStage(根据深潜阶段)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#bydna">ByDNA</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#byescortphase">ByEscortPhase（根据护送任务阶段）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#byescortphase">ByEscortPhase(根据护送任务阶段)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bymissiontype">ByMissionType（根据任务类型）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bymissiontype">ByMissionType(根据任务类型)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bysecondary">BySecondary（根据次要目标）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bysecondary">BySecondary(根据次要目标)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bytime">ByTime（根据时间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bytime">ByTime(根据时间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#byplayercount">ByPlayerCount（根据玩家数量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#byplayercount">ByPlayerCount(根据玩家数量)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#byrefineryphase">ByRefineryPhase（根据炼油阶段）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#byrefineryphase">ByRefineryPhase(根据炼油阶段)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#byresuppliescalled">ByResuppliesCalled（根据呼叫补给次数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#byresuppliescalled">ByResuppliesCalled(根据呼叫补给次数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bysabophase">BySaboPhase（根据设施破坏阶段）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bysabophase">BySaboPhase(根据设施破坏阶段)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#bysalvagephase">BySalvagePhase（根据搜救行动阶段）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#bysalvagephase">BySalvagePhase(根据搜救行动阶段)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#clamp">Clamp（限制）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#clamp">Clamp(限制)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#countdown">Countdown（倒计时）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#countdown">Countdown(倒计时)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#defenseprogress">DefenseProgress（守点进度）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#defenseprogress">DefenseProgress(守点进度)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#delta">Delta（变量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#delta">Delta(变量)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#depositedresource">DepositedResource（存放资源）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#depositedresource">DepositedResource(存放资源)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#descriptorexists">DescriptorExists（描述符是否可用）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#descriptorexists">DescriptorExists(描述符是否可用)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#drillercount">DrillerCount（钻机数量检测）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#drillercount">DrillerCount(钻机数量检测)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#DroppodDistance">DroppodDistance(空降舱距离)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#DistanceToDroppod">DistanceToDroppod(空降舱距离)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringdefend">DuringDefend（守点期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringdefend">DuringDefend(守点期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringdread">DuringDread（对战无畏异虫期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringdread">DuringDread(对战无畏异虫期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringdrillevator">DuringDrillevator（钻井电梯期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringdrillevator">DuringDrillevator(钻井电梯期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringeggambush">DuringEggAmbush（蛋潮期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringeggambush">DuringEggAmbush(蛋潮期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringencounters">DuringEncounters（遭遇潮期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringencounters">DuringEncounters(遭遇潮期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringextraction">DuringExtraction（撤离期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringextraction">DuringExtraction(撤离期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringgenericswarm">DuringGenericSwarm（宣告潮期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringgenericswarm">DuringGenericSwarm(宣告潮期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringmission">DuringMission（任务期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringmission">DuringMission(任务期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#duringpecountdown">DuringPECountdown（定点提取撤离期间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#duringpecountdown">DuringPECountdown(定点提取撤离期间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarfcount">DwarfCount（矮人数量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarfcount">DwarfCount(矮人数量)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarvesammo">DwarvesAmmo（团队弹药量比例）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarvesammo">DwarvesAmmo(团队弹药量比例)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarvesdown">DwarvesDown（倒地矮人数量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarvesdown">DwarvesDown(倒地矮人数量)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarvesdowntime">DwarvesDownTime（倒地时间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarvesdowntime">DwarvesDownTime(倒地时间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarvesdowns">DwarvesDowns（矮人总倒地次数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarvesdowns">DwarvesDowns(矮人总倒地次数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarveshealth">DwarvesHealth（团队生命值比例）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarveshealth">DwarvesHealth(团队生命值比例)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarvesrevives">DwarvesRevives（矮人复活次数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarvesrevives">DwarvesRevives(矮人复活次数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dwarvesshield">DwarvesShield（团队护盾值比例）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#dwarvesshield">DwarvesShield(团队护盾值比例)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#elapsedextraction">ElapsedExtraction（撤离已用时间）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#elapsedextraction">ElapsedExtraction(撤离已用时间)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#enemieskilled">EnemiesKilled（已击杀敌人数量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#enemieskilled">EnemiesKilled(已击杀敌人数量)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#enemiesrecentlyspawned">EnemiesRecentlySpawned（近期生成敌人计数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#enemiesrecentlyspawned">EnemiesRecentlySpawned(近期生成敌人计数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#enemycooldown">EnemyCooldown（敌人生成冷却）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#enemycooldown">EnemyCooldown(敌人生成冷却)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#enemycount">EnemyCount（当前敌人计数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#enemycount">EnemyCount(当前敌人计数)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#EnemyHealth">EnemyHealth(敌人血量比例)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#EnemyDistance">EnemyDistance(敌人距离)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#engineercount">EngineerCount（工程数量计数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#engineercount">EngineerCount(工程数量计数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#float2string">Float2String（浮点数转字符串）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#float2string">Float2String(浮点数转字符串)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#gunnercount">GunnerCount（枪手数量计数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#gunnercount">GunnerCount(枪手数量计数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#heldresource">HeldResource（携带资源计数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#heldresource">HeldResource(携带资源计数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#iwsleft">IWsLeft（钢铁意志剩余数量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#iwsleft">IWsLeft(钢铁意志剩余数量)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#if">If(条件判断)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#iffloat">IfFloat（浮点数条件判断）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#iffloat">IfFloat(浮点数条件判断)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ifonspacerig">IfOnSpaceRig（是否在太空站）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ifonspacerig">IfOnSpaceRig(是否在太空站)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#int2string">Int2String（整数转字符串）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#int2string">Int2String(整数转字符串)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#join">Join（字符串拼接）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#join">Join(字符串拼接)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#LockFloat, LockBoolean, LockString">LockFloat, LockBoolean, LockString</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#max">Max（最大值）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#max">Max(最大值)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#min">Min（最小值）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#min">Min(最小值)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#MuleDroppodDistance">MuleDroppodDistance(矿骡与空降仓的距离)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#MuleDistanceToDroppod">MuleDistanceToDroppod(矿骡与空降舱的距离)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#Nonzero">Nonzero(非零判断)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#random">Random（随机值）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#random">Random(随机值)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#randomchoice">RandomChoice（随机选择）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#randomchoice">RandomChoice(随机选择)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#randomchoicepermission">RandomChoicePerMission（每个任务随机选择一次）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#randomchoicepermission">RandomChoicePerMission(每个任务随机选择一次)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resupplyusesleft">ResupplyUsesLeft（补给剩余使用次数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#resupplyusesleft">ResupplyUsesLeft(补给剩余使用次数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resuppliescalled">ResuppliesCalled（已呼叫补给次数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#resuppliescalled">ResuppliesCalled(已呼叫补给次数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#resupplyusesconsumed">ResupplyUsesConsumed（已消耗补给使用次数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#resupplyusesconsumed">ResupplyUsesConsumed(已消耗补给使用次数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#SecondaryFinished">SecondaryFinished</a>
+    <li class="toctree-l2"><a class="reference internal" href="#SecondaryFinished">SecondaryFinished(根据次要完成情况)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#scoutcount">ScoutCount（侦察数量计数）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#scoutcount">ScoutCount(侦察数量计数)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#Select">Select（选择）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#Sequence">Sequence(序列)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#squarewave">SquareWave（轮切）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#Select">Select(选择)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#timedelta">TimeDelta（时间变量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#selectfromarray">SelectFromArray(从数组选择)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#totalresource">TotalResource（资源总量）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#StopWatch">StopWatch(秒表)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#trigger-mutators">Trigger mutators（触发类Mutator）</a>
+    <li class="toctree-l2"><a class="reference internal" href="#squarewave">SquareWave(轮切)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#timedelta">TimeDelta(时间变量)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#totalresource">TotalResource(资源总量)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#trigger-mutators">Trigger mutators(触发类Mutator)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#triggeronce">TriggerOnce（单次触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggeronce">TriggerOnce(单次触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggerntimes">TriggerNTimes（触发N次）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggerntimes">TriggerNTimes(触发N次)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggersometimes">TriggerSometimes（概率触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggersometimes">TriggerSometimes(概率触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggercooldown">TriggerCooldown（冷却触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggercooldown">TriggerCooldown(冷却触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggerfixedduration">TriggerFixedDuration（固定持续时间触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggerfixedduration">TriggerFixedDuration(固定持续时间触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggersustain">TriggerSustain（持续延长触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggersustain">TriggerSustain(持续延长触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggerdelay">TriggerDelay（延迟触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggerdelay">TriggerDelay(延迟触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#triggeronchange">TriggerOnChange（变化触发）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggeronchange">TriggerOnChange(变化触发)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#trigger-examples">Trigger examples（触发器示例）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#triggertimer">TriggerTimer(定时触发)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#trigger-examples">Trigger examples(触发器示例)</a>
     </li>
         </ul>
     </li>
@@ -290,11 +298,12 @@
                 <h1 id="mutators">Mutators 动态参数与逻辑控制</h1>
 <p>Here follows an alphabetized list of mutators for CD2.</p>
 <p>下面是CD2中按字母先后顺序排序的Mutators列表【注： 示例代码中的中文 对于格式是有问题的，仅用作参考】</p>
-<h2 id="accumulate">Accumulate（累加）</h2>
+<h2 id="accumulate">Accumulate(累加)</h2>
 <p><code>Accumulate</code> can track changes in other mutators by adding to a starting <code>Initial</code> number. In addition, it also supports clamping the accumulated value with <code>Min</code> and <code>Max</code>. If used with a constant value, it can be used to make a simple counter.</p>
-<p><code>Accumulate</code>可以从 Initial 指定的初始值上开始累加，以跟踪其它 Mutators 的变化。此外，还可通过使用"Min"和"Max"对累计值进行范围限定。若与常数值配合使用，即可实现一个简单的计数器</p>
+<p><code>Accumulate</code>可以从 <code>Initial</code> 指定的初始值上开始累加，以跟踪其它 Mutators 的变化。此外，还可通过使用<code>Min</code>和<code>Max</code>对累计值进行范围限定。若与常数值配合使用，即可实现一个简单的计数器</p>
 <p>Example: the value of the following snippet starts at 0 and would cap at 10 after roughly 10 seconds.</p>
 <p>示例：下面这段代码的数值会从 0 开始计数，在大约 10 秒后达到上限10。</p>
+<p>注意:<code>Value</code>字段指定的数字为动态的时候,0.5s计算一次(除非使用delta→time类写法)</p>
 <pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;Accumulate&quot;,
     &quot;Initial&quot;: 0,
@@ -303,7 +312,7 @@
     &quot;Max&quot;: 10
 }
 </code></pre>
-<h2 id="add-subtract-multiply-divide-pow-modulo-round-ceil-floor">Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor（加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整）</h2>
+<h2 id="add-subtract-multiply-divide-pow-modulo-round-ceil-floor">Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor(加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整)</h2>
 <p>Arithmetic mutators that can be used for basic mathematical operations.</p>
 <p>这些是可以用于基本数学运算的mutators</p>
 <p>Example: enemy speed as a linear function of resupplies called during the mission.</p>
@@ -321,10 +330,35 @@
     }
 即      y(速度)=1.35+0.1*x(呼叫补给次数)
 </code></pre>
-<h2 id="and-or-not">And, Or, Not（与、或、非）</h2>
-<p>Basic boolean operators.</p>
-<p>基础布伦逻辑</p>
-<h2 id="bybiome">ByBiome（根据生物群系）</h2>
+<h2 id="and-or-not">And, Or, Not(与、或、非)</h2>
+<p>Basic boolean operators that can be used on the outputs of boolean mutators. <code>And</code> and <code>Or</code> can take any number of inputs:</p>
+<p>可应用于布尔 Mutators 输出结果的基础布尔运算。<code>And</code> 和 <code>Or</code> 可接受任意数量的输入：</p>
+<pre><code class="language-json">{
+    &quot;Mutate&quot;: &quot;And&quot;,
+    &quot;A&quot;: {&quot;Mutator1&quot;},
+    &quot;B&quot;: {&quot;Mutator2&quot;},
+    &quot;C&quot;: {&quot;Mutator3&quot;},
+    &quot;D&quot;: {&quot;Mutator4&quot;}
+}
+</code></pre>
+<p>and like all other similar mutators, the names of the fields can be whatever you want:</p>
+<p>与其它所有类似的 Mutator 一样，字段名可以任意命名：</p>
+<pre><code class="language-json">{
+    &quot;Mutate&quot;: &quot;Or&quot;,
+    &quot;First&quot;: {&quot;Mutator1&quot;},
+    &quot;Second&quot;: {&quot;Mutator2&quot;},
+    &quot;Third&quot;: {&quot;Mutator3&quot;},
+    &quot;Fourth&quot;: {&quot;Mutator4&quot;}
+}
+</code></pre>
+<p>The <code>Not</code> mutator takes a single boolean <code>Value</code> field and will return its complement. As a trivial example, the following always returns <code>true</code>:</p>
+<p><code>Not</code> Mutator 接受单个布尔 <code>Value</code> 字段，并返回其相反值。作为简单示例，下面这段代码始终返回 <code>true</code>：</p>
+<pre><code class="language-json">{
+    &quot;Mutate&quot;: &quot;Not&quot;,
+    &quot;Value&quot;: false
+}
+</code></pre>
+<h2 id="bybiome">ByBiome(根据生物群系)</h2>
 <p>Change the value based on the mission biome. If a value isn't set for a biome it will use the 'Default' value. A 'Default' must be set unless a value is specified for biomes. If a biome is not recognized and no default is specified, the value for CrystallineCaverns will be used.</p>
 <p>根据任务所在群系来改变数值，如果某个群系没有设置对应参数，则使用Default值。除非所有的群系都设置了对应值，否则必须设置Default值。如果某群系没有识别到对应值且无Default值，则使用"CrystallineCaverns"的值</p>
 <table>
@@ -388,7 +422,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="byddstage">ByDDStage（根据深潜阶段）</h2>
+<h2 id="byddstage">ByDDStage(根据深潜阶段)</h2>
 <p>Change the value based on the Deep Dive stage. If a value isn't set for a stage, it will use the 'Default' value. A 'Default' must be set.</p>
 <p>根据深潜阶段来改变数值，如果某个阶段的对应值没设定则使用Default值，必须设定Default值</p>
 <p>Example: </p>
@@ -416,7 +450,7 @@
 </code></pre>
 <p>The condition with the most matches will be prioritized. Mission type is prioritized over length and length over complexity. An “x” matches anything. In the above a (2,2) refinery would have the value 4.</p>
 <P>匹配的最多的条件会被优先采用，任务类型的匹配优先级高于任务长度，而长度的匹配优先级又高于复杂度。“x”指代任意值。在上述例子中，如果为炼油任务，长度2，复杂度2，则采用数值4</P>
-<h2 id="byescortphase">ByEscortPhase（根据护送任务阶段）</h2>
+<h2 id="byescortphase">ByEscortPhase(根据护送任务阶段)</h2>
 <p>Used to detect the different stages of an Escort mission:</p>
 <P>用于检测护送任务的不同阶段</P>
 <pre><code class="language-json">{
@@ -433,7 +467,7 @@
   &quot;Finished&quot;: 900 “完成”
 }
 </code></pre>
-<h2 id="bymissiontype">ByMissionType（根据任务类型）</h2>
+<h2 id="bymissiontype">ByMissionType(根据任务类型)</h2>
 <p>Change the value based on mission type. If a value isn't set for a mission type it will use the 'Default' value. A 'Default' must be set unless a value is specified for all mission types.
 Supported mission types:</p>
 <P>根据任务类型改变数值，如果某个任务类型未设置对应数值，则采用Default值。除非所有任务类型都设置对应数值，否则必须设置Default值</P>
@@ -457,7 +491,7 @@ Supported mission types:</p>
     &quot;PE&quot;: 80
  }
 </code></pre>
-<h2 id="bysecondary">BySecondary（根据次要目标）</h2>
+<h2 id="bysecondary">BySecondary(根据次要目标)</h2>
 <p>Can be used to detect secondary objectives both on normal missions and on deep dives. The objectives have the following names:</p>
 <p>可以用于检测普通任务/深潜任务中的次要目标完成情况。次要目标名称如下</p>
 <table>
@@ -521,7 +555,7 @@ Supported mission types:</p>
 </tbody>
 </table>
 <p>Example: change the Nitra multiplier depending on the secondary objective in deep dives (20 % more nitra on dreadnought and black box objectives).</p>
-<P>示例：根据完成的次要目标，改变硝石倍率（完成消灭无畏/回收黑匣子后提供20%硝石增幅）</P>
+<P>示例：根据完成的次要目标，改变硝石倍率(完成消灭无畏/回收黑匣子后提供20%硝石增幅)</P>
 <pre><code class="language-json">{
     &quot;NitraMultiplier&quot;: {
         &quot;Mutate&quot;: &quot;BySecondary&quot;,
@@ -530,7 +564,7 @@ Supported mission types:</p>
     }
 }
 </code></pre>
-<h2 id="bytime">ByTime（根据时间）</h2>
+<h2 id="bytime">ByTime(根据时间)</h2>
 <p>Change a value over time. Time matches the mission clock in the escape menu in-game, including starting before players receive control of their dwarves.
 The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - StartDelay)</code>.</p>
 <P>根据时间推移改变数值。时间与游戏内Esc菜单内的任务计时一致，包括玩家获得矮人控制权之前的时间。数值由以下公式 计算: InitialValue + RateOfChange * Max(0, Time - StartDelay)</P>
@@ -549,7 +583,7 @@ The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - Sta
     &quot;StartDelay&quot;: 400
 }
 </code></pre>
-<h2 id="byplayercount">ByPlayerCount（根据玩家数量）</h2>
+<h2 id="byplayercount">ByPlayerCount(根据玩家数量)</h2>
 <p>Change the value based on the number of players in-game. A solo game gets the first position in the list; two players get the second spot and so on. The last value in the list is used if there are more players than there are values in the list.</p>
 <p>根据游戏中玩家的数量来改变值。单人游戏使用列表中的第一个值，两个玩家则使用第二个值，以此类推。如果玩家数量超出列表定义值数量，则使用最后那个数值</p>
 <p>Example:</p>
@@ -564,7 +598,7 @@ The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - Sta
     ]
 }
 </code></pre>
-<h2 id="byrefineryphase">ByRefineryPhase（根据炼油阶段）</h2>
+<h2 id="byrefineryphase">ByRefineryPhase(根据炼油阶段)</h2>
 <p>Used to detect the different stages of a Refinery mission.</p>
 <P>用于检测炼油任务不同阶段</P>
 <pre><code class="language-json"> {
@@ -579,10 +613,10 @@ The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - Sta
   &quot;RocketLaunched&quot;: 7 
 }
 </code></pre>
-<h2 id="byresuppliescalled">ByResuppliesCalled（根据呼叫补给次数）</h2>
+<h2 id="byresuppliescalled">ByResuppliesCalled(根据呼叫补给次数)</h2>
 <p>Allows specifying an array with indexes 0, 1, 2, etc, where the values at each index become valid when the number of resupplies corresponding to said index have been called.
 The most typical use is specifying a varying number of resupply costs. For example:</p>
-<p>你可以指定一个数组（例如 [0, 1, 2, …]），当呼叫补给的次数达到某个数值时，就使用数组中对应位置的值。最常见的用法是让每次呼叫补给所消耗的硝石随着呼叫次数动态变化。例如：</p>
+<p>你可以指定一个数组(例如 [0, 1, 2, …])，当呼叫补给的次数达到某个数值时，就使用数组中对应位置的值。最常见的用法是让每次呼叫补给所消耗的硝石随着呼叫次数动态变化。例如：</p>
 <pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: {
@@ -595,7 +629,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
 <p>will set up the first resupply to be 40 nitra, the second to be 50 nitra and 60 for all subsequent supplies.</p>
 <p>这将使第一个补给消耗40硝石，第二个补给消耗50硝石，而第三个以及之后的补给都消耗60硝石</p>
 
-<h2 id="bysabophase">BySaboPhase（根据设施破坏阶段）</h2>
+<h2 id="bysabophase">BySaboPhase(根据设施破坏阶段)</h2>
 <p>Used to detect the different stages of a Sabotage mission.</p>
 <P>用于检测设施破坏任务的不同阶段。</P>
 <pre><code class="language-json">{
@@ -613,7 +647,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
   &quot;Finished&quot;: &quot;Value for Finished&quot;
 }
 </code></pre>
-<h2 id="bysalvagephase">BySalvagePhase（根据搜救行动阶段）</h2>
+<h2 id="bysalvagephase">BySalvagePhase(根据搜救行动阶段)</h2>
 <p>Used to detect the different stages of a Salvage mission. The mutator uses the <code>Default</code> value for any mission that is not Salvage. </p>
 <P>用于检测搜救行动的不同阶段。对于非搜救的任务，Mutator使用Default值</P>
 <pre><code class="language-json">{
@@ -627,9 +661,9 @@ The most typical use is specifying a varying number of resupply costs. For examp
       &quot;Finished&quot;:  &quot;Value for the remainder of the mission&quot;
 }
 </code></pre>
-<h2 id="clamp">Clamp（限制）</h2>
+<h2 id="clamp">Clamp(限制)</h2>
 <p>Constrain a float (number) to fall within a range. This range is inclusive. If only a min or only a max is specified, the value will only be clamped in that direction.</p>
-<p>将一个浮点数限制在一个范围内，这个范围包括边界值（min/max）。如果只指定最小值或最大值，则只在对应方向进行限制</p>
+<p>将一个浮点数限制在一个范围内，这个范围包括边界值(min/max)。如果只指定最小值或最大值，则只在对应方向进行限制</p>
 <p>Example:</p>
 <p>示例：</p>
 <pre><code class="language-json">{
@@ -639,7 +673,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
     &quot;Max&quot;: 100
 }
 </code></pre>
-<h2 id="countdown">Countdown（倒计时）</h2>
+<h2 id="countdown">Countdown(倒计时)</h2>
 <p>A mutator that will count down from <code>Start</code> to <code>Stop</code>. It is usually used together with the <code>Int2String</code> mutator and the messages module to print messages on chat. It also has a <code>Default</code> value which is used when the countdown is not enabled. A boolean, mutable <code>Enable</code> field starts the countdown:</p>
 <p>这是一个从 Start 倒数到 Stop 的mutator，通常与Int2String 这个mutator一起使用，用于在聊天框("Message")输出倒计时信息。当倒计时未启用时，则使用Default值。通过一段可修改的布尔字段来启动倒计时</p>
 <pre><code class="language-json">&quot;Messages&quot;: [
@@ -665,17 +699,17 @@ The most typical use is specifying a varying number of resupply costs. For examp
 ]
 </code></pre>
 <figure>
-  <img alt="CountdownMutator" src="../pictures/countdown-mutator.png" />
+  <img loading="lazy" alt="CountdownMutator" src="../pictures/countdown-mutator.png" />
   <figcaption>Chat output resulting from the snippet above.以上代码片段在聊天框中显示的输出结果。</figcaption>
 </figure>
 <p>If you want to trigger an event after a certain amount of time after something happens consider using the <code>TriggerDelay</code> and the trigger mutators instead of <code>Countdown</code>, at the bottom of the page. </p>
 <P>如果你希望在某个事件发生后，经过一段延迟再触发另一个事件，建议使用页面底部的 TriggerDelay和 Trigger Mutators而不是 Countdown</P>
 
-<h2 id="defenseprogress">DefenseProgress（守点进度）</h2>
+<h2 id="defenseprogress">DefenseProgress(守点进度)</h2>
 <p>This mutator tracks the progress of a defense event such as a black box, refuel or uplink. It returns a float between [0, 1] starting at 0.3.</p>
-<P>这个Mutator用于追踪防守类事件（如回收黑匣子、上传和补充燃料）的进度，它会返回一个介于0~1之间的数值，初始值为0.3</P>
+<P>这个Mutator用于追踪防守类事件(如回收黑匣子、上传和补充燃料)的进度，它会返回一个介于0~1之间的数值，初始值为0.3</P>
 
-<h2 id="delta">Delta（变量）</h2>
+<h2 id="delta">Delta(变量)</h2>
 <p><code>Delta</code> can be used to detect a change in some other variable or mutator, and it is often used with <code>Accumulate</code>.</p>
 <p>Delta可以用于检测其他变量/Mutators的变化，通常与Accumulate一起使用。</p>
 <p>Example:The following snippet will become momentarily true when a player receives health or shield damage.</p>
@@ -699,7 +733,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
     &quot;Else&quot;: false
 }
 </code></pre>
-<h2 id="depositedresource">DepositedResource（存放资源）</h2>
+<h2 id="depositedresource">DepositedResource(存放资源)</h2>
 <p>Count of a resource that has been deposited into the team depository. Any resource can be referenced by the name as it appears in the in-game UI.</p>
 <p>统计已经存放入矿骡的某种资源数量，可以使用游戏界面中显示的资源名称来引用任意资源。</p>
 <p>Example:</p>
@@ -709,10 +743,10 @@ The most typical use is specifying a varying number of resupply costs. For examp
     &quot;Resource&quot;: &quot;Nitra&quot;
 }
 </code></pre>
-<h2 id="descriptorexists">DescriptorExists（描述符是否可用）</h2>
+<h2 id="descriptorexists">DescriptorExists(描述符是否可用)</h2>
 <p>This is a boolean value which reflects whether an enemy descriptor is available. This is intended to allow a difficulty to fall back to a different descriptor if the desired descriptor isn't available, e.g. if MEV is not available.
 Example:</p>
-<p>这是一个布尔值，用于指示某个敌人的描述符是否可用。其作用是在目标描述符不可用时（如MEV模组不启用），允许系统回退到其它描述符。示例如下：</p>
+<p>这是一个布尔值，用于指示某个敌人的描述符是否可用。其作用是在目标描述符不可用时(如MEV模组不启用)，允许系统回退到其它描述符。示例如下：</p>
 <pre><code class="language-json">{
   &quot;Mutate&quot;: &quot;If&quot;,
   &quot;Condition&quot;: {
@@ -723,35 +757,36 @@ Example:</p>
   &quot;Else&quot;: [&quot;ED_Backup&quot;]
 }
 </code></pre>
-<h2 id="drillercount">DrillerCount（钻机数量检测）</h2>
+<h2 id="drillercount">DrillerCount(钻机数量检测)</h2>
 <p>Number of drillers in the lobby.</p>
 <P>检测大厅中的钻机数量</P>
 
-<h2 id="DroppodDistance">DroppodDistance(空降舱距离)</h2>
+<h2 id="DistanceToDroppod">DistanceToDroppod(空降舱距离)</h2>
+<h4><code>[原文档此处有误，已矫正为正确写法。同MuleDistanceToDropped]</code></h3>
 <p>Returns an average of the distance in cm between players and drop pod during mission extraction. It accepts the following fields:</p>
-<P>返回任务撤离阶段玩家与空降舱之间距离的平均值（单位为cm），它接受以下字段</P>
+<P>返回任务撤离阶段玩家与空降舱之间距离的平均值(单位为cm)，它接受以下字段</P>
 <ul>
 <li><code>Default</code>: the default value to return when there is no drop pod.</li>
-<li>Default:当任务中不存在空降舱时返回的默认值</li>
+<li><code>Default</code>:当任务中不存在空降舱时返回的默认值</li>
 <li><code>IncludeDowned</code>: a boolean which indicates whether to include dead dwarves in the average.</li>
-<li>IncludeDowned:一个布尔字段，决定是否将倒地的矮人纳入计算</li>
+<li><code>IncludeDowned</code>: 一个布尔字段，决定是否将倒地的矮人纳入计算</li>
 </ul>
-<p>See also: <code>MuleDroppodDistance</code> mutator.</p>
-<p>另请看： MuleDroppodDistance Mutator</p>
+<p>See also: <code>MuleDistanceToDroppod</code> mutator.</p>
+<p>另请看： <code>MuleDistanceToDroppod</code> Mutator</p>
 
-<h2 id="duringdefend">DuringDefend（守点期间）</h2>
+<h2 id="duringdefend">DuringDefend(守点期间)</h2>
 <p>Becomes true when a black box, uplink or cell refuel is active.</p>
 <p>当防守类事件被激活时，变为True</p>
 
-<h2 id="duringdread">DuringDread（对战无畏异虫期间）</h2>
+<h2 id="duringdread">DuringDread(对战无畏异虫期间)</h2>
 <p>Becomes true whenever there is one of the following descriptors active on the map: <code>ED_Spider_Boss_Heavy</code> (Hiveguard), <code>ED_Spider_Boss_TwinA</code> (Arbalest), <code>ED_Spider_Boss_TwinB</code> (Lacerator) and <code>ED_Spider_Tank_Boss</code> (classic Dreadnought). </p>
-<p>当任务中存在任意无畏异虫时（包括直接替换的descripoter，不包括如"Ed_spider_tank_boss_weaken"），变为True</p>
+<p>当地图上存在以下任一描述符时，变为True：<code>ED_Spider_Boss_Heavy</code>(Hiveguard)、<code>ED_Spider_Boss_TwinA</code>(Arbalest)、<code>ED_Spider_Boss_TwinB</code>(Lacerator) 和 <code>ED_Spider_Tank_Boss</code>(经典无畏异虫)。</p>
 
-<h2 id="duringdrillevator">DuringDrillevator（钻井电梯期间）</h2>
+<h2 id="duringdrillevator">DuringDrillevator(钻井电梯期间)</h2>
 <p>Becomes true during the elevator phase in a Deep Scan mission. </p>
 <p>当深层扫描任务处于Drillevator阶段时，变为true</p>
 
-<h2 id="duringeggambush">DuringEggAmbush（蛋潮期间）</h2>
+<h2 id="duringeggambush">DuringEggAmbush(蛋潮期间)</h2>
 <p>Returns True during a non-announced wave after pulling an egg in Egg Hunts. As an example of use, the following snippet increases the <code>EnemyCountModifier</code> only during Egg waves, to make them more challenging. The <code>StartingAt</code> and <code>StoppingAfter</code> tries to make the increase affect only the current egg wave. </p>
 <p>在 虫蛋收集 任务中偷蛋后触发无宣告潮时，返回True。作为示例，下列代码片段仅在此类无宣告潮期间提高 EnemyCountMOdifier,以增加其挑战性。其中，StartingAt 和 StoppingAfter 的设置旨在确保使该增幅仅作用于当前这一波无宣告潮。</p>
 <pre><code class="language-json">{
@@ -783,7 +818,7 @@ Example:</p>
 } 
 
 </code></pre>
-<h2 id="duringencounters">DuringEncounters（遭遇潮期间）</h2>
+<h2 id="duringencounters">DuringEncounters(遭遇潮期间)</h2>
 <p>Becomes true when Encounters are being placed in the map, that is, during mission generation. One of its uses it to change descriptor properties depending on whether they are part of an encounter or not:</p>
 <p>任务生成阶段，当遭遇潮生成在地图中时，返回True。其作用之一是根据敌人是否属于遭遇潮，动态改变其Descriptor</p>
 <pre><code class="language-json">{
@@ -806,14 +841,14 @@ Example:</p>
 }
 </code></pre>
 <p>The snippet will force exploders in almost all encounters by giving them a very low rarity during those.Clearing the <code>EnemyPool</code> when <code>DuringEncounters</code> is true will remove encounters from the mission.</p>
-<p>该代码片段通过将大自爆的稀有度设为一个极低值，使其在几乎所有遭遇潮中都会生成。当 DuringEncounters 为 true 的时候清空 Enemypool 会移除任务中的所有遭遇战</p>
-<h2 id="duringextraction">DuringExtraction（撤离期间）</h2>
+<p>该代码片段通过将自爆异虫的稀有度设为一个极低值，使其在几乎所有遭遇潮中都会生成。当 DuringEncounters 为 true 的时候清空 Enemypool 会移除任务中的所有遭遇战</p>
+<h2 id="duringextraction">DuringExtraction(撤离期间)</h2>
 <p>Becomes true during the extraction phase of the mission, ie, when going back to the drop pod.</p>
 <p>当处于撤离阶段时，变为True</p>
-<h2 id="duringgenericswarm">DuringGenericSwarm（宣告潮期间）</h2>
+<h2 id="duringgenericswarm">DuringGenericSwarm(宣告潮期间)</h2>
 <p>Becomes true during a swarm announced by Mission Control. </p>
 <p>当处于宣告潮时，变为True</p>
-<h2 id="duringmission">DuringMission（任务期间）</h2>
+<h2 id="duringmission">DuringMission(任务期间)</h2>
 <p>This is true during a mission, or true during a specific window of time during a mission if times are specified. If specified, StartingAt determines the elapsed mission time in seconds when this becomes true. If specified, StoppingAfter determines the elapsed mission time in seconds after which this is false.</p>
 <p>在任务期间为true，或者在指定时间参数后的一个特定的时间窗口为true。若指定了 StartingAt ，则表示从任务开始经过多少秒变为true；同理，若指定了 StoppingAfter，则表示从任务开始经过多少秒后变为 false</p>
 <p>Example:Only add stalkers and elite guards to the pool after 240 seconds have elapsed in the mission.</p>
@@ -827,19 +862,19 @@ Example:</p>
     }
 }
 </code></pre>
-<h2 id="duringpecountdown">DuringPECountdown（定点提取撤离期间）</h2>
+<h2 id="duringpecountdown">DuringPECountdown(定点提取撤离期间)</h2>
 <p>Returns True during the extraction phase of a PE mission. </p>
 <p>在定点提取撤离阶段，返回True</p>
 
-<h2 id="dwarfcount">DwarfCount（矮人数量）</h2>
+<h2 id="dwarfcount">DwarfCount(矮人数量)</h2>
 <p>Returns the number of players in the mission. </p>
 <p>返回当前任务中矮人的数量</p>
 
-<h2 id="dwarvesammo">DwarvesAmmo（团队弹药量比例）</h2>
+<h2 id="dwarvesammo">DwarvesAmmo(团队弹药量比例)</h2>
 <p>Average percent ammo left for the team, 1 when all teammates have 100% of their ammo and 0 when all teammates are at 0% ammo. This works the same way as the 4 bars under the dwarves names in the UI.</p>
-<p>返回团队剩余弹药的平均百分比，全员弹药满载时为1，全部耗尽为0。其计算方式与界面中矮人名字下方的四条弹药条一致（按Ctrl显示）</p>
+<p>返回团队剩余弹药的平均百分比，全员弹药满载时为1，全部耗尽为0。其计算方式与界面中矮人名字下方的四条弹药条一致(按Ctrl显示)</p>
 
-<h2 id="dwarvesdown">DwarvesDown（倒地矮人数量）</h2>
+<h2 id="dwarvesdown">DwarvesDown(倒地矮人数量)</h2>
 <p>Float count of the dwarves that are currently down, 0 if no dwarves are currently downed, 4 if all 4 dwarves are down.</p>
 <p>返回当前倒地矮人的数量，无人倒地为 0，四人全部倒地为 4。以下示例为三倒时，削弱虫子移速</p>
 <pre><code class="language-json">&quot;SpeedModifier&quot;{
@@ -853,31 +888,31 @@ Example:</p>
     },
 </code></pre>
 
-<h2 id="dwarvesdowntime">DwarvesDownTime（倒地时间）</h2>
+<h2 id="dwarvesdowntime">DwarvesDownTime(倒地时间)</h2>
 <p>Time in seconds that has elapsed while a dwarf has been down. If multiple dwarves are down, it's the longest time down among the downed dwarves.</p>
-<p>矮人处于倒地状态的累计时间（秒）,如果有多名矮人倒地，则取倒地时间最长的那个。</p>
+<p>矮人处于倒地状态的累计时间(秒),如果有多名矮人倒地，则取倒地时间最长的那个。</p>
 
-<h2 id="dwarvesdowns">DwarvesDowns（矮人总倒地次数）</h2>
+<h2 id="dwarvesdowns">DwarvesDowns(矮人总倒地次数)</h2>
 <p>Total number of downs for the team during the mission. This might not match the end screen because it will still count downs from disconnected players, and will not over-count downs.</p>
 <p>任务期间，团队累计的倒地次数，该值可能与结算界面不匹配，因为他会计入中途退出/断线的玩家的倒地数量，且不会重复计数</p>
 
-<h2 id="dwarveshealth">DwarvesHealth（团队生命值比例）</h2>
+<h2 id="dwarveshealth">DwarvesHealth(团队生命值比例)</h2>
 <p>Average health, 1 when all teammates are at 100% health and 0 when all teammates are down.</p>
 <p>返回团队生命值的平均比例，全员满血时为1，全员倒地时为0</p>
 
-<h2 id="dwarvesrevives">DwarvesRevives（矮人复活次数）</h2>
+<h2 id="dwarvesrevives">DwarvesRevives(矮人复活次数)</h2>
 <p>Total number of revives for the team during the mission. This includes IW self-revives.</p>
-<p>任务期间，矮人的总复活次数，这包括了使用Iron-will（钢铁意志）自起的</p>
+<p>任务期间，矮人的总复活次数，这包括了使用Iron-will(钢铁意志)自起的</p>
 
-<h2 id="dwarvesshield">DwarvesShield（团队护盾值比例）</h2>
+<h2 id="dwarvesshield">DwarvesShield(团队护盾值比例)</h2>
 <p>Average shields, 1 when all teammates are at full shield 0 when all teammates are at 0 shield. Untested on shield disruption.</p>
-<p>返回团队的平均护盾值比例，全员满护盾时为 1，全员护盾为 0 时为 0。在护盾瓦解（Shield Disruption）词条下尚未经过测试。</p>
+<p>返回团队的平均护盾值比例，全员满护盾时为 1，全员护盾为 0 时为 0。在护盾瓦解(Shield Disruption)词条下尚未经过测试。</p>
 
-<h2 id="elapsedextraction">ElapsedExtraction（撤离已用时间）</h2>
+<h2 id="elapsedextraction">ElapsedExtraction(撤离已用时间)</h2>
 <p>Returns the elapsed time in the extraction phase of a mission.</p>
 <p>返回任务撤离阶段已消耗的时间。</p>
 
-<h2 id="enemieskilled">EnemiesKilled（已击杀敌人数量）</h2>
+<h2 id="enemieskilled">EnemiesKilled(已击杀敌人数量)</h2>
 <p>Count number of Enemies that have died this mission. Optionally, this can get the deaths of a specific enemy descriptor.Despawned enemies because of caps are likely counted. If your difficulty despawns significant amounts of enemies, this number might not match expectations.</p>
 <p>统计本次任务中死亡的敌人总量。可选地，也可以统计某一特定敌人的死亡数量。因溢出虫量上限而被抹除的敌人也有可能被计入，如果你的难度设置会导致大量虫子因溢出虫限而被抹除，该数值就可能与预期不一致</p>
 <p>Examples:</p>
@@ -904,7 +939,7 @@ Example:</p>
     }
 },
 </code></pre>
-<h2 id="enemiesrecentlyspawned">EnemiesRecentlySpawned（近期生成敌人计数）</h2>
+<h2 id="enemiesrecentlyspawned">EnemiesRecentlySpawned(近期生成敌人计数)</h2>
 <p>This mutator tracks enemies that spawned in the last <code>Seconds</code> seconds. You can track a single enemy descriptor with <code>ED</code> or multiple descriptors with <code>EDs</code>: in the last case, the mutator will return the sum of all spawned enemies that match the descriptors. If empty, the mutator will track all enemies. </p>
 <p>该 Mutator 用于统计最近 Seconds 秒内生成的敌人数量，你可以通过 ED 指定单个敌人描述符，或用 EDs 指定多个敌人描述符。若使用后者，将返回所有匹配描述符的敌人生成总数。若未指定描述符，则统计所有敌人</p>
 <p>Example: returns how many enemies spawned in the last 60 seconds.</p>
@@ -931,7 +966,7 @@ Example:</p>
 }
 </code></pre>
 
-<h2 id="enemycooldown">EnemyCooldown（敌人生成冷却）</h2>
+<h2 id="enemycooldown">EnemyCooldown(敌人生成冷却)</h2>
 <p>This mutator tracks a timer that is true after an enemy descriptor has spawned.</p>
 <p>该 Mutator用于 在指定敌人描述符生成后的一段冷却时间内返回一个特定值</p>
 <pre><code class="language-json">{
@@ -947,7 +982,7 @@ Example:</p>
 }
 </code></pre>
 <p>In the example, the mutator will be true for 60 seconds (the value of <code>CooldownTime</code>) after <code>ED_Example</code> has spawned. During this time, the value for the <code>Rarity</code> will be the value specified in <code>ValueDuringCooldown</code> and <code>DefaultValue</code> otherwise. The <code>ED</code> field can accept an array of enemies:</p>
-<p>在该示例中，当 ED_Example 生成后，该 Mutator 会在接下来的 60 秒（即 CooldownTime 的值）内返回 ValueDuringCooldown 所指定的值；在此之后，则返回 DefaultValue。。ED 字段也接受一个敌人描述符数组</p>
+<p>在该示例中，当 ED_Example 生成后，该 Mutator 会在接下来的 60 秒(即 CooldownTime 的值)内返回 ValueDuringCooldown 所指定的值；在此之后，则返回 DefaultValue。。ED 字段也接受一个敌人描述符数组</p>
 <pre><code class="language-json">{
     &quot;ED_Example&quot;: {
         &quot;Rarity&quot;: {
@@ -984,10 +1019,10 @@ Example:</p>
 <li><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</li>
 <li>Default:当没有匹配的存活敌人时返回的值，默认为0</li>
 <li><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Min</code>.</li>
-<li>Type:统计方式，包括 Min、Max、Average，默认为 Average。</li>
+<li>Type:统计方式，包括 Min、Max、Average，默认为 Min。</li>
 </ul>
 
-<h2 id="enemycount">EnemyCount（当前敌人计数）</h2>
+<h2 id="enemycount">EnemyCount(当前敌人计数)</h2>
 <p>Count the number of enemies currently alive on the map. Optionally, this can get the count of a specific enemy descriptor.It's possible for this monitor to drift slightly from the actual count if base game events don't fire, but it should always be correct.</p>
 <p>统计当前地图上存活的敌人总数。可选地，也可仅统计某一特定敌人描述符的存活数量。若基础游戏事件未能正常触发，该计数可能与实际数量略有偏差，但通常应保持准确。</p>
 <p>Examples:Count all enemies on the map:</p>
@@ -1013,11 +1048,11 @@ Example:</p>
 },
 </code></pre>
 
-<h2 id="engineercount">EngineerCount（工程数量计数）</h2>
+<h2 id="engineercount">EngineerCount(工程数量计数)</h2>
 <p>Number of engineers in the lobby. </p>
 <p>返回大厅中工程的数量</p>
 
-<h2 id="float2string">Float2String（浮点数转字符串）</h2>
+<h2 id="float2string">Float2String(浮点数转字符串)</h2>
 <p>Converts an float to a string value so it can be used in the <code>Messages</code> <a href="../modules/">module</a>. For conversion from integers to strings, consider <code>Int2String</code> below.</p>
 <p>将浮点数转换为字符串，以便在 Message 模块中使用。若需将整数转换为字符串，请使用下方的 Int2String。</p>
 
@@ -1025,7 +1060,7 @@ Example:</p>
 <p>Number of gunners in the lobby.</p>
 <p>返回大厅中枪手的数量</p>
 
-<h2 id="heldresource">HeldResource（携带资源计数）</h2>
+<h2 id="heldresource">HeldResource(携带资源计数)</h2>
 <p>For a resource, the sum of that resource in players' inventories, not deposited.</p>
 <p>统计所有玩家背包中尚未存入矿骡的某种资源总量。</p>
 <p>Example:</p>
@@ -1035,9 +1070,9 @@ Example:</p>
     &quot;Resource&quot;: &quot;Apoca Bloom&quot;
 }
 </code></pre>
-<h2 id="iwsleft">IWsLeft（钢铁意志剩余数量）</h2>
+<h2 id="iwsleft">IWsLeft(钢铁意志剩余数量)</h2>
 <p>Float count of the number of IWs the team still has in reserve, 0 when no IWs remain. This will be 0 until dwarves are spawned which happens after the level is setup including encounters and terrain.</p>
-<p>返回团队当前剩余的“钢铁意志”次数，若无剩余，则为 0。在矮人角色生成前（即地形和遭遇潮生成完成后、玩家角色尚未出现前），该值始终为 0。</p>
+<p>返回团队当前剩余的“钢铁意志”次数，若无剩余，则为 0。在矮人角色生成前(即地形和遭遇潮生成完成后、玩家角色尚未出现前)，该值始终为 0。</p>
 
 <h2 id="if">If(条件判断)</h2>
 <p>Check a boolean condition, "Condition", and select either "Then" or "Else". The condition is usually another mutator that returns a boolean value.</p>
@@ -1052,9 +1087,9 @@ Example:</p>
 }
 </code></pre>
 
-<h2 id="iffloat">IfFloat（浮点数条件判断）</h2>
+<h2 id="iffloat">IfFloat(浮点数条件判断)</h2>
 <p>Choose one value or another based on a comparison of two float values.The two floats are specified by 'Value' and the operator to be used e.g. '&gt;=' if the comparison was to be greater than or equal. If the condition is true the 'Then' value is used, else the 'Else' condition is used.Valid operators are: ==, &gt;=, &gt;, &lt;=, &lt;</p>
-<p>根据两个浮点数值的比较结果选择返回值,两个浮点数通过 Value 字段指定，由比较运算符（如 >= 表示“大于或等于”）决定比较方式,若条件成立则使用 Then，否则使用 Else,支持的运算符包括：==、>=、>、<=、<。</p>
+<p>根据两个浮点数值的比较结果选择返回值,两个浮点数通过 Value 字段指定，由比较运算符(如 >= 表示“大于或等于”)决定比较方式,若条件成立则使用 Then，否则使用 Else,支持的运算符包括：==、>=、>、<=、<。</p>
 <p>Example: as long as the team has called less than 2 resupplies the value is 40. After the team has called their second resupply, the value is 80.</p>
 <p>示例：当团队呼叫的补给次数少于 2 次时，该值为 40；当完成第二次补给呼叫后，该值变为 80。</p>
 <pre><code class="language-json">{
@@ -1065,27 +1100,100 @@ Example:</p>
     &quot;Else&quot;: 80
 }
 </code></pre>
-<h2 id="ifonspacerig">IfOnSpaceRig（是否在太空站）</h2>
-<p>Returns True on the Space Rig. </p>
-<p>当位于空间站时返回 true。</p>
+<h2 id="ifonspacerig">IfOnSpaceRig(是否在太空站)</h2>
+<p>The mutator is true when the dwarves are in the space rig, with a syntax similar to the <code>If</code> mutator:</p>
+<p>当矮人处于太空站时，该 Mutator 返回 True，其语法与 <code>If</code> Mutator 类似：</p>
+<pre><code class="language-json">{
+    &quot;Mutate&quot;: &quot;IfOnSpaceRig&quot;,
+    &quot;Then&quot;: true,
+    &quot;Else&quot;: false
+}
+</code></pre>
+<p>This mutator is mainly used in conjunction with the <code>NextDifficulty</code> module, see in <a href="../modules/">Modules</a>.</p>
+<p>该 Mutator 主要用于配合 <code>NextDifficulty</code> 模块，详见 Modules 部分。</p>
 
-<h2 id="int2string">Int2String（整数转字符串）</h2>
+<h2 id="int2string">Int2String(整数转字符串)</h2>
 <p>Converts an integer to a string value so it can be used in the <code>Messages</code> <a href="../modules/">module</a>. For conversion from floats to strings, consider <code>Float2String</code> above.</p>
 <p>将整数转换为字符串，以便在 Message 模块中使用。若需将浮点数转换为字符串，请使用 Float2String。</p>
 
-<h2 id="join">Join（字符串拼接）</h2>
-<p>Joins two strings. Can be used together with <code>Int2String</code> and <code>Float2String</code> to pass integer and float outputs from mutators into the messages module. To see an example, check the <code>Countdown</code> module above.</p>
-<P>将两个字符串拼接为一个，可与 Int2String 和 Float2String 配合使用，将 mutator 输出的整数/浮点数值转换后传入 Message 模块。示例可参考上方的 Countdown 模块。</P>
+<h2 id="join">Join(字符串拼接)</h2>
+<p>Joins two strings. Can be used together with <code>Int2String</code> and <code>Float2String</code> to pass integer and float outputs from mutators into the <code>Messages</code> module. It accepts a <code>Values</code> array and a separator <code>Sep</code>. The following example shows a randomized welcome message 15 seconds into the mission:</p>
+<P>将字符串拼接为一个，可与 Int2String 和 Float2String 配合使用，把 Mutator 输出的整数/浮点值传入 <code>Messages</code> 模块。它接受一个 <code>Values</code> 数组和一个分隔符 <code>Sep</code>。下方示例展示了在任务开始 15 秒时随机播报一条欢迎信息：</P>
+<pre><code class="language-json">...,
+&quot;Messages&quot;: [
+    {
+        &quot;Send&quot;: {
+            &quot;Mutate&quot;: &quot;DuringMission&quot;,
+            &quot;StartingAt&quot;: 15
+        },
+        &quot;Message&quot;: {
+            &quot;Mutate&quot;: &quot;Join&quot;,
+            &quot;Values&quot;: [
+                        &quot;Welcome to my difficulty! &quot;,
+                        {
+                            &quot;Mutate&quot;: &quot;RandomChoice&quot;,
+                            &quot;Choices&quot;: [&quot;Enjoy your stay.&quot;, &quot;Thanks for playing&quot;]
+                        }
+                    ]
+        },
+        &quot;Sender&quot;: &quot;CD2&quot;,
+        &quot;Type&quot;: &quot;Developer&quot;
+    }
+],
+</code></pre>
+<p>To see a more complex, check the <code>Countdown</code> mutator above.</p>
+<P>更复杂的示例可参考上方的 <code>Countdown</code> Mutator。</P>
 
-<h2 id="max">Max（最大值）</h2>
+<h2 id="LockFloat, LockBoolean, LockString">LockFloat, LockBoolean, LockString(锁定浮点数、锁定布尔值和锁定字符串)</h2>
+<p>This mutator will selectively update its value based on a condition. You may use Lock condition or the "Update" condition based on desired semantics:</p>
+<p>该Mutator 会根据特定条件来选择性地更新其值，你可以根据所需，选择使用<code>Lock</code>或者<code>Update</code>条件</p>
+
+<ul>
+  <li><code>Lock</code>: When true, this mutator's value will not change.</li>
+  <li><code>Lock（锁定）</code>:当值为true时,该Mutator 的值不再会发生改变</li>
+  <li><code>Update</code>:When false, this mutator's value will not change.</li>
+  <li><code>Update(更新)</code>:当值为false时，该Mutator的值不再会发生改变</li>
+  <li><code>Value</code>:This will be what the mutator will update to when it is unlocked.</li>
+  <li><code>Value</code>:当 Mutator未被锁定时，可以更新的值</li>
+</ul>
+
+<p>The following snippet shows a mutator that will increase each time a dwarf downs until the secondary objective is finished, after which it will no longer increase and will remain the same for the rest of the mission:</p>
+<p>以下代码片段展示了一个 Mutator：每当1个矮人倒下时，其值就会增加，直到次要完成；此后，该值不在更新，并在任务剩余时间内保持不变</p>
+<pre><code class="language-json">
+{
+  "Mutate": "LockFloat",
+  "Lock": {"Mutate": "SecondaryFinished"},
+  "Value": {"Mutate": "DwarvesDowns"}
+}
+</code></pre>
+
+<p>Another example: we create a mutator that will hold the value of a string until a dwarf is revived, and at that point we randomly select another one. This mutator could be followed by a Select mutator to react to the new string:</p>
+<p></p>
+
+<pre><code class="language-json">
+{
+  "Mutate": "LockString",
+  "Update": {
+    "Mutate": "TriggerOnChange",
+    "FallOnly": true,
+    "Value": { "Mutate": "DwarvesDown" }
+  },
+  "Value": {
+    "Mutate": "RandomChoice", 
+    "Choices": ["ChallengeA", "ChallengeB", "ChallengeC"]
+  }
+}
+</code></pre>
+
+<h2 id="max">Max(最大值)</h2>
 <p>Returns the maximum of a value.</p>
 <P>返回给定数值中的最大值</P>
 
-<h2 id="min">Min（最小值）</h2>
+<h2 id="min">Min(最小值)</h2>
 <p>Returns the minimum of a value.</p>
 <P>返回给定数值中的最小值</P>
 
-<h2 id="MuleDroppodDistance">MuleDroppodDistance(矿骡与空降仓的距离)</h2>
+<h2 id="MuleDistanceToDroppod">MuleDistanceToDroppod(矿骡与空降舱的距离)</h2>
 <p>Returns an average of the distance in cm between the mule and the drop pod during mission extraction. It accepts the following fields:</p>
 <p>返回任务撤离阶段矿骡与空降舱之间距离的平均值(单位为cm)，它接受以下字段</p>
 
@@ -1094,14 +1202,14 @@ Example:</p>
   <li>Default:当任务中没有矿骡/空降舱时返回的默认值</li>
 </ul>
 
-<p>See also: <code>DroppodDistance</code> mutator.</p>
-<p>另请看： "DroppodDistance" Mutator</p>
+<p>See also: <code>DistanceToDroppod</code> mutator.</p>
+<p>另请看： "DistanceToDroppod" Mutator</p>
 
 <h2 id="Nonzero">Nonzero(非零判断)</h2>
 <p>Accepts an integer or float Value and returns the boolean false if zero, true otherwise.</p>
 <p>该 Mutator 接受一个 整数/浮点数，若该值为0 返回false，反之为 true</p>
 
-<h2 id="random">Random（随机值）</h2>
+<h2 id="random">Random(随机值)</h2>
 <p>Continuously samples a float number between <code>Min</code> and <code>Max</code>, uniformly.</p>
 <p>在 Min 和 Max 之间持续生成均匀分布的随机浮点数。</p>
 <pre><code class="language-json">{
@@ -1114,7 +1222,7 @@ Example:</p>
     }
 }
 </code></pre>
-<h2 id="randomchoice">RandomChoice（随机选择）</h2>
+<h2 id="randomchoice">RandomChoice(随机选择)</h2>
 <p>Given an array of choices, choose one at random. It accepts an optional second list with weights for a weighted sampling of the choices.</p>
 <p>给定一个选项列表，从中随机选择一项。它同时额外接受一个权重列表，用于对选项进行加权随机采样。</p>
 <p>Example: add either arbalests or lacerators to the enemy pool with a higher chance for arbalests.</p>
@@ -1129,7 +1237,7 @@ Example:</p>
     }
 }
 </code></pre>
-<h2 id="randomchoicepermission">RandomChoicePerMission（每个任务随机选择一次）</h2>
+<h2 id="randomchoicepermission">RandomChoicePerMission(每个任务随机选择一次)</h2>
 <p>Choose one of a set of values for each mission. The choice is fixed to the seed of the mission. Subsequent plays of the same seed will use the same value. This mutator can be used with just <code>Choices</code>. In that case it will uniformly sample from the choices.Optionally, a second list <code>Weights</code> provides weights for weighted sampling of the choices.</p>
 <p>在每次任务中，从一组值中随机选择一个。该选择由任务的随机种子决定，因此使用相同种子的任务将始终返回相同的结果。该 Mutator 可仅通过 Choices 字段使用，此时将对选项进行均匀随机采样；也可选地提供第二个 Weights 列表，用于对选项进行加权随机采样。</p>
 <p>Example:</p>
@@ -1157,28 +1265,145 @@ Example:</p>
   ]
 }
 </code></pre>
-<h2 id="resupplyusesleft">ResupplyUsesLeft（补给剩余使用次数）</h2>
+<h2 id="resupplyusesleft">ResupplyUsesLeft(补给剩余使用次数)</h2>
 <p>The count among all supply pods of uses left on a resupply. By default, resupplies start with 4 uses.</p>
 <p>统计所有补给舱中剩余的使用次数总和。默认情况下，每次呼叫的补给舱初始拥有 4 次使用次数。</p>
 <p>Caveat: the counts goes up immediately when a resupply is called, before it lands.</p>
 <p>注意：计数会在呼叫补给时立即增加，而非等待补给舱落地后才更新。</p>
 
-
-<h2 id="resuppliescalled">ResuppliesCalled（已呼叫补给次数）</h2>
+<h2 id="resuppliescalled">ResuppliesCalled(已呼叫补给次数)</h2>
 <p>Number of resupplies the team has called during the mission. This should increment almost immediately after a resupply is initiated, before another resupply can be called.</p>
 <p>任务过程中团队呼叫补给的次数，该数值在补给被呼叫后几乎立即递增，此时下一次补给尚不可用。</p>
 
-<h2 id="resupplyusesconsumed">ResupplyUsesConsumed（已消耗补给使用次数）</h2>
+<h2 id="resupplyusesconsumed">ResupplyUsesConsumed(已消耗补给使用次数)</h2>
 <p>The number of uses that have been consumed from resupplies this mission.</p>
 <p>本任务中已经从补给中消耗的使用次数总数。</p>
 
 <h2 id="SecondaryFinished">SecondaryFinished(根据次要完成情况)</h2>
 <p>Returns a boolean which is true when all secondary objectives have been completed, or when there are no secondary objectives (like in Sandbox).</p>
-<p>当所有次要目标均完成，或者当前任务中不存在次要目标时（如 沙盒内），返回 true</p>
+<p>当所有次要目标均完成，或者当前任务中不存在次要目标时(如 沙盒内)，返回 true</p>
 
-<h2 id="scoutcount">ScoutCount（侦察数量计数）</h2>
+<h2 id="scoutcount">ScoutCount(侦察数量计数)</h2>
 <p>Number of scouts in the lobby. </p>
 <p>返回大厅中侦察的数量。</p>
+
+<h2 id="Sequence">Sequence(序列)</h2>
+<p>A powerful mutator that allows cycling items in a sequence in various ways, including reversing the direction and shuffling.</p>
+<p>功能强大的 Mutator，可以用多种方式对序列中的项进行循环，包括反向遍历和洗牌。</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sequence</td>
+<td>Array</td>
+<td><em>None</em></td>
+<td>The mutator will return values from this sequence array based on the controls below.<br>该 Mutator 会根据下方控制信号，从指定的序列数组中返回对应值。</td>
+</tr>
+<tr>
+<td>Next</td>
+<td>Boolean</td>
+<td>False</td>
+<td>When switched from false to true, the sequence is moved forward one position.<br>当值从 false 变为 true 时，序列前进一位。</td>
+</tr>
+<tr>
+<td>Previous</td>
+<td>Boolean</td>
+<td>False</td>
+<td>When switched from false to true, the sequence is moved backward one position.<br>当值从 false 变为 true 时，序列后退一位。</td>
+</tr>
+<tr>
+<td>Interval</td>
+<td>Float</td>
+<td><em>None</em></td>
+<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br>每间隔 <code>Interval</code> 秒，序列自动前进一位；默认不启用自动进位。</td>
+</tr>
+<tr>
+<td>Repeat</td>
+<td>Boolean</td>
+<td>True</td>
+<td>If true, when Next is triggered or the interval passes on the final element in the list, the sequence returns to the start. Similarly, Previous will wrap from the begining to the end of the sequence. On False, there is no wrapping.<br>若为 true，当通过 Next 或 Interval 到达序列末尾时，将返回开头；同理，通过 Previous 到达开头时，将返回到末尾；若为 false，则不会循环。</td>
+</tr>
+<tr>
+<td>InitialOffset</td>
+<td>Integer</td>
+<td>0</td>
+<td>The sequence starts and resets to the item in this position. The first item is the 0th item.<br>序列的起始位置及重置后返回的位置；第一位是第 0 项。</td>
+</tr>
+<tr>
+<td>Reset</td>
+<td>Boolean</td>
+<td>False</td>
+<td>While true, the sequence is reset and held at the InitialOffset position.<br>当为 true 时，序列会被重置并保持在 InitialOffset 指定的位置。</td>
+</tr>
+<tr>
+<td>Shuffle</td>
+<td>Boolean</td>
+<td>False</td>
+<td>If true, the sequence order is randomized every time the sequence repeats or is reset.<br>若为 true，序列顺序会在每次循环或重置后随机打乱。</td>
+</tr>
+<tr>
+<td>ShuffleOnce</td>
+<td>Boolean</td>
+<td>False</td>
+<td>If true, the sequence order is randomized once per mission and kept the same when reset or when repeating.<br>若为 true，序列顺序会在每个任务中随机打乱一次，并且在重置或循环时保持不变。</td>
+</tr>
+</tbody>
+</table>
+<p>Example: cycle the projectiles of a spitballer following a certain sequence every 3 seconds.</p>
+<p>示例：让喷吐植物按照特定序列，每 3 秒循环其发射物。</p>
+<pre><code class="language-json">{
+    &quot;Enemies&quot;: {
+        &quot;ED_ShootingPlant&quot;: {
+          &quot;Projectiles&quot;: {
+                &quot;Mutate&quot;: &quot;Sequence&quot;,
+                &quot;Sequence&quot;: [
+                    &quot;PRJ_Crye_SnowBall_C&quot;,
+                    &quot;PRJ_ShootingPlant_C&quot;,
+                    &quot;PRJ_LineCutter2_C&quot;
+                ],
+                &quot;Interval&quot;: 3
+            }
+        }
+    },
+}
+</code></pre>
+<p>Example: Gain a mercy stack every time a player downs up to 4 stacks. Lose a stack every 30 seconds without a player down.</p>
+<p>示例：每当一名矮人倒地，就获得一层慈悲层数，最多累计 4 层；若 30 秒内没有矮人倒地，则失去一层。</p>
+<pre><code class="language-json">{
+    &quot;Vars&quot;: {
+        &quot;MercyStacks&quot;: {
+            &quot;Type&quot;: &quot;Float&quot;,
+            &quot;Value&quot;: {
+                &quot;Mutate&quot;: &quot;Sequence&quot;,
+                &quot;Sequence&quot;: [0, 1, 2, 3, 4],
+                &quot;Repeat&quot;: false,
+                &quot;Next&quot;: {
+                    &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+                    &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDown&quot;},
+                    &quot;RiseOnly&quot;: true
+                },
+                &quot;Previous&quot;: {
+                    &quot;Mutate&quot;: &quot;TriggerTimer&quot;,
+                    &quot;N&quot;: 30,
+                    &quot;Reset&quot;: {
+                        &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+                        &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDown&quot;},
+                        &quot;RiseOnly&quot;: true
+                    } 
+                }
+            },
+            &quot;Watch&quot;: true
+        }
+    }
+}
+</code></pre>
 
 <h2 id="Select">Select(选择)</h2>
 <p>Similar to a switch statement in programming languages, this mutator allows to select different options based on a string value. It is very useful when used together with global variables from the <code>Var</code> module:</p>
@@ -1210,10 +1435,36 @@ Example:</p>
 ...
 </code></pre>
 
+<h2 id="selectfromarray">SelectFromArray(从数组选择)</h2>
+<p>Accepts an index <code>Select</code> to pick a value from an <code>Array</code>. The <code>Select</code> field can be a float and then CD2 will round to the nearest integer.</p>
+<p>使用<code>Select</code> 字段从 <code>Array</code> 数组中取值。<code>Select</code> 字段可以是浮点数,若这样 CD2 会四舍五入到最接近的整数。</p>
+<p>Example: a possible way to use the MercyStacks in the <code>Sequence</code> mutator example below.</p>
+<p>示例：一种在下方 <code>Sequence</code> Mutator 示例中使用 MercyStacks 的方式。</p>
+<pre><code class="language-json">{
+    &quot;DifficultySetting&quot;: {
+         &quot;ReviveHealthRatio&quot;: {
+              &quot;Mutate&quot;: &quot;SelectFromArray&quot;,
+              &quot;Select&quot;: {&quot;Var&quot;: &quot;MercyStacks&quot;},
+              &quot;Array&quot;: [ 0.15, 0.2, 0.3, 0.4 ]
+    }
+}
+</code></pre>
 
-<h2 id="squarewave">SquareWave（轮切）</h2>
+<h2 id="StopWatch">StopWatch(秒表)</h2>
+<p>A mutator to starts counting seconds when it gets enabled. Accepts the following fields: </p>
+<p>一个在启用时开始计秒的 Mutator，接受以下字段：</p>
+<ul>
+<li><code>Enable</code>: StopWatch counts seconds <code>Enable</code> is true  </li>
+<li><code>Enable</code>: 为 true 时，StopWatch 开始计时</li>
+<li><code>Reset</code>: Resets the StopWatch back to 0 seconds  </li>
+<li><code>Reset</code>: 将计时重置回 0 秒</li>
+<li><code>AutoReset</code> : Defaults to true. When true, StopWatch resets to 0 seconds automatically when StopWatch is disabled. When false, StopWatch counts total time enabled even if disabled in between.  </li>
+<li><code>AutoReset</code> : 默认为 true。为 true 时，StopWatch 被禁用后会自动重置回 0 秒；为 false 时，即使中途被禁用，StopWatch 也会累计计算所有启用时段的总时间。</li>
+</ul>
+
+<h2 id="squarewave">SquareWave(轮切)</h2>
 <p>Alternates between two values with a given period.</p>
-<p>在给定周期内在两个数值之间交替切换。【可能类似正弦函数？】</p>
+<p>在给定周期内在两个数值之间交替切换。</p>
 <p>Example:Add and remove stalkers on alternating periods of 250 seconds. </p>
 <p>示例：每 250 秒为一个完整周期，在“添加潜行异虫”和“移除潜行异虫”之间轮切。</p>
 <pre><code class="language-json">{
@@ -1250,7 +1501,7 @@ Example:</p>
     }
 }
 </code></pre>
-<h2 id="timedelta">TimeDelta（时间变量）</h2>
+<h2 id="timedelta">TimeDelta(时间变量)</h2>
 <p>Change a value over time. Time matches the mission clock in the escape menu in-game, including starting before players receive control of their dwarves.The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - StartDelay)</code>.</p>
 <p>根据时间推移改变数值。时间与Esc菜单内的任务计时一致，其中包括了玩家能实际操控矮人前的时间。数值由公式 y=kx+b决定[k：rateofchange；x：实际时间-StartDelay；b：InitialValue初始值]</p>
 <p>Parameters:</p>
@@ -1267,7 +1518,7 @@ Example:</p>
     &quot;StartDelay&quot;: 400
  }
 </code></pre>
-<h2 id="totalresource">TotalResource（资源总量）</h2>
+<h2 id="totalresource">TotalResource(资源总量)</h2>
 <p>Sum of a resource held in players inventories and the group depot. Any resource can be referenced by the name as it appears in the in-game UI.</p>
 <p>统计玩家背包和存入矿骡中某种资源的总量,可以使用游戏界面中显示的资源名称来引用任意资源。</p>
 <p>Example:</p>
@@ -1277,43 +1528,55 @@ Example:</p>
     &quot;Resource&quot;: &quot;Morkite&quot;
 }
 </code></pre>
-<h2 id="trigger-mutators">Trigger mutators（触发类Mutator）</h2>
+<h2 id="trigger-mutators">Trigger mutators(触发类Mutator)</h2>
 <p>These are a special group of mutators that can be used on boolean values, typically (but not limited to) on the <code>Enabled</code> field of a wavespawner. Please see some examples below. The fields of each trigger are specified <code>like this</code>. There are currently the following triggers:</p>
-<p>这是一类特殊的 Mutators，主要用于布尔值字段，通常（但不限于）用于波次生成器的 Enabled 字段。具体用法请参见下面示例，各触发器的字段都按如下方式指定，当前支持的触发器包括：</p>
+<p>这是一类特殊的 Mutators，主要用于布尔值字段，通常(但不限于)用于波次生成器的 Enabled 字段。具体用法请参见下面示例，各触发器的字段都按如下方式指定，当前支持的触发器包括：</p>
 
-<h3 id="triggeronce">TriggerOnce（单次触发）</h3>
+<h3 id="triggeronce">TriggerOnce(单次触发)</h3>
 <p>Triggers only on the first False -&gt; True <code>In</code> transition, then never again. Used if something has to happen exactly once per mission. It can optionally have a <code>Reset</code> field which resets its ability to trigger.</p>
 <p>仅在输入 In 首次由 False → True 时触发一次，此后不再响应。适用于需在每个任务中恰好执行一次的逻辑。可以选择性地添加 Reset 字段，使其能再次触发。</p>
 
-<h3 id="triggerntimes">TriggerNTimes（触发N次）</h3>
+<h3 id="triggerntimes">TriggerNTimes(触发N次)</h3>
 <p>Allows up to <code>N</code> False -&gt; True <code>In</code> transitions, then blocks any further attempts. Same idea as <code>TriggerOnce</code> but for multiple events. </p>
 <p>最多允许 N 次输入 In 从 False → True 的转换，此后不再响应。其原理与 TriggerOnce 相同，但支持多次触发。</p>
 
-<h3 id="triggersometimes">TriggerSometimes（概率触发）</h3>
+<h3 id="triggersometimes">TriggerSometimes(概率触发)</h3>
 <p>Triggers only a percentage of times <code>P</code> when <code>In</code> goes from False -&gt; True. As a simple example, this could be used to spawn a wave when a player goes down but only with a probability <code>P</code> of that happening. </p>
 <p>当 In 从 False → True 时，仅以设定的概率 P 触发。例如，该功能可在玩家倒地时生成一波敌人，但只有概率 P 发生。</p>
 
-<h3 id="triggercooldown">TriggerCooldown（冷却触发）</h3>
+<h3 id="triggercooldown">TriggerCooldown(冷却触发)</h3>
 <p>After the boolean <code>In</code> goes from True -&gt; False, it can't go True again for <code>N</code> seconds.</p>
 <p>当 In 从 True → False 后，在接下来的 N 秒内无法再次变为 True。</p>
 
-<h3 id="triggerfixedduration">TriggerFixedDuration（固定持续时间触发）</h3>
+<h3 id="triggerfixedduration">TriggerFixedDuration(固定持续时间触发)</h3>
 <p>Stays True for <code>N</code> seconds before switching back to False, regardless of what happens to its boolean input. It can be configured to <code>Reset: true</code> if the input transitions from False -&gt; True during the fixed window. </p>
 <p>无论输入布尔值字段如何变化，该触发器都会保持 True 状态 N 秒，之后才变回 False。如果在固定时间窗口内输入 In 再次从 False → True，可通过设置 Reset: true 来重置。</p>
 
-<h3 id="triggersustain">TriggerSustain（持续延长触发）</h3>
+<h3 id="triggersustain">TriggerSustain(持续延长触发)</h3>
 <p>Extends a current True <code>In</code> state by <code>N</code> additional seconds.</p>
 <p>当输入 In 为 True时，将其输出状态额外维持 N 秒。</p>
 
-<h3 id="triggerdelay">TriggerDelay（延迟触发）</h3>
+<h3 id="triggerdelay">TriggerDelay(延迟触发)</h3>
 <p>Delays the transition of the <code>In</code> boolean by <code>N</code> seconds.</p>
 <p>将输入 In 的布尔值字段变化延迟 N 秒后输出。</p>
 
-<h3 id="triggeronchange">TriggerOnChange（变化触发）</h3>
+<h3 id="triggeronchange">TriggerOnChange(变化触发)</h3>
 <p>It accepts a float input <code>In</code>. The trigger becomes momentarily true if the input float value changes. It accepts the special values <code>RiseOnly</code> and <code>FallOnly</code> to fire only on an increase or a decrease of the input value, respectively. </p>
 <p>它接受一个浮点数输入 In，当输入值发生变化时，该触发器会瞬间返回 True。它支持两个特殊字段 RiseOnly 和 FallOnly，分别表示仅在输入值上升时触发或仅在输入值下降时触发。</p>
 
-<h3 id="trigger-examples">Trigger examples（触发器示例）</h3>
+<h3 id="triggertimer">TriggerTimer(定时触发)</h3>
+<p>A trigger activated after <code>N</code> seconds pass. It also accepts:</p>
+<p>一个经过 <code>N</code> 秒后激活的布尔信号，它还接受以下字段：</p>
+<ul>
+<li><code>Loop</code> (Boolean): restart the timer after triggering (default: true)  </li>
+<li><code>Loop</code> (Boolean): 触发信号后重新开始倒计时（默认：true）</li>
+<li><code>Reset</code> (Boolean): restart the timer for <code>N</code> seconds. While true, timer waits at <code>N</code> seconds.  </li>
+<li><code>Reset</code> (Boolean): 将倒计时重置到 <code>N</code> 秒；为 true 时，倒计时停留在 <code>N</code> 秒。</li>
+<li><code>Enable</code> (Boolean): equivalent to not-Reset, while true timer counts down from <code>N</code>. While false, timer waits at <code>N</code> seconds.  </li>
+<li><code>Enable</code> (Boolean): 相当于「不 Reset」；为 true 时，倒计时从 <code>N</code> 秒递减；为 false 时，倒计时停留在 <code>N</code> 秒。</li>
+</ul>
+
+<h3 id="trigger-examples">Trigger examples(触发器示例)</h3>
 <p>The following is an example on how to use triggers. It spawns a small wave of exploders 15 seconds after calling a resupply, but only 30 % of the time: </p>
 <p>以下是一个触发器的使用示例：在呼叫补给15秒后 ，有 30% 的概率生成一小波自爆异虫</p>
 <pre><code class="language-json">  &quot;WaveSpawners&quot;: [
@@ -1384,7 +1647,7 @@ Example:</p>
   ]
 </code></pre>
 <p>The chain of mutators is the same, but now a <code>TriggerFixedDuration</code> has been added on top which will grant a 20 second window for the wavespawner to be active. Since its <code>Interval</code> is set to 1, this will generate 20 spawn events in total. </p>
-<p>该示例的 Mutator 链与之前相同，但在最外层添加了 TriggerFixedDuration，为波次生成器提供了一个持续 20 秒的激活窗口。由于其 Interval 设置为 1(秒)，这将总共触发 20 次生成事件。</p>
+<p>该示例的 Mutator 链与之前相同，但在最外层添加了 <code>TriggerFixedDuration</code>，为波次生成器提供了一个持续 20 秒的激活窗口。由于其 <code>Interval</code> 设置为 1(秒)，这将总共触发 20 次生成事件。</p>
               
             </div>
           </div><footer>
@@ -1411,11 +1674,9 @@ Example:</p>
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
+
       <span><a href="../projectiles/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
+
       <span><a href="../mev-dea/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
