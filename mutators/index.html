@@ -1289,7 +1289,7 @@ Example:</p>
 
 <h2 id="Sequence">Sequence(序列)</h2>
 <p>A powerful mutator that allows cycling items in a sequence in various ways, including reversing the direction and shuffling.</p>
-<p>功能强大的 Mutator，可以用多种方式对序列中的项进行循环，包括反向遍历和洗牌。</p>
+<p>一个功能强大的 Mutator，允许通过多种方式对 Sequence 中的项进行循环，包括 反向进位 和 洗牌。</p>
 <table>
 <thead>
 <tr>
@@ -1304,25 +1304,25 @@ Example:</p>
 <td>Sequence</td>
 <td>Array</td>
 <td><em>None</em></td>
-<td>The mutator will return values from this sequence array based on the controls below.<br>该 Mutator 会根据下方控制信号，从指定的序列数组中返回对应值。</td>
+<td>The mutator will return values from this sequence array based on the controls below.<br>该 Mutator 会根据<code>Sequence</code>字段中的数组返回对应值。</td>
 </tr>
 <tr>
 <td>Next</td>
 <td>Boolean</td>
 <td>False</td>
-<td>When switched from false to true, the sequence is moved forward one position.<br>当值从 false 变为 true 时，序列前进一位。</td>
+<td>When switched from false to true, the sequence is moved forward one position.<br>从 false 变为 true 时，序列前进一位。</td>
 </tr>
 <tr>
 <td>Previous</td>
 <td>Boolean</td>
 <td>False</td>
-<td>When switched from false to true, the sequence is moved backward one position.<br>当值从 false 变为 true 时，序列后退一位。</td>
+<td>When switched from false to true, the sequence is moved backward one position.<br>从 false 变为 true 时，序列后退一位。</td>
 </tr>
 <tr>
 <td>Interval</td>
 <td>Float</td>
 <td><em>None</em></td>
-<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br>每间隔 <code>Interval</code> 秒，序列自动前进一位；默认不启用自动进位。</td>
+<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br>每间隔 <code>Interval</code> 秒，<code>Sequence</code>自动前进一位；默认不启用。</td>
 </tr>
 <tr>
 <td>Repeat</td>
@@ -1357,7 +1357,7 @@ Example:</p>
 </tbody>
 </table>
 <p>Example: cycle the projectiles of a spitballer following a certain sequence every 3 seconds.</p>
-<p>示例：让喷吐植物按照特定序列，每 3 秒循环其发射物。</p>
+<p>示例：Sequence 每 3 秒自动前进一位，按序切换吐珠的发射物（到达末尾后回到开头）</p>
 <pre><code class="language-json">{
     &quot;Enemies&quot;: {
         &quot;ED_ShootingPlant&quot;: {
