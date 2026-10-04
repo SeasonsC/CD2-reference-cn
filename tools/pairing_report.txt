@@ -1,0 +1,62 @@
+双语配对样本（共 325 对，展示前 25 对）
+==========================================================================================
+[li] EN: Allows players to a have a much finer control over many aspects of the gameplay by intro
+      ZH: 通过引入类似编程语言结构的 Mutators，让代码作者可以更精细地控制游戏逻辑。
+[li] EN: Exposes many enemy controls to change their behaviour, spawning mechanics and even aspec
+      ZH: 开放大量敌人控制项，可自由修改它们的行为、生成机制及材质。
+[li] EN: Allows manipulating the enemy pools live during a mission based on gameplay conditions.
+      ZH: 支持在任务中，根据游戏条件实时调整敌人池。
+[li] EN: Offers many features not available in CD1 such as controls for illumination, player scal
+      ZH: 新增多项 CD1 不具备的功能，比如光照控制、玩家体型缩放、地图硝石数量调节等等
+[li] EN: Common edits. Reference section for common difficulty edits.
+      ZH: Resources. Useful links related to Custom Difficulty.相关资源
+[li] EN: 4-Dec-2024: Updated for CD2-v9: added ByEscortPhase and ByRefineryPhase mutators.
+      ZH: 2024-12-04,CD2-v9:新增 ByEscortPhase和 ByRefineryPhase Mutator。
+[li] EN: 25-Dec-2024: Updated for CD2-v10: added the Projectiles page, added the MEV and DEA page
+      ZH: 2024-12-25,CD2-v10:新增 Projectiles页面、MEV、DEA页面，补充精英敌人与变种设置的说明，新增Spawner模块的介绍，并进行了一些小修正。
+[li] EN: 29-Jan-2025: Updated for CD2-v11: added the Direct and UsesBiomeVariants enemy controls 
+      ZH: 2025-1-29，CD2-v11:新增 Direct和 UsesBiomeVariants 的敌人控制项，以及 BySaboPhase的Mutator
+[li] EN: 20-Feb-2025: Partial update for CD2-v12: added the DefenseProgress and ByResuppliesCalle
+      ZH: 2025-2-20,CD2-v12:新增 DefenseProgress和 ByResuppliesCalled的 Mutator;新增 Salvage模块和 BySalvag
+[li] EN: 28-Feb-2025: Added @Carrot's projectile resource to the Resources and Projectiles tabs, 
+      ZH: 2025-2-28:在 Resources 与 Projectiles 页面中加入 @Carrot 提供的发射物汇总；在 Resources 与 FAQ 中加入 @Spy 编写
+[li] EN: 11-Mar-2025: Update for CD2-v13: added the legacy pawn stats to enemy controls, added By
+      ZH: 2025-3-11,CD2-v13:在敌人控制中加入 legacy pawn 属性；新增 BySecondary 与 DwarfCount 的 Mutator;补充 Darkn
+[li] EN: 22-Mar-2025: Update for CD2-v14: added the Dense Biozone option to the ByBiome mutator, 
+      ZH: 2025-3-22,CD2-v14:为 ByBiome 的 Mutator 加入 Dense Biozone 选项；补充由 @emctwo 提供的 Movement 敌人模块描
+[li] EN: 25-May-2025: Update for CD2-v15: added the Diversity option to the wavespawner section, 
+      ZH: 2025-5-25,CD2-v15:为 Wavespawner 中加入 Diversity 选项；在 Mutators 章节新增 Trigger 系列 Mutators;在敌人
+[li] EN: 2-Jun-2025: Clarified the section about the differences between Enemies and EnemiesNoSyn
+      ZH: 2025-6-2:在 Enemies 页面中澄清 Enemies 与 EnemiesNoSync 的差别；在 MEV、DEA 和 EEE 页面移除 DEA 敌人列表，改为添加 
+[li] EN: 23-Jul-2025: Added the Direct page.
+      ZH: 2025-7-23:新增 Direct 页面
+[li] EN: 15-Aug-2025: Added the Usable table in the Salvage module in Modules and some examples.
+      ZH: 2025-8-15:在 Modules 的 Salvage 部分新增 Usable 表格及使用示例
+[li] EN: 11-Nov-2025: Update for CD2-v16: added the Countdown, EnemiesRecentlySpawned, Int2String
+      ZH: 2025-11-11,CD2-v16:新增 Countdown、EnemiesRecentlySpawned、Int2String、Float2String 与 Join 的 
+[li] EN: 2-Dec-2025: Update for CD2-v17: added the Vars module, the Alert field on wavespawners, 
+      ZH: 2025-12-2,CD2-v17:新增 Vars 模块，在 Wavespawners 中加入 Alert 字段；并新增以下Mutators: DroppodDistance 
+[li] EN: 11-Dec-2025: Added the Common Edits section, changed theme to material.
+      ZH: 2025-12-11:新增 Common Edits 章节,并将参考文档主题样式更改为 Material 风格【翻译版未更改】
+[li] EN: 8-Mar-2026: Update for CD2-v18: added the StopWatch, TriggerTimer, Sequence and SelectFr
+      ZH: 2026-2-8:新增以下 Mutators:Sequence、StopWatch、TriggerTimer、SelectFromArray;Enemies部分添加 DropR
+[p] EN: This document serves as a reference for Custom Difficulty 2, a mod for Deep Rock Galacti
+      ZH: 本文档是《深岩银河》模组 Custom Difficulty 2（CD2） 的参考指南，它允许你创建新的难度。CD2 由@TheBrain 开发，作为 Custom Diffi
+[li] EN: Q: Where can I get the mod?
+      ZH: 问：我在那里可以获得这个模组？
+[li] EN: A: The mod right now is in open beta and the .pak file can be found in the Practical DRG
+      ZH: 答:该模组目前处于公开测试阶段,pak 文件可在 Practical DRG 的 Discord 服务器中获取，推荐使用 Mod Integration Loader来加载模组
+[li] EN: Q: Can I use this at the same time as CD1?
+      ZH: 问:我能同时使用CD1和CD2吗?
+[li] EN: A: No. Only enable one CD version at a time. If you want to join CD1 lobbies while havin
+      ZH: 答:不可以。一次只能启用一个 CD 版本,如果你在启用 CD2 的情况下加入使用 CD1 的房间，并希望避免补给硝石消耗不同步的问题，可以使用 PDRG 内提供的 cd1-cl
+
+英文单飞段（无中文对应，共 7 段，全部列出）
+==========================================================================================
+[/] MEV, DEA and EEE. A reference for the MEV and DEA mods and links to the EEE reference, used to add new enemy v
+[/modules/] When launching a mission from the space rig.
+[/modules/] When a mission is finished.
+[/mutators/] Parameters:
+[/mutators/] Another example: we create a mutator that will hold the value of a string until a dwarf is revived, and at tha
+[/mutators/] Parameters:
+[/mutators/] Example:

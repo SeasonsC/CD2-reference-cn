@@ -1,0 +1,164 @@
+=== direct 第一节 ===
+h2: ED_PumpkinLootBug  掠夺虫
+<table class="None"> Control
+Default Value
+
+
+
+
+Float:DamageLootDropChance
+0.2
+
+
+Float:DamageLootDropCoolDown
+0.5
+
+
+Float:EatValueMultiplier
+1.5
+
+
+Float:SearchChunksRadius
+2500.0
+
+
+Float:SearchChunksI
+
+--- direct 第一张表 ---
+表头: Control | Default Value
+列数: 2, 行数: 19
+  行: Float:DamageLootDropChance | 0.2
+  行: Float:DamageLootDropCoolDown | 0.5
+  行: Float:EatValueMultiplier | 1.5
+
+=== mev-dea 全文（纯英文页）===
+  <h1> MEV, DEA and EEE（额外mod不考虑翻译）
+  <p> MEV, DEA and EEE are three common mods that add enemies to the game. They are used in a few commonly played difficulties and although they are not dir
+  <li> MEV is not in mod.io and can be found as a .pak in the Pracical DRG discord. There is no official documentation for the MEV enemies, so this page cont
+  <li> DEA is available in mod.io together with a document with the list of enemies it adds.
+  <li> A more recent mod is EEE, available in mod.io. You can see the list of EEE enemies here.
+  <p> These enemy expansion mods don't do anything by themselves: in order to spawn the new enemies their descriptors have to be explicitly included in a CD
+  <h2> MEV enemies
+  <p> Descriptions provided by mod author @yinny. Updated for MEV 5.4.
+  <h3> Grunt variants
+  <p> These grunts are recolors of the normal grunt and its veterans (Guards and Slashers) to be used for special purposes (eg. to give grunts spawning from
+  <table> 表头: ED name | Comments
+           行数: 12
+  <h3> Breeders
+  <p> These breeders are recolors of the normal breeder. Their main use is to be able to have multiple breeders spawning different enemies in the same missi
+  <table> 表头: ED name | Comments
+           行数: 4
+  <p> To use these, override the specified dummy jelly descriptor with the ED you want to spawn:
+  <p> will make the purple breeder spawn exploders.
+  <h3> Bulks
+  <table> 表头: ED name | Comments
+           行数: 6
+  <h3> Exploders
+  <table> 表头: ED name | Comments
+           行数: 3
+  <h3> Mactera
+  <table> 表头: ED name | Comments
+           行数: 13
+  <h3> Menaces
+  <table> 表头: ED name | Comments
+           行数: 5
+  <h3> Nexus
+  <p> These are recolors of the normal nexus, following the same logic for breeders: they allow to have more than one type of nexus in the same mission. CD2
+  <table> 表头: ED name | Comments
+           行数: 4
+  <h3> Nukeballers
+  <p> Spitballers shooting nukes. Since they provide a different number of shot projectiles, they are an interesting match for custom projectiles.
+  <table> 表头: ED name | Comments
+           行数: 4
+  <h3> Oppressors
+  <p> Recolors (not elemental) of the oppressor.
+  <table> 表头: ED name | Comments
+           行数: 4
+  <h3> Praetorians
+  <table> 表头: ED name | Comments
+           行数: 3
+  <h3> Shellbacks
+  <table> 表头: ED name | Comments
+           行数: 4
+  <h3> Sprouts
+  <p> Can be used as new stationary enemies.
+  <table> 表头: ED name | Comments
+           行数: 3
+  <h3> Swarmers
+  <table> 表头: ED name | Comments
+           行数: 2
+  <h3> Younglings
+  <table> 表头: ED name | Comments
+           行数: 2
+  <h3> Miscellaneous enemies
+  <table> 表头: ED name | Comments
+           行数: 5
+
+=== Common edits 全文（纯英文页）===
+  <h1> Common Edits[简单的多倍虫教程]
+  <h2> Increase or decrease the number of enemies
+  <p> If you enjoy a certain difficulty file but you think the number of enemies is either too small or too big, you can modify it to your taste with a very
+  <p> 
+  <pre> ..., / "DifficultySetting": { /         "EnemyCountModifier": [ /             2, /             2.1, /             2.7, /             3.3 /     
+  <p> so if we wanted to create Hazard 6x4 we would double these values:
+  <p> 
+  <pre> ..., / "DifficultySetting": { /         "EnemyCountModifier": [ /             4, /             4.2, /             5.4, /             6.6 /     
+  <p> Depending on how many enemies you want to get you might have to edit also the MaxActiveEnemies cap in Caps:
+  <p> 
+  <pre> ..., / "Caps": { /         "MaxActiveCritters": 40, /         "MaxActiveSwarmers": [ /             60, /             120, /             180, / 
+  <p> When the number of enemies in a mission goes above MaxActiveEnemies the game will despawn some of them, although this behaviour is not completely unde
+  <p> 
+  <h2> Removing vanilla enemies from a difficulty
+  <p> Are you a solo player that hates stingtails or stalkers? Or maybe you want to remove younglings from Salt Pits? This is one of the most common edits a
+  <p> 
+  <li> 1. Know the in-game name of the enemy you want to remove (the descriptor's name)
+  <li> 
+  <li> 2. Know the vanilla pool the enemy is in by default
+  <li> 
+  <p> For the first, check the table in Resources. As an example, if you wanted to remove stalkers the name you'd need is ED_Spider_Stalker. For the second,
+  <p> 
+  <p> Once you know the original pool where your enemy is, just remove it. For example, removing stalkers and septics from a difficulty:
+  <p> 
+  <pre> ..., / "Pools": { /     "DisruptiveEnemies": { /         "Remove": ["ED_Spider_Stalker"] /     }, /     "SpecialEnemies": { /         "Remove": 
+
+=== mutators 第 3 节（看英/中/我们补充的混排）===
+h2: And, Or, Not(与、或、非)
+  <p class="mt-io"> 类型 — 输入：And / Or 的任意布尔字段、Not 的 Value（Boolean） · 输出：Boolean
+  <p class="None"> Basic boolean operators that can be used on the outputs of boolean mutators. And and Or can take any number of inputs:
+  <p class="None"> 可应用于布尔 Mutators 输出结果的基础布尔运算。And 和 Or 可接受任意数量的输入：
+  <pre> (代码块, 116 字符)
+  <p class="None"> and like all other similar mutators, the names of the fields can be whatever you want:
+  <p class="None"> 与其它所有类似的 Mutator 一样，字段名可以任意命名：
+  <pre> (代码块, 133 字符)
+  <p class="None"> The Not mutator takes a single boolean Value field and will return its complement. As a trivial example, the following always returns true:
+  <p class="None"> Not Mutator 接受单个布尔 Value 字段，并返回其相反值。作为简单示例，下面这段代码始终返回 true：
+  <pre> (代码块, 44 字符)
+h2: ByBiome(根据生物群系)
+  <p class="mt-io"> 类型 — 输入：Default + 各群系键（数值） · 输出：你为该群系指定的数值
+  <p class="None"> Change the value based on the mission biome. If a value isn't set for a biome it will use the 'Default' value. A 'Default' must be set unless a value is specified for biomes. If a 
+  <p class="None"> 根据任务所在群系来改变数值，如果某个群系没有设置对应参数，则使用Default值。除非所有的群系都设置了对应值，否则必须设置Default值。如果某群系没有识别到对应值且无Default值，则使用"CrystallineCaverns"的值
+  <table class="None"> Official name
+Alias 1
+Alias 2
+
+
+
+
+BIOME_AzureWeald蔚蓝花甸
+AzureWeald
+
+
+
+BIOME_CrystalCaves水晶洞穴
+CrystalCaves
+CrystallineCaverns
+
+
+BIOME_DenseBiozone密林丛原
+DenseBiozone
+Biozone
+
+
+BIOME_Fu
+  <p class="None"> 示例：在熔岩之心提高敌人移速，在冰封岩层降低敌人移速。
+  <pre> (代码块, 107 字符)

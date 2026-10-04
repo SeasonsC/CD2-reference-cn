@@ -1,234 +1,134 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html lang="zh-CN" data-theme="dark" data-lang="both" data-base="../">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>写作提示与常见错误 - CD2 Reference</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-    <script>!function(){try{var t=localStorage.getItem('ds-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-        
-        <link href="../stylesheets/tables.css" rel="stylesheet" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Resources";
-        var mkdocs_page_input_path = "resources.md";
-        var mkdocs_page_url = null;
-      </script>
-    
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>写作提示与常见错误 · Tips — CD2 参考文档</title>
+<meta name="description" content="Vars 是 CD2 里最强大、也最容易被新作者忽略的模块。它远不只是个调试工具，至少能同时帮你做三件事：">
+<link rel="canonical" href="https://seasonsc.github.io/CD2-reference-cn/tips/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CD2 参考文档">
+<meta property="og:title" content="写作提示与常见错误 · Tips — CD2 参考文档">
+<meta property="og:description" content="Vars 是 CD2 里最强大、也最容易被新作者忽略的模块。它远不只是个调试工具，至少能同时帮你做三件事：">
+<meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/tips/">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+<link rel="stylesheet" href="../assets/css/site.css">
 </head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> CD2 Reference CD2指南
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Introduction介绍</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ常见问题</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../basics/">The Basics of CD2基础部分</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../modules/">Modules模块部分</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../enemies/">(Module) Enemies / EnemiesNoSync敌人配置 (客机 同步/非同步)</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../direct/">(Module) Direct底层属性</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../wavespawners/">(Module) WaveSpawners波次生成器</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../projectiles/">Projectiles发射物</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../mutators/">Mutators动态参数与逻辑控制</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../mev-dea/">MEV, DEA and EEE</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../Common edits/">Common edits</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../grouped_cooldowns/">Tutorials教程</a>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">Resources资源</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#enemy-descriptors">Enemy Descriptors敌人名称</a>
-    </li>
-    </ul>
-                <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../tips/">写作提示与常见错误</a>
-                  </li>
-                </ul>
-                </li>
-              </ul>
-      </div>
+<body class="has-toc">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <button class="icon-btn" id="drawer-btn" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <a class="brand" href="../"><img src="../assets/img/logo.svg" alt="" width="22" height="22" loading="eager"><span>CD2 参考文档</span></a>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">CD2 Reference CD2指南</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Resources资源</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-                <h1 id="tips">写作提示与常见错误 · Tips</h1>
-<p>这一页是我们自己踩过的坑，以及给新作者的建议，不属于官方文档的翻译内容。</p>
-
+    <div class="topbar-mid">
+      <div class="topbar-spacer"></div>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索文档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+      <div class="topbar-spacer"></div>
+    </div>
+    <div class="topbar-right">
+      <div class="lang-switch" role="group" aria-label="语言显示">
+        <button type="button" data-lang-btn="zh" aria-pressed="false" title="仅显示中文">中</button>
+        <button type="button" data-lang-btn="both" aria-pressed="true" title="中文 + 英文原文">中 + 英</button>
+      </div>
+      <button class="icon-btn" type="button" data-theme-btn aria-label="切换主题"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="read-progress" id="read-progress" aria-hidden="true"></div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/" class="current" aria-current="page">写作提示与常见错误 · Tips</a></li></ul></nav><main id="main" class="content">
+<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › 写作提示与常见错误 · Tips</nav>
+<h1>写作提示与常见错误 · Tips</h1>
 <h2 id="tips-watch">一、先用 Vars + watch 字段把逻辑调通</h2>
 <p><code>Vars</code> 是 CD2 里最强大、也最容易被新作者忽略的模块。它远不只是个调试工具，至少能同时帮你做三件事：</p>
-<ul>
-<li><b>判断自己的代码有没有问题</b>：把想验证的表达式接进一个变量，打开 <code>Watch</code>，它的值就会<b>直接显示在游戏 UI 上</b>——逻辑写错、类型对不上、条件根本不成立，这些几乎都能一眼看出来。对刚上手写难度的作者来说，<b>这一点的价值怎么强调都不过分</b>。</li>
-<li><b>储存信息，让代码更简洁</b>：变量定义一次之后，就能在<b>任何</b>接受同类型值的地方用 <code>{"Var": "变量名"}</code> 引用。把重复出现的表达式抽成一个变量，代码会短很多，日后要改也只需要改一处。</li>
-<li><b>让模块之间能够通信</b>：所有变量在同一时刻统一更新，因此它在各个模块里读到的值始终一致。</li>
-</ul>
+<ul><li><b>判断自己的代码有没有问题</b>：把想验证的表达式接进一个变量，打开 <code>Watch</code>，它的值就会<b>直接显示在游戏 UI 上</b>——逻辑写错、类型对不上、条件根本不成立，这些几乎都能一眼看出来。对刚上手写难度的作者来说，<b>这一点的价值怎么强调都不过分</b>。</li><li><b>储存信息，让代码更简洁</b>：变量定义一次之后，就能在<b>任何</b>接受同类型值的地方用 <code>{"Var": "变量名"}</code> 引用。把重复出现的表达式抽成一个变量，代码会短很多，日后要改也只需要改一处。</li><li><b>让模块之间能够通信</b>：所有变量在同一时刻统一更新，因此它在各个模块里读到的值始终一致。</li></ul>
 <p>写 Mutator 最难受的是「不知道到底有没有生效」。推荐做法：在 <code>Vars</code> 里定义一个变量，把想验证的表达式接进去，然后在游戏里用 watch 实时看它。</p>
-<pre><code class="language-json">"Vars": {
-    "调试-击杀超过10": {
-        "Type": "Boolean",
-        "Watch": true,
-        "Value": {
-            "Mutate": "IfFloat",
-            "Value": {"Mutate": "EnemiesKilled"},
-            ">": 10,
-            "Then": true,
-            "Else": false
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Vars&quot;: {
+    &quot;调试-击杀超过10&quot;: {
+        &quot;Type&quot;: &quot;Boolean&quot;,
+        &quot;Watch&quot;: true,
+        &quot;Value&quot;: {
+            &quot;Mutate&quot;: &quot;IfFloat&quot;,
+            &quot;Value&quot;: {&quot;Mutate&quot;: &quot;EnemiesKilled&quot;},
+            &quot;&gt;&quot;: 10,
+            &quot;Then&quot;: true,
+            &quot;Else&quot;: false
         }
     }
-}</code></pre>
+}</code></pre></div>
 <p>布尔变量最适合当 watch：你一眼就能看出条件在哪个时刻变成 true。比起反复改难度、进游戏试，这条路快得多。</p>
-
 <h2 id="tips-polling">二、Mutator 不是瞬时响应的</h2>
 <p>Mutator 采用轮询机制，信号变化到被识别之间约有 <b>0.5 秒</b>延迟。用击杀数、血量这类高频变化的量做精确计时时，要把这段延迟算进去。</p>
-
 <h2 id="tips-momentary">三、「一瞬间」的布尔信号能干什么</h2>
 <p>很多触发器（例如 <code>TriggerOnChange</code>）产生的 True 只持续一瞬间，但它并不等于没用：</p>
-<ul>
-<li>大部分布尔字段会被一瞬间的信号正常激活一次；</li>
-<li>波次生成器这类带 <code>Interval</code> 的字段要留意：<code>Interval</code> 比信号持续时间长时，它可能一直在等下一次，结果根本不生成；<code>Interval</code> 设得短，一瞬间的信号也能触发一次生成。</li>
-</ul>
+<ul><li>大部分布尔字段会被一瞬间的信号正常激活一次；</li><li>波次生成器这类带 <code>Interval</code> 的字段要留意：<code>Interval</code> 比信号持续时间长时，它可能一直在等下一次，结果根本不生成；<code>Interval</code> 设得短，一瞬间的信号也能触发一次生成。</li></ul>
 <p>结论：能不能用取决于目标字段，<b>建议实际跑一次再下结论</b>。确实需要一段稳定的持续窗口时，用 <code>TriggerFixedDuration</code> 把信号拉长。</p>
-
 <h2 id="tips-mistakes">四、常见错误写法</h2>
 <p>❌ 是错误写法，✅ 是修正写法。</p>
-
 <h3 id="mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</h3>
 <p><code>In</code>、<code>If</code> 的 <code>Condition</code> 等字段要求布尔信号，而 <code>DwarvesDown</code>、<code>EnemiesKilled</code> 这类 Mutator 返回的是数值。数值输出必须先经 <code>TriggerOnChange</code> 转换。</p>
-<pre><code class="language-json">❌ "In": {"Mutate": "DwarvesDown"}</code></pre>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">❌ &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDown&quot;}</code></pre></div>
 <p>✅ 用 <code>TriggerOnChange</code> 读取；只想在数值上升时触发就加 <code>RiseOnly</code>：</p>
-<pre><code class="language-json">"In": {
-    "Mutate": "TriggerOnChange",
-    "RiseOnly": true,
-    "In": {"Mutate": "DwarvesDowns"}
-}</code></pre>
-
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;In&quot;: {
+    &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+    &quot;RiseOnly&quot;: true,
+    &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDowns&quot;}
+}</code></pre></div>
 <h3 id="mistake-long-signal">② 拿「一直是 true」的长信号做「延长」</h3>
 <p><code>DuringExtraction</code>、<code>SecondaryFinished</code> 这类信号一旦变 true 就会长时间保持 true（<code>SecondaryFinished</code> 会一直保持到任务结束）。对它们用 <code>TriggerSustain</code> 再延长 N 秒几乎没有意义——这类触发器是给<b>短信号</b>准备的。</p>
-<pre><code class="language-json">❌ "Enabled": {
-    "Mutate": "TriggerSustain",
-    "N": 15,
-    "In": {"Mutate": "DuringExtraction"}
-}</code></pre>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">❌ &quot;Enabled&quot;: {
+    &quot;Mutate&quot;: &quot;TriggerSustain&quot;,
+    &quot;N&quot;: 15,
+    &quot;In&quot;: {&quot;Mutate&quot;: &quot;DuringExtraction&quot;}
+}</code></pre></div>
 <p>✅ 先拿到一个短信号，再延长：</p>
-<pre><code class="language-json">"Enabled": {
-    "Mutate": "TriggerSustain",
-    "N": 15,
-    "In": {
-        "Mutate": "TriggerOnChange",
-        "RiseOnly": true,
-        "In": {"Mutate": "DwarvesDowns"}
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
+    &quot;Mutate&quot;: &quot;TriggerSustain&quot;,
+    &quot;N&quot;: 15,
+    &quot;In&quot;: {
+        &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+        &quot;RiseOnly&quot;: true,
+        &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDowns&quot;}
     }
-}</code></pre>
+}</code></pre></div>
 <p>反过来想把长信号缩短，要用 <code>TriggerFixedDuration</code>，而不是 <code>TriggerSustain</code>。</p>
-</div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../resources/" class="btn btn-neutral float-left" title="Resources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<nav class="page-nav" aria-label="翻页"><a class="prev" href="../resources/"><span class="dir">上一页</span><span class="title">资源 · Resources</span></a><span></span></nav>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2"><a href="#tips-polling">二、Mutator 不是瞬时响应的</a></li><li class="lvl-2"><a href="#tips-momentary">三、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2"><a href="#tips-mistakes">四、常见错误写法</a></li><li class="lvl-3"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li><li class="lvl-3"><a href="#mistake-long-signal">② 拿「一直是 true」的长信号做「延长」</a></li></ul></div></aside></div>
+<footer class="footer">
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h3>站点地图</h3>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li></ul>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+    <div class="footer-col">
+      <h3>相关资源</h3>
+      <ul class="footer-links"><li><a href="https://drg.arthurlin.dev/zh-cn/" target="_blank" rel="noopener">深岩资源站 · CD2 中文教学</a></li><li><a href="https://vonacht.github.io/cd2reference/" target="_blank" rel="noopener">原英文文档 · CD2 Reference</a></li><li><a href="https://github.com/SeasonsC/CD2-reference-cn" target="_blank" rel="noopener">GitHub 仓库</a></li><li><a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/" target="_blank" rel="noopener">Deep Rock Galactic（Steam）</a></li><li><a href="https://github.com/trumank/drg-custom-difficulties/blob/master/DATA.md" target="_blank" rel="noopener">原版敌人描述符 DATA.md</a></li><li><a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview" target="_blank" rel="noopener">DRG Hazard Scaling 数值表</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h3>声明</h3>
+      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+    </div>
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-          
-        </div>
-      </div>
-
-    </section>
-
+<button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-results" id="search-results"></ul>
+    <div class="search-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+      <span><kbd>Enter</kbd> 打开</span>
+      <span><kbd>Esc</kbd> 关闭</span>
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-
-      <span><a href="../grouped_cooldowns/" style="color: #fcfcfc">&laquo; Previous</a></span>
-
-  </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
+<script src="../assets/js/site.js" defer></script>
 </body>
 </html>

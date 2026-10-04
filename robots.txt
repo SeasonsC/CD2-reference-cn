@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seasonsc.github.io/CD2-reference-cn/sitemap.xml

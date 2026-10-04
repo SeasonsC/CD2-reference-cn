@@ -1,0 +1,82 @@
+/               纯中=   2  纯英=  22  混排=  28  英有中对=  21  英单飞(>=25字母)=   1  h2=2 h3=0 表=0 码=0 style=0
+                · 单飞: MEV, DEA and EEE. A reference for the MEV and DEA mods and links to the EEE reference, use
+/faq/           纯中=   4  纯英=  18  混排=  14  英有中对=  18  英单飞(>=25字母)=   0  h2=0 h3=0 表=0 码=0 style=0
+/basics/        纯中=   2  纯英=  13  混排=  13  英有中对=  13  英单飞(>=25字母)=   0  h2=2 h3=0 表=0 码=3 style=0
+/modules/       纯中=  22  纯英=  60  混排=  38  英有中对=  60  英单飞(>=25字母)=   0  h2=20 h3=1 表=11 码=29 style=0
+/enemies/       纯中=  11  纯英=  38  混排=  27  英有中对=  38  英单飞(>=25字母)=   0  h2=11 h3=6 表=11 码=12 style=0
+/direct/        纯中=   0  纯英=   1  混排=   1  英有中对=   1  英单飞(>=25字母)=   0  h2=92 h3=0 表=92 码=0 style=0
+/wavespawners/  纯中=   0  纯英=   4  混排=   4  英有中对=   4  英单飞(>=25字母)=   0  h2=0 h3=0 表=1 码=2 style=0
+/projectiles/   纯中=   0  纯英=   9  混排=   9  英有中对=   9  英单飞(>=25字母)=   0  h2=4 h3=0 表=3 码=1 style=0
+/mutators/      纯中=  95  纯英= 160  混排= 220  英有中对= 157  英单飞(>=25字母)=   1  h2=78 h3=10 表=3 码=101 style=0
+                · 单飞: Another example: we create a mutator that will hold the value of a string until a dwarf is
+/mev-dea/       纯中=   0  纯英=  14  混排=   0  英有中对=   0  英单飞(>=25字母)=  14  h2=1 h3=15 表=15 码=1 style=0
+                · 单飞: MEV, DEA and EEE are three common mods that add enemies to the game. They are used in a fe
+                · 单飞: MEV is not in mod.io and can be found as a .pak in the Pracical DRG discord. There is no o
+                · 单飞: DEA is available in mod.io together with a document with the list of enemies it adds.
+                · 单飞: A more recent mod is EEE, available in mod.io. You can see the list of EEE enemies here.
+/common-edits/  纯中=   0  纯英=   9  混排=   0  英有中对=   0  英单飞(>=25字母)=   9  h2=2 h3=0 表=1 码=4 style=0
+                · 单飞: If you enjoy a certain difficulty file but you think the number of enemies is either too s
+                · 单飞: so if we wanted to create Hazard 6x4 we would double these values:
+                · 单飞: Depending on how many enemies you want to get you might have to edit also the MaxActiveEne
+                · 单飞: When the number of enemies in a mission goes above MaxActiveEnemies the game will despawn 
+/tutorials/     纯中=   1  纯英=   1  混排=   0  英有中对=   1  英单飞(>=25字母)=   0  h2=1 h3=0 表=0 码=0 style=0
+/resources/     纯中=   1  纯英=   7  混排=   6  英有中对=   7  英单飞(>=25字母)=   0  h2=1 h3=0 表=1 码=0 style=0
+/tips/          纯中=   4  纯英=   0  混排=  10  英有中对=   0  英单飞(>=25字母)=   0  h2=4 h3=2 表=0 码=5 style=0
+
+合计: {"cn": 142, "en": 356, "mixed": 370, "empty": 12, "other": 0, "paired": 329, "lone": 25}
+
+=== 全站 <div role="main"> 之外的内联样式与资源引用 ===
+  /              <a> color: #fcfcfc
+  /faq/          <a> color: #fcfcfc
+  /faq/          <a> color: #fcfcfc
+  /basics/       <a> color: #fcfcfc
+  /basics/       <a> color: #fcfcfc
+  /modules/      <a> color: #fcfcfc
+  /modules/      <a> color: #fcfcfc
+  /enemies/      <a> color: #fcfcfc
+  /enemies/      <a> color: #fcfcfc
+  /direct/       <a> color: #fcfcfc
+  /direct/       <a> color: #fcfcfc
+  /wavespawners/ <a> color: #fcfcfc
+  /wavespawners/ <a> color: #fcfcfc
+  /projectiles/  <a> color: #fcfcfc
+  /projectiles/  <a> color: #fcfcfc
+  /mutators/     <a> color: #fcfcfc
+  /mutators/     <a> color: #fcfcfc
+  /mev-dea/      <a> color: #fcfcfc
+  /mev-dea/      <a> color: #fcfcfc
+  /common-edits/ <a> color: #fcfcfc
+  /common-edits/ <a> color: #fcfcfc
+  /tutorials/    <a> color: #fcfcfc
+  /tutorials/    <a> color: #fcfcfc
+  /resources/    <a> color: #fcfcfc
+  /tips/         <a> color: #fcfcfc
+  （内联样式共 25 处）
+
+=== 外链 19 个 ===
+  https://docs.google.com/document/d/12pFMGVzQYR2vQzEhvCqaLcBBsOfjhkpxvEaIOJB8HHw/edit?tab=t.0
+  https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0
+  https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa
+  https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing
+  https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0
+  https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview
+  https://en.wikipedia.org/wiki/JSON
+  https://gist.github.com/trumank/5913a58e7f0f38fbc0b2d9e5cf5f51d7
+  https://github.com/Elytras/ElytrasEnemiesExpansion/blob/main/EEE%20ReadMe.txt
+  https://github.com/readthedocs/sphinx_rtd_theme
+  https://github.com/trumank/drg-custom-difficulties/blob/master/DATA.md
+  https://github.com/vonacht/cd2ifier/tree/main/src
+  https://markdownpastebin.com/?id=2044a6586b4d4735a0fe150325ee9285
+  https://mod.io/g/drg/m/donnies-enemy-addon-cd2-version#description
+  https://mod.io/g/drg/m/elytrasenemiesexpansion
+  https://mod.io/g/drg/m/sandbox-utilities
+  https://readthedocs.org
+  https://store.steampowered.com/app/548430/Deep_Rock_Galactic/
+  https://www.mkdocs.org/
+
+=== 图片 5 个 ===
+  ../pictures/cd2-modhub.png
+  ../pictures/countdown-mutator.png
+  ../pictures/ice-spreader.gif
+  ../pictures/orange-septic.png
+  pictures/cd2-modhub.png

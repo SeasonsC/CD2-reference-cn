@@ -1,0 +1,348 @@
+mt-io 结构化预览（共 86 条）
+====================================================================================================
+  1. 原文: <b>类型</b> — 输入：Initial（数值）、Value（数值 / Mutator）、Min、Max（夹取范围） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Initial</code><i>数值</i>、<code>Value</code><i>数值 / Mutator</i>、<code>Min</code>、<code>Max</code><i>夹取范围</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入Initial数值、Value数值 / Mutator、Min、Max夹取范围输出float
+
+  2. 原文: <b>类型</b> — 输入：A、B（数值）；Round / Ceil / Floor 用 Value（数值） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>A</code>、<code>B</code><i>数值</i>；Round / Ceil / Floor 用 Value（数值）</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入A、B数值；Round / Ceil / Floor 用 Value（数值）输出float
+
+  3. 原文: <b>类型</b> — 输入：And / Or 的任意布尔字段、Not 的 Value（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span>And / Or 的任意布尔字段、Not 的 Value<i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>  ← 输入项含中文
+     纯文本: 类型输入And / Or 的任意布尔字段、Not 的 ValueBoolean输出Boolean
+
+  4. 原文: <b>类型</b> — 输入：Default + 各群系键（数值） · 输出：你为该群系指定的数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 各群系键<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>你为该群系指定的数值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 各群系键数值输出你为该群系指定的数值
+
+  5. 原文: <b>类型</b> — 输入：Default、Stage1–3（数值） · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code>、<code>Stage1–3</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
+     纯文本: 类型输入Default、Stage1–3数值输出数值
+
+  6. 原文: <b>类型</b> — 输入：Default + 条件键（如「任务类型,长度,复杂度」）（数值） · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 条件键（如「任务类型,长度,复杂度」）<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 条件键（如「任务类型,长度,复杂度」）数值输出数值
+
+  7. 原文: <b>类型</b> — 输入：Default + 各阶段字段（数值） · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 各阶段字段<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 各阶段字段数值输出数值
+
+  8. 原文: <b>类型</b> — 输入：Default + 各任务类型字段（数值） · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 各任务类型字段<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 各任务类型字段数值输出数值
+
+  9. 原文: <b>类型</b> — 输入：Default + 次要目标名字段（数值） · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 次要目标名字段<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 次要目标名字段数值输出数值
+
+ 10. 原文: <b>类型</b> — 输入：InitialValue（数值）、StartDelay（秒）、RateOfChange（每秒） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>InitialValue</code><i>数值</i>、<code>StartDelay</code><i>秒</i>、<code>RateOfChange</code><i>每秒</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入InitialValue数值、StartDelay秒、RateOfChange每秒输出float
+
+ 11. 原文: <b>类型</b> — 输入：Values（数组） · 输出：数组中对应的项
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数组中对应的项</span></div>
+     纯文本: 类型输入Values数组输出数组中对应的项
+
+ 12. 原文: <b>类型</b> — 输入：Default + 各阶段字段（数值） · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 各阶段字段<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 各阶段字段数值输出数值
+
+ 13. 原文: <b>类型</b> — 输入：Values（数组） · 输出：数组中对应的项
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数组中对应的项</span></div>
+     纯文本: 类型输入Values数组输出数组中对应的项
+
+ 14. 原文: <b>类型</b> — 输入：Default + 各阶段字段（值类型自定） · 输出：你指定的值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 各阶段字段<i>值类型自定</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>你指定的值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 各阶段字段值类型自定输出你指定的值
+
+ 15. 原文: <b>类型</b> — 输入：Default + 各阶段字段（值类型自定） · 输出：你指定的值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 各阶段字段<i>值类型自定</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>你指定的值</span></div>  ← 输入项含中文
+     纯文本: 类型输入Default + 各阶段字段值类型自定输出你指定的值
+
+ 16. 原文: <b>类型</b> — 输入：Value、Min、Max（数值） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code>、<code>Min</code>、<code>Max</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入Value、Min、Max数值输出float
+
+ 17. 原文: <b>类型</b> — 输入：Start、Stop、Default（数值）、Enable（Boolean） · 输出：float（倒计时值）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Start</code>、<code>Stop</code>、<code>Default</code><i>数值</i>、<code>Enable</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>倒计时值</i></span></div>
+     纯文本: 类型输入Start、Stop、Default数值、EnableBoolean输出float倒计时值
+
+ 18. 原文: <b>类型</b> — 输入：无 · 输出：float（0~1，初始 0.3）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1，初始 0.3</i></span></div>
+     纯文本: 类型输出float0~1，初始 0.3
+
+ 19. 原文: <b>类型</b> — 输入：Value（数值 / Mutator） · 输出：float（变化量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>数值 / Mutator</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>变化量</i></span></div>
+     纯文本: 类型输入Value数值 / Mutator输出float变化量
+
+ 20. 原文: <b>类型</b> — 输入：Resource（string） · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Resource</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输入Resourcestring输出float计数
+
+ 21. 原文: <b>类型</b> — 输入：ED（string） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入EDstring输出Boolean
+
+ 22. 原文: <b>类型</b> — 输入：无 · 输出：float（数量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>数量</i></span></div>
+     纯文本: 类型输出float数量
+
+ 23. 原文: <b>类型</b> — 输入：Default（数值）、IncludeDowned（Boolean） · 输出：float（cm）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code><i>数值</i>、<code>IncludeDowned</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
+     纯文本: 类型输入Default数值、IncludeDownedBoolean输出floatcm
+
+ 24. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 25. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 26. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 27. 原文: <b>类型</b> — 输入：StartingAt、StoppingAfter（秒） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>StartingAt</code>、<code>StoppingAfter</code><i>秒</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入StartingAt、StoppingAfter秒输出Boolean
+
+ 28. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 29. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 30. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 31. 原文: <b>类型</b> — 输入：StartingAt、StoppingAfter（秒） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>StartingAt</code>、<code>StoppingAfter</code><i>秒</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入StartingAt、StoppingAfter秒输出Boolean
+
+ 32. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 33. 原文: <b>类型</b> — 输入：无 · 输出：float（数量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>数量</i></span></div>
+     纯文本: 类型输出float数量
+
+ 34. 原文: <b>类型</b> — 输入：无 · 输出：float（0~1，平均剩余弹药比例）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1，平均剩余弹药比例</i></span></div>
+     纯文本: 类型输出float0~1，平均剩余弹药比例
+
+ 35. 原文: <b>类型</b> — 输入：无 · 输出：float（0~4，倒地人数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~4，倒地人数</i></span></div>
+     纯文本: 类型输出float0~4，倒地人数
+
+ 36. 原文: <b>类型</b> — 输入：无 · 输出：float（秒）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>秒</i></span></div>
+     纯文本: 类型输出float秒
+
+ 37. 原文: <b>类型</b> — 输入：无 · 输出：float（次数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>次数</i></span></div>
+     纯文本: 类型输出float次数
+
+ 38. 原文: <b>类型</b> — 输入：无 · 输出：float（0~1，平均生命比例）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1，平均生命比例</i></span></div>
+     纯文本: 类型输出float0~1，平均生命比例
+
+ 39. 原文: <b>类型</b> — 输入：无 · 输出：float（次数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>次数</i></span></div>
+     纯文本: 类型输出float次数
+
+ 40. 原文: <b>类型</b> — 输入：无 · 输出：float（0~1，平均护盾比例）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1，平均护盾比例</i></span></div>
+     纯文本: 类型输出float0~1，平均护盾比例
+
+ 41. 原文: <b>类型</b> — 输入：无 · 输出：float（秒）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>秒</i></span></div>
+     纯文本: 类型输出float秒
+
+ 42. 原文: <b>类型</b> — 输入：ED（string）、EDs（数组） · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED</code><i>string</i>、<code>EDs</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输入EDstring、EDs数组输出float计数
+
+ 43. 原文: <b>类型</b> — 输入：Seconds（秒）、ED、EDs · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Seconds</code><i>秒</i>、<code>ED</code>、<code>EDs</code></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输入Seconds秒、ED、EDs输出float计数
+
+ 44. 原文: <b>类型</b> — 输入：ED、CooldownTime（秒）、ValueDuringCooldown、DefaultValue · 输出：数值
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED</code>、<code>CooldownTime</code><i>秒</i>、<code>ValueDuringCooldown</code>、<code>DefaultValue</code></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
+     纯文本: 类型输入ED、CooldownTime秒、ValueDuringCooldown、DefaultValue输出数值
+
+ 45. 原文: <b>类型</b> — 输入：ED / EDs、Default（数值，默认 0）、Type（Min / Max / Average） · 输出：float（0~1）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED / EDs</code>、<code>Default</code><i>数值，默认 0</i>、<code>Type</code><i>Min / Max / Average</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1</i></span></div>
+     纯文本: 类型输入ED / EDs、Default数值，默认 0、TypeMin / Max / Average输出float0~1
+
+ 46. 原文: <b>类型</b> — 输入：ED / EDs、Default（数值，默认 0）、Type（Min / Max / Average） · 输出：float（cm）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED / EDs</code>、<code>Default</code><i>数值，默认 0</i>、<code>Type</code><i>Min / Max / Average</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
+     纯文本: 类型输入ED / EDs、Default数值，默认 0、TypeMin / Max / Average输出floatcm
+
+ 47. 原文: <b>类型</b> — 输入：ED、EDs · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED</code>、<code>EDs</code></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输入ED、EDs输出float计数
+
+ 48. 原文: <b>类型</b> — 输入：无 · 输出：float（数量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>数量</i></span></div>
+     纯文本: 类型输出float数量
+
+ 49. 原文: <b>类型</b> — 输入：Value（float） · 输出：string（会带 ￥ 符号）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>float</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>string</code><i>会带 ￥ 符号</i></span></div>
+     纯文本: 类型输入Valuefloat输出string会带 ￥ 符号
+
+ 50. 原文: <b>类型</b> — 输入：无 · 输出：float（数量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>数量</i></span></div>
+     纯文本: 类型输出float数量
+
+ 51. 原文: <b>类型</b> — 输入：Resource（string） · 输出：float（总量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Resource</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>总量</i></span></div>
+     纯文本: 类型输入Resourcestring输出float总量
+
+ 52. 原文: <b>类型</b> — 输入：无 · 输出：float（剩余次数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>剩余次数</i></span></div>
+     纯文本: 类型输出float剩余次数
+
+ 53. 原文: <b>类型</b> — 输入：Condition（Boolean）、Then / Else（任意） · 输出：与 Then / Else 一致
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Condition</code><i>Boolean</i>、<code>Then / Else</code><i>任意</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Then / Else 一致</span></div>
+     纯文本: 类型输入ConditionBoolean、Then / Else任意输出与 Then / Else 一致
+
+ 54. 原文: <b>类型</b> — 输入：Value（float）、比较运算符（==、&gt;=、&gt;、&lt;=、&lt;）、Then / Else（任意） · 输出：与 Then / Else 一致
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>float</i>、比较运算符<i>==、&gt;=、&gt;、&lt;=、&lt;</i>、<code>Then / Else</code><i>任意</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Then / Else 一致</span></div>  ← 输入项含中文
+     纯文本: 类型输入Valuefloat、比较运算符==、&gt;=、&gt;、&lt;=、&lt;、Then / Else任意输出与 Then / Else 一致
+
+ 55. 原文: <b>类型</b> — 输入：Then / Else（任意） · 输出：与 Then / Else 一致
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Then / Else</code><i>任意</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Then / Else 一致</span></div>
+     纯文本: 类型输入Then / Else任意输出与 Then / Else 一致
+
+ 56. 原文: <b>类型</b> — 输入：Value（整数） · 输出：string（不带 ￥ 符号）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>整数</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>string</code><i>不带 ￥ 符号</i></span></div>
+     纯文本: 类型输入Value整数输出string不带 ￥ 符号
+
+ 57. 原文: <b>类型</b> — 输入：Values（数组）、Sep（string） · 输出：string
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i>、<code>Sep</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>string</code></span></div>
+     纯文本: 类型输入Values数组、Sepstring输出string
+
+ 58. 原文: <b>类型</b> — 输入：Lock（Boolean）、Update（Boolean）、Value（对应类型） · 输出：与 Value 同类型
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Lock</code><i>Boolean</i>、<code>Update</code><i>Boolean</i>、<code>Value</code><i>对应类型</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Value 同类型</span></div>
+     纯文本: 类型输入LockBoolean、UpdateBoolean、Value对应类型输出与 Value 同类型
+
+ 59. 原文: <b>类型</b> — 输入：Values（数组） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入Values数组输出float
+
+ 60. 原文: <b>类型</b> — 输入：Values（数组） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入Values数组输出float
+
+ 61. 原文: <b>类型</b> — 输入：Default（数值） · 输出：float（cm）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
+     纯文本: 类型输入Default数值输出floatcm
+
+ 62. 原文: <b>类型</b> — 输入：Value（整数 / 浮点数） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>整数 / 浮点数</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入Value整数 / 浮点数输出Boolean
+
+ 63. 原文: <b>类型</b> — 输入：Min、Max（float） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Min</code>、<code>Max</code><i>float</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入Min、Maxfloat输出float
+
+ 64. 原文: <b>类型</b> — 输入：Choices（数组）、Weights（数组，可选） · 输出：所选项的类型
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Choices</code><i>数组</i>、<code>Weights</code><i>数组，可选</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>所选项的类型</span></div>
+     纯文本: 类型输入Choices数组、Weights数组，可选输出所选项的类型
+
+ 65. 原文: <b>类型</b> — 输入：Choices（数组）、Weights（数组，可选） · 输出：所选项的类型
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Choices</code><i>数组</i>、<code>Weights</code><i>数组，可选</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>所选项的类型</span></div>
+     纯文本: 类型输入Choices数组、Weights数组，可选输出所选项的类型
+
+ 66. 原文: <b>类型</b> — 输入：无 · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输出float计数
+
+ 67. 原文: <b>类型</b> — 输入：无 · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输出float计数
+
+ 68. 原文: <b>类型</b> — 输入：无 · 输出：float（计数）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
+     纯文本: 类型输出float计数
+
+ 69. 原文: <b>类型</b> — 输入：无 · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输出Boolean
+
+ 70. 原文: <b>类型</b> — 输入：无 · 输出：float（数量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>数量</i></span></div>
+     纯文本: 类型输出float数量
+
+ 71. 原文: <b>类型</b> — 输入：Sequence（数组）、Next / Previous（Boolean）、Interval（float）、Repeat（Boolean，默认 true）、InitialOffset、Reset、Shuffle、ShuffleOnce · 输出：数组项的类型
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Sequence</code><i>数组</i>、<code>Next / Previous</code><i>Boolean</i>、<code>Interval</code><i>float</i>、<code>Repeat</code><i>Boolean，默认 true</i>、<code>InitialOffset</code>、<code>Reset</code>、<code>Shuffle</code>、<code>ShuffleOnce</code></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数组项的类型</span></div>
+     纯文本: 类型输入Sequence数组、Next / PreviousBoolean、Intervalfloat、RepeatBoolean，默认 true、InitialOffset、Reset、Shuffle、ShuffleOnce输出数组项的类型
+
+ 72. 原文: <b>类型</b> — 输入：Select（string）、Default + 任意命名的选项字段 · 输出：选中项的类型
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Select</code><i>string</i>、<code>Default</code> + 任意命名的选项字段</span><span class="mt-io-item"><span class="mt-io-k">输出</span>选中项的类型</span></div>  ← 输入项含中文
+     纯文本: 类型输入Selectstring、Default + 任意命名的选项字段输出选中项的类型
+
+ 73. 原文: <b>类型</b> — 输入：Select（索引）、Array（数组） · 输出：Array 中对应的项
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Select</code><i>索引</i>、<code>Array</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>Array 中对应的项</span></div>
+     纯文本: 类型输入Select索引、Array数组输出Array 中对应的项
+
+ 74. 原文: <b>类型</b> — 输入：Enable、Reset（Boolean）、AutoReset（Boolean，默认 true） · 输出：float（秒）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Enable</code>、<code>Reset</code><i>Boolean</i>、<code>AutoReset</code><i>Boolean，默认 true</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>秒</i></span></div>
+     纯文本: 类型输入Enable、ResetBoolean、AutoResetBoolean，默认 true输出float秒
+
+ 75. 原文: <b>类型</b> — 输入：Period（数值）、High、Low（数值） · 输出：float（在 High / Low 间交替）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Period</code><i>数值</i>、<code>High</code>、<code>Low</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>在 High / Low 间交替</i></span></div>
+     纯文本: 类型输入Period数值、High、Low数值输出float在 High / Low 间交替
+
+ 76. 原文: <b>类型</b> — 输入：InitialValue、StartDelay（秒）、RateOfChange（每秒） · 输出：float
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>InitialValue</code>、<code>StartDelay</code><i>秒</i>、<code>RateOfChange</code><i>每秒</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
+     纯文本: 类型输入InitialValue、StartDelay秒、RateOfChange每秒输出float
+
+ 77. 原文: <b>类型</b> — 输入：Resource（string） · 输出：float（总量）
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Resource</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>总量</i></span></div>
+     纯文本: 类型输入Resourcestring输出float总量
+
+ 78. 原文: <b>类型</b> — 输入：In（Boolean）、Reset（Boolean，可选） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>In</code><i>Boolean</i>、<code>Reset</code><i>Boolean，可选</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入InBoolean、ResetBoolean，可选输出Boolean
+
+ 79. 原文: <b>类型</b> — 输入：N（整数）、In（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>整数</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入N整数、InBoolean输出Boolean
+
+ 80. 原文: <b>类型</b> — 输入：P（概率）、In（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>P</code><i>概率</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入P概率、InBoolean输出Boolean
+
+ 81. 原文: <b>类型</b> — 输入：N（秒）、In（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入N秒、InBoolean输出Boolean
+
+ 82. 原文: <b>类型</b> — 输入：N（秒）、In（Boolean）、Reset（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>In</code><i>Boolean</i>、<code>Reset</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入N秒、InBoolean、ResetBoolean输出Boolean
+
+ 83. 原文: <b>类型</b> — 输入：N（秒）、In（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入N秒、InBoolean输出Boolean
+
+ 84. 原文: <b>类型</b> — 输入：N（秒）、In（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入N秒、InBoolean输出Boolean
+
+ 85. 原文: <b>类型</b> — 输入：In（float）、RiseOnly / FallOnly（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>In</code><i>float</i>、<code>RiseOnly / FallOnly</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入Infloat、RiseOnly / FallOnlyBoolean输出Boolean
+
+ 86. 原文: <b>类型</b> — 输入：N（秒）、Loop（默认 true）、Reset、Enable（Boolean） · 输出：Boolean
+     新版: <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>Loop</code><i>默认 true</i>、<code>Reset</code>、<code>Enable</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
+     纯文本: 类型输入N秒、Loop默认 true、Reset、EnableBoolean输出Boolean
+
+====================================================================================================
+需要人工过目 11 条：[3, 4, 6, 7, 8, 9, 12, 14, 15, 54, 72]
