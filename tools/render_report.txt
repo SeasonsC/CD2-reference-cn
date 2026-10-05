@@ -1,8 +1,8 @@
 slug               HTML字节      区块数
 ------------------------------------
 basics             12,769       15
-direct            169,758      185
-enemies            56,254       77
+direct            169,746      185
+enemies            56,262       77
 faq                12,804        1
 modules            63,909      118
 mutators          142,888      488

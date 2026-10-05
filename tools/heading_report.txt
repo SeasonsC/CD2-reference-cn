@@ -37,7 +37,7 @@
   h2  Resistances(抗性)  →  抗性 · Resistances
   h2  Movement(移动)  →  移动 · Movement
   h2  CaveLeech(水蛭)  →  水蛭 · CaveLeech
-  h2  Grabber(捕手蝇)  →  捕手蝇 · Grabber
+  h2  Grabber(捕手异虫蝇)  →  捕手异虫蝇 · Grabber
   h2  JellyBreeder(水母)  →  水母 · JellyBreeder
   h2  Spawner(生成器)  →  生成器 · Spawner
   h2  Temperature(温度)  →  温度 · Temperature
@@ -56,17 +56,17 @@
   h2  ED_Bomber 粘液轰炸蝇  →  ED_Bomber · 粘液轰炸蝇
   h2  ED_Bomber_Explosive 爆炸轰炸蝇  →  ED_Bomber_Explosive · 爆炸轰炸蝇
   h2  ED_Bomber_Ice 冰霜轰炸蝇  →  ED_Bomber_Ice · 冰霜轰炸蝇
-  h2  ED_Grabber 捕手蝇  →  ED_Grabber · 捕手蝇
-  h2  ED_Mactera_Shooter_Amber 氪化吐刺异虫蝇  →  ED_Mactera_Shooter_Amber · 氪化吐刺异虫蝇
+  h2  ED_Grabber 捕手异虫蝇  →  ED_Grabber · 捕手异虫蝇
+  h2  ED_Mactera_Shooter_Amber 氪化吐刺蝇  →  ED_Mactera_Shooter_Amber · 氪化吐刺蝇
   h2  ED_Mactera_Shooter_HeavyVeteran 坚甲异虫蝇  →  ED_Mactera_Shooter_HeavyVeteran · 坚甲异虫蝇
   h2  ED_Mactera_Shooter_Normal 吐刺异虫蝇  →  ED_Mactera_Shooter_Normal · 吐刺异虫蝇
   h2  ED_Mactera_TripleShooter 三颚异虫蝇  →  ED_Mactera_TripleShooter · 三颚异虫蝇
   h2  ED_HydraWeed 科洛克王草  →  ED_HydraWeed · 科洛克王草
   h2  ED_InfestationLarva 肉食幼虫  →  ED_InfestationLarva · 肉食幼虫
-  h2  ED_Jelly_Spawn 纳多赛特饲育水母幼体  →  ED_Jelly_Spawn · 纳多赛特饲育水母幼体
+  h2  ED_Jelly_Spawn 纳多赛特幼体  →  ED_Jelly_Spawn · 纳多赛特幼体
   h2  ED_JellyBreeder 纳多赛特饲育水母  →  ED_JellyBreeder · 纳多赛特饲育水母
   h2  ED_InfectedMule 战斗矿骡BET-C  →  ED_InfectedMule · 战斗矿骡 BET-C
-  h2  ED_Bomber_Rockpox_Plague 岩痘粘液轰炸蝇  →  ED_Bomber_Rockpox_Plague · 岩痘粘液轰炸蝇
+  h2  ED_Bomber_Rockpox_Plague 岩痘轰炸蝇  →  ED_Bomber_Rockpox_Plague · 岩痘轰炸蝇
   h2  ED_Spider_Grunt_RockpoxPlague 岩痘战士异虫  →  ED_Spider_Grunt_RockpoxPlague · 岩痘战士异虫
   h2  ED_Spider_Tank_RockpoxPlague 岩痘禁卫异虫  →  ED_Spider_Tank_RockpoxPlague · 岩痘禁卫异虫
   h2  ED_JellyBreeder_RockpoxPlague 岩痘纳多赛特饲育水母  →  ED_JellyBreeder_RockpoxPlague · 岩痘纳多赛特饲育水母
