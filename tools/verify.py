@@ -240,6 +240,15 @@ CHECKS += [
     ('R5 分组冷却已并入资源页',
      'id="grouped-cooldowns"' in io.open(os.path.join(SITE, 'resources', 'index.html'),
                                          encoding='utf-8').read()),
+    # ── R6 收尾 ──
+    ('R6 资源带缓存指纹',
+     'assets/css/site.css?v=' in home_html and 'assets/js/site.js?v=' in home_html),
+    ('R6 所有 img 带 width/height',
+     len(re.findall(r'<img (?![^>]*\bwidth=)', raw_all)) == 0),
+    ('R6 media.json 有尺寸记录',
+     len(json.load(io.open(os.path.join(ROOT, 'build', 'media.json'), encoding='utf-8'))) >= 4),
+    ('R6 Salvage 表单独定列宽',
+     count(r'class="tbl-salvage"') == 1 and '.tbl-salvage th:nth-child(5)' in css),
     ('R4 §8.4 h2 琥珀竖条', '.content h2{' in css and 'border-left:4px solid var(--brand)' in css),
     ('R4 §8.5 返回顶部小圆钮', count(r'id="to-top"') == len(pages) - 1 and '.to-top.show{' in css
      and 'to-top' in js),
