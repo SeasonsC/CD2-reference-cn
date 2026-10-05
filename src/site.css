@@ -316,6 +316,8 @@ tbody tr:hover{ background:var(--brand-soft); }
 /* 单元格中文行：与正文同色（R5 ③），字号只略小一档 */
 .td-zh{ font-size:.95em; color:var(--strong); }
 td:not(:last-child) .td-zh{ word-break:keep-all; }
+/* R6 ②：过长的中文行允许中间断行，避免把整列撑宽、挤扁相邻列 */
+td:not(:last-child) .td-zh.zh-long{ word-break:normal; overflow-wrap:anywhere; }
 
 /* --------------------------------------------------------------------------
    9. 提示块（预留，现有内容未使用）

@@ -360,13 +360,23 @@
     update();
   })();
 
-  /* ── 9. 平滑滚动到 hash ─────────────────────────────────────────── */
+  /* ── 9. 滚动到 hash（深链落点校正）───────────────────────────────── */
   (function () {
+    var settled = false;                     // 用户一旦自己滚动就不再校正
     function go() {
       if (!location.hash) return;
-      var el = doc.getElementById(location.hash.slice(1));
-      if (el) setTimeout(function () { el.scrollIntoView(); }, 40);
+      var el;
+      try { el = doc.getElementById(decodeURIComponent(location.hash.slice(1))); }
+      catch (e) { el = doc.getElementById(location.hash.slice(1)); }
+      if (el) el.scrollIntoView();
     }
+    // 重页面（modules 有 92 张表）在初次滚动后仍会被后续布局顶走，
+    // 因此 load 之后再校正一次，保证深链落点准确。
+    addEventListener('load', function () {
+      setTimeout(function () { if (!settled) go(); }, 80);
+    });
+    addEventListener('wheel', function () { settled = true; }, { passive: true });
+    addEventListener('touchmove', function () { settled = true; }, { passive: true });
     go();
     addEventListener('hashchange', go);
   })();

@@ -5,12 +5,17 @@
 
 ❌ 错误 0 条
 
-⚠️ 提示 0 条
+⚠️ 提示 5 条
+   basics/index.html: 图片缺 width/height ../assets/media/cd2-modhub.webp
+   enemies/index.html: 图片缺 width/height ../assets/media/orange-septic.webp
+   index.html: 图片缺 width/height assets/media/cd2-modhub.webp
+   mutators/index.html: 图片缺 width/height ../assets/media/countdown-mutator.webp
+   projectiles/index.html: 图片缺 width/height ../assets/media/ice-spreader.gif
 
-预算：CSS 24,049 字节 (上限 30720，余 6,671) ｜ JS 15,470 字节 (上限 20480，余 5,010)
+预算：CSS 24,131 字节 (上限 30720，余 6,589) ｜ JS 15,857 字节 (上限 20480，余 4,623)
 最大的 5 个页面：
-   direct\index.html            180,704 字节
-   mutators\index.html          166,314 字节
-   modules\index.html           73,265 字节
-   enemies\index.html           64,584 字节
-   projectiles\index.html       25,046 字节
+   direct\index.html            180,471 字节
+   mutators\index.html          166,516 字节
+   modules\index.html           73,364 字节
+   enemies\index.html           65,096 字节
+   projectiles\index.html       25,045 字节

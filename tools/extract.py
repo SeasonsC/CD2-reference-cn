@@ -245,6 +245,18 @@ def is_empty_table(table):
     return bool(body) and not any(r.text_content().strip() for r in body)
 
 
+def mark_long_zh(el, limit=10):
+    """R6 ②：过长的中文行加 .zh-long —— 否则 word-break:keep-all 会让整串中文
+    成为一个不可断开的「词」，把整列撑宽、挤扁相邻列。"""
+    n = 0
+    for span in el.xpath('.//span[contains(@class,"td-zh")]'):
+        if len(span.text_content().strip()) > limit:
+            span.set('class', 'td-zh zh-long')
+            n += 1
+    REPORT['zhlong'] = REPORT.get('zhlong', 0) + n
+    return n
+
+
 def align_columns(table, short=16):
     """R5：按列内容长度分情况决定对齐 —— 短列（Int/Float/Boolean/数值）居中，
     长列（标识符、描述文本）左对齐；**表头跟随所在列**，避免表头与正文错位。"""
@@ -479,6 +491,9 @@ def rewrite_url(raw, page_dir):
     for k, v in ASSET_MAP.items():
         if k.endswith(base):
             return v + frag + q, False
+    # 指向已删除页面的链接不告警：稍后会被 strip_dead_links 剥成纯文字
+    if low.strip('/').split('/')[0] in REMOVED:
+        return '/' + old + frag + q, False
     REPORT['warnings'].append(f'未映射链接: {raw}  (page_dir={page_dir})')
     return '/' + old + frag + q, False
 
@@ -619,6 +634,7 @@ def extract_block(el, page_dir, pcount, slug):
             return {'t': 'p', 'zh': '无', 'cls': 'tbl-none'}
         align_columns(e)                           # R5：短列居中、长列左对齐
         nsplit = split_cells(e)
+        mark_long_zh(e)                            # R6 ②：长中文允许断行（须在分行之后）
         REPORT['td_split'] = REPORT.get('td_split', 0) + nsplit
         th = [txt(x) for x in e.xpath('.//thead//th')] or \
              [txt(x) for x in e.xpath('.//tr[1]/*[self::th or self::td]')]
@@ -877,6 +893,7 @@ def main():
              f'空列删除 {REPORT.get("emptycol", 0)} 列 ｜ '
              f'空表补「无」 {REPORT.get("emptytbl", 0)} 张 ｜ '
              f'死链剥离 {REPORT.get("deadlink", 0)} 处 ｜ '
+             f'长中文可断行 {REPORT.get("zhlong", 0)} 处 ｜ '
              f'粘连段自动配对 {REPORT.get("autopair", 0)} 处')
     io.open(os.path.join(DEST, 'tools', 'extract_report.txt'), 'w', encoding='utf-8').write('\n'.join(L))
 

@@ -328,11 +328,19 @@
     update();
   })();
   (function () {
+    var settled = false;
     function go() {
       if (!location.hash) return;
-      var el = doc.getElementById(location.hash.slice(1));
-      if (el) setTimeout(function () { el.scrollIntoView(); }, 40);
+      var el;
+      try { el = doc.getElementById(decodeURIComponent(location.hash.slice(1))); }
+      catch (e) { el = doc.getElementById(location.hash.slice(1)); }
+      if (el) el.scrollIntoView();
     }
+    addEventListener('load', function () {
+      setTimeout(function () { if (!settled) go(); }, 80);
+    });
+    addEventListener('wheel', function () { settled = true; }, { passive: true });
+    addEventListener('touchmove', function () { settled = true; }, { passive: true });
     go();
     addEventListener('hashchange', go);
   })();

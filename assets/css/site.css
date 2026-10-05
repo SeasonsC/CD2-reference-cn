@@ -251,6 +251,7 @@ p.tbl-none{ color:var(--muted); margin:0 0 2em; }
 tbody tr:hover{ background:var(--brand-soft); }
 .td-zh{ font-size:.95em; color:var(--strong); }
 td:not(:last-child) .td-zh{ word-break:keep-all; }
+td:not(:last-child) .td-zh.zh-long{ word-break:normal; overflow-wrap:anywhere; }
 .admonition{
   margin:0 0 1.5em; padding:.85rem 1rem; border-radius:0 var(--radius) var(--radius) 0;
   border-left:3px solid var(--info); background:var(--panel);

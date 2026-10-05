@@ -79,27 +79,27 @@
 <tr>
 <td>Interval<br><span class="td-zh">间隔</span></td>
 <td class="tc">Float<br><span class="td-zh">浮点数</span></td>
-<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.<br><span class="td-zh">波次生成器启用后，会等待 “<code>Interval</code>” 秒才生成首波敌人（除非 <code>SpawnOnEnable</code>[启用即刻生成] 为 true）。之后波次会每间隔“<code>Interval</code>”秒生成一次，直到被禁用。</span></td>
+<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.<br><span class="td-zh zh-long">波次生成器启用后，会等待 “<code>Interval</code>” 秒才生成首波敌人（除非 <code>SpawnOnEnable</code>[启用即刻生成] 为 true）。之后波次会每间隔“<code>Interval</code>”秒生成一次，直到被禁用。</span></td>
 </tr>
 <tr>
 <td>Enemies<br><span class="td-zh">敌人</span></td>
 <td class="tc">[List]<br><span class="td-zh">列表</span></td>
-<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.<br><span class="td-zh">要生成的敌人列表，若省略此字段则生成敌人池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</span></td>
+<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.<br><span class="td-zh zh-long">要生成的敌人列表，若省略此字段则生成敌人池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</span></td>
 </tr>
 <tr>
 <td>Difficulty<br><span class="td-zh">难度点数</span></td>
 <td class="tc">Float<br><span class="td-zh">浮点数</span></td>
-<td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.<br><span class="td-zh">分配给该波次的总难度点数，依照<code>Enemies</code>中各敌人的 <code>DifficultyRating</code> 进行数量分配。</span></td>
+<td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.<br><span class="td-zh zh-long">分配给该波次的总难度点数，依照<code>Enemies</code>中各敌人的 <code>DifficultyRating</code> 进行数量分配。</span></td>
 </tr>
 <tr>
 <td>Distance<br><span class="td-zh">距离</span></td>
 <td class="tc">Float<br><span class="td-zh">浮点数</span></td>
-<td>Distance where the enemies will spawn relative to the player.<br><span class="td-zh">敌人相对玩家的生成距离</span></td>
+<td>Distance where the enemies will spawn relative to the player.<br><span class="td-zh zh-long">敌人相对玩家的生成距离</span></td>
 </tr>
 <tr>
 <td>Diversity<br><span class="td-zh">多样性</span></td>
 <td class="tc">Int<br><span class="td-zh">整数</span></td>
-<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.<br><span class="td-zh">若 <code>Enemies</code> 留空，Spawner 会使用敌人池中所有敌人和该难度的多样性。该字段允许为该无宣告潮单独指定多样性参数。</span></td>
+<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.<br><span class="td-zh zh-long">若 <code>Enemies</code> 留空，Spawner 会使用敌人池中所有敌人和该难度的多样性。该字段允许为该无宣告潮单独指定多样性参数。</span></td>
 </tr>
 <tr>
 <td>Locations<br><span class="td-zh">刷潮点</span></td>
@@ -109,22 +109,22 @@
 <tr>
 <td>SpawnOnEnable<br><span class="td-zh">启用即刻生成</span></td>
 <td class="tc">Bool<br><span class="td-zh">布尔值</span></td>
-<td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.<br><span class="td-zh">若为 true，Spawner会在启用的瞬间立即生成敌人，跳过首次 <code>Interval</code>时间，默认为 False。</span></td>
+<td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.<br><span class="td-zh zh-long">若为 true，Spawner会在启用的瞬间立即生成敌人，跳过首次 <code>Interval</code>时间，默认为 False。</span></td>
 </tr>
 <tr>
 <td>UnlockInterval</td>
 <td class="tc">Bool<br><span class="td-zh">布尔值</span></td>
-<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.<br><span class="td-zh">若为 true，修改 <code>Interval</code> 会立即更新当前计时器；若为 false，则下一次生成的时间在倒计时开始时即已确定并锁定，直到被重新随机（例如敌人生成时）为止。默认为 false。</span></td>
+<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.<br><span class="td-zh zh-long">若为 true，修改 <code>Interval</code> 会立即更新当前计时器；若为 false，则下一次生成的时间在倒计时开始时即已确定并锁定，直到被重新随机（例如敌人生成时）为止。默认为 false。</span></td>
 </tr>
 <tr>
 <td>PauseOnDisable<br><span class="td-zh">禁用后暂停</span></td>
 <td class="tc">Bool<br><span class="td-zh">布尔值</span></td>
-<td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.<br><span class="td-zh">若为 true，当WaveSpawner被禁用时倒计时暂停，重新启用后再继续计时；若为 false，重新启用WaveSpawner后倒计时将重置。默认为 False</span></td>
+<td>If true, the timer for the next spawn is paused while the wavespawner is disabled and resumes when it is enabled. If false, the timer is reset when the spawner is re-enabled. Defaults to False.<br><span class="td-zh zh-long">若为 true，当WaveSpawner被禁用时倒计时暂停，重新启用后再继续计时；若为 false，重新启用WaveSpawner后倒计时将重置。默认为 False</span></td>
 </tr>
 <tr>
 <td>Alert<br><span class="td-zh">敌人是否警戒</span></td>
 <td class="tc">Bool<br><span class="td-zh">布尔值</span></td>
-<td>If true, the enemies will spawn aggroed to the player. Defaults to True.<br><span class="td-zh">如果为 true，敌人生成时即处于敌对状态。默认为 true</span></td>
+<td>If true, the enemies will spawn aggroed to the player. Defaults to True.<br><span class="td-zh zh-long">如果为 true，敌人生成时即处于敌对状态。默认为 true</span></td>
 </tr>
 </tbody>
 </table>
