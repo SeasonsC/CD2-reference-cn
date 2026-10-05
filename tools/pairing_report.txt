@@ -15,7 +15,7 @@
 [li] EN: 25-Dec-2024: Updated for CD2-v10: added the Projectiles page, added the MEV and DEA page
       ZH: 2024-12-25,CD2-v10:新增 Projectiles页面、MEV、DEA页面，补充精英敌人与变种设置的说明，新增Spawner模块的介绍，并进行了一些小修正。
 [li] EN: 29-Jan-2025: Updated for CD2-v11: added the Direct and UsesBiomeVariants enemy controls 
-      ZH: 2025-1-29，CD2-v11:新增 Direct和 UsesBiomeVariants 的敌人控制项，以及 BySaboPhase的Mutator
+      ZH: 2025-1-29，CD2-v11:新增 Direct和 UsesBiomeVariants 的敌人控制项，以及 BySaboPhase的 Mutator
 [li] EN: 20-Feb-2025: Partial update for CD2-v12: added the DefenseProgress and ByResuppliesCalle
       ZH: 2025-2-20,CD2-v12:新增 DefenseProgress和 ByResuppliesCalled的 Mutator;新增 Salvage模块和 BySalvag
 [li] EN: 28-Feb-2025: Added @Carrot's projectile resource to the Resources and Projectiles tabs, 
@@ -35,7 +35,7 @@
 [li] EN: 11-Nov-2025: Update for CD2-v16: added the Countdown, EnemiesRecentlySpawned, Int2String
       ZH: 2025-11-11,CD2-v16:新增 Countdown、EnemiesRecentlySpawned、Int2String、Float2String 与 Join 的 
 [li] EN: 2-Dec-2025: Update for CD2-v17: added the Vars module, the Alert field on wavespawners, 
-      ZH: 2025-12-2,CD2-v17:新增 Vars 模块，在 Wavespawners 中加入 Alert 字段；并新增以下Mutators: DroppodDistance 
+      ZH: 2025-12-2,CD2-v17:新增 Vars 模块，在 Wavespawners 中加入 Alert 字段；并新增以下 Mutators: DroppodDistance
 [li] EN: 11-Dec-2025: Added the Common Edits section, changed theme to material.
       ZH: 2025-12-11:新增 Common Edits 章节，并将参考文档主题样式更改为 Material 风格【翻译版未更改】
 [li] EN: 8-Mar-2026: Update for CD2-v18: added the StopWatch, TriggerTimer, Sequence and SelectFr
@@ -45,9 +45,9 @@
 [li] EN: Q: Where can I get the mod?
       ZH: 问：我在哪里可以获得这个模组？
 [li] EN: A: The mod right now is in open beta and the .pak file can be found in the Practical DRG
-      ZH: 答：该模组目前处于公开测试阶段，pak 文件可在 Practical DRG 的 Discord 服务器中获取，推荐使用 Mod Integration Loader来加载模组
+      ZH: 答：该模组目前处于公开测试阶段，pak 文件可在 Practical DRG 的 Discord 服务器中获取，推荐使用 Mod Integration Loader 来加载模
 [li] EN: Q: Can I use this at the same time as CD1?
-      ZH: 问：我能同时使用CD1和CD2吗？
+      ZH: 问：我能同时使用 CD1 和 CD2 吗？
 [li] EN: A: No. Only enable one CD version at a time. If you want to join CD1 lobbies while havin
       ZH: 答：不可以。一次只能启用一个 CD 版本，如果你在启用 CD2 的情况下加入使用 CD1 的房间，并希望避免补给硝石消耗不同步的问题，可以使用 PDRG 内提供的 cd1-cl
 

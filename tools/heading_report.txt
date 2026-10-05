@@ -7,7 +7,7 @@
 
 ── /basics ──
   h2  The CD2 GUI（CD2 界面）  →  CD2 界面 · The CD2 GUI
-  h2  The CD2 files （CD2难度文件要求）  →  CD2 难度文件要求 · The CD2 files
+  h2  The CD2 files （CD2 难度文件要求）  →  CD2 难度文件要求 · The CD2 files
 
 ── /modules ──
   h2  Caps（虫量上限）  →  虫量上限 · Caps
@@ -16,11 +16,11 @@
   h2  DifficultySetting（难度设置）  →  难度设置 · DifficultySetting
   h2  Dwarves（矮人属性）  →  矮人属性 · Dwarves
   h2  Enemies / EnemiesNoSync（敌人配置[客户端同步/不同步]）  →  敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync
-  h2  EscortMule（护送任务）  →  护送任务 · EscortMule
+  h2  EscortMule（执勤护送）  →  执勤护送 · EscortMule
   h2  MaxPlayers（最多玩家数）  →  最多玩家数 · MaxPlayers
   h2  Messages（信息）  →  信息 · Messages
   h2  Name（名称）  →  名称 · Name
-  h2  NextDifficulty（Next难度）  →  Next 难度 · NextDifficulty
+  h2  NextDifficulty（Next 难度）  →  Next 难度 · NextDifficulty
   h2  Pools（怪池）  →  怪池 · Pools
   h2  Salvage 搜救行动  →  搜救行动 · Salvage
   h2  SoundCues（声音提示）  →  声音提示 · SoundCues
@@ -65,7 +65,7 @@
   h2  ED_InfestationLarva 肉食幼虫  →  ED_InfestationLarva · 肉食幼虫
   h2  ED_Jelly_Spawn 纳多赛特幼体  →  ED_Jelly_Spawn · 纳多赛特幼体
   h2  ED_JellyBreeder 纳多赛特饲育水母  →  ED_JellyBreeder · 纳多赛特饲育水母
-  h2  ED_InfectedMule 战斗矿骡BET-C  →  ED_InfectedMule · 战斗矿骡 BET-C
+  h2  ED_InfectedMule 战斗矿骡 BET-C  →  ED_InfectedMule · 战斗矿骡 BET-C
   h2  ED_Bomber_Rockpox_Plague 岩痘轰炸蝇  →  ED_Bomber_Rockpox_Plague · 岩痘轰炸蝇
   h2  ED_Spider_Grunt_RockpoxPlague 岩痘战士异虫  →  ED_Spider_Grunt_RockpoxPlague · 岩痘战士异虫
   h2  ED_Spider_Tank_RockpoxPlague 岩痘禁卫异虫  →  ED_Spider_Tank_RockpoxPlague · 岩痘禁卫异虫
@@ -149,7 +149,7 @@
   h2  And, Or, Not（与、或、非）  →  与、或、非 · And, Or, Not
   h2  ByBiome（根据生物群系）  →  根据生物群系 · ByBiome
   h2  ByDDStage（根据深潜阶段）  →  根据深潜阶段 · ByDDStage
-  h2  ByEscortPhase（根据护送任务阶段）  →  根据护送任务阶段 · ByEscortPhase
+  h2  ByEscortPhase（根据执勤护送阶段）  →  根据执勤护送阶段 · ByEscortPhase
   h2  ByMissionType（根据任务类型）  →  根据任务类型 · ByMissionType
   h2  BySecondary（根据次要目标）  →  根据次要目标 · BySecondary
   h2  ByTime（根据时间）  →  根据时间 · ByTime
@@ -220,9 +220,9 @@
   h2  SquareWave（轮切）  →  轮切 · SquareWave
   h2  TimeDelta（时间变量）  →  时间变量 · TimeDelta
   h2  TotalResource（资源总量）  →  资源总量 · TotalResource
-  h2  Trigger mutators（触发类Mutator）  →  触发类 Mutator · Trigger mutators
+  h2  Trigger mutators（触发类 Mutator）  →  触发类 Mutator · Trigger mutators
   h3  TriggerOnce（单次触发）  →  单次触发 · TriggerOnce
-  h3  TriggerNTimes（触发N次）  →  触发 N 次 · TriggerNTimes
+  h3  TriggerNTimes（触发 N 次）  →  触发 N 次 · TriggerNTimes
   h3  TriggerSometimes（概率触发）  →  概率触发 · TriggerSometimes
   h3  TriggerCooldown（冷却触发）  →  冷却触发 · TriggerCooldown
   h3  TriggerFixedDuration（固定持续时间触发）  →  固定持续时间触发 · TriggerFixedDuration
