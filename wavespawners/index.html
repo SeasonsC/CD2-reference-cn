@@ -55,7 +55,7 @@
           &quot;Locations&quot;: 3
         }
 }</code></pre></div>
-<p>下列表格展示了 <code>WaveSpawner</code>   可使用的字段</p>
+<p>以下表格展示了 <code>WaveSpawner</code>   可使用的字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following table shows the valid fields inside a <code>WaveSpawner</code>:</p></div></details>
 <div class="table-wrap"><table>
 <thead>
@@ -84,7 +84,7 @@
 <tr>
 <td>Enemies<br><span class="td-zh">敌人</span></td>
 <td class="tc">[List]<br><span class="td-zh">列表</span></td>
-<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.<br><span class="td-zh">要生成的敌人列表，若省略此字段则生成敌人池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</span></td>
+<td>A list of the enemy descriptors that will spawn. To spawn all available enemies in the pool, leave the field out. A blank field ("Enemies: []") will spawn zero enemies.<br><span class="td-zh">要生成的敌人列表，若省略此字段则生成怪池中的全部敌人；若设为空列表（"Enemies: []"）则不会生成任何敌人。</span></td>
 </tr>
 <tr>
 <td>Difficulty<br><span class="td-zh">难度点数</span></td>
@@ -99,7 +99,7 @@
 <tr>
 <td>Diversity<br><span class="td-zh">多样性</span></td>
 <td class="tc">Int<br><span class="td-zh">整数</span></td>
-<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.<br><span class="td-zh">若  <code>Enemies</code>    留空，Spawner 会使用敌人池中所有敌人和该难度的多样性。该字段允许为该无宣告潮单独指定多样性参数。</span></td>
+<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.<br><span class="td-zh">若  <code>Enemies</code>    留空，Spawner 会使用怪池中所有敌人和该难度的多样性。该字段允许为该无宣告潮单独指定多样性参数。</span></td>
 </tr>
 <tr>
 <td>Locations<br><span class="td-zh">刷潮点</span></td>
@@ -129,7 +129,7 @@
 </tbody>
 </table>
 </div>
-<p>所有  <code>WaveSpawner</code>    字段都可以被 Mutator 进行动态控制，下列代码展示了一个消灭任务中的实用 wavespawner。当地图中出现无畏异虫时，会生成一个由“<code>Enemies</code>”模块定义的“<code>ED_WeakBulk</code>（削弱大自爆）”。</p>
+<p>所有  <code>WaveSpawner</code>    字段都可以被 Mutator 进行动态控制，以下代码展示了一个消灭任务中的实用 wavespawner。当地图中出现无畏异虫时，会生成一个由“<code>Enemies</code>”模块定义的“<code>ED_WeakBulk</code>（削弱大自爆）”。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>All <code>WaveSpawner</code> fields can be mutated. The following snippet shows a popular spawner useful in Elimination missions, which spawns a bulk detonator with descriptor <code>ED_WeakBulk</code>, defined in the <code>Enemies</code> module, whenever there is a dreadnought on the map:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;WaveSpawners&quot;: [

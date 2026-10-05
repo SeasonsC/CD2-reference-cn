@@ -5,7 +5,7 @@
 [li] EN: Exposes many enemy controls to change their behaviour, spawning mechanics and even aspec
       ZH: 开放大量敌人控制项，可自由修改它们的行为、生成机制及材质。
 [li] EN: Allows manipulating the enemy pools live during a mission based on gameplay conditions.
-      ZH: 支持在任务中，根据游戏条件实时调整敌人池。
+      ZH: 支持在任务中，根据游戏条件实时调整怪池。
 [li] EN: Offers many features not available in CD1 such as controls for illumination, player scal
       ZH: 新增多项 CD1 不具备的功能，比如光照控制、玩家体型缩放、地图硝石数量调节等等
 [li] EN: Common edits. Reference section for common difficulty edits.

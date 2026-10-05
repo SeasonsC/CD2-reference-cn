@@ -177,7 +177,7 @@
 }</code></pre></div>
 <h2 id="byddstage">根据深潜阶段 · ByDDStage</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code>、<code>Stage1–3</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
-<p>根据深潜阶段来改变数值，如果某个阶段的对应值没设定则使用 Default 值，必须设定 Default 值</p>
+<p>根据深潜阶段来改变数值，如果某个阶段的对应值没设置则使用 Default 值，必须设置 Default 值</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Change the value based on the Deep Dive stage. If a value isn't set for a stage, it will use the 'Default' value. A 'Default' must be set.</p></div></details>
 <p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: </p></div></details>
@@ -190,7 +190,7 @@
  }</code></pre></div>
 <h2 id="bydna">ByDNA</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 条件键（如「任务类型，长度，复杂度」）<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
-<p>允许 cd2 根据任务类型、长度、复杂度来设定数值。</p>
+<p>允许 cd2 根据任务类型、长度、复杂度来设置数值。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Allows setting a value based on a combination of Mission Type, Length, and Complexity:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
   &quot;Mutate&quot;: &quot;ByDNA&quot;,
@@ -524,7 +524,7 @@ Example:</p></div></details>
 ]</code></pre></div>
 <h2 id="duringeggambush">蛋潮期间 · DuringEggAmbush</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>StartingAt</code>、<code>StoppingAfter</code><i>秒</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>在 虫蛋收集 任务中偷蛋后触发无宣告潮时，返回 True。作为示例，下列代码片段仅在此类无宣告潮期间提高 EnemyCountMOdifier,以增加其挑战性。其中，StartingAt 和 StoppingAfter 的设置旨在确保使该增幅仅作用于当前这一波无宣告潮。</p>
+<p>在 虫蛋收集 任务中偷蛋后触发无宣告潮时，返回 True。作为示例，以下代码片段仅在此类无宣告潮期间提高 EnemyCountMOdifier,以增加其挑战性。其中，StartingAt 和 StoppingAfter 的设置旨在确保使该增幅仅作用于当前这一波无宣告潮。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Returns True during a non-announced wave after pulling an egg in Egg Hunts. As an example of use, the following snippet increases the <code>EnemyCountModifier</code> only during Egg waves, to make them more challenging. The <code>StartingAt</code> and <code>StoppingAfter</code> tries to make the increase affect only the current egg wave. </p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
 &quot;DifficultySetting&quot;:
@@ -821,7 +821,7 @@ Example:</p></div></details>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>which will start the timer whenever one of the enemies inside the array spawns. </p></div></details>
 <h2 id="EnemyHealth">敌人血量比例 · EnemyHealth</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED / EDs</code>、<code>Default</code><i>数值，默认 0</i>、<code>Type</code><i>Min / Max / Average</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1</i></span></div>
-<p>该 Mutator 用于获得指定敌人（通过 ED/EDs 来指定） 的血量比例，同时该 Mutator 可配置为返回这些敌人血量比例的最大值、最小值或平均值。该值是一个介于 0~1 之间的百分比，建议设定一个 Default 值。该 Mutator 接受以下字段</p>
+<p>该 Mutator 用于获得指定敌人（通过 ED/EDs 来指定） 的血量比例，同时该 Mutator 可配置为返回这些敌人血量比例的最大值、最小值或平均值。该值是一个介于 0~1 之间的百分比，建议设置一个 Default 值。该 Mutator 接受以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator returns the health of a descriptor or group of descriptors. The mutator can be configured to return the maximum, minimum, or average health among enemies with a descriptor. This value is a percentage between 0 and 1. A Default can (and should) be specified. It accepts the following fields:</p></div></details>
 <ul><li>ED/EDs:通过指定 ED/EDs 来决定检测那些敌人<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>ED</code> or <code>EDs</code>: the descriptor or descriptors of the enemy or group of enemies you want to track.</div></details></li><li>Default:当没有匹配的存活敌人时返回的值，默认为 0<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</div></details></li><li>Type:统计方式，包括 Min、Max、Average，默认为 Average。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Average</code>.</div></details></li></ul>
 <p>示例：无畏异虫血量低于 30% 时触发（可配合 TriggerOnce 做处决机制）。</p>
@@ -843,7 +843,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="EnemyDistance">敌人距离 · EnemyDistance</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED / EDs</code>、<code>Default</code><i>数值，默认 0</i>、<code>Type</code><i>Min / Max / Average</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
-<p>该 Mutator 用于计算指定敌人(ED/EDs)到玩家的距离，同时该 Mutator 可配置为计算这些敌人到最近存活玩家的距离的最大值、最小值、平均值。返回距离单位 为 cm，建议根据预期行为设定一个 Default 值。该 Mutator 接受以下字段</p>
+<p>该 Mutator 用于计算指定敌人(ED/EDs)到玩家的距离，同时该 Mutator 可配置为计算这些敌人到最近存活玩家的距离的最大值、最小值、平均值。返回距离单位 为 cm，建议根据预期行为设置一个 Default 值。该 Mutator 接受以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator returns the distance of enemies of a descriptor or descriptors. The mutator can be configured to return the maximum, minimum, or average distance to the closest living player among enemies. Distance is in cm. A Default can (and should) be specified based on desired behavior. It accepts the following fields:</p></div></details>
 <ul><li>ED/EDs:通过指定 ED/EDs 来决定检测那些敌人<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>ED</code> or <code>EDs</code>: the descriptor or descriptors of the enemy or group of enemies you want to track.</div></details></li><li>Default:当没有匹配的存活敌人时返回的值，默认为 0<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</div></details></li><li>Type:统计方式，包括 Min、Max、Average，默认为 Min。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Min</code>.</div></details></li></ul>
 <p>示例：无畏异虫接近到 20 米以内时提高敌人移速。</p>
@@ -1507,7 +1507,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h3 id="triggersometimes">概率触发 · TriggerSometimes</h3>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>P</code><i>概率</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>当 In 从 False → True 时，仅以设定的概率 P 触发。例如，该功能可在玩家倒地时生成一波敌人，但只有概率 P 发生。</p>
+<p>当 In 从 False → True 时，仅以设置的概率 P 触发。例如，该功能可在玩家倒地时生成一波敌人，但只有概率 P 发生。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Triggers only a percentage of times <code>P</code> when <code>In</code> goes from False -&gt; True. As a simple example, this could be used to spawn a wave when a player goes down but only with a probability <code>P</code> of that happening. </p></div></details>
 <p>示例：玩家倒地时生成这波敌人，但只有 30% 的概率发生。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
