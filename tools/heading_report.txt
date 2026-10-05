@@ -84,7 +84,7 @@
   h2  ED_Spider_Buffer 典狱长  →  ED_Spider_Buffer · 典狱长
   h2  ED_Spider_Charger 瞬移禁卫异虫  →  ED_Spider_Charger · 瞬移禁卫异虫
   h2  ED_Spider_Exploder 自爆异虫  →  ED_Spider_Exploder · 自爆异虫
-  h2  ED_Spider_Exploder_Warning 自爆群袭刷新的自爆异虫  →  ED_Spider_Exploder_Warning · 自爆群袭刷新的自爆异虫
+  h2  ED_Spider_Exploder_Warning 自爆群袭生成的自爆异虫  →  ED_Spider_Exploder_Warning · 自爆群袭生成的自爆异虫
   h2  ED_Spider_ExploderTank 大自爆虫  →  ED_Spider_ExploderTank · 大自爆虫
   h2  ED_Spider_ExploderTankGhost 恐怖存在  →  ED_Spider_ExploderTankGhost · 恐怖存在
   h2  ED_Spider_ExploderTank_King 自爆王虫  →  ED_Spider_ExploderTank_King · 自爆王虫
@@ -135,7 +135,7 @@
   h2  ED_FacilityTurret_Sniper 狙击炮塔  →  ED_FacilityTurret_Sniper · 狙击炮塔
   h2  ED_InsectSwarm_Spawner 雷鸣蜂巢  →  ED_InsectSwarm_Spawner · 雷鸣蜂巢
   h2  ED_EggSpider 异虫蛋的蜂拥异虫  →  ED_EggSpider · 异虫蛋的蜂拥异虫
-  h2  ED_TunnelSwarmer 异虫隧道刷新的蜂拥异虫  →  ED_TunnelSwarmer · 异虫隧道刷新的蜂拥异虫
+  h2  ED_TunnelSwarmer 异虫隧道生成的蜂拥异虫  →  ED_TunnelSwarmer · 异虫隧道生成的蜂拥异虫
 
 ── /projectiles ──
   h2  List of game projectiles（游戏内置的发射物列表）  →  游戏内置的发射物列表 · List of game projectiles

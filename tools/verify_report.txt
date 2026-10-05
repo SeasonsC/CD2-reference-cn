@@ -10,7 +10,7 @@
 预算：CSS 24,540 字节 (上限 30720，余 6,180) ｜ JS 15,857 字节 (上限 20480，余 4,623)
 最大的 5 个页面：
    direct\index.html            180,457 字节
-   mutators\index.html          166,491 字节
+   mutators\index.html          166,494 字节
    modules\index.html           73,087 字节
    enemies\index.html           64,839 字节
    projectiles\index.html       25,068 字节
