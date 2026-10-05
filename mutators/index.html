@@ -46,11 +46,11 @@
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Here follows an alphabetized list of mutators for CD2.</p></div></details>
 <h2 id="accumulate">累加 · Accumulate</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Initial</code><i>数值</i>、<code>Value</code><i>数值 / Mutator</i>、<code>Min</code>、<code>Max</code><i>夹取范围</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
-<p><code>Accumulate</code>可以从 <code>Initial</code> 指定的初始值上开始累加，以跟踪其它 Mutators 的变化。此外，还可通过使用<code>Min</code>和<code>Max</code>对累计值进行范围限定。若与常数值配合使用，即可实现一个简单的计数器</p>
+<p><code>Accumulate</code>   可以从  <code>Initial</code>    指定的初始值上开始累加，以跟踪其它 Mutators 的变化。此外，还可通过使用 <code>Min</code>   和 <code>Max</code>   对累计值进行范围限定。若与常数值配合使用，即可实现一个简单的计数器</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Accumulate</code> can track changes in other mutators by adding to a starting <code>Initial</code> number. In addition, it also supports clamping the accumulated value with <code>Min</code> and <code>Max</code>. If used with a constant value, it can be used to make a simple counter.</p></div></details>
 <p>示例：下面这段代码的数值会从 0 开始计数，在大约 10 秒后达到上限 10。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: the value of the following snippet starts at 0 and would cap at 10 after roughly 10 seconds.</p></div></details>
-<p>注意：<code>Value</code>字段指定的数字为动态的时候，0.5s 计算一次（除非使用 delta→time 类写法）</p>
+<p>注意：<code>Value</code>   字段指定的数字为动态的时候，0.5s 计算一次（除非使用 delta→time 类写法）</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;Accumulate&quot;,
     &quot;Initial&quot;: 0,
@@ -78,7 +78,7 @@
 即      y(速度)=1.35+0.1*x(呼叫补给次数)</code></pre></div>
 <h2 id="and-or-not">与、或、非 · And, Or, Not</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span>And / Or 的任意布尔字段、Not 的 Value<i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>可应用于布尔 Mutators 输出结果的基础布尔运算。<code>And</code> 和 <code>Or</code> 可接受任意数量的输入：</p>
+<p>可应用于布尔 Mutators 输出结果的基础布尔运算。<code>And</code>    和  <code>Or</code>    可接受任意数量的输入：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Basic boolean operators that can be used on the outputs of boolean mutators. <code>And</code> and <code>Or</code> can take any number of inputs:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;And&quot;,
@@ -96,7 +96,7 @@
     &quot;Third&quot;: {&quot;Mutator3&quot;},
     &quot;Fourth&quot;: {&quot;Mutator4&quot;}
 }</code></pre></div>
-<p><code>Not</code> Mutator 接受单个布尔 <code>Value</code> 字段，并返回其相反值。作为简单示例，下面这段代码始终返回 <code>true</code>：</p>
+<p><code>Not</code> Mutator 接受单个布尔  <code>Value</code>    字段，并返回其相反值。作为简单示例，下面这段代码始终返回  <code>true</code>：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The <code>Not</code> mutator takes a single boolean <code>Value</code> field and will return its complement. As a trivial example, the following always returns <code>true</code>:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;Not&quot;,
@@ -225,7 +225,7 @@
 <p>根据任务类型改变数值，如果某个任务类型未设置对应数值，则采用 Default 值。除非所有任务类型都设置对应数值，否则必须设置 Default 值</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Change the value based on mission type. If a value isn't set for a mission type it will use the 'Default' value. A 'Default' must be set unless a value is specified for all mission types.
 Supported mission types:</p></div></details>
-<ul class="name-grid"><li>DeepScan<span class="td-zh">深层扫描</span></li><li>Egg<span class="td-zh">虫蛋收集</span></li><li>Elimination<span class="td-zh">消灭任务</span></li><li>Escort<span class="td-zh">执勤护送</span></li><li>Mining<span class="td-zh">采矿探险</span></li><li>PE<span class="td-zh">定点提取</span></li><li>Refinery<span class="td-zh">就地精炼</span></li><li>Sabotage<span class="td-zh">设施破坏</span></li><li>Salvage<span class="td-zh">搜救行动</span></li></ul>
+<ul><li>DeepScan · 深层扫描</li><li>Egg · 虫蛋收集</li><li>Elimination · 消灭任务</li><li>Escort · 执勤护送</li><li>Mining · 采矿探险</li><li>PE · 定点提取</li><li>Refinery · 就地精炼</li><li>Sabotage · 设施破坏</li><li>Salvage · 搜救行动</li></ul>
 <p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: </p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
@@ -499,7 +499,7 @@ Example:</p></div></details>
 ]</code></pre></div>
 <h2 id="duringdread">对战无畏异虫期间 · DuringDread</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>当地图上存在以下任一描述符时，变为 True：<code>ED_Spider_Boss_Heavy</code>(Hiveguard)、<code>ED_Spider_Boss_TwinA</code>(Arbalest)、<code>ED_Spider_Boss_TwinB</code>(Lacerator) 和 <code>ED_Spider_Tank_Boss</code>（经典无畏异虫）。</p>
+<p>当地图上存在以下任一描述符时，变为 True：<code>ED_Spider_Boss_Heavy</code>(Hiveguard)、<code>ED_Spider_Boss_TwinA</code>(Arbalest)、<code>ED_Spider_Boss_TwinB</code>(Lacerator) 和  <code>ED_Spider_Tank_Boss</code>（经典无畏异虫）。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Becomes true whenever there is one of the following descriptors active on the map: <code>ED_Spider_Boss_Heavy</code> (Hiveguard), <code>ED_Spider_Boss_TwinA</code> (Arbalest), <code>ED_Spider_Boss_TwinB</code> (Lacerator) and <code>ED_Spider_Tank_Boss</code> (classic Dreadnought). </p></div></details>
 <p>示例：对战无畏异虫期间提高敌人数量系数。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyCountModifier&quot;: {
@@ -956,7 +956,7 @@ Example:</p></div></details>
     &quot;Then&quot;: 1.5,
     &quot;Else&quot;: 1
 }</code></pre></div>
-<p>⚠️ 注意：<code>IWsLeft</code> 在矮人生成前恒为 0，而开局约 15 秒玩家才获得控制权。所以这里用 <code>DuringMission</code> 搭配 <code>StartingAt: 20</code> 跳过开局窗口；光靠 <code>And</code> + <code>DuringMission</code> 是不够的——那样任务一开始就会被误判成「钢铁意志已耗尽」。</p>
+<p>⚠️ 注意：<code>IWsLeft</code>    在矮人生成前恒为 0，而开局约 15 秒玩家才获得控制权。所以这里用  <code>DuringMission</code>    搭配  <code>StartingAt: 20</code>    跳过开局窗口；光靠  <code>And</code> + <code>DuringMission</code>    是不够的——那样任务一开始就会被误判成「钢铁意志已耗尽」。</p>
 <h2 id="if">条件判断 · If</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Condition</code><i>Boolean</i>、<code>Then / Else</code><i>任意</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Then / Else 一致</span></div>
 <p>检查一个布尔条件是否触发，并据此在 Then 或 Else 之间选择，该条件通常由另一个返回布尔值的 mutator 提供</p>
@@ -984,21 +984,21 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="ifonspacerig">是否在太空站 · IfOnSpaceRig</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Then / Else</code><i>任意</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Then / Else 一致</span></div>
-<p>当矮人处于太空站时，该 Mutator 返回 True，其语法与 <code>If</code> Mutator 类似：</p>
+<p>当矮人处于太空站时，该 Mutator 返回 True，其语法与  <code>If</code> Mutator 类似：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The mutator is true when the dwarves are in the space rig, with a syntax similar to the <code>If</code> mutator:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;IfOnSpaceRig&quot;,
     &quot;Then&quot;: true,
     &quot;Else&quot;: false
 }</code></pre></div>
-<p>该 Mutator 主要用于配合 <code>NextDifficulty</code> 模块，详见 Modules 部分。</p>
+<p>该 Mutator 主要用于配合  <code>NextDifficulty</code>    模块，详见 Modules 部分。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator is mainly used in conjunction with the <code>NextDifficulty</code> module, see in <a href="../modules/">Modules</a>.</p></div></details>
 <h2 id="int2string">整数转字符串 · Int2String</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>整数</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>string</code><i>不带 ￥ 符号</i></span></div>
 <p>将整数转换为字符串，以便在 Message 模块中使用。若需将浮点数转换为字符串，请使用 Float2String。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Converts an integer to a string value so it can be used in the <code>Messages</code> <a href="../modules/">module</a>. For conversion from floats to strings, consider <code>Float2String</code> above.</p></div></details>
-<p>与 <code>Float2String</code> 的主要差别：它的输出<b>不带</b> <code>￥</code> 符号，看着更干净；代价是它只接受整数。</p>
-<p>所以遇到带小数的值，有两种办法：要么直接用 <code>Float2String</code>（但会带 <code>￥</code>），要么先用 <code>Floor</code>（向下取整）/ <code>Ceil</code>（向上取整）/ <code>Round</code>（四舍五入）把它处理成整数，再交给 <code>Int2String</code>：</p>
+<p>与  <code>Float2String</code>    的主要差别：它的输出<b>不带</b> <code>￥</code> 符号，看着更干净；代价是它只接受整数。</p>
+<p>所以遇到带小数的值，有两种办法：要么直接用  <code>Float2String</code>（但会带 <code>￥</code>），要么先用  <code>Floor</code>（向下取整）/ <code>Ceil</code>（向上取整）/ <code>Round</code>（四舍五入）把它处理成整数，再交给  <code>Int2String</code>：</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Mutate&quot;: &quot;Int2String&quot;,
 &quot;Value&quot;: {
     &quot;Mutate&quot;: &quot;Floor&quot;,
@@ -1020,7 +1020,7 @@ Example:</p></div></details>
 ]</code></pre></div>
 <h2 id="join">字符串拼接 · Join</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i>、<code>Sep</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>string</code></span></div>
-<p>将字符串拼接为一个，可与 Int2String 和 Float2String 配合使用，把 Mutator 输出的整数/浮点值传入 <code>Messages</code> 模块。它接受一个 <code>Values</code> 数组和一个分隔符 <code>Sep</code>。下方示例展示了在任务开始 15 秒时随机播报一条欢迎信息：</p>
+<p>将字符串拼接为一个，可与 Int2String 和 Float2String 配合使用，把 Mutator 输出的整数/浮点值传入  <code>Messages</code>    模块。它接受一个  <code>Values</code>    数组和一个分隔符  <code>Sep</code>。下方示例展示了在任务开始 15 秒时随机播报一条欢迎信息：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Joins two strings. Can be used together with <code>Int2String</code> and <code>Float2String</code> to pass integer and float outputs from mutators into the <code>Messages</code> module. It accepts a <code>Values</code> array and a separator <code>Sep</code>. The following example shows a randomized welcome message 15 seconds into the mission:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
 &quot;Messages&quot;: [
@@ -1043,11 +1043,11 @@ Example:</p></div></details>
         &quot;Type&quot;: &quot;Developer&quot;
     }
 ],</code></pre></div>
-<p>更复杂的示例可参考上方的 <code>Countdown</code> Mutator。</p>
+<p>更复杂的示例可参考上方的  <code>Countdown</code> Mutator。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>To see a more complex, check the <code>Countdown</code> mutator above.</p></div></details>
 <h2 id="LockFloat, LockBoolean, LockString">锁定浮点数、锁定布尔值和锁定字符串 · LockFloat, LockBoolean, LockString</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Lock</code><i>Boolean</i>、<code>Update</code><i>Boolean</i>、<code>Value</code><i>对应类型</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Value 同类型</span></div>
-<p>该 Mutator 会根据特定条件来选择性地更新其值，你可以根据所需，选择使用<code>Lock</code>或者<code>Update</code>条件</p>
+<p>该 Mutator 会根据特定条件来选择性地更新其值，你可以根据所需，选择使用 <code>Lock</code>   或者 <code>Update</code>   条件</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator will selectively update its value based on a condition. You may use Lock condition or the "Update" condition based on desired semantics:</p></div></details>
 <ul><li><code>Lock（锁定）</code>:当值为 true 时，该 Mutator 的值不再会发生改变<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Lock</code>: When true, this mutator's value will not change.</div></details></li><li><code>Update（更新）</code>:当值为 false 时，该 Mutator 的值不再会发生改变<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Update</code>:When false, this mutator's value will not change.</div></details></li><li><code>Value</code>:当 Mutator 未被锁定时，可以更新的值<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Value</code>:This will be what the mutator will update to when it is unlocked.</div></details></li></ul>
 <p>以下代码片段展示了一个 Mutator：每当 1 个矮人倒下时，其值就会增加，直到次要完成；此后，该值不在更新，并在任务剩余时间内保持不变</p>
@@ -1092,7 +1092,7 @@ Example:</p></div></details>
     {&quot;Mutate&quot;: &quot;EnemyCount&quot;, &quot;ED&quot;: &quot;ED_HiveBeacon&quot;},
     3
 ]</code></pre></div>
-<p>该 Mutator 返回 <code>Values</code> 中较小的那个：信标少于 3 座时返回实际数量，达到 3 座及以上时固定返回 3。</p>
+<p>该 Mutator 返回  <code>Values</code>    中较小的那个：信标少于 3 座时返回实际数量，达到 3 座及以上时固定返回 3。</p>
 <h2 id="MuleDistanceToDroppod">矿骡与空降舱的距离 · MuleDistanceToDroppod</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
 <p>返回任务撤离阶段矿骡与空降舱之间距离的平均值（单位为 cm），它接受以下字段</p>
@@ -1261,7 +1261,7 @@ Example:</p></div></details>
 <td class="tc">Sequence</td>
 <td class="tc">Array</td>
 <td class="tc"><em>None</em></td>
-<td>The mutator will return values from this sequence array based on the controls below.<br><span class="td-zh">该 Mutator 会根据<code>Sequence</code>字段中的数组返回对应值。</span></td>
+<td>The mutator will return values from this sequence array based on the controls below.<br><span class="td-zh">该 Mutator 会根据 <code>Sequence</code>   字段中的数组返回对应值。</span></td>
 </tr>
 <tr>
 <td class="tc">Next</td>
@@ -1279,7 +1279,7 @@ Example:</p></div></details>
 <td class="tc">Interval</td>
 <td class="tc">Float</td>
 <td class="tc"><em>None</em></td>
-<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br><span class="td-zh">每间隔 <code>Interval</code> 秒，<code>Sequence</code>自动前进一位；默认不启用。</span></td>
+<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br><span class="td-zh">每间隔  <code>Interval</code>    秒，<code>Sequence</code>   自动前进一位；默认不启用。</span></td>
 </tr>
 <tr>
 <td class="tc">Repeat</td>
@@ -1390,9 +1390,9 @@ Example:</p></div></details>
 ...</code></pre></div>
 <h2 id="selectfromarray">从数组选择 · SelectFromArray</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Select</code><i>索引</i>、<code>Array</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>Array 中对应的项</span></div>
-<p>使用<code>Select</code> 字段从 <code>Array</code> 数组中取值。<code>Select</code> 字段可以是浮点数，若这样 CD2 会四舍五入到最接近的整数。</p>
+<p>使用 <code>Select</code>    字段从  <code>Array</code>    数组中取值。<code>Select</code>    字段可以是浮点数，若这样 CD2 会四舍五入到最接近的整数。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Accepts an index <code>Select</code> to pick a value from an <code>Array</code>. The <code>Select</code> field can be a float and then CD2 will round to the nearest integer.</p></div></details>
-<p>示例：一种在下方 <code>Sequence</code> Mutator 示例中使用 MercyStacks 的方式。</p>
+<p>示例：一种在下方  <code>Sequence</code> Mutator 示例中使用 MercyStacks 的方式。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: a possible way to use the MercyStacks in the <code>Sequence</code> mutator example below.</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;DifficultySetting&quot;: {
@@ -1479,23 +1479,23 @@ Example:</p></div></details>
 <h2 id="trigger-mutators">触发类 Mutator · Trigger mutators</h2>
 <p>这是一类特殊的 Mutators，主要用于布尔值字段，通常（但不限于）用于波次生成器的 Enabled 字段。具体用法请参见下面示例，各触发器的字段都按如下方式指定，当前支持的触发器包括：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>These are a special group of mutators that can be used on boolean values, typically (but not limited to) on the <code>Enabled</code> field of a wavespawner. Please see some examples below. The fields of each trigger are specified <code>like this</code>. There are currently the following triggers:</p></div></details>
-<p>⚠️ 注意：<code>In</code> 字段要求的是<b>布尔信号</b>——返回数值的 Mutator（如 <code>DwarvesDown</code>、<code>EnemiesKilled</code>）必须先经 <code>TriggerOnChange</code> 转换，不能直接填入。</p>
+<p>⚠️ 注意：<code>In</code>    字段要求的是<b>布尔信号</b>——返回数值的 Mutator（如  <code>DwarvesDown</code>、<code>EnemiesKilled</code>）必须先经  <code>TriggerOnChange</code>    转换，不能直接填入。</p>
 <h3 id="triggeronce">单次触发 · TriggerOnce</h3>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>In</code><i>Boolean</i>、<code>Reset</code><i>Boolean，可选</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
 <p>仅在输入 In 首次由 False → True 时触发一次，此后不再响应。适用于需在每个任务中恰好执行一次的逻辑。可以选择性地添加 Reset 字段，使其能再次触发。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Triggers only on the first False -&gt; True <code>In</code> transition, then never again. Used if something has to happen exactly once per mission. It can optionally have a <code>Reset</code> field which resets its ability to trigger.</p></div></details>
-<p>示例：每轮守点只触发一次；守点结束时用 <code>Reset</code> 把触发次数重置，下一次守点就能再触发一次。</p>
+<p>示例：每轮守点只触发一次；守点结束时用  <code>Reset</code>    把触发次数重置，下一次守点就能再触发一次。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
     &quot;Mutate&quot;: &quot;TriggerOnce&quot;,
     &quot;In&quot;: {&quot;Mutate&quot;: &quot;DuringDefend&quot;},
     &quot;Reset&quot;: {&quot;Mutate&quot;: &quot;Not&quot;, &quot;Value&quot;: {&quot;Mutate&quot;: &quot;DuringDefend&quot;}}
 }</code></pre></div>
-<p>提示：需要「每轮重置一次」这种效果时，<code>TriggerOnce</code> + <code>Reset</code> 比 <code>TriggerCooldown</code> 更直观可控。</p>
+<p>提示：需要「每轮重置一次」这种效果时，<code>TriggerOnce</code> + <code>Reset</code>    比  <code>TriggerCooldown</code>    更直观可控。</p>
 <h3 id="triggerntimes">触发 N 次 · TriggerNTimes</h3>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>整数</i>、<code>In</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
 <p>最多允许 N 次输入 In 从 False → True 的转换，此后不再响应。其原理与 TriggerOnce 相同，但支持多次触发。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Allows up to <code>N</code> False -&gt; True <code>In</code> transitions, then blocks any further attempts. Same idea as <code>TriggerOnce</code> but for multiple events. </p></div></details>
-<p>示例：只在前 3 次倒地时触发。<code>DwarvesDowns</code> 返回的是数值，因此要先用 <code>TriggerOnChange</code> + <code>RiseOnly</code> 转成布尔信号。</p>
+<p>示例：只在前 3 次倒地时触发。<code>DwarvesDowns</code>    返回的是数值，因此要先用  <code>TriggerOnChange</code> + <code>RiseOnly</code>    转成布尔信号。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
     &quot;Mutate&quot;: &quot;TriggerNTimes&quot;,
     &quot;N&quot;: 3,
@@ -1529,12 +1529,12 @@ Example:</p></div></details>
     &quot;N&quot;: 120,
     &quot;In&quot;: {&quot;Mutate&quot;: &quot;DuringDefend&quot;}
 }</code></pre></div>
-<p>⚠️ 注意：这里的作用是<b>冷却期</b>——输入信号从 True 变回 False 后，必须等满 N 秒才允许再次变为 True。它和 <code>TriggerOnce</code> 的 <code>Reset</code>（重置触发次数）不是一回事。另外经实测，该冷却窗口在部分情况下不会按预期生效；如果你要的是「重置一次再触发」，用 <code>TriggerOnce</code> + <code>Reset</code> 更可靠。</p>
+<p>⚠️ 注意：这里的作用是<b>冷却期</b>——输入信号从 True 变回 False 后，必须等满 N 秒才允许再次变为 True。它和  <code>TriggerOnce</code>    的  <code>Reset</code>（重置触发次数）不是一回事。另外经实测，该冷却窗口在部分情况下不会按预期生效；如果你要的是「重置一次再触发」，用  <code>TriggerOnce</code> + <code>Reset</code>    更可靠。</p>
 <h3 id="triggerfixedduration">固定持续时间触发 · TriggerFixedDuration</h3>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>In</code><i>Boolean</i>、<code>Reset</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
 <p>无论输入布尔值字段如何变化，该触发器都会保持 True 状态 N 秒，之后才变回 False。如果在固定时间窗口内输入 In 再次从 False → True，可通过设置 Reset: true 来重置。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Stays True for <code>N</code> seconds before switching back to False, regardless of what happens to its boolean input. It can be configured to <code>Reset: true</code> if the input transitions from False -&gt; True during the fixed window. </p></div></details>
-<p>示例：<code>SecondaryFinished</code> 在次要目标完成后会一直保持 true 直到任务结束，而这个触发器把这段长信号裁剪成只有 20 秒的窗口。</p>
+<p>示例：<code>SecondaryFinished</code>    在次要目标完成后会一直保持 true 直到任务结束，而这个触发器把这段长信号裁剪成只有 20 秒的窗口。</p>
 <p>它也能反向使用：把只有一瞬间的短信号拉长成固定时长的信号。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
     &quot;Mutate&quot;: &quot;TriggerFixedDuration&quot;,
@@ -1578,13 +1578,13 @@ Example:</p></div></details>
     &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
     &quot;In&quot;: {&quot;Mutate&quot;: &quot;EnemiesKilled&quot;}
 }</code></pre></div>
-<p>⚠️ 注意：Mutator 采用轮询机制，信号变化到被识别之间约有 <b>0.5 秒</b>延迟。例如「击杀数变化」并不会在击杀的同一瞬间触发，做精确计时时要把这点考虑进去。</p>
+<p>⚠️ 注意：Mutator 采用轮询机制，信号变化到被识别之间约有   <b> 0.5 秒</b>延迟。例如「击杀数变化」并不会在击杀的同一瞬间触发，做精确计时时要把这点考虑进去。</p>
 <h3 id="triggertimer">定时触发 · TriggerTimer</h3>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>N</code><i>秒</i>、<code>Loop</code><i>默认 true</i>、<code>Reset</code>、<code>Enable</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>一个经过 <code>N</code> 秒后激活的布尔信号，它还接受以下字段：</p>
+<p>一个经过  <code>N</code>    秒后激活的布尔信号，它还接受以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>A trigger activated after <code>N</code> seconds pass. It also accepts:</p></div></details>
-<ul><li><code>Loop</code> (Boolean): 触发信号后重新开始倒计时（默认：true）<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Loop</code> (Boolean): restart the timer after triggering (default: true)  </div></details></li><li><code>Reset</code> (Boolean): 将倒计时重置到 <code>N</code> 秒；为 true 时，倒计时停留在 <code>N</code> 秒。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Reset</code> (Boolean): restart the timer for <code>N</code> seconds. While true, timer waits at <code>N</code> seconds.  </div></details></li><li><code>Enable</code> (Boolean): 相当于「不 Reset」；为 true 时，倒计时从 <code>N</code> 秒递减；为 false 时，倒计时停留在 <code>N</code> 秒。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Enable</code> (Boolean): equivalent to not-Reset, while true timer counts down from <code>N</code>. While false, timer waits at <code>N</code> seconds.  </div></details></li></ul>
-<p>示例：一个「只要一直击杀就不会掉」的热度系统。<code>Reset</code> 会在持续击杀期间不断把倒计时重置回 30 秒，只有整整 30 秒没有击杀时才会触发。</p>
+<ul><li><code>Loop</code> (Boolean): 触发信号后重新开始倒计时（默认：true）<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Loop</code> (Boolean): restart the timer after triggering (default: true)  </div></details></li><li><code>Reset</code> (Boolean): 将倒计时重置到  <code>N</code>    秒；为 true 时，倒计时停留在  <code>N</code>    秒。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Reset</code> (Boolean): restart the timer for <code>N</code> seconds. While true, timer waits at <code>N</code> seconds.  </div></details></li><li><code>Enable</code> (Boolean): 相当于「不 Reset」；为 true 时，倒计时从  <code>N</code>    秒递减；为 false 时，倒计时停留在  <code>N</code>    秒。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Enable</code> (Boolean): equivalent to not-Reset, while true timer counts down from <code>N</code>. While false, timer waits at <code>N</code> seconds.  </div></details></li></ul>
+<p>示例：一个「只要一直击杀就不会掉」的热度系统。<code>Reset</code>    会在持续击杀期间不断把倒计时重置回 30 秒，只有整整 30 秒没有击杀时才会触发。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
     &quot;Mutate&quot;: &quot;TriggerTimer&quot;,
     &quot;N&quot;: 30,
@@ -1659,7 +1659,7 @@ Example:</p></div></details>
       &quot;SpawnOnEnable&quot;: true
     }
   ]</code></pre></div>
-<p>该示例的 Mutator 链与之前相同，但在最外层添加了 <code>TriggerFixedDuration</code>，为波次生成器提供了一个持续 20 秒的激活窗口。由于其 <code>Interval</code> 设置为 1（秒），这将总共触发 20 次生成事件。</p>
+<p>该示例的 Mutator 链与之前相同，但在最外层添加了  <code>TriggerFixedDuration</code>，为波次生成器提供了一个持续 20 秒的激活窗口。由于其  <code>Interval</code>    设置为 1（秒），这将总共触发 20 次生成事件。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The chain of mutators is the same, but now a <code>TriggerFixedDuration</code> has been added on top which will grant a 20 second window for the wavespawner to be active. Since its <code>Interval</code> is set to 1, this will generate 20 spawn events in total. </p></div></details>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../projectiles/"><span class="dir">上一页</span><span class="title">发射物 · Projectiles</span></a><a class="next" href="../resources/"><span class="dir">下一页</span><span class="title">资源 · Resources</span></a></nav>
 </main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#accumulate">累加 · Accumulate</a></li><li class="lvl-2"><a href="#add-subtract-multiply-divide-pow-modulo-round-ceil-floor">加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整 · Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor</a></li><li class="lvl-2"><a href="#and-or-not">与、或、非 · And, Or, Not</a></li><li class="lvl-2"><a href="#bybiome">根据生物群系 · ByBiome</a></li><li class="lvl-2"><a href="#byddstage">根据深潜阶段 · ByDDStage</a></li><li class="lvl-2"><a href="#bydna">ByDNA</a></li><li class="lvl-2"><a href="#byescortphase">根据执勤护送阶段 · ByEscortPhase</a></li><li class="lvl-2"><a href="#bymissiontype">根据任务类型 · ByMissionType</a></li><li class="lvl-2"><a href="#bysecondary">根据次要目标 · BySecondary</a></li><li class="lvl-2"><a href="#bytime">根据时间 · ByTime</a></li><li class="lvl-2"><a href="#byplayercount">根据玩家数量 · ByPlayerCount</a></li><li class="lvl-2"><a href="#byrefineryphase">根据炼油阶段 · ByRefineryPhase</a></li><li class="lvl-2"><a href="#byresuppliescalled">根据呼叫补给次数 · ByResuppliesCalled</a></li><li class="lvl-2"><a href="#bysabophase">根据设施破坏阶段 · BySaboPhase</a></li><li class="lvl-2"><a href="#bysalvagephase">根据搜救行动阶段 · BySalvagePhase</a></li><li class="lvl-2"><a href="#clamp">限制 · Clamp</a></li><li class="lvl-2"><a href="#countdown">倒计时 · Countdown</a></li><li class="lvl-2"><a href="#defenseprogress">守点进度 · DefenseProgress</a></li><li class="lvl-2"><a href="#delta">变量 · Delta</a></li><li class="lvl-2"><a href="#depositedresource">存放资源 · DepositedResource</a></li><li class="lvl-2"><a href="#descriptorexists">描述符是否可用 · DescriptorExists</a></li><li class="lvl-2"><a href="#drillercount">钻机数量检测 · DrillerCount</a></li><li class="lvl-2"><a href="#DistanceToDroppod">空降舱距离 · DistanceToDroppod</a></li><li class="lvl-2"><a href="#duringdefend">守点期间 · DuringDefend</a></li><li class="lvl-2"><a href="#duringdread">对战无畏异虫期间 · DuringDread</a></li><li class="lvl-2"><a href="#duringdrillevator">钻井电梯期间 · DuringDrillevator</a></li><li class="lvl-2"><a href="#duringeggambush">蛋潮期间 · DuringEggAmbush</a></li><li class="lvl-2"><a href="#duringencounters">遭遇潮期间 · DuringEncounters</a></li><li class="lvl-2"><a href="#duringextraction">撤离期间 · DuringExtraction</a></li><li class="lvl-2"><a href="#duringgenericswarm">宣告潮期间 · DuringGenericSwarm</a></li><li class="lvl-2"><a href="#duringmission">任务期间 · DuringMission</a></li><li class="lvl-2"><a href="#duringpecountdown">定点提取撤离期间 · DuringPECountdown</a></li><li class="lvl-2"><a href="#dwarfcount">矮人数量 · DwarfCount</a></li><li class="lvl-2"><a href="#dwarvesammo">团队弹药量比例 · DwarvesAmmo</a></li><li class="lvl-2"><a href="#dwarvesdown">倒地矮人数量 · DwarvesDown</a></li><li class="lvl-2"><a href="#dwarvesdowntime">倒地时间 · DwarvesDownTime</a></li><li class="lvl-2"><a href="#dwarvesdowns">矮人总倒地次数 · DwarvesDowns</a></li><li class="lvl-2"><a href="#dwarveshealth">团队生命值比例 · DwarvesHealth</a></li><li class="lvl-2"><a href="#dwarvesrevives">矮人复活次数 · DwarvesRevives</a></li><li class="lvl-2"><a href="#dwarvesshield">团队护盾值比例 · DwarvesShield</a></li><li class="lvl-2"><a href="#elapsedextraction">撤离已用时间 · ElapsedExtraction</a></li><li class="lvl-2"><a href="#enemieskilled">已击杀敌人数量 · EnemiesKilled</a></li><li class="lvl-2"><a href="#enemiesrecentlyspawned">近期生成敌人计数 · EnemiesRecentlySpawned</a></li><li class="lvl-2"><a href="#enemycooldown">敌人生成冷却 · EnemyCooldown</a></li><li class="lvl-2"><a href="#EnemyHealth">敌人血量比例 · EnemyHealth</a></li><li class="lvl-2"><a href="#EnemyDistance">敌人距离 · EnemyDistance</a></li><li class="lvl-2"><a href="#enemycount">当前敌人计数 · EnemyCount</a></li><li class="lvl-2"><a href="#engineercount">工程数量计数 · EngineerCount</a></li><li class="lvl-2"><a href="#float2string">浮点数转字符串 · Float2String</a></li><li class="lvl-2"><a href="#gunnercount">枪手数量计数 · GunnerCount</a></li><li class="lvl-2"><a href="#heldresource">携带资源计数 · HeldResource</a></li><li class="lvl-2"><a href="#iwsleft">钢铁意志剩余数量 · IWsLeft</a></li><li class="lvl-2"><a href="#if">条件判断 · If</a></li><li class="lvl-2"><a href="#iffloat">浮点数条件判断 · IfFloat</a></li><li class="lvl-2"><a href="#ifonspacerig">是否在太空站 · IfOnSpaceRig</a></li><li class="lvl-2"><a href="#int2string">整数转字符串 · Int2String</a></li><li class="lvl-2"><a href="#join">字符串拼接 · Join</a></li><li class="lvl-2"><a href="#LockFloat, LockBoolean, LockString">锁定浮点数、锁定布尔值和锁定字符串 · LockFloat, LockBoolean, LockString</a></li><li class="lvl-2"><a href="#max">最大值 · Max</a></li><li class="lvl-2"><a href="#min">最小值 · Min</a></li><li class="lvl-2"><a href="#MuleDistanceToDroppod">矿骡与空降舱的距离 · MuleDistanceToDroppod</a></li><li class="lvl-2"><a href="#Nonzero">非零判断 · Nonzero</a></li><li class="lvl-2"><a href="#random">随机值 · Random</a></li><li class="lvl-2"><a href="#randomchoice">随机选择 · RandomChoice</a></li><li class="lvl-2"><a href="#randomchoicepermission">每个任务随机选择一次 · RandomChoicePerMission</a></li><li class="lvl-2"><a href="#resupplyusesleft">补给剩余使用次数 · ResupplyUsesLeft</a></li><li class="lvl-2"><a href="#resuppliescalled">已呼叫补给次数 · ResuppliesCalled</a></li><li class="lvl-2"><a href="#resupplyusesconsumed">已消耗补给使用次数 · ResupplyUsesConsumed</a></li><li class="lvl-2"><a href="#SecondaryFinished">根据次要完成情况 · SecondaryFinished</a></li><li class="lvl-2"><a href="#scoutcount">侦察数量计数 · ScoutCount</a></li><li class="lvl-2"><a href="#Sequence">序列 · Sequence</a></li><li class="lvl-2"><a href="#Select">选择 · Select</a></li><li class="lvl-2"><a href="#selectfromarray">从数组选择 · SelectFromArray</a></li><li class="lvl-2"><a href="#StopWatch">秒表 · StopWatch</a></li><li class="lvl-2"><a href="#squarewave">轮切 · SquareWave</a></li><li class="lvl-2"><a href="#timedelta">时间变量 · TimeDelta</a></li><li class="lvl-2"><a href="#totalresource">资源总量 · TotalResource</a></li><li class="lvl-2"><a href="#trigger-mutators">触发类 Mutator · Trigger mutators</a></li></ul></div></aside></div>

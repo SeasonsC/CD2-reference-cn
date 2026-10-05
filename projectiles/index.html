@@ -42,7 +42,7 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/" class="current" aria-current="page">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › 发射物 · Projectiles</nav>
 <h1>发射物 · Projectiles</h1>
-<p><code>Projectile</code> 是敌人描述符中的一个可选字段，它允许你把远程敌人使用的发射物替换为游戏中的任意其他发射物，例如，下面的代码片段会让一个脓毒异虫发射钻机的雪球：</p>
+<p><code>Projectile</code>    是敌人描述符中的一个可选字段，它允许你把远程敌人使用的发射物替换为游戏中的任意其他发射物，例如，下面的代码片段会让一个脓毒异虫发射钻机的雪球：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Projectile</code> is an optional field in enemy descriptors. It allows changing the projectiles of ranged enemies to any other projectile in the game. As an example, the following snippet produces a septic that throws driller's snowball:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Ice_Septic&quot;: {
   &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
@@ -52,10 +52,10 @@
   <img loading="lazy" alt="CD2modhub" src="../assets/media/ice-spreader.gif" width="480" height="270">
 </figure>
 
-<ul><li>这个功能不需要<code>Enemies</code>，你可以使用<code>EnemiesNoSync</code>，这样即使没有安装 CD2 的客机也可以看到新的发射物。<details class="orig"><summary>英文原文</summary><div class="orig-body">This feature doesn't require <code>Enemies</code> and can use <code>EnemiesNoSync</code> instead so clients without CD2 can still see the changed projectiles.</div></details></li></ul>
+<ul><li>这个功能不需要 <code>Enemies</code>，你可以使用 <code>EnemiesNoSync</code>，这样即使没有安装 CD2 的客机也可以看到新的发射物。<details class="orig"><summary>英文原文</summary><div class="orig-body">This feature doesn't require <code>Enemies</code> and can use <code>EnemiesNoSync</code> instead so clients without CD2 can still see the changed projectiles.</div></details></li></ul>
 <ul><li>发射物名称可以省略末尾的 “_C”。<details class="orig"><summary>英文原文</summary><div class="orig-body">The name of the projectile can omit the "_C" at the end. </div></details></li></ul>
 <ul><li>CD2 会扫描游戏文件中的发射物，所以模组作者可以自行添加新的发射物。在下面的列表之中，还有 MEV 与 DEA 两个模组 添加的发射物，这两个都是为游戏添加新敌人的常见模组。<details class="orig"><summary>英文原文</summary><div class="orig-body">CD2 scans the game files for the projectiles so modders can add new ones themselves. Below the following list there is a section with the projectiles added by MEV and DEA, two common mods that add new enemies to the game. </div></details></li></ul>
-<ul><li><code>Projectile</code> 字段是可以被 Mutator 控制的。<details class="orig"><summary>英文原文</summary><div class="orig-body">The <code>Projectile</code> field can be mutated. </div></details></li></ul>
+<ul><li><code>Projectile</code>    字段是可以被 Mutator 控制的。<details class="orig"><summary>英文原文</summary><div class="orig-body">The <code>Projectile</code> field can be mutated. </div></details></li></ul>
 <h2 id="list-of-game-projectiles">游戏内置的发射物列表 · List of game projectiles</h2>
 <p>此外请参阅由 @Carrot 编写的<a href="https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0" target="_blank" rel="noopener">电子表格</a>，其中提供了更详细的分类方式，包括发射物的类别、伤害与类型。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>See also <a href="https://docs.google.com/spreadsheets/d/10NqPL5Z1zkU6hn4XMbxtirZBM9rf6nrCNKI3HSv6FtE/edit?gid=0#gid=0" target="_blank" rel="noopener">this spreadsheet</a> compiled by @Carrot which adds a lot more detail to the following list, dividing the projectiles according to their categories, damage and type.</p></div></details>

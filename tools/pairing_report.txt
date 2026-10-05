@@ -11,13 +11,13 @@
 [li] EN: Common edits. Reference section for common difficulty edits.
       ZH: Resources. Useful links related to Custom Difficulty.相关资源
 [li] EN: 4-Dec-2024: Updated for CD2-v9: added ByEscortPhase and ByRefineryPhase mutators.
-      ZH: 2024-12-04,CD2-v9:新增 ByEscortPhase和 ByRefineryPhase Mutator。
+      ZH: 2024-12-04,CD2-v9:新增 ByEscortPhase 和 ByRefineryPhase Mutator。
 [li] EN: 25-Dec-2024: Updated for CD2-v10: added the Projectiles page, added the MEV and DEA page
-      ZH: 2024-12-25,CD2-v10:新增 Projectiles页面、MEV、DEA页面，补充精英敌人与变种设置的说明，新增Spawner模块的介绍，并进行了一些小修正。
+      ZH: 2024-12-25,CD2-v10:新增 Projectiles 页面、MEV、DEA 页面，补充精英敌人与变种设置的说明，新增 Spawner 模块的介绍，并进行了一些小修
 [li] EN: 29-Jan-2025: Updated for CD2-v11: added the Direct and UsesBiomeVariants enemy controls 
-      ZH: 2025-1-29，CD2-v11:新增 Direct和 UsesBiomeVariants 的敌人控制项，以及 BySaboPhase的 Mutator
+      ZH: 2025-1-29，CD2-v11:新增 Direct 和 UsesBiomeVariants 的敌人控制项，以及 BySaboPhase 的 Mutator
 [li] EN: 20-Feb-2025: Partial update for CD2-v12: added the DefenseProgress and ByResuppliesCalle
-      ZH: 2025-2-20,CD2-v12:新增 DefenseProgress和 ByResuppliesCalled的 Mutator;新增 Salvage模块和 BySalvag
+      ZH: 2025-2-20,CD2-v12:新增 DefenseProgress 和 ByResuppliesCalled 的 Mutator;新增 Salvage 模块和 BySal
 [li] EN: 28-Feb-2025: Added @Carrot's projectile resource to the Resources and Projectiles tabs, 
       ZH: 2025-2-28:在 Resources 与 Projectiles 页面中加入 @Carrot 提供的发射物汇总；在 Resources 与 FAQ 中加入 @Spy 编写
 [li] EN: 11-Mar-2025: Update for CD2-v13: added the legacy pawn stats to enemy controls, added By
@@ -39,7 +39,7 @@
 [li] EN: 11-Dec-2025: Added the Common Edits section, changed theme to material.
       ZH: 2025-12-11:新增 Common Edits 章节，并将参考文档主题样式更改为 Material 风格【翻译版未更改】
 [li] EN: 8-Mar-2026: Update for CD2-v18: added the StopWatch, TriggerTimer, Sequence and SelectFr
-      ZH: 2026-2-8:新增以下 Mutators:Sequence、StopWatch、TriggerTimer、SelectFromArray;Enemies部分添加 DropR
+      ZH: 2026-2-8,CD2-v18:新增以下 Mutators:Sequence、StopWatch、TriggerTimer、SelectFromArray;Enemies 部
 [p] EN: This document serves as a reference for Custom Difficulty 2, a mod for Deep Rock Galacti
       ZH: 本文档是《深岩银河》模组 Custom Difficulty 2（CD2） 的参考指南，它允许你创建新的难度。CD2 由@TheBrain 开发，作为 Custom Diffi
 [li] EN: Q: Where can I get the mod?

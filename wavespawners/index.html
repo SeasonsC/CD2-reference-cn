@@ -55,7 +55,7 @@
           &quot;Locations&quot;: 3
         }
 }</code></pre></div>
-<p>下列表格展示了<code>WaveSpawner</code>可使用的字段</p>
+<p>下列表格展示了 <code>WaveSpawner</code>   可使用的字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following table shows the valid fields inside a <code>WaveSpawner</code>:</p></div></details>
 <div class="table-wrap"><table>
 <thead>
@@ -79,7 +79,7 @@
 <tr>
 <td>Interval<br><span class="td-zh">间隔</span></td>
 <td class="tc">Float<br><span class="td-zh">浮点数</span></td>
-<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.<br><span class="td-zh">波次生成器启用后，会等待 “<code>Interval</code>” 秒才生成首波敌人（除非 <code>SpawnOnEnable</code>[启用即刻生成] 为 true）。之后波次会每间隔“<code>Interval</code>”秒生成一次，直到被禁用。</span></td>
+<td>After the wave is enabled, a time of <code>Interval</code> seconds will pass until the first spawns appear unless <code>SpawnOnEnable</code> (see below) is true. After that the wave will repeat every <code>Interval</code> seconds unless disabled.<br><span class="td-zh">波次生成器启用后，会等待 “<code>Interval</code>” 秒才生成首波敌人（除非  <code>SpawnOnEnable</code>[启用即刻生成] 为 true）。之后波次会每间隔“<code>Interval</code>”秒生成一次，直到被禁用。</span></td>
 </tr>
 <tr>
 <td>Enemies<br><span class="td-zh">敌人</span></td>
@@ -89,7 +89,7 @@
 <tr>
 <td>Difficulty<br><span class="td-zh">难度点数</span></td>
 <td class="tc">Float<br><span class="td-zh">浮点数</span></td>
-<td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.<br><span class="td-zh">分配给该波次的总难度点数，依照<code>Enemies</code>中各敌人的 <code>DifficultyRating</code> 进行数量分配。</span></td>
+<td>Number of points assigned to the wave event, which will be distributed among the enemies in <code>Enemies</code> depending on their <code>DifficultyRating</code> to decide how many will spawn.<br><span class="td-zh">分配给该波次的总难度点数，依照 <code>Enemies</code>   中各敌人的  <code>DifficultyRating</code>    进行数量分配。</span></td>
 </tr>
 <tr>
 <td>Distance<br><span class="td-zh">距离</span></td>
@@ -99,7 +99,7 @@
 <tr>
 <td>Diversity<br><span class="td-zh">多样性</span></td>
 <td class="tc">Int<br><span class="td-zh">整数</span></td>
-<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.<br><span class="td-zh">若 <code>Enemies</code> 留空，Spawner 会使用敌人池中所有敌人和该难度的多样性。该字段允许为该无宣告潮单独指定多样性参数。</span></td>
+<td>If the <code>Enemies</code> field is left empty, the spawner will use all enemies in the pool and the difficulty's diversity. This field allows to specify an independent diversity only for the wavespawner.<br><span class="td-zh">若  <code>Enemies</code>    留空，Spawner 会使用敌人池中所有敌人和该难度的多样性。该字段允许为该无宣告潮单独指定多样性参数。</span></td>
 </tr>
 <tr>
 <td>Locations<br><span class="td-zh">刷潮点</span></td>
@@ -109,12 +109,12 @@
 <tr>
 <td>SpawnOnEnable<br><span class="td-zh">启用即刻生成</span></td>
 <td class="tc">Bool<br><span class="td-zh">布尔值</span></td>
-<td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.<br><span class="td-zh">若为 true，Spawner 会在启用的瞬间立即生成敌人，跳过首次 <code>Interval</code>时间，默认为 False。</span></td>
+<td>If true, the wave will start spawning enemies as soon as it is enabled, skipping the initial <code>Interval</code>. Defaults to False.<br><span class="td-zh">若为 true，Spawner 会在启用的瞬间立即生成敌人，跳过首次  <code>Interval</code>   时间，默认为 False。</span></td>
 </tr>
 <tr>
 <td>UnlockInterval</td>
 <td class="tc">Bool<br><span class="td-zh">布尔值</span></td>
-<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.<br><span class="td-zh">若为 true，修改 <code>Interval</code> 会立即更新当前计时器；若为 false，则下一次生成的时间在倒计时开始时即已确定并锁定，直到被重新随机（例如敌人生成时）为止。默认为 false。</span></td>
+<td>If true, changing the interval will modify the current timer. If false, the time to next spawn is selected once and locked to that time until rerolled (e.g. when enemies spawn). Defaults to False.<br><span class="td-zh">若为 true，修改  <code>Interval</code>    会立即更新当前计时器；若为 false，则下一次生成的时间在倒计时开始时即已确定并锁定，直到被重新随机（例如敌人生成时）为止。默认为 false。</span></td>
 </tr>
 <tr>
 <td>PauseOnDisable<br><span class="td-zh">禁用后暂停</span></td>
@@ -129,7 +129,7 @@
 </tbody>
 </table>
 </div>
-<p>所有 <code>WaveSpawner</code> 字段都可以被 Mutator 进行动态控制，下列代码展示了一个消灭任务中的实用 wavespawner。当地图中出现无畏异虫时，会生成一个由“<code>Enemies</code>”模块定义的“<code>ED_WeakBulk</code>（削弱大自爆）”。</p>
+<p>所有  <code>WaveSpawner</code>    字段都可以被 Mutator 进行动态控制，下列代码展示了一个消灭任务中的实用 wavespawner。当地图中出现无畏异虫时，会生成一个由“<code>Enemies</code>”模块定义的“<code>ED_WeakBulk</code>（削弱大自爆）”。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>All <code>WaveSpawner</code> fields can be mutated. The following snippet shows a popular spawner useful in Elimination missions, which spawns a bulk detonator with descriptor <code>ED_WeakBulk</code>, defined in the <code>Enemies</code> module, whenever there is a dreadnought on the map:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;WaveSpawners&quot;: [
@@ -154,7 +154,7 @@
           &quot;Locations&quot;: 1
         }
 }</code></pre></div>
-<p>此外还有一组特殊的 触发式 Mutator，可以根据游戏条件启用/禁用波次生成器，请参阅 <a href="../mutators/#trigger-mutators">Mutator 章节</a>底部的相关文档。</p>
+<p>此外还有一组特殊的 触发式 Mutator，可以根据游戏条件启用/禁用波次生成器，请参阅   <a href="../mutators/#trigger-mutators"> Mutator 章节</a>底部的相关文档。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>There are a special group of <code>Trigger</code> mutators that can be used to gain a lot of control on enabling and disabling the wavespawners based on game conditions: please see their docs at the bottom of the <a href="../mutators/#trigger-mutators">mutator section</a>.</p></div></details>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../direct/"><span class="dir">上一页</span><span class="title">Direct · 底层属性</span></a><a class="next" href="../projectiles/"><span class="dir">下一页</span><span class="title">发射物 · Projectiles</span></a></nav>
 </main></div>
