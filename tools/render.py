@@ -11,7 +11,11 @@ CD2 参考文档 v2 · 静态站渲染器（M2 + 改进清单）
 import os, io, re, json, html as H, sys, shutil
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import mtio                                   # 「类型栏」散文 → 结构化
+import mtio2                                  # 「类型栏」→ 字段表 + 返回类型
+try:
+    from mut_field_notes import INTRO            # 人工重写的简介
+except Exception:
+    INTRO = {}
 
 ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
 SITE = os.path.join(ROOT, 'docs')          # R2 §6.1：GitHub Pages 发布源
@@ -178,17 +182,38 @@ def list_items(b):
     return out
 
 
-def render_block(b):
+
+# 与中文同义的短英文（生成折叠条纯属噪音）
+_TRIVIAL_EN = re.compile(r'^\s*(example|note|tips?|warning|caution|default|' 
+                         r'usage|description|result|output|input)\s*[:：]?\s*$', re.I)
+
+
+def _skip_fold(zh, en):
+    """英文原文过短且只是中文的等价标签时，不生成折叠条。"""
+    e = (en or '').strip()
+    if not e:
+        return True
+    if len(e) < 20 and _TRIVIAL_EN.match(e):
+        return True
+    return False
+
+
+def render_block(b, has_table=False, anchor=''):
     t = b['t']
     if t == 'h':
         lv = b['level']
         return f'<h{lv} id="{esc(b["id"])}">{esc(b["text"])}</h{lv}>'
     if t == 'p':
-        if 'mt-io' in (b.get('cls') or ''):        # 类型栏：散文 → 结构化（R4 补充）
-            return mtio.to_html(b.get('zh') or b.get('en') or '')
+        if 'mt-io' in (b.get('cls') or ''):
+            # 类型栏 → 字段表 + 返回；本节正文里已有字段表时只补「返回」
+            txt = b.get('zh') or b.get('en') or ''
+            return (mtio2.ret_only_html(txt, anchor=anchor) if has_table
+                    else mtio2.to_html(txt, anchor=anchor))
         cls = f' class="{esc(b["cls"])}"' if b.get('cls') else ''
         zh, en = b.get('zh'), b.get('en')
         if zh and en:
+            if _skip_fold(zh, en):
+                return f'<p{cls}>{zh}</p>'
             return f'<p{cls}>{zh}</p>\n{fold("<p>" + en + "</p>")}'
         if zh:
             return f'<p{cls}>{zh}</p>'
@@ -390,8 +415,37 @@ def content_page(page, nav):
     if page.get('no_translation'):
         main.append('<div class="admonition notice"><div class="admonition-title">'
                     '本页尚未翻译</div><p>以下为英文原文。</p></div>')
-    for b in page['blocks']:
-        main.append(render_block(b))
+    # 预扫描：每个 h2 小节内是否已有表格（用于「正文已有字段表」判断）
+    blks = list(page['blocks'])
+    # 结构：一句话说明 → 字段表 → 返回 → 详细说明…
+    # 把紧跟类型栏的那段描述提到字段表之前（交换后要跳过，否则会一路下移）
+    i = 0
+    while i < len(blks) - 1:
+        if blks[i]['t'] == 'p' and 'mt-io' in (blks[i].get('cls') or ''):
+            if blks[i + 1]['t'] == 'p':
+                # 有人工重写的简介时，替换掉原简介的中文
+                anc = next((blks[k].get('id') for k in range(i, -1, -1)
+                            if blks[k]['t'] == 'h' and blks[k].get('level') == 2), '')
+                new_intro = INTRO.get((anc or '').lower())
+                if new_intro:
+                    nxt = dict(blks[i + 1])
+                    nxt['zh'] = new_intro
+                    blks[i + 1] = nxt
+                blks[i], blks[i + 1] = blks[i + 1], blks[i]
+                i += 1
+        i += 1
+    sec_tbl = [False] * len(blks)
+    starts = [i for i, b in enumerate(blks) if b['t'] == 'h' and b.get('level') == 2]
+    starts.append(len(blks))
+    for a, z in zip(starts, starts[1:]):
+        if any(blks[j]['t'] == 'table' for j in range(a, z)):
+            for k in range(a, z):
+                sec_tbl[k] = True
+    cur_anchor = ''
+    for i, b in enumerate(blks):
+        if b['t'] == 'h' and b.get('level') == 2:
+            cur_anchor = b.get('id') or ''
+        main.append(render_block(b, has_table=sec_tbl[i], anchor=cur_anchor))
     main.append(page_nav_html(nav, slug))
     main.append('</main>')
     body = (f'<div class="layout{" has-toc" if has_toc else ""}">'
@@ -458,6 +512,12 @@ def home_page(nav, pages):
                 log_items.extend(list_items(b))
             else:
                 log.append(render_block(b))
+    # 首页引导按钮：插在引言之后、截图之前（不恢复 hero）
+    cta = ('<div class="home-cta">'
+           '<a class="btn primary" href="toc/">浏览章节目录</a>'
+           '<a class="btn" href="basics/">从基础开始</a></div>')
+    pos = next((k for k, h in enumerate(intro) if '<figure' in h), len(intro))
+    intro.insert(pos, cta)
     if log_items:
         log.append('<ul class="update-log">' + ''.join(log_items) + '</ul>')
     body = f'''<div class="layout">

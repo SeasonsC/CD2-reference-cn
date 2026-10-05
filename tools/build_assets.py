@@ -11,6 +11,8 @@ ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
 SRC = os.path.join(ROOT, 'src')
 SITE = os.path.join(ROOT, 'docs')
 
+IMGDIR = os.path.join(SRC, 'img')
+
 ITEMS = [
     ('site.css', 'assets/css/site.css', 'css'),
     ('site.js', 'assets/js/site.js', 'js'),
@@ -48,6 +50,15 @@ def main():
         io.open(dp, 'w', encoding='utf-8').write(out)
         b0, b1 = len(raw.encode('utf-8')), len(out.encode('utf-8'))
         rows.append((name, f'{b0:,}', f'{b1:,}', f'-{100 - b1 * 100 // b0}%'))
+    # 图标等静态图片：原样拷贝（src/img → docs/assets/img）
+    dst = os.path.join(SITE, 'assets', 'img')
+    if os.path.isdir(IMGDIR):
+        os.makedirs(dst, exist_ok=True)
+        for f in sorted(os.listdir(IMGDIR)):
+            if f.lower().endswith(('.svg', '.png', '.ico', '.webp')):
+                data = io.open(os.path.join(IMGDIR, f), 'rb').read()
+                io.open(os.path.join(dst, f), 'wb').write(data)
+                rows.append((f, f'{len(data):,}', f'{len(data):,}', 'copy'))
     for r in rows:
         print('%-10s %9s → %9s  %s' % r)
 

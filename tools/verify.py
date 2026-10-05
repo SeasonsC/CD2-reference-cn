@@ -226,7 +226,7 @@ CHECKS += [
     ('R5 短列居中 class 已生成', count(r'class="tc"') > 20),
     ('R5 空表改成一行「无」', count(r'class="tbl-none">无<') >= 11
      and 'p.tbl-none{' in css and 'td-none' not in css),
-    ('R5 ⑤ 无斑马纹', 'nth-child(even)' not in css and '--zebra' not in css),
+    ('R5 清单 §4.1 表格斑马纹', 'tbody tr:nth-child(even)' in css),
     ('R5 ① 目录页统计条 3 项', _stats_b == 3),
     ('R5 目录页：首页无卡片无统计',
      not re.search(r'class="card"|class="stats"', home_html)),
@@ -260,8 +260,12 @@ CHECKS += [
     ('R5 ⑨ 顶栏已删 GitHub 图标', count(r'aria-label="GitHub 仓库"') == 0),
     ('R5 ⑨ 搜索居中拉长 960px', 'flex:0 1 960px' in css
      and count(r'class="topbar-spacer"') == (len(pages) - 1) * 2),
-    ('R5 附 类型栏结构化', count(r'<div class="mt-io">') >= 80
-     and '.mt-io-label{' in css and '<span class="mt-io-k">输入</span>' in raw_all),
+    ('R6 Mutator 字段表 + 返回类型',
+     count(r'<div class="mt-fields') >= 80
+     and count(r'<table class="mf-table mf-fields">') >= 45
+     and count(r'class="mf-ret"') >= 80
+     and '.mf-table{' in css and '<th>字段</th><th>填写</th><th>作用</th>' in raw_all),
+    ('R6 旧类型栏已移除', '<div class="mt-io">' not in raw_all and '.mt-io{' not in css),
     ('R5 附 标题锚点 # 已移除',
      '.anchor' not in css and '.anchor' not in js
      and 'class="anchor"' not in raw_all),

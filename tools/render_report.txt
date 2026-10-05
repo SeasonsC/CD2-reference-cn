@@ -2,12 +2,12 @@ slug               HTML字节      区块数
 ------------------------------------
 basics             12,810       15
 direct            169,746      185
-enemies            56,416       77
+enemies            56,316       77
 faq                12,818        1
-modules            63,993      118
-mutators          142,828      488
+modules            63,693      118
+mutators          147,309      489
 projectiles        22,203       18
 resources          18,586        9
-tips               12,032       28
+tips               12,590       32
 wavespawners       14,775        7
 toc                12,418        0

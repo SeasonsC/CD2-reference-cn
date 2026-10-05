@@ -32,24 +32,26 @@
 
 ```
 .
-├── index.html          首页
+├── index.html          首页（引言 + 更新日志）
 ├── 404.html            404（含旧站路径重定向）
-├── toc/                目录页
+├── toc/                ★ 目录页（章节卡片网格 + 统计条）
 ├── basics/  faq/  modules/  enemies/  direct/  wavespawners/
-├── projectiles/  mutators/  resources/  tips/          内容页（共 13 页）
+├── projectiles/  mutators/  resources/  tips/     内容页（共 10 章）
 ├── assets/
 │   ├── css/site.css    样式（由 src/site.css 构建）
 │   ├── js/site.js      脚本（由 src/site.js 构建）
-│   ├── img/            图标
+│   ├── img/            图标（由 src/img/ 拷贝）
 │   └── media/          图片与 PDF
 ├── search-index.json   搜索索引
 ├── sitemap.xml  robots.txt  .nojekyll
 │
-├── src/                ★ 作者源：site.css / site.js（构建后压缩进 assets/）
+├── src/                ★ 作者源：site.css / site.js / img/（构建后输出到 assets/）
 └── tools/              ★ 构建脚本（见下）
 ```
 
 > `src/` 与 `tools/` 是站点的**构建源**，会被 Pages 一并发布为静态文件，但不参与页面渲染。
+>
+> 章节卡片与统计条在**目录页**（`toc/`），首页只保留引言与更新日志。
 
 ## 本地预览
 
@@ -74,7 +76,7 @@ pip install lxml Pillow
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\build.ps1
 ```
 
-脚本依次执行：`extract.py`（抽取）→ `build_media.py`（转图）→ `build_assets.py`（压缩 CSS/JS）→ `render.py`（生成页面）→ `verify.py`（78 项回归自检）。
+脚本依次执行：`extract.py`（抽取）→ `build_media.py`（转图）→ `build_assets.py`（压缩 CSS/JS、拷贝图标）→ `render.py`（生成页面）→ `verify.py`（**83 项**回归自检）。
 
 ### ⚠️ 已知限制
 

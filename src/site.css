@@ -344,22 +344,59 @@ td:not(:last-child) .td-zh{ word-break:keep-all; }
 /* --------------------------------------------------------------------------
    10. 自定义内容块
    -------------------------------------------------------------------------- */
-/* Mutator 类型栏（《类型栏重设计》：结构化、轻容器、标识符等宽） */
-.mt-io{
-  display:flex; flex-wrap:wrap; align-items:baseline; gap:.3rem 1.6rem;
-  margin:0 0 1.2em; padding:.5rem .9rem;
-  background:var(--surface);
-  border:0; border-left:3px solid var(--brand); border-radius:0 4px 4px 0;
-  font-size:.85em; line-height:1.6; color:var(--text);
-  font-family:var(--font);
+/* Mutator 字段表（字段 / 填写 / 作用 + 返回） */
+.mt-fields{ margin:0 0 1.6em; }
+/* 表格斑马纹：长表（direct 敌人表 / modules）更易横向跟行 */
+tbody tr:nth-child(even){ background:color-mix(in srgb, var(--panel) 45%, transparent); }
+
+.mf-table{
+  /* 跟随内容宽度，不硬撑满正文列（继承 site 的基础 table 规则） */
+  width:max-content; max-width:100%;
+  font-size:.92em; margin:0 0 .5em; line-height:1.45;
 }
-.mt-io-label{ font-size:.72em; font-weight:600; letter-spacing:.08em; color:var(--brand); }
-.mt-io-k{ color:var(--muted); margin-right:.45em; }
-.mt-io code{
-  font-family:var(--mono); font-size:.92em;
+.mf-table th{
+  text-align:left; font-weight:600; padding:.34rem .8rem;
+  border-bottom:1px solid var(--strong); white-space:nowrap;
+}
+.mf-table td{ text-align:left; padding:.26rem .8rem; vertical-align:top; }
+.mf-table tr:last-child td{ border-bottom:1.5px solid var(--strong); }
+/* 层级：字段名（API 名）蓝 → 填写（次级色，其中代码词仍为蓝）→ 作用（正文色） */
+.mf-table td:nth-child(1){ white-space:nowrap; }
+.mf-table td:nth-child(1) code{ color:var(--code-fg); }
+.mf-table td:nth-child(2){ color:var(--muted2); }
+.mf-table td:nth-child(3){ color:var(--text); }
+.mf-table td:nth-child(1) code,
+.mf-table td:nth-child(2) code{ font-family:var(--mono); font-size:.94em; }
+.mf-table td:nth-child(2) code{ color:var(--code-fg); }
+.mf-empty{ color:var(--muted); }
+/* 「可选」跟在字段名后，避免被误读成「填写内容随意」 */
+.mf-opt{ color:var(--muted); font-size:.85em; margin-left:.35em; }
+.mf-table .mf-plus code{ color:var(--muted); }
+/* 页面级的「所有字段都可填 Var」提示 */
+.mt-global{
+  margin:0 0 1.4em; padding:.55rem .9rem;
+  background:var(--brand-soft); border-left:3px solid var(--brand);
+  border-radius:0 4px 4px 0; font-size:.94em;
+}
+@media (max-width:640px){
+  /* 窄屏：允许占满并横向滚动，不溢出页面 */
+  .mf-table{ width:100%; }
+}
+.mt-fields code{
+  font-family:var(--mono); font-size:.94em;
   background:none; border:0; padding:0; color:var(--code-fg);
 }
-.mt-io i{ font-style:normal; color:var(--muted); font-size:.9em; margin-left:.3em; }
+.mf-none{ margin:0 0 .55em; color:var(--muted); }
+.mf-ret{
+  width:max-content; max-width:100%;
+  margin:0 0 .3em; font-size:.95em;
+  padding:.34rem .7rem; background:var(--surface);
+  border-left:3px solid var(--brand); border-radius:0 4px 4px 0;
+}
+.mf-ret b{ color:var(--brand); font-weight:600; }
+.mf-gloss{ color:var(--muted2); font-size:.94em; }
+.mf-retnote{ color:var(--muted); font-size:.9em; }
+.mf-note{ margin:.35rem 0 0; font-size:.88em; color:var(--muted); }
 
 /* 英文原文折叠条（§6.3：无边框、无底色，只有一行灰色小字）—— R4 §1 按钮化 */
 details.orig{
@@ -710,3 +747,20 @@ input::placeholder{ color:var(--muted); }
   .copy-btn{ display:none !important; }
   h2,h3{ break-after:avoid; }
 }
+
+/* 首页引导按钮（紧凑版，不恢复 hero） */
+.home-cta{ display:flex; flex-wrap:wrap; gap:.75rem; margin:1.5rem 0 2rem; }
+.btn{
+  display:inline-block; padding:.42rem 1rem;
+  font-size:.94em; line-height:1.5;
+  color:var(--text); text-decoration:none;
+  background:var(--surface);
+  border:1px solid var(--border-soft); border-radius:6px;
+  transition:border-color .15s ease, background .15s ease, color .15s ease;
+}
+.btn:hover{ border-color:var(--brand); color:var(--strong); }
+.btn.primary{
+  color:var(--brand); font-weight:600;
+  background:var(--brand-soft); border-color:var(--brand);
+}
+.btn.primary:hover{ background:var(--brand); color:#0b0f14; }

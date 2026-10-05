@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/tips/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=ce3b40d3">
+<link rel="stylesheet" href="../assets/css/site.css?v=2b07f832">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -65,6 +65,10 @@
 <p>布尔变量最适合当 watch：你一眼就能看出条件在哪个时刻变成 true。比起反复改难度、进游戏试，这条路快得多。</p>
 <h2 id="tips-polling">二、Mutator 不是瞬时响应的</h2>
 <p>Mutator 采用轮询机制，信号变化到被识别之间约有   <b> 0.5 秒</b>延迟。用击杀数、血量这类高频变化的量做精确计时时，要把这段延迟算进去。</p>
+<h2 id="random-mutators">三、随机类 Mutator 的返回值是持续变化的</h2>
+<p><code>Random</code>、<code>RandomChoice</code> 等随机类 Mutator，只要被求值就会返回一个结果——在设定范围内<b>每一次取值都可能不同</b>。也就是说，它们不是「摇一次就固定下来」，而是随着求值不断变化。</p>
+<p>如果希望一个随机结果固定下来，有两种做法：</p>
+<ul><li>使用 <code>RandomChoicePerMission</code>：它只在任务开始时抽取一次，之后保持不变。</li><li>用 <code>LockFloat</code> / <code>LockBoolean</code> / <code>LockString</code> 等锁定类 Mutator 把随机结果锁住。如果还想把这个值<b>存下来反复引用</b>，可以把它放进 <code>Vars</code>，这样也能和其它 Vars 配合，做出更复杂的效果。</li></ul>
 <h2 id="tips-momentary">三、「一瞬间」的布尔信号能干什么</h2>
 <p>很多触发器（例如  <code>TriggerOnChange</code>）产生的 True 只持续一瞬间，但它并不等于没用：</p>
 <ul><li>大部分布尔字段会被一瞬间的信号正常激活一次；</li><li>波次生成器这类带  <code>Interval</code>    的字段要留意：<code>Interval</code>    比信号持续时间长时，它可能一直在等下一次，结果根本不生成；<code>Interval</code>    设得短，一瞬间的信号也能触发一次生成。</li></ul>
@@ -99,7 +103,7 @@
 }</code></pre></div>
 <p>反过来想把长信号缩短，要用  <code>TriggerFixedDuration</code>，而不是  <code>TriggerSustain</code>。</p>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../resources/"><span class="dir">上一页</span><span class="title">资源 · Resources</span></a><span></span></nav>
-</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2"><a href="#tips-polling">二、Mutator 不是瞬时响应的</a></li><li class="lvl-2"><a href="#tips-momentary">三、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2"><a href="#tips-mistakes">四、常见错误写法</a></li><li class="lvl-3"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li><li class="lvl-3"><a href="#mistake-long-signal">② 拿「一直是 true」的长信号做「延长」</a></li></ul></div></aside></div>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2"><a href="#tips-polling">二、Mutator 不是瞬时响应的</a></li><li class="lvl-2"><a href="#random-mutators">三、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-2"><a href="#tips-momentary">三、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2"><a href="#tips-mistakes">四、常见错误写法</a></li><li class="lvl-3"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li><li class="lvl-3"><a href="#mistake-long-signal">② 拿「一直是 true」的长信号做「延长」</a></li></ul></div></aside></div>
 <footer class="footer">
   <div class="footer-cols">
     <div class="footer-col">
@@ -132,6 +136,6 @@
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=ce3b40d3" defer></script>
+<script src="../assets/js/site.js?v=2b07f832" defer></script>
 </body>
 </html>

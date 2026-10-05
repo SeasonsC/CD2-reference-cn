@@ -1,16 +1,16 @@
 检查页面 13 个
-英文折叠条 325 ｜ 代码块 153 ｜ 搜索索引章节 237 条（缺 id 0 条）
+英文折叠条 312 ｜ 代码块 153 ｜ 搜索索引章节 238 条（缺 id 0 条）
 站内根绝对路径残留 0 处 ｜ description 超 120 字的页面 0 个
-回归清单：82 / 82 通过
+回归清单：83 / 83 通过
 
 ❌ 错误 0 条
 
 ⚠️ 提示 0 条
 
-预算：CSS 24,540 字节 (上限 30720，余 6,180) ｜ JS 15,857 字节 (上限 20480，余 4,623)
+预算：CSS 26,377 字节 (上限 30720，余 4,343) ｜ JS 15,857 字节 (上限 20480，余 4,623)
 最大的 5 个页面：
    direct\index.html            180,457 字节
-   mutators\index.html          166,558 字节
-   modules\index.html           73,175 字节
-   enemies\index.html           64,997 字节
+   mutators\index.html          173,254 字节
+   modules\index.html           72,848 字节
+   enemies\index.html           64,888 字节
    projectiles\index.html       25,082 字节
