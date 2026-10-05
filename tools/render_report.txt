@@ -5,7 +5,7 @@ direct            169,746      185
 enemies            56,316       77
 faq                12,818        1
 modules            63,693      118
-mutators          147,309      489
+mutators          147,281      489
 projectiles        22,203       18
 resources          18,586        9
 tips               12,590       32

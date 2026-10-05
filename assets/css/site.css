@@ -268,7 +268,6 @@ td:not(:last-child) .td-zh{ word-break:keep-all; }
 .admonition.warning{ border-left-color:var(--warn); }
 .admonition.danger{ border-left-color:var(--danger); }
 .mt-fields{ margin:0 0 1.6em; }
-tbody tr:nth-child(even){ background:color-mix(in srgb, var(--panel) 45%, transparent); }
 .mf-table{
   width:max-content; max-width:100%;
   font-size:.92em; margin:0 0 .5em; line-height:1.45;

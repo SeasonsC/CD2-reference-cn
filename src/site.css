@@ -346,9 +346,6 @@ td:not(:last-child) .td-zh{ word-break:keep-all; }
    -------------------------------------------------------------------------- */
 /* Mutator 字段表（字段 / 填写 / 作用 + 返回） */
 .mt-fields{ margin:0 0 1.6em; }
-/* 表格斑马纹：长表（direct 敌人表 / modules）更易横向跟行 */
-tbody tr:nth-child(even){ background:color-mix(in srgb, var(--panel) 45%, transparent); }
-
 .mf-table{
   /* 跟随内容宽度，不硬撑满正文列（继承 site 的基础 table 规则） */
   width:max-content; max-width:100%;

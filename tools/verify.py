@@ -226,7 +226,7 @@ CHECKS += [
     ('R5 短列居中 class 已生成', count(r'class="tc"') > 20),
     ('R5 空表改成一行「无」', count(r'class="tbl-none">无<') >= 11
      and 'p.tbl-none{' in css and 'td-none' not in css),
-    ('R5 清单 §4.1 表格斑马纹', 'tbody tr:nth-child(even)' in css),
+    ('无斑马纹（用户决定不要）', 'nth-child(even)' not in css),
     ('R5 ① 目录页统计条 3 项', _stats_b == 3),
     ('R5 目录页：首页无卡片无统计',
      not re.search(r'class="card"|class="stats"', home_html)),
