@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/enemies/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=ce3b40d3">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -101,11 +101,11 @@
 <td>Float</td>
 </tr>
 <tr>
-<td>UsesSpawnRarityModifiers<br><span class="td-zh zh-long">是否使用生成稀有度修正因子</span></td>
+<td>UsesSpawnRarityModifiers<br><span class="td-zh">是否使用生成稀有度修正因子</span></td>
 <td>Boolean</td>
 </tr>
 <tr>
-<td>UsesVeteranLarge<br><span class="td-zh zh-long">是否使用大型敌人的变异率</span></td>
+<td>UsesVeteranLarge<br><span class="td-zh">是否使用大型敌人的变异率</span></td>
 <td>See <code>Veteran control</code> below.</td>
 </tr>
 <tr>
@@ -133,7 +133,7 @@
 <td>If True, the enemy will spawn aggroed to the player. It is True by default in enemies spawned by a <a href="../wavespawners/">wave spawner</a>.</td>
 </tr>
 <tr>
-<td>AttackDamageMultiplier<br><span class="td-zh zh-long">敌人伤害倍数（包括近战/远程）</span></td>
+<td>AttackDamageMultiplier<br><span class="td-zh">敌人伤害倍数（包括近战/远程）</span></td>
 <td>Float</td>
 <td>Multiplies an enemy's melee and projectile damage. Can be used with EnemiesNoSync.</td>
 </tr>
@@ -155,7 +155,7 @@
 
 </tr>
 <tr>
-<td>Courage<br><span class="td-zh zh-long">勇气值(恐惧抗性)[恐惧值 * （1-勇气值）= 恐惧概率]</span></td>
+<td>Courage<br><span class="td-zh">勇气值(恐惧抗性)[恐惧值 * （1-勇气值）= 恐惧概率]</span></td>
 <td>Float</td>
 <td></td>
 </tr>
@@ -180,7 +180,7 @@
 <td></td>
 </tr>
 <tr>
-<td>ForceEliteBase<br><span class="td-zh zh-long">强制精英（需要一个本来能精英的ED）</span></td>
+<td>ForceEliteBase<br><span class="td-zh">强制精英（需要一个本来能精英的ED）</span></td>
 <td>ED</td>
 <td>See <code>Elite variants for all enemies</code> below.</td>
 </tr>
@@ -449,7 +449,7 @@ by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
     }
 }</code></pre></div>
 <figure>
-  <img loading="lazy" alt="CD2modhub" src="../assets/media/orange-septic.webp">
+  <img loading="lazy" alt="CD2modhub" src="../assets/media/orange-septic.webp" width="677" height="599">
 </figure>
 
 <p>每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在<a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">沙盒工具</a>中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../assets/media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用<code>""</code>或<code>Default</code>都可以。</p>
@@ -471,7 +471,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">Boolean</td>
 </tr>
 <tr>
-<td>DamageMultiplier<br><span class="td-zh zh-long">受到的所有类型伤害的倍数</span></td>
+<td>DamageMultiplier<br><span class="td-zh">受到的所有类型伤害的倍数</span></td>
 <td class="tc">Float</td>
 </tr>
 <tr>
@@ -479,7 +479,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">Float</td>
 </tr>
 <tr>
-<td>CorrosiveDamageMultiplier<br><span class="td-zh zh-long">腐蚀伤害倍数（典型的如：泥枪）</span></td>
+<td>CorrosiveDamageMultiplier<br><span class="td-zh">腐蚀伤害倍数（典型的如：泥枪）</span></td>
 <td class="tc">Float</td>
 </tr>
 <tr>
@@ -511,11 +511,11 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">Float</td>
 </tr>
 <tr>
-<td>PoisonDamageMultiplier<br><span class="td-zh zh-long">毒伤害倍数（典型的如：屁雷）</span></td>
+<td>PoisonDamageMultiplier<br><span class="td-zh">毒伤害倍数（典型的如：屁雷）</span></td>
 <td class="tc">Float</td>
 </tr>
 <tr>
-<td>PiercingDamageMultiplier<br><span class="td-zh zh-long">穿刺伤害倍数（典型的如：弩）</span></td>
+<td>PiercingDamageMultiplier<br><span class="td-zh">穿刺伤害倍数（典型的如：弩）</span></td>
 <td class="tc">Float</td>
 </tr>
 </tbody>
@@ -649,17 +649,17 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">1500</td>
 </tr>
 <tr>
-<td>TentacleDropGroundDistance<br><span class="td-zh zh-long">触手释放玩家的地面距离阈值</span></td>
+<td>TentacleDropGroundDistance<br><span class="td-zh">触手释放玩家的地面距离阈值</span></td>
 <td class="tc">Float</td>
 <td class="tc">300</td>
 </tr>
 <tr>
-<td>MaxDropPlayerDuration<br><span class="td-zh zh-long">抓取玩家的最大持续时间</span></td>
+<td>MaxDropPlayerDuration<br><span class="td-zh">抓取玩家的最大持续时间</span></td>
 <td class="tc">Float</td>
 <td class="tc">2</td>
 </tr>
 <tr>
-<td>RevivedGracePeriod<br><span class="td-zh zh-long">复活后免疫抓取的宽限期</span></td>
+<td>RevivedGracePeriod<br><span class="td-zh">复活后免疫抓取的宽限期</span></td>
 <td class="tc">Float</td>
 <td class="tc">10</td>
 </tr>
@@ -724,7 +724,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">15</td>
 </tr>
 <tr>
-<td>PreventGrabAfterSpawn<br><span class="td-zh zh-long">生成后禁止抓取的持续时间</span></td>
+<td>PreventGrabAfterSpawn<br><span class="td-zh">生成后禁止抓取的持续时间</span></td>
 <td class="tc">Float</td>
 <td class="tc">3</td>
 </tr>
@@ -744,7 +744,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">25</td>
 </tr>
 <tr>
-<td>RevivedGravePeriod<br><span class="td-zh zh-long">复活后免疫抓取的宽限期</span></td>
+<td>RevivedGravePeriod<br><span class="td-zh">复活后免疫抓取的宽限期</span></td>
 <td class="tc">Float</td>
 <td class="tc">5</td>
 </tr>
@@ -765,25 +765,25 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </thead>
 <tbody>
 <tr>
-<td>EnemyToSpawn<br><span class="td-zh zh-long">卵孵化后生成的敌人类型</span></td>
+<td>EnemyToSpawn<br><span class="td-zh">卵孵化后生成的敌人类型</span></td>
 <td class="tc">ED</td>
 <td class="tc"></td>
 <td class="tc">Can be mutated.</td>
 </tr>
 <tr>
-<td>TimeBetweenBursts<br><span class="td-zh zh-long">卵批次之间的生成间隔（秒）</span></td>
+<td>TimeBetweenBursts<br><span class="td-zh">卵批次之间的生成间隔（秒）</span></td>
 <td class="tc">Float</td>
 <td class="tc">20</td>
 <td class="tc"></td>
 </tr>
 <tr>
-<td>TimeBetweenEggs<br><span class="td-zh zh-long">同一批次内各卵的生成间隔（秒）</span></td>
+<td>TimeBetweenEggs<br><span class="td-zh">同一批次内各卵的生成间隔（秒）</span></td>
 <td class="tc">Float</td>
 <td class="tc">3</td>
 <td class="tc"></td>
 </tr>
 <tr>
-<td>CloseToSpawnEggTime<br><span class="td-zh zh-long">玩家靠近时提前开始生成卵的时间（秒）</span></td>
+<td>CloseToSpawnEggTime<br><span class="td-zh">玩家靠近时提前开始生成卵的时间（秒）</span></td>
 <td class="tc">Float</td>
 <td class="tc">3</td>
 <td class="tc"></td>
@@ -801,13 +801,13 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc"></td>
 </tr>
 <tr>
-<td>MultiplierOnHighPlayerCount<br><span class="td-zh zh-long">玩家数量多时的卵生成数量倍率</span></td>
+<td>MultiplierOnHighPlayerCount<br><span class="td-zh">玩家数量多时的卵生成数量倍率</span></td>
 <td class="tc">Float</td>
 <td class="tc">1.5</td>
 <td class="tc"></td>
 </tr>
 <tr>
-<td>SpawnAmount<br><span class="td-zh zh-long">每个卵孵化时生成的敌人数量</span></td>
+<td>SpawnAmount<br><span class="td-zh">每个卵孵化时生成的敌人数量</span></td>
 <td class="tc">Int</td>
 <td class="tc">4</td>
 <td class="tc"></td>
@@ -914,7 +914,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <tbody>
 <tr>
 <td>OnSpawnDelay</td>
-<td>Seconds until the first spawn<br><span class="td-zh zh-long">首次生成前的延迟时间（秒）</span></td>
+<td>Seconds until the first spawn<br><span class="td-zh">首次生成前的延迟时间（秒）</span></td>
 <td class="tc">2</td>
 </tr>
 <tr>
@@ -924,17 +924,17 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tr>
 <tr>
 <td>OnDeathCount</td>
-<td>Number of enemies to spawn on death<br><span class="td-zh zh-long">宿主死亡时额外生成的数量</span></td>
+<td>Number of enemies to spawn on death<br><span class="td-zh">宿主死亡时额外生成的数量</span></td>
 <td class="tc">0</td>
 </tr>
 <tr>
 <td>IntervalSpawnCount</td>
-<td>Number of enemies to spawn periodically<br><span class="td-zh zh-long">每次周期生成的敌人数量</span></td>
+<td>Number of enemies to spawn periodically<br><span class="td-zh">每次周期生成的敌人数量</span></td>
 <td class="tc">0</td>
 </tr>
 <tr>
 <td>Interval</td>
-<td>Time between interval spawns. Min 0.1 seconds<br><span class="td-zh zh-long">周期生成的时间间隔（秒）</span></td>
+<td>Time between interval spawns. Min 0.1 seconds<br><span class="td-zh">周期生成的时间间隔（秒）</span></td>
 <td class="tc">2</td>
 </tr>
 <tr>
@@ -949,12 +949,12 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tr>
 <tr>
 <td>OnDeathKillSpawns</td>
-<td>If true, kill all spawned enemies when the host enemy dies<br><span class="td-zh zh-long">宿主死亡时杀死所有已生成单位</span></td>
+<td>If true, kill all spawned enemies when the host enemy dies<br><span class="td-zh">宿主死亡时杀死所有已生成单位</span></td>
 <td class="tc">False</td>
 </tr>
 <tr>
 <td>OnlySpawnOnAlert</td>
-<td>Will only spawn once the enemy is alerted<br><span class="td-zh zh-long">仅在敌人进入警戒状态后才生成</span></td>
+<td>Will only spawn once the enemy is alerted<br><span class="td-zh">仅在敌人进入警戒状态后才生成</span></td>
 <td class="tc">True</td>
 </tr>
 </tbody>
@@ -998,7 +998,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">Boolean</td>
 </tr>
 <tr>
-<td>OnFireHeatRange<br><span class="td-zh zh-long">着火后作为热源的作用范围</span></td>
+<td>OnFireHeatRange<br><span class="td-zh">着火后作为热源的作用范围</span></td>
 <td class="tc">Float</td>
 </tr>
 <tr>
@@ -1010,7 +1010,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">Float</td>
 </tr>
 <tr>
-<td>FreezeTemperature<br><span class="td-zh zh-long">冻结温度阈值（注意：冰冻的应该为负值）</span></td>
+<td>FreezeTemperature<br><span class="td-zh">冻结温度阈值（注意：冰冻的应该为负值）</span></td>
 <td class="tc">Float</td>
 </tr>
 <tr>
@@ -1030,11 +1030,11 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td class="tc">Float</td>
 </tr>
 <tr>
-<td>FrozenDamageBonusScale<br><span class="td-zh zh-long">冻结状态下的伤害加成倍率</span></td>
+<td>FrozenDamageBonusScale<br><span class="td-zh">冻结状态下的伤害加成倍率</span></td>
 <td class="tc">Float</td>
 </tr>
 <tr>
-<td>MaxColdSlowdown<br><span class="td-zh zh-long">低温导致的最大减速比例</span></td>
+<td>MaxColdSlowdown<br><span class="td-zh">低温导致的最大减速比例</span></td>
 <td class="tc">Float</td>
 </tr>
 </tbody>
@@ -1075,19 +1075,19 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td>Enable<br><span class="td-zh">启用与否</span></td>
 <td class="tc">Boolean</td>
 <td class="tc">true</td>
-<td>Whether to drop resources when the enemy dies<br><span class="td-zh zh-long">决定敌人死亡时是否掉落资源</span></td>
+<td>Whether to drop resources when the enemy dies<br><span class="td-zh">决定敌人死亡时是否掉落资源</span></td>
 </tr>
 <tr>
 <td>Resource<br><span class="td-zh">资源类型</span></td>
 <td class="tc">String</td>
 <td class="tc">Nitra</td>
-<td>Allowed: Nitra, Gold, Dystrum, Iron, OilShale, RedSugar<br><span class="td-zh zh-long">允许设置为：硝石、黄金、异镝、吸铁石、油页岩和红糖</span></td>
+<td>Allowed: Nitra, Gold, Dystrum, Iron, OilShale, RedSugar<br><span class="td-zh">允许设置为：硝石、黄金、异镝、吸铁石、油页岩和红糖</span></td>
 </tr>
 <tr>
 <td>Amount<br><span class="td-zh">掉落资源数量</span></td>
 <td class="tc">float</td>
 <td class="tc">1</td>
-<td>Amount of resource to drop, or hp heal amount of red sugar<br><span class="td-zh zh-long">掉落资源数量；若为红糖，则表示恢复的生命值量</span></td>
+<td>Amount of resource to drop, or hp heal amount of red sugar<br><span class="td-zh">掉落资源数量；若为红糖，则表示恢复的生命值量</span></td>
 </tr>
 <tr>
 <td>LaunchStrength<br><span class="td-zh">抛射力度</span></td>
@@ -1099,7 +1099,7 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <td>GoombaOnly<br><span class="td-zh">仅限踩踏击杀</span></td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>If true, resources are only dropped if the enemy has been goomba'd<br><span class="td-zh zh-long">若为true，则仅当敌人被 踩踏击杀 时才会掉落资源</span></td>
+<td>If true, resources are only dropped if the enemy has been goomba'd<br><span class="td-zh">若为true，则仅当敌人被 踩踏击杀 时才会掉落资源</span></td>
 </tr>
 </tbody>
 </table>
@@ -1128,43 +1128,43 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
       <td>Cooldown<br><span class="td-zh">冷却时间</span></td>
       <td class="tc">Float</td>
       <td class="tc">0.2</td>
-      <td>Minimum time between successive damage to an enemy from goomba tech<br><span class="td-zh zh-long">对同一敌人通过 踩踏造成伤害的最小间隔时间（s）</span></td>
+      <td>Minimum time between successive damage to an enemy from goomba tech<br><span class="td-zh">对同一敌人通过 踩踏造成伤害的最小间隔时间（s）</span></td>
     </tr>
     <tr>
       <td>MaxAngle<br><span class="td-zh">最大角度</span></td>
       <td class="tc">Float</td>
       <td class="tc">50</td>
-      <td>Max angle the dwarf may be away from a straight down hit to still be counted for goomba. At 180, all impact directions count.<br><span class="td-zh zh-long">矮人跳跃方向与垂直向下方向的最大允许夹角（单位°）。当设置为180时，任何方向的撞击都有效</span></td>
+      <td>Max angle the dwarf may be away from a straight down hit to still be counted for goomba. At 180, all impact directions count.<br><span class="td-zh">矮人跳跃方向与垂直向下方向的最大允许夹角（单位°）。当设置为180时，任何方向的撞击都有效</span></td>
     </tr>
     <tr>
       <td>SpeedThreshold<br><span class="td-zh">速度阈值</span></td>
       <td class="tc">float</td>
       <td class="tc">300</td>
-      <td>Speed a dwarf must be moving before an impact is considered goomba'ing<br><span class="td-zh zh-long">矮人必须达到的最低下落速度，其撞击才会被判定为踩踏。</span></td>
+      <td>Speed a dwarf must be moving before an impact is considered goomba'ing<br><span class="td-zh">矮人必须达到的最低下落速度，其撞击才会被判定为踩踏。</span></td>
     </tr>
     <tr>
       <td>FlattenAmount<br><span class="td-zh">压扁程度</span></td>
       <td class="tc">Float</td>
       <td class="tc">0</td>
-      <td>Amount to flatten an enemy when it is goomba'd between 0 and 0.7<br><span class="td-zh zh-long">敌人被踩踏时“压扁”视觉效果程度，取值范围为0到0.7。</span></td>
+      <td>Amount to flatten an enemy when it is goomba'd between 0 and 0.7<br><span class="td-zh">敌人被踩踏时“压扁”视觉效果程度，取值范围为0到0.7。</span></td>
     </tr>
     <tr>
       <td>DamageMultiplier<br><span class="td-zh">伤害倍率</span></td>
       <td class="tc">Float</td>
       <td class="tc">0</td>
-      <td>DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage = damage dealt. Because speeds can be high (300-1000), this multiplier may be low.<br><span class="td-zh zh-long">最终伤害 = DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage。由于速度值通常较高（一般在300~1000之间），此倍率通常设为较小数值。</span></td>
+      <td>DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage = damage dealt. Because speeds can be high (300-1000), this multiplier may be low.<br><span class="td-zh">最终伤害 = DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage。由于速度值通常较高（一般在300~1000之间），此倍率通常设为较小数值。</span></td>
     </tr>
     <tr>
       <td>FlatDamage<br><span class="td-zh">固定伤害</span></td>
       <td class="tc">float</td>
       <td class="tc">0</td>
-      <td>Flat damage dealt regardless of speed. If not set and damagemultiplier not set, defaults to 10k damage.<br><span class="td-zh zh-long">与速度无关的固定伤害值。若 FlatDamage 和 DamageMultiplier 均未设置，则默认造成 10000 点伤害。</span></td>
+      <td>Flat damage dealt regardless of speed. If not set and damagemultiplier not set, defaults to 10k damage.<br><span class="td-zh">与速度无关的固定伤害值。若 FlatDamage 和 DamageMultiplier 均未设置，则默认造成 10000 点伤害。</span></td>
     </tr>
     <tr>
       <td>DamageType<br><span class="td-zh">伤害类型</span></td>
       <td class="tc">DamageType</td>
       <td class="tc">DMG_Physical</td>
-      <td>Most or all DMG_* types supported e.g. DMG_Burn<br><span class="td-zh zh-long">大多数/所有 种类都支持 DMG_xxx 的语法</span></td>
+      <td>Most or all DMG_* types supported e.g. DMG_Burn<br><span class="td-zh">大多数/所有 种类都支持 DMG_xxx 的语法</span></td>
     </tr>
   </tbody>
 </table>
@@ -1204,6 +1204,6 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/site.js?v=ce3b40d3" defer></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """静态资源处理：图片转 WebP（quality=85）、拷贝 PDF/GIF，输出尺寸清单。"""
 import os, io, json
 from PIL import Image
 
-SRC = r'E:\learn\github\dsh\CD2\CD2-reference-cn'
+SRC = r'E:\learn\github\dsh\CD2\CD2-upstream-src'   # 上游源（图片在这里）
 ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
 SITE = os.path.join(ROOT, 'docs')          # R2 §6.1：发布源
 MEDIA = os.path.join(SITE, 'assets', 'media')

@@ -313,6 +313,21 @@ def strip_dead_links(t):
     return re.sub(r'<a\b[^>]*href="([^"]*)"[^>]*>(.*?)</a>', rep, t, flags=re.S)
 
 
+# R6：资源版本号 —— 让 CSS/JS 更新后浏览器立即取新版，不再吃旧缓存
+ASSET_VER = '0'
+
+
+def compute_asset_ver():
+    """取 site.css + site.js 的内容指纹前 8 位。"""
+    import hashlib
+    h = hashlib.md5()
+    for rel in ('assets/css/site.css', 'assets/js/site.js'):
+        p = os.path.join(SITE, rel)
+        if os.path.exists(p):
+            h.update(io.open(p, 'rb').read())
+    return h.hexdigest()[:8]
+
+
 def shell(title, desc, path, body, nav, slug, prefix, has_toc=False):
     canonical = SITE_URL + (path if path != '/' else '/')
     page = f'''<!DOCTYPE html>
@@ -330,7 +345,7 @@ def shell(title, desc, path, body, nav, slug, prefix, has_toc=False):
 <meta property="og:url" content="{esc(canonical)}">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 <script>{EARLY}</script>
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/site.css?v={ASSET_VER}">
 </head>
 <body{' class="has-toc"' if has_toc else ''}>
 <a class="skip-link" href="#main">跳到正文</a>
@@ -355,7 +370,7 @@ def shell(title, desc, path, body, nav, slug, prefix, has_toc=False):
     </div>
   </div>
 </div>
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js?v={ASSET_VER}" defer></script>
 </body>
 </html>'''
     page = fix_images(page, prefix)
@@ -565,8 +580,10 @@ def write_sitemap(nav):
 
 
 def main():
-    global MEDIA
+    global MEDIA, ASSET_VER
     MEDIA = json.load(io.open(os.path.join(BUILD, 'media.json'), encoding='utf-8'))
+    ASSET_VER = compute_asset_ver()
+    print('资源版本号:', ASSET_VER)
     nav = json.load(io.open(os.path.join(BUILD, 'nav.json'), encoding='utf-8'))
     # R5：目录页插在首页之后（导航、翻页、页脚地图、sitemap 都会自动带上）
     if not any(n['slug'] == 'toc' for n in nav):

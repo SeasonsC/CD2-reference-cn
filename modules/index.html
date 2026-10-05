@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/modules/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=ce3b40d3">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -101,55 +101,55 @@
 <td>FlashlightStrength<br><span class="td-zh">手电筒亮度</span></td>
 <td class="tc">Float</td>
 <td>1?</td>
-<td>Headlight light strength, affects both range and strength of the light.<br><span class="td-zh zh-long">手电筒，影响光照范围与亮度。</span></td>
+<td>Headlight light strength, affects both range and strength of the light.<br><span class="td-zh">手电筒，影响光照范围与亮度。</span></td>
 
 </tr>
 <tr>
 <td>PlayerIllumination<br><span class="td-zh">玩家自带光源</span></td>
 <td class="tc">Float</td>
 <td>1?</td>
-<td>Light strength in a radius around the player. Only affects strength and not radius.<br><span class="td-zh zh-long">玩家周围半径内的光照强度，仅影响亮度，不影响范围。</span></td>
+<td>Light strength in a radius around the player. Only affects strength and not radius.<br><span class="td-zh">玩家周围半径内的光照强度，仅影响亮度，不影响范围。</span></td>
 
 </tr>
 <tr>
 <td>FlareMax<br><span class="td-zh">最多荧光棒数量</span></td>
 <td class="tc">Int</td>
 <td>4</td>
-<td>Maximum number of flares that the player can keep.<br><span class="td-zh zh-long">玩家能携带的最大荧光棒数量。</span></td>
+<td>Maximum number of flares that the player can keep.<br><span class="td-zh">玩家能携带的最大荧光棒数量。</span></td>
 
 </tr>
 <tr>
 <td>FlareStrength<br><span class="td-zh">荧光棒亮度</span></td>
 <td class="tc">Float</td>
 <td>1?</td>
-<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.<br><span class="td-zh zh-long">荧光棒的光照强度与范围，超过 3 无明显变化。</span></td>
+<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.<br><span class="td-zh">荧光棒的光照强度与范围，超过 3 无明显变化。</span></td>
 </tr>
 <tr>
 <td>FlareDuration<br><span class="td-zh">荧光棒持续时间</span></td>
 <td class="tc">Float</td>
 <td>30</td>
-<td>Duration of the player flares.<br><span class="td-zh zh-long">玩家荧光棒发光的持续时间。</span></td>
+<td>Duration of the player flares.<br><span class="td-zh">玩家荧光棒发光的持续时间。</span></td>
 
 </tr>
 <tr>
 <td>FlareProductionTime<br><span class="td-zh">荧光棒冷却时间</span></td>
 <td class="tc">Float</td>
 <td>12</td>
-<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.<br><span class="td-zh zh-long">玩家荧光棒的冷却时间，注意：不建议在任务中修改。</span></td>
+<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.<br><span class="td-zh">玩家荧光棒的冷却时间，注意：不建议在任务中修改。</span></td>
 </tr>
 
 <tr>
 <td>EnvironmentalLight<br><span class="td-zh">环境光照</span></td>
 <td class="tc">Float</td>
 <td>1?</td>
-<td>Environmental (cave) light. Affects both radius and strength.<br><span class="td-zh zh-long">洞穴环境光亮度，影响光照范围和亮度。</span></td>
+<td>Environmental (cave) light. Affects both radius and strength.<br><span class="td-zh">洞穴环境光亮度，影响光照范围和亮度。</span></td>
 
 </tr>
 <tr>
 <td>DisableFog<br><span class="td-zh">禁用迷雾</span></td>
 <td class="tc">Bool</td>
 <td>False</td>
-<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.<br><span class="td-zh zh-long">禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</span></td>
+<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.<br><span class="td-zh">禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</span></td>
 </tr>
 
 <tr>
@@ -163,7 +163,7 @@
 <td>FlareGunDuration<br><span class="td-zh">侦察照明弹持续时间</span></td>
 <td class="tc">Float</td>
 <td>Depends on flare gun stats</td>
-<td>Duration of Scout's flare gun flares.<br><span class="td-zh zh-long">侦察照明弹的发光持续时间。</span></td>
+<td>Duration of Scout's flare gun flares.<br><span class="td-zh">侦察照明弹的发光持续时间。</span></td>
 
 </tr>
 </tbody>
@@ -346,7 +346,7 @@
 </tr>
 
 <tr>
-<td>FallDamageStartVelocity<br><span class="td-zh zh-long">开始计算摔落伤害的速度</span></td>
+<td>FallDamageStartVelocity<br><span class="td-zh">开始计算摔落伤害的速度</span></td>
 <td class="tc">1000</td>
 <td>Multiplier for player shield capacity.</td>
 </tr>
@@ -403,7 +403,7 @@
 </tr>
 
 <tr>
-<td>MaxAttackersOmoranFight<br><span class="td-zh zh-long">心石阶段最多攻击朵朵虫量?</span></td>
+<td>MaxAttackersOmoranFight<br><span class="td-zh">心石阶段最多攻击朵朵虫量?</span></td>
 <td class="tc">Float</td>
 <td class="tc">6</td>
 <td>Currently unsupported.</td>
@@ -498,7 +498,7 @@
 <td class="tc">SendOnChange</td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>Send chat message when another value (e.g. message) changes<br><span class="td-zh zh-long">当另一个值发生变化时发送消息（例如：倒计时性质的消息）</span></td>
+<td>Send chat message when another value (e.g. message) changes<br><span class="td-zh">当另一个值发生变化时发送消息（例如：倒计时性质的消息）</span></td>
 </tr>
 
 <tr>
@@ -708,7 +708,7 @@ Example:</p></div></details>
 <h2 id="salvage">搜救行动 · Salvage</h2>
 <p>一个专为 搜救行动任务 提供自定义选项的模块，包括三个子模块：<code>MiniMules</code>、<code>Uplink</code>、<code>Refuel</code>，各具有以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>A special module offering customization options for Salvage missions. It contains three submodules: <code>MiniMules</code>, <code>Uplink</code> and <code>Refuel</code> with the following fields:</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="tbl-salvage">
 <thead>
 <tr>
 <th class="tc">Submodule</th>
@@ -735,21 +735,21 @@ Example:</p></div></details>
 </tr>
 <tr>
 <td class="tc">MiniMules</td>
-<td>LegsRequired<br><span class="td-zh zh-long">每个骡子需要的骡腿数量</span></td>
+<td>LegsRequired<br><span class="td-zh">每个骡子需要的骡腿数量</span></td>
 <td class="tc">Int</td>
 <td class="tc">3</td>
 <td>Number of legs that must be attached before allowing repair</td>
 </tr>
 <tr>
 <td class="tc">MiniMules</td>
-<td>LegsPerMule<br><span class="td-zh zh-long">每个骡子周围生成的骡腿</span></td>
+<td>LegsPerMule<br><span class="td-zh">每个骡子周围生成的骡腿</span></td>
 <td class="tc">Int</td>
 <td class="tc">4</td>
 <td>Number of legs to spawn per minimule</td>
 </tr>
 <tr>
 <td class="tc">MiniMules</td>
-<td>LegDistance<br><span class="td-zh zh-long">每个骡腿距离骡子的距离</span></td>
+<td>LegDistance<br><span class="td-zh">每个骡腿距离骡子的距离</span></td>
 <td class="tc">Float</td>
 <td class="tc">1500</td>
 <td>Untested, should be distance legs spawn from the minimules</td>
@@ -805,14 +805,14 @@ Example:</p></div></details>
 </tr>
 <tr>
 <td class="tc">Uplink</td>
-<td>DisableLeaveShout<br><span class="td-zh zh-long">让上传区域没人的时候不许任务管理中心警告</span></td>
+<td>DisableLeaveShout<br><span class="td-zh">让上传区域没人的时候不许任务管理中心警告</span></td>
 <td class="tc">Bool</td>
 <td class="tc">false</td>
 <td>Disables mission control messages when there are no players in the defense area.</td>
 </tr>
 <tr>
 <td class="tc">Uplink</td>
-<td>LeavePenaltyMultiplier<br><span class="td-zh zh-long">离开上传区域掉进度的速度</span></td>
+<td>LeavePenaltyMultiplier<br><span class="td-zh">离开上传区域掉进度的速度</span></td>
 <td class="tc">Float</td>
 <td class="tc">1</td>
 <td>1 means vanilla penalty (2x the speed progress normally increases)</td>
@@ -854,14 +854,14 @@ Example:</p></div></details>
 </tr>
 <tr>
 <td class="tc">Refuel</td>
-<td>DisableLeaveShout<br><span class="td-zh zh-long">让refuel 让上传区域没人的时候不许任务管理中心警告</span></td>
+<td>DisableLeaveShout<br><span class="td-zh">让上传区域没人的时候不许任务管理中心警告</span></td>
 <td class="tc">Bool</td>
 <td class="tc">false</td>
 <td></td>
 </tr>
 <tr>
 <td class="tc">Refuel</td>
-<td>LeavePenaltyMultiplier<br><span class="td-zh zh-long">离开上传区域掉进度的速度</span></td>
+<td>LeavePenaltyMultiplier<br><span class="td-zh">离开上传区域掉进度的速度</span></td>
 <td class="tc">Float</td>
 <td class="tc">1</td>
 <td>0 means no lost progress if leaving the defense area</td>
@@ -911,12 +911,12 @@ Example:</p></div></details>
 </thead>
 <tbody>
 <tr>
-<td>CoopUse<br><span class="td-zh zh-long">是否允许多玩家协作交互</span></td>
+<td>CoopUse<br><span class="td-zh">是否允许多玩家协作交互</span></td>
 <td class="tc">Boolean</td>
 <td>TODO</td>
 </tr>
 <tr>
-<td>CoopUseMultiplier<br><span class="td-zh zh-long">多玩家交互时的速度加成倍数</span></td>
+<td>CoopUseMultiplier<br><span class="td-zh">多玩家交互时的速度加成倍数</span></td>
 <td class="tc">Float</td>
 <td>Increases or decreases the speed boost granted when multiple players are interacting. Defaults to 1.</td>
 </tr>
@@ -926,7 +926,7 @@ Example:</p></div></details>
 <td>Sets up the priority of the E actions.</td>
 </tr>
 <tr>
-<td>ResetOnFail<br><span class="td-zh zh-long">交互失败时是否重置进度</span></td>
+<td>ResetOnFail<br><span class="td-zh">交互失败时是否重置进度</span></td>
 <td class="tc">Boolean</td>
 <td>TODO</td>
 </tr>
@@ -1359,6 +1359,6 @@ Example:</p></div></details>
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/site.js?v=ce3b40d3" defer></script>
 </body>
 </html>

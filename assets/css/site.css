@@ -251,7 +251,13 @@ p.tbl-none{ color:var(--muted); margin:0 0 2em; }
 tbody tr:hover{ background:var(--brand-soft); }
 .td-zh{ font-size:.95em; color:var(--strong); }
 td:not(:last-child) .td-zh{ word-break:keep-all; }
-td:not(:last-child) .td-zh.zh-long{ word-break:normal; overflow-wrap:anywhere; }
+.tbl-salvage{ width:100%; table-layout:fixed; }
+.tbl-salvage th:nth-child(1),.tbl-salvage td:nth-child(1){ width:15%; }
+.tbl-salvage th:nth-child(2),.tbl-salvage td:nth-child(2){ width:29%; }
+.tbl-salvage th:nth-child(3),.tbl-salvage td:nth-child(3){ width:10%; }
+.tbl-salvage th:nth-child(4),.tbl-salvage td:nth-child(4){ width:11%; }
+.tbl-salvage th:nth-child(5),.tbl-salvage td:nth-child(5){ width:35%; }
+.tbl-salvage th,.tbl-salvage td{ padding-left:.6rem; padding-right:.6rem; }
 .admonition{
   margin:0 0 1.5em; padding:.85rem 1rem; border-radius:0 var(--radius) var(--radius) 0;
   border-left:3px solid var(--info); background:var(--panel);

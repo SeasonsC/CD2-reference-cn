@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/mutators/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/site.css?v=ce3b40d3">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -378,7 +378,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
     }
 ]</code></pre></div>
 <figure>
-  <img loading="lazy" alt="CountdownMutator" src="../assets/media/countdown-mutator.webp">
+  <img loading="lazy" alt="CountdownMutator" src="../assets/media/countdown-mutator.webp" width="347" height="264">
   <figcaption>Chat output resulting from the snippet above.<br><span class="td-zh">以上代码片段在聊天框中显示的输出结果。</span></figcaption>
 </figure>
 
@@ -1261,55 +1261,55 @@ Example:</p></div></details>
 <td class="tc">Sequence</td>
 <td class="tc">Array</td>
 <td class="tc"><em>None</em></td>
-<td>The mutator will return values from this sequence array based on the controls below.<br><span class="td-zh zh-long">该 Mutator 会根据<code>Sequence</code>字段中的数组返回对应值。</span></td>
+<td>The mutator will return values from this sequence array based on the controls below.<br><span class="td-zh">该 Mutator 会根据<code>Sequence</code>字段中的数组返回对应值。</span></td>
 </tr>
 <tr>
 <td class="tc">Next</td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>When switched from false to true, the sequence is moved forward one position.<br><span class="td-zh zh-long">从 false 变为 true 时，序列前进一位。</span></td>
+<td>When switched from false to true, the sequence is moved forward one position.<br><span class="td-zh">从 false 变为 true 时，序列前进一位。</span></td>
 </tr>
 <tr>
 <td class="tc">Previous</td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>When switched from false to true, the sequence is moved backward one position.<br><span class="td-zh zh-long">从 false 变为 true 时，序列后退一位。</span></td>
+<td>When switched from false to true, the sequence is moved backward one position.<br><span class="td-zh">从 false 变为 true 时，序列后退一位。</span></td>
 </tr>
 <tr>
 <td class="tc">Interval</td>
 <td class="tc">Float</td>
 <td class="tc"><em>None</em></td>
-<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br><span class="td-zh zh-long">每间隔 <code>Interval</code> 秒，<code>Sequence</code>自动前进一位；默认不启用。</span></td>
+<td>Every <code>Interval</code> seconds, the sequence is automatically moved forward one position. Default is no interval based progress.<br><span class="td-zh">每间隔 <code>Interval</code> 秒，<code>Sequence</code>自动前进一位；默认不启用。</span></td>
 </tr>
 <tr>
 <td class="tc">Repeat</td>
 <td class="tc">Boolean</td>
 <td class="tc">True</td>
-<td>If true, when Next is triggered or the interval passes on the final element in the list, the sequence returns to the start. Similarly, Previous will wrap from the begining to the end of the sequence. On False, there is no wrapping.<br><span class="td-zh zh-long">若为 true，当通过 Next 或 Interval 到达序列末尾时，将返回开头；同理，通过 Previous 到达开头时，将返回到末尾；若为 false，则不会循环。</span></td>
+<td>If true, when Next is triggered or the interval passes on the final element in the list, the sequence returns to the start. Similarly, Previous will wrap from the begining to the end of the sequence. On False, there is no wrapping.<br><span class="td-zh">若为 true，当通过 Next 或 Interval 到达序列末尾时，将返回开头；同理，通过 Previous 到达开头时，将返回到末尾；若为 false，则不会循环。</span></td>
 </tr>
 <tr>
 <td class="tc">InitialOffset</td>
 <td class="tc">Integer</td>
 <td class="tc">0</td>
-<td>The sequence starts and resets to the item in this position. The first item is the 0th item.<br><span class="td-zh zh-long">序列的起始位置及重置后返回的位置；第一位是第 0 项。</span></td>
+<td>The sequence starts and resets to the item in this position. The first item is the 0th item.<br><span class="td-zh">序列的起始位置及重置后返回的位置；第一位是第 0 项。</span></td>
 </tr>
 <tr>
 <td class="tc">Reset</td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>While true, the sequence is reset and held at the InitialOffset position.<br><span class="td-zh zh-long">当为 true 时，序列会被重置并保持在 InitialOffset 指定的位置。</span></td>
+<td>While true, the sequence is reset and held at the InitialOffset position.<br><span class="td-zh">当为 true 时，序列会被重置并保持在 InitialOffset 指定的位置。</span></td>
 </tr>
 <tr>
 <td class="tc">Shuffle</td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>If true, the sequence order is randomized every time the sequence repeats or is reset.<br><span class="td-zh zh-long">若为 true，序列顺序会在每次循环或重置后随机打乱。</span></td>
+<td>If true, the sequence order is randomized every time the sequence repeats or is reset.<br><span class="td-zh">若为 true，序列顺序会在每次循环或重置后随机打乱。</span></td>
 </tr>
 <tr>
 <td class="tc">ShuffleOnce</td>
 <td class="tc">Boolean</td>
 <td class="tc">False</td>
-<td>If true, the sequence order is randomized once per mission and kept the same when reset or when repeating.<br><span class="td-zh zh-long">若为 true，序列顺序会在每个任务中随机打乱一次，并且在重置或循环时保持不变。</span></td>
+<td>If true, the sequence order is randomized once per mission and kept the same when reset or when repeating.<br><span class="td-zh">若为 true，序列顺序会在每个任务中随机打乱一次，并且在重置或循环时保持不变。</span></td>
 </tr>
 </tbody>
 </table>
@@ -1695,6 +1695,6 @@ Example:</p></div></details>
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/site.js?v=ce3b40d3" defer></script>
 </body>
 </html>
