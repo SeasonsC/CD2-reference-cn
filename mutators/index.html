@@ -50,7 +50,7 @@
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Accumulate</code> can track changes in other mutators by adding to a starting <code>Initial</code> number. In addition, it also supports clamping the accumulated value with <code>Min</code> and <code>Max</code>. If used with a constant value, it can be used to make a simple counter.</p></div></details>
 <p>示例：下面这段代码的数值会从 0 开始计数，在大约 10 秒后达到上限 10。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: the value of the following snippet starts at 0 and would cap at 10 after roughly 10 seconds.</p></div></details>
-<p>注意:<code>Value</code>字段指定的数字为动态的时候,0.5s计算一次(除非使用delta→time类写法)</p>
+<p>注意：<code>Value</code>字段指定的数字为动态的时候，0.5s计算一次（除非使用delta→time类写法）</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;Accumulate&quot;,
     &quot;Initial&quot;: 0,
@@ -62,7 +62,7 @@
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>A</code>、<code>B</code><i>数值</i>；Round / Ceil / Floor 用 Value（数值）</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
 <p>这些是可以用于基本数学运算的 mutators</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Arithmetic mutators that can be used for basic mathematical operations.</p></div></details>
-<p>示例:根据任务中呼叫补给的次数线性增加敌人速度</p>
+<p>示例：根据任务中呼叫补给的次数线性增加敌人速度</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: enemy speed as a linear function of resupplies called during the mission.</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;SpeedModifier&quot;: {
       &quot;Mutate&quot;: &quot;Add&quot;,
@@ -179,7 +179,7 @@
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code>、<code>Stage1–3</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
 <p>根据深潜阶段来改变数值，如果某个阶段的对应值没设定则使用 Default 值，必须设定 Default 值</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Change the value based on the Deep Dive stage. If a value isn't set for a stage, it will use the 'Default' value. A 'Default' must be set.</p></div></details>
-<p>示例:</p>
+<p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: </p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;ByDDStage&quot;,
@@ -189,7 +189,7 @@
     &quot;Stage3&quot;: 1.45
  }</code></pre></div>
 <h2 id="bydna">ByDNA</h2>
-<div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 条件键（如「任务类型,长度,复杂度」）<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
+<div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code> + 条件键（如「任务类型，长度，复杂度」）<i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数值</span></div>
 <p>允许 cd2 根据任务类型、长度、复杂度来设定数值。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Allows setting a value based on a combination of Mission Type, Length, and Complexity:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
@@ -226,7 +226,7 @@
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Change the value based on mission type. If a value isn't set for a mission type it will use the 'Default' value. A 'Default' must be set unless a value is specified for all mission types.
 Supported mission types:</p></div></details>
 <ul class="name-grid"><li>DeepScan<span class="td-zh">深层扫描</span></li><li>Egg<span class="td-zh">虫蛋收集</span></li><li>Elimination<span class="td-zh">消灭任务</span></li><li>Escort<span class="td-zh">执勤护送</span></li><li>Mining<span class="td-zh">采矿探险</span></li><li>PE<span class="td-zh">定点提取</span></li><li>Refinery<span class="td-zh">就地精炼</span></li><li>Sabotage<span class="td-zh">设施破坏</span></li><li>Salvage<span class="td-zh">搜救行动</span></li></ul>
-<p>示例:</p>
+<p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: </p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;ByMissionType&quot;,
@@ -239,7 +239,7 @@ Supported mission types:</p></div></details>
 <p>可以用于检测普通任务/深潜任务中的次要目标完成情况。次要目标名称如下</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Can be used to detect secondary objectives both on normal missions and on deep dives. The objectives have the following names:</p></div></details>
 <ul class="name-grid"><li>OBJ_2nd_Mine_Dystrum<span class="td-zh">异镝</span></li><li>OBJ_2nd_Mine_Hollomite<span class="td-zh">容和石</span></li><li>OBJ_2nd_KillFleas<span class="td-zh">消灭脓虱</span></li><li>OBJ_2nd_Find_Gunkseed<span class="td-zh">收集粘液种子</span></li><li>OBJ_2nd_Find_Fossil<span class="td-zh">收集化石</span></li><li>OBJ_2nd_Find_Ebonut<span class="td-zh">收集硬胶果实</span></li><li>OBJ_2nd_Find_BooloCap<span class="td-zh">收集布洛蘑菇</span></li><li>OBJ_2nd_Find_ApocaBloom<span class="td-zh">收集彼岸花</span></li><li>OBJ_2nd_DestroyEggs<span class="td-zh">消灭异虫蛋</span></li><li>OBJ_2nd_DestroyBhaBarnacles<span class="td-zh">消灭巴氏藤壶</span></li><li>OBJ_DD_RepairMinimules<span class="td-zh">修好迷你矿骡</span></li><li>OBJ_DD_Defense<span class="td-zh">回收黑匣子</span></li><li>OBJ_DD_DeepScan<span class="td-zh">扫描共振水晶</span></li><li>OBJ_DD_Morkite<span class="td-zh">收集墨棱石</span></li><li>OBJ_DD_Elimination_Eggs<span class="td-zh">击杀无畏异虫</span></li><li>OBJ_DD_AlienEggs<span class="td-zh">收集外星虫蛋</span></li><li>OBJ_DD_MorkiteWell<span class="td-zh">精炼墨棱油</span></li></ul>
-<p>示例：根据完成的次要目标，改变硝石倍率(完成消灭无畏/回收黑匣子后提供 20%硝石增幅)</p>
+<p>示例：根据完成的次要目标，改变硝石倍率（完成消灭无畏/回收黑匣子后提供 20%硝石增幅）</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: change the Nitra multiplier depending on the secondary objective in deep dives (20 % more nitra on dreadnought and black box objectives).</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;NitraMultiplier&quot;: {
@@ -250,7 +250,7 @@ Supported mission types:</p></div></details>
 }</code></pre></div>
 <h2 id="bytime">根据时间 · ByTime</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>InitialValue</code><i>数值</i>、<code>StartDelay</code><i>秒</i>、<code>RateOfChange</code><i>每秒</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code></span></div>
-<p>根据时间推移改变数值。时间与游戏内 Esc 菜单内的任务计时一致，包括玩家获得矮人控制权之前的时间。数值由以下公式 计算: InitialValue + RateOfChange * Max(0, Time - StartDelay)</p>
+<p>根据时间推移改变数值。时间与游戏内 Esc 菜单内的任务计时一致，包括玩家获得矮人控制权之前的时间。数值由以下公式 计算： InitialValue + RateOfChange * Max(0, Time - StartDelay)</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Change a value over time. Time matches the mission clock in the escape menu in-game, including starting before players receive control of their dwarves.
 The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - StartDelay)</code>.</p></div></details>
 <p lang="en">Parameters:</p>
@@ -295,7 +295,7 @@ The value is determined by <code>InitialValue + RateOfChange * Max(0, Time - Sta
 }</code></pre></div>
 <h2 id="byresuppliescalled">根据呼叫补给次数 · ByResuppliesCalled</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Values</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>数组中对应的项</span></div>
-<p>你可以指定一个数组(例如 [0, 1, 2, …])，当呼叫补给的次数达到某个数值时，就使用数组中对应位置的值。最常见的用法是让每次呼叫补给所消耗的硝石随着呼叫次数动态变化。例如：</p>
+<p>你可以指定一个数组（例如 [0, 1, 2, …]），当呼叫补给的次数达到某个数值时，就使用数组中对应位置的值。最常见的用法是让每次呼叫补给所消耗的硝石随着呼叫次数动态变化。例如：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Allows specifying an array with indexes 0, 1, 2, etc, where the values at each index become valid when the number of resupplies corresponding to said index have been called.
 The most typical use is specifying a varying number of resupply costs. For example:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
@@ -386,7 +386,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>If you want to trigger an event after a certain amount of time after something happens consider using the <code>TriggerDelay</code> and the trigger mutators instead of <code>Countdown</code>, at the bottom of the page. </p></div></details>
 <h2 id="defenseprogress">守点进度 · DefenseProgress</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1，初始 0.3</i></span></div>
-<p>这个 Mutator 用于追踪防守类事件(如回收黑匣子、上传和补充燃料)的进度，它会返回一个介于 0~1 之间的数值，初始值为 0.3</p>
+<p>这个 Mutator 用于追踪防守类事件（如回收黑匣子、上传和补充燃料）的进度，它会返回一个介于 0~1 之间的数值，初始值为 0.3</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator tracks the progress of a defense event such as a black box, refuel or uplink. It returns a float between [0, 1] starting at 0.3.</p></div></details>
 <p>示例：守点进度过半后才把战士异虫加入怪池。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyPool&quot;: {
@@ -439,7 +439,7 @@ The most typical use is specifying a varying number of resupply costs. For examp
 }</code></pre></div>
 <h2 id="descriptorexists">描述符是否可用 · DescriptorExists</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>这是一个布尔值，用于指示某个敌人的描述符是否可用。其作用是在目标描述符不可用时(如 MEV 模组不启用)，允许系统回退到其它描述符。示例如下：</p>
+<p>这是一个布尔值，用于指示某个敌人的描述符是否可用。其作用是在目标描述符不可用时（如 MEV 模组不启用），允许系统回退到其它描述符。示例如下：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This is a boolean value which reflects whether an enemy descriptor is available. This is intended to allow a difficulty to fall back to a different descriptor if the desired descriptor isn't available, e.g. if MEV is not available.
 Example:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
@@ -466,7 +466,7 @@ Example:</p></div></details>
 <h2 id="DistanceToDroppod">空降舱距离 · DistanceToDroppod</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code><i>数值</i>、<code>IncludeDowned</code><i>Boolean</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
 <h4 id="原文档此处有误-已矫正为正确写法-同muledistancetodropped">[原文档此处有误，已矫正为正确写法。同 MuleDistanceToDropped]</h4>
-<p>返回任务撤离阶段玩家与空降舱之间距离的平均值(单位为 cm)，它接受以下字段</p>
+<p>返回任务撤离阶段玩家与空降舱之间距离的平均值（单位为 cm），它接受以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Returns an average of the distance in cm between players and drop pod during mission extraction. It accepts the following fields:</p></div></details>
 <ul><li><code>Default</code>:当任务中不存在空降舱时返回的默认值<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Default</code>: the default value to return when there is no drop pod.</div></details></li><li><code>IncludeDowned</code>: 一个布尔字段，决定是否将倒地的矮人纳入计算<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>IncludeDowned</code>: a boolean which indicates whether to include dead dwarves in the average.</div></details></li></ul>
 <p>另请看： <code>MuleDistanceToDroppod</code> Mutator</p>
@@ -499,7 +499,7 @@ Example:</p></div></details>
 ]</code></pre></div>
 <h2 id="duringdread">对战无畏异虫期间 · DuringDread</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>当地图上存在以下任一描述符时，变为 True：<code>ED_Spider_Boss_Heavy</code>(Hiveguard)、<code>ED_Spider_Boss_TwinA</code>(Arbalest)、<code>ED_Spider_Boss_TwinB</code>(Lacerator) 和 <code>ED_Spider_Tank_Boss</code>(经典无畏异虫)。</p>
+<p>当地图上存在以下任一描述符时，变为 True：<code>ED_Spider_Boss_Heavy</code>(Hiveguard)、<code>ED_Spider_Boss_TwinA</code>(Arbalest)、<code>ED_Spider_Boss_TwinB</code>(Lacerator) 和 <code>ED_Spider_Tank_Boss</code>（经典无畏异虫）。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Becomes true whenever there is one of the following descriptors active on the map: <code>ED_Spider_Boss_Heavy</code> (Hiveguard), <code>ED_Spider_Boss_TwinA</code> (Arbalest), <code>ED_Spider_Boss_TwinB</code> (Lacerator) and <code>ED_Spider_Tank_Boss</code> (classic Dreadnought). </p></div></details>
 <p>示例：对战无畏异虫期间提高敌人数量系数。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyCountModifier&quot;: {
@@ -645,7 +645,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="dwarvesammo">团队弹药量比例 · DwarvesAmmo</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1，平均剩余弹药比例</i></span></div>
-<p>返回团队剩余弹药的平均百分比，全员弹药满载时为 1，全部耗尽为 0。其计算方式与界面中矮人名字下方的四条弹药条一致(按 Ctrl 显示)</p>
+<p>返回团队剩余弹药的平均百分比，全员弹药满载时为 1，全部耗尽为 0。其计算方式与界面中矮人名字下方的四条弹药条一致（按 Ctrl 显示）</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Average percent ammo left for the team, 1 when all teammates have 100% of their ammo and 0 when all teammates are at 0% ammo. This works the same way as the 4 bars under the dwarves names in the UI.</p></div></details>
 <p>示例：团队弹药低于 30 % 时削弱敌人移速。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;SpeedModifier&quot;: {
@@ -670,7 +670,7 @@ Example:</p></div></details>
     },</code></pre></div>
 <h2 id="dwarvesdowntime">倒地时间 · DwarvesDownTime</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>秒</i></span></div>
-<p>矮人处于倒地状态的累计时间(秒),如果有多名矮人倒地，则取倒地时间最长的那个。</p>
+<p>矮人处于倒地状态的累计时间（秒）,如果有多名矮人倒地，则取倒地时间最长的那个。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Time in seconds that has elapsed while a dwarf has been down. If multiple dwarves are down, it's the longest time down among the downed dwarves.</p></div></details>
 <p>示例：有人倒地超过 60 秒后削半敌人数量系数，避免雪崩式团灭。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyCountModifier&quot;: {
@@ -706,7 +706,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="dwarvesrevives">矮人复活次数 · DwarvesRevives</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>次数</i></span></div>
-<p>任务期间，矮人的总复活次数，这包括了使用 Iron-will(钢铁意志)自起的</p>
+<p>任务期间，矮人的总复活次数，这包括了使用 Iron-will（钢铁意志）自起的</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Total number of revives for the team during the mission. This includes IW self-revives.</p></div></details>
 <p>示例：全队累计复活 3 次后提高敌人数量系数（含钢铁意志自起）。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyCountModifier&quot;: {
@@ -744,7 +744,7 @@ Example:</p></div></details>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED</code><i>string</i>、<code>EDs</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>计数</i></span></div>
 <p>统计本次任务中死亡的敌人总量。可选地，也可以统计某一特定敌人的死亡数量。因溢出虫量上限而被抹除的敌人也有可能被计入，如果你的难度设置会导致大量虫子因溢出虫限而被抹除，该数值就可能与预期不一致</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Count number of Enemies that have died this mission. Optionally, this can get the deaths of a specific enemy descriptor.Despawned enemies because of caps are likely counted. If your difficulty despawns significant amounts of enemies, this number might not match expectations.</p></div></details>
-<p>示例:</p>
+<p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Examples:</p></div></details>
 <p>统计所有敌人的击杀总数：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Count of all enemy kills:</p></div></details>
@@ -757,7 +757,7 @@ Example:</p></div></details>
     &quot;Mutate&quot;: &quot;EnemiesKilled&quot;,
     &quot;ED&quot;: &quot;ED_Spider_Grunt&quot;
 }</code></pre></div>
-<p>自 CD2 v15 起，可直接指定多个 敌人描述符，无需再嵌套加法 Mutator ：</p>
+<p>自 CD2 v15 起，可直接指定多个 敌人描述符，无需再嵌套加法 Mutator：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest addition mutators:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     {
@@ -804,7 +804,7 @@ Example:</p></div></details>
           }
     }
 }</code></pre></div>
-<p>在该示例中，当 ED_Example 生成后，该 Mutator 会在接下来的 60 秒(即 CooldownTime 的值)内返回 ValueDuringCooldown 所指定的值；在此之后，则返回 DefaultValue。。ED 字段也接受一个敌人描述符数组</p>
+<p>在该示例中，当 ED_Example 生成后，该 Mutator 会在接下来的 60 秒（即 CooldownTime 的值）内返回 ValueDuringCooldown 所指定的值；在此之后，则返回 DefaultValue。ED 字段也接受一个敌人描述符数组</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>In the example, the mutator will be true for 60 seconds (the value of <code>CooldownTime</code>) after <code>ED_Example</code> has spawned. During this time, the value for the <code>Rarity</code> will be the value specified in <code>ValueDuringCooldown</code> and <code>DefaultValue</code> otherwise. The <code>ED</code> field can accept an array of enemies:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;ED_Example&quot;: {
@@ -821,7 +821,7 @@ Example:</p></div></details>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>which will start the timer whenever one of the enemies inside the array spawns. </p></div></details>
 <h2 id="EnemyHealth">敌人血量比例 · EnemyHealth</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED / EDs</code>、<code>Default</code><i>数值，默认 0</i>、<code>Type</code><i>Min / Max / Average</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>0~1</i></span></div>
-<p>该 Mutator 用于获得指定敌人(通过 ED/EDs 来指定) 的血量比例，同时该 Mutator 可配置为返回这些敌人血量比例的最大值、最小值或平均值。该值是一个介于 0~1 之间的百分比，建议设定一个 Default 值。该 Mutator 接受以下字段</p>
+<p>该 Mutator 用于获得指定敌人（通过 ED/EDs 来指定） 的血量比例，同时该 Mutator 可配置为返回这些敌人血量比例的最大值、最小值或平均值。该值是一个介于 0~1 之间的百分比，建议设定一个 Default 值。该 Mutator 接受以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator returns the health of a descriptor or group of descriptors. The mutator can be configured to return the maximum, minimum, or average health among enemies with a descriptor. This value is a percentage between 0 and 1. A Default can (and should) be specified. It accepts the following fields:</p></div></details>
 <ul><li>ED/EDs:通过指定 ED/EDs 来决定检测那些敌人<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>ED</code> or <code>EDs</code>: the descriptor or descriptors of the enemy or group of enemies you want to track.</div></details></li><li>Default:当没有匹配的存活敌人时返回的值，默认为 0<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</div></details></li><li>Type:统计方式，包括 Min、Max、Average，默认为 Average。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Average</code>.</div></details></li></ul>
 <p>示例：无畏异虫血量低于 30 % 时触发（可配合 TriggerOnce 做处决机制）。</p>
@@ -843,7 +843,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="EnemyDistance">敌人距离 · EnemyDistance</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>ED / EDs</code>、<code>Default</code><i>数值，默认 0</i>、<code>Type</code><i>Min / Max / Average</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
-<p>该 Mutator 用于计算指定敌人(ED/EDs)到玩家的距离,同时该 Mutator 可配置为计算这些敌人到最近存活玩家的距离的最大值、最小值、平均值。返回距离单位 为 cm，建议根据预期行为设定一个 Default 值。该 Mutator 接受以下字段</p>
+<p>该 Mutator 用于计算指定敌人(ED/EDs)到玩家的距离，同时该 Mutator 可配置为计算这些敌人到最近存活玩家的距离的最大值、最小值、平均值。返回距离单位 为 cm，建议根据预期行为设定一个 Default 值。该 Mutator 接受以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator returns the distance of enemies of a descriptor or descriptors. The mutator can be configured to return the maximum, minimum, or average distance to the closest living player among enemies. Distance is in cm. A Default can (and should) be specified based on desired behavior. It accepts the following fields:</p></div></details>
 <ul><li>ED/EDs:通过指定 ED/EDs 来决定检测那些敌人<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>ED</code> or <code>EDs</code>: the descriptor or descriptors of the enemy or group of enemies you want to track.</div></details></li><li>Default:当没有匹配的存活敌人时返回的值，默认为 0<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Default</code>: the value returned when there are no <code>ED</code> or <code>EDs</code> alive. Returns 0 by default.</div></details></li><li>Type:统计方式，包括 Min、Max、Average，默认为 Min。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Type</code>: a string value which is either <code>Min</code>, <code>Max</code> or <code>Average</code>. Defaults to <code>Min</code>.</div></details></li></ul>
 <p>示例：无畏异虫接近到 20 米以内时提高敌人移速。</p>
@@ -874,7 +874,7 @@ Example:</p></div></details>
     &quot;Mutate&quot;: &quot;EnemyCount&quot;,
     &quot;ED&quot;: &quot;ED_Spider_Grunt&quot;
 }</code></pre></div>
-<p>自 CD2 v15 起，可以直接指定多个 ED，而无需嵌套加法 Mutators ：</p>
+<p>自 CD2 v15 起，可直接指定多个 敌人描述符，无需再嵌套加法 Mutator：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Since CD2 v15, it is possible to specify a list of ED's and avoid having to nest addition mutators:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     {
@@ -929,7 +929,7 @@ Example:</p></div></details>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Resource</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>总量</i></span></div>
 <p>统计所有玩家背包中尚未存入矿骡的某种资源总量。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>For a resource, the sum of that resource in players' inventories, not deposited.</p></div></details>
-<p>示例:</p>
+<p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Mutate&quot;: &quot;HeldResource&quot;,
@@ -937,7 +937,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="iwsleft">钢铁意志剩余数量 · IWsLeft</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>剩余次数</i></span></div>
-<p>返回团队当前剩余的“钢铁意志”次数，若无剩余，则为 0。在矮人角色生成前(即地形和遭遇潮生成完成后、玩家角色尚未出现前)，该值始终为 0。</p>
+<p>返回团队当前剩余的“钢铁意志”次数，若无剩余，则为 0。在矮人角色生成前（即地形和遭遇潮生成完成后、玩家角色尚未出现前），该值始终为 0。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Float count of the number of IWs the team still has in reserve, 0 when no IWs remain. This will be 0 until dwarves are spawned which happens after the level is setup including encounters and terrain.</p></div></details>
 <p>示例：全队钢铁意志耗尽后提高敌人数量系数。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyCountModifier&quot;: {
@@ -971,7 +971,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="iffloat">浮点数条件判断 · IfFloat</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Value</code><i>float</i>、比较运算符<i>==、&gt;=、&gt;、&lt;=、&lt;</i>、<code>Then / Else</code><i>任意</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Then / Else 一致</span></div>
-<p>根据两个浮点数值的比较结果选择返回值,两个浮点数通过 Value 字段指定，由比较运算符(如 &gt;= 表示“大于或等于”)决定比较方式,若条件成立则使用 Then，否则使用 Else,支持的运算符包括：==、&gt;=、&gt;、&lt;=、&lt;。</p>
+<p>根据两个浮点数值的比较结果选择返回值，两个浮点数通过 Value 字段指定，由比较运算符（如 &gt;= 表示“大于或等于”）决定比较方式，若条件成立则使用 Then，否则使用 Else,支持的运算符包括：==、&gt;=、&gt;、&lt;=、&lt;。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Choose one value or another based on a comparison of two float values.The two floats are specified by 'Value' and the operator to be used e.g. '&gt;=' if the comparison was to be greater than or equal. If the condition is true the 'Then' value is used, else the 'Else' condition is used.Valid operators are: ==, &gt;=, &gt;, &lt;=, &lt;</p></div></details>
 <p>示例：当团队呼叫的补给次数少于 2 次时，该值为 40；当完成第二次补给呼叫后，该值变为 80。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: as long as the team has called less than 2 resupplies the value is 40. After the team has called their second resupply, the value is 80.</p></div></details>
@@ -1049,7 +1049,7 @@ Example:</p></div></details>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Lock</code><i>Boolean</i>、<code>Update</code><i>Boolean</i>、<code>Value</code><i>对应类型</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>与 Value 同类型</span></div>
 <p>该 Mutator 会根据特定条件来选择性地更新其值，你可以根据所需，选择使用<code>Lock</code>或者<code>Update</code>条件</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This mutator will selectively update its value based on a condition. You may use Lock condition or the "Update" condition based on desired semantics:</p></div></details>
-<ul><li><code>Lock（锁定）</code>:当值为true时,该Mutator 的值不再会发生改变<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Lock</code>: When true, this mutator's value will not change.</div></details></li><li><code>Update(更新)</code>:当值为false时，该Mutator的值不再会发生改变<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Update</code>:When false, this mutator's value will not change.</div></details></li><li><code>Value</code>:当 Mutator未被锁定时，可以更新的值<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Value</code>:This will be what the mutator will update to when it is unlocked.</div></details></li></ul>
+<ul><li><code>Lock（锁定）</code>:当值为true时，该Mutator 的值不再会发生改变<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Lock</code>: When true, this mutator's value will not change.</div></details></li><li><code>Update（更新）</code>:当值为false时，该Mutator的值不再会发生改变<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Update</code>:When false, this mutator's value will not change.</div></details></li><li><code>Value</code>:当 Mutator未被锁定时，可以更新的值<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Value</code>:This will be what the mutator will update to when it is unlocked.</div></details></li></ul>
 <p>以下代码片段展示了一个 Mutator：每当 1 个矮人倒下时，其值就会增加，直到次要完成；此后，该值不在更新，并在任务剩余时间内保持不变</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following snippet shows a mutator that will increase each time a dwarf downs until the secondary objective is finished, after which it will no longer increase and will remain the same for the rest of the mission:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
@@ -1095,7 +1095,7 @@ Example:</p></div></details>
 <p>该 Mutator 返回 <code>Values</code> 中较小的那个：信标少于 3 座时返回实际数量，达到 3 座及以上时固定返回 3。</p>
 <h2 id="MuleDistanceToDroppod">矿骡与空降舱的距离 · MuleDistanceToDroppod</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Default</code><i>数值</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>cm</i></span></div>
-<p>返回任务撤离阶段矿骡与空降舱之间距离的平均值(单位为 cm)，它接受以下字段</p>
+<p>返回任务撤离阶段矿骡与空降舱之间距离的平均值（单位为 cm），它接受以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Returns an average of the distance in cm between the mule and the drop pod during mission extraction. It accepts the following fields:</p></div></details>
 <ul><li>Default:当任务中没有矿骡/空降舱时返回的默认值<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Default</code>: the default value to return when there is no drop pod or there is no mule.</div></details></li></ul>
 <p>另请看： "DistanceToDroppod" Mutator</p>
@@ -1220,7 +1220,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="SecondaryFinished">根据次要完成情况 · SecondaryFinished</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>Boolean</code></span></div>
-<p>当所有次要目标均完成，或者当前任务中不存在次要目标时(如 沙盒内)，返回 true</p>
+<p>当所有次要目标均完成，或者当前任务中不存在次要目标时（如 沙盒内），返回 true</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Returns a boolean which is true when all secondary objectives have been completed, or when there are no secondary objectives (like in Sandbox).</p></div></details>
 <p>示例：次要目标全部完成后，才把精英护卫加入怪池。</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;EnemyPool&quot;: {
@@ -1362,7 +1362,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <h2 id="Select">选择 · Select</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Select</code><i>string</i>、<code>Default</code> + 任意命名的选项字段</span><span class="mt-io-item"><span class="mt-io-k">输出</span>选中项的类型</span></div>
-<p>类似于编程语言中的 switch 语句,该 Mutator 可以根据一个字符串值选择不同的配置选项。当它配合 Vars 模块使用时，会非常有用</p>
+<p>类似于编程语言中的 switch 语句，该 Mutator 可以根据一个字符串值选择不同的配置选项。当它配合 Vars 模块使用时，会非常有用</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Similar to a switch statement in programming languages, this mutator allows to select different options based on a string value. It is very useful when used together with global variables from the <code>Var</code> module:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">  ...,
 &quot;Vars&quot;: {
@@ -1390,7 +1390,7 @@ Example:</p></div></details>
 ...</code></pre></div>
 <h2 id="selectfromarray">从数组选择 · SelectFromArray</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Select</code><i>索引</i>、<code>Array</code><i>数组</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span>Array 中对应的项</span></div>
-<p>使用<code>Select</code> 字段从 <code>Array</code> 数组中取值。<code>Select</code> 字段可以是浮点数,若这样 CD2 会四舍五入到最接近的整数。</p>
+<p>使用<code>Select</code> 字段从 <code>Array</code> 数组中取值。<code>Select</code> 字段可以是浮点数，若这样 CD2 会四舍五入到最接近的整数。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Accepts an index <code>Select</code> to pick a value from an <code>Array</code>. The <code>Select</code> field can be a float and then CD2 will round to the nearest integer.</p></div></details>
 <p>示例：一种在下方 <code>Sequence</code> Mutator 示例中使用 MercyStacks 的方式。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: a possible way to use the MercyStacks in the <code>Sequence</code> mutator example below.</p></div></details>
@@ -1468,7 +1468,7 @@ Example:</p></div></details>
  }</code></pre></div>
 <h2 id="totalresource">资源总量 · TotalResource</h2>
 <div class="mt-io"><span class="mt-io-label">类型</span><span class="mt-io-item"><span class="mt-io-k">输入</span><code>Resource</code><i>string</i></span><span class="mt-io-item"><span class="mt-io-k">输出</span><code>float</code><i>总量</i></span></div>
-<p>统计玩家背包和存入矿骡中某种资源的总量,可以使用游戏界面中显示的资源名称来引用任意资源。</p>
+<p>统计玩家背包和存入矿骡中某种资源的总量，可以使用游戏界面中显示的资源名称来引用任意资源。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Sum of a resource held in players inventories and the group depot. Any resource can be referenced by the name as it appears in the in-game UI.</p></div></details>
 <p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example:</p></div></details>
@@ -1477,7 +1477,7 @@ Example:</p></div></details>
     &quot;Resource&quot;: &quot;Morkite&quot;
 }</code></pre></div>
 <h2 id="trigger-mutators">触发类 Mutator · Trigger mutators</h2>
-<p>这是一类特殊的 Mutators，主要用于布尔值字段，通常(但不限于)用于波次生成器的 Enabled 字段。具体用法请参见下面示例，各触发器的字段都按如下方式指定，当前支持的触发器包括：</p>
+<p>这是一类特殊的 Mutators，主要用于布尔值字段，通常（但不限于）用于波次生成器的 Enabled 字段。具体用法请参见下面示例，各触发器的字段都按如下方式指定，当前支持的触发器包括：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>These are a special group of mutators that can be used on boolean values, typically (but not limited to) on the <code>Enabled</code> field of a wavespawner. Please see some examples below. The fields of each trigger are specified <code>like this</code>. There are currently the following triggers:</p></div></details>
 <p>⚠️ 注意：<code>In</code> 字段要求的是<b>布尔信号</b>——返回数值的 Mutator（如 <code>DwarvesDown</code>、<code>EnemiesKilled</code>）必须先经 <code>TriggerOnChange</code> 转换，不能直接填入。</p>
 <h3 id="triggeronce">单次触发 · TriggerOnce</h3>
@@ -1659,7 +1659,7 @@ Example:</p></div></details>
       &quot;SpawnOnEnable&quot;: true
     }
   ]</code></pre></div>
-<p>该示例的 Mutator 链与之前相同，但在最外层添加了 <code>TriggerFixedDuration</code>，为波次生成器提供了一个持续 20 秒的激活窗口。由于其 <code>Interval</code> 设置为 1(秒)，这将总共触发 20 次生成事件。</p>
+<p>该示例的 Mutator 链与之前相同，但在最外层添加了 <code>TriggerFixedDuration</code>，为波次生成器提供了一个持续 20 秒的激活窗口。由于其 <code>Interval</code> 设置为 1（秒），这将总共触发 20 次生成事件。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The chain of mutators is the same, but now a <code>TriggerFixedDuration</code> has been added on top which will grant a 20 second window for the wavespawner to be active. Since its <code>Interval</code> is set to 1, this will generate 20 spawn events in total. </p></div></details>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../projectiles/"><span class="dir">上一页</span><span class="title">发射物 · Projectiles</span></a><a class="next" href="../resources/"><span class="dir">下一页</span><span class="title">资源 · Resources</span></a></nav>
 </main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#accumulate">累加 · Accumulate</a></li><li class="lvl-2"><a href="#add-subtract-multiply-divide-pow-modulo-round-ceil-floor">加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整 · Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor</a></li><li class="lvl-2"><a href="#and-or-not">与、或、非 · And, Or, Not</a></li><li class="lvl-2"><a href="#bybiome">根据生物群系 · ByBiome</a></li><li class="lvl-2"><a href="#byddstage">根据深潜阶段 · ByDDStage</a></li><li class="lvl-2"><a href="#bydna">ByDNA</a></li><li class="lvl-2"><a href="#byescortphase">根据护送任务阶段 · ByEscortPhase</a></li><li class="lvl-2"><a href="#bymissiontype">根据任务类型 · ByMissionType</a></li><li class="lvl-2"><a href="#bysecondary">根据次要目标 · BySecondary</a></li><li class="lvl-2"><a href="#bytime">根据时间 · ByTime</a></li><li class="lvl-2"><a href="#byplayercount">根据玩家数量 · ByPlayerCount</a></li><li class="lvl-2"><a href="#byrefineryphase">根据炼油阶段 · ByRefineryPhase</a></li><li class="lvl-2"><a href="#byresuppliescalled">根据呼叫补给次数 · ByResuppliesCalled</a></li><li class="lvl-2"><a href="#bysabophase">根据设施破坏阶段 · BySaboPhase</a></li><li class="lvl-2"><a href="#bysalvagephase">根据搜救行动阶段 · BySalvagePhase</a></li><li class="lvl-2"><a href="#clamp">限制 · Clamp</a></li><li class="lvl-2"><a href="#countdown">倒计时 · Countdown</a></li><li class="lvl-2"><a href="#defenseprogress">守点进度 · DefenseProgress</a></li><li class="lvl-2"><a href="#delta">变量 · Delta</a></li><li class="lvl-2"><a href="#depositedresource">存放资源 · DepositedResource</a></li><li class="lvl-2"><a href="#descriptorexists">描述符是否可用 · DescriptorExists</a></li><li class="lvl-2"><a href="#drillercount">钻机数量检测 · DrillerCount</a></li><li class="lvl-2"><a href="#DistanceToDroppod">空降舱距离 · DistanceToDroppod</a></li><li class="lvl-2"><a href="#duringdefend">守点期间 · DuringDefend</a></li><li class="lvl-2"><a href="#duringdread">对战无畏异虫期间 · DuringDread</a></li><li class="lvl-2"><a href="#duringdrillevator">钻井电梯期间 · DuringDrillevator</a></li><li class="lvl-2"><a href="#duringeggambush">蛋潮期间 · DuringEggAmbush</a></li><li class="lvl-2"><a href="#duringencounters">遭遇潮期间 · DuringEncounters</a></li><li class="lvl-2"><a href="#duringextraction">撤离期间 · DuringExtraction</a></li><li class="lvl-2"><a href="#duringgenericswarm">宣告潮期间 · DuringGenericSwarm</a></li><li class="lvl-2"><a href="#duringmission">任务期间 · DuringMission</a></li><li class="lvl-2"><a href="#duringpecountdown">定点提取撤离期间 · DuringPECountdown</a></li><li class="lvl-2"><a href="#dwarfcount">矮人数量 · DwarfCount</a></li><li class="lvl-2"><a href="#dwarvesammo">团队弹药量比例 · DwarvesAmmo</a></li><li class="lvl-2"><a href="#dwarvesdown">倒地矮人数量 · DwarvesDown</a></li><li class="lvl-2"><a href="#dwarvesdowntime">倒地时间 · DwarvesDownTime</a></li><li class="lvl-2"><a href="#dwarvesdowns">矮人总倒地次数 · DwarvesDowns</a></li><li class="lvl-2"><a href="#dwarveshealth">团队生命值比例 · DwarvesHealth</a></li><li class="lvl-2"><a href="#dwarvesrevives">矮人复活次数 · DwarvesRevives</a></li><li class="lvl-2"><a href="#dwarvesshield">团队护盾值比例 · DwarvesShield</a></li><li class="lvl-2"><a href="#elapsedextraction">撤离已用时间 · ElapsedExtraction</a></li><li class="lvl-2"><a href="#enemieskilled">已击杀敌人数量 · EnemiesKilled</a></li><li class="lvl-2"><a href="#enemiesrecentlyspawned">近期生成敌人计数 · EnemiesRecentlySpawned</a></li><li class="lvl-2"><a href="#enemycooldown">敌人生成冷却 · EnemyCooldown</a></li><li class="lvl-2"><a href="#EnemyHealth">敌人血量比例 · EnemyHealth</a></li><li class="lvl-2"><a href="#EnemyDistance">敌人距离 · EnemyDistance</a></li><li class="lvl-2"><a href="#enemycount">当前敌人计数 · EnemyCount</a></li><li class="lvl-2"><a href="#engineercount">工程数量计数 · EngineerCount</a></li><li class="lvl-2"><a href="#float2string">浮点数转字符串 · Float2String</a></li><li class="lvl-2"><a href="#gunnercount">枪手数量计数 · GunnerCount</a></li><li class="lvl-2"><a href="#heldresource">携带资源计数 · HeldResource</a></li><li class="lvl-2"><a href="#iwsleft">钢铁意志剩余数量 · IWsLeft</a></li><li class="lvl-2"><a href="#if">条件判断 · If</a></li><li class="lvl-2"><a href="#iffloat">浮点数条件判断 · IfFloat</a></li><li class="lvl-2"><a href="#ifonspacerig">是否在太空站 · IfOnSpaceRig</a></li><li class="lvl-2"><a href="#int2string">整数转字符串 · Int2String</a></li><li class="lvl-2"><a href="#join">字符串拼接 · Join</a></li><li class="lvl-2"><a href="#LockFloat, LockBoolean, LockString">锁定浮点数、锁定布尔值和锁定字符串 · LockFloat, LockBoolean, LockString</a></li><li class="lvl-2"><a href="#max">最大值 · Max</a></li><li class="lvl-2"><a href="#min">最小值 · Min</a></li><li class="lvl-2"><a href="#MuleDistanceToDroppod">矿骡与空降舱的距离 · MuleDistanceToDroppod</a></li><li class="lvl-2"><a href="#Nonzero">非零判断 · Nonzero</a></li><li class="lvl-2"><a href="#random">随机值 · Random</a></li><li class="lvl-2"><a href="#randomchoice">随机选择 · RandomChoice</a></li><li class="lvl-2"><a href="#randomchoicepermission">每个任务随机选择一次 · RandomChoicePerMission</a></li><li class="lvl-2"><a href="#resupplyusesleft">补给剩余使用次数 · ResupplyUsesLeft</a></li><li class="lvl-2"><a href="#resuppliescalled">已呼叫补给次数 · ResuppliesCalled</a></li><li class="lvl-2"><a href="#resupplyusesconsumed">已消耗补给使用次数 · ResupplyUsesConsumed</a></li><li class="lvl-2"><a href="#SecondaryFinished">根据次要完成情况 · SecondaryFinished</a></li><li class="lvl-2"><a href="#scoutcount">侦察数量计数 · ScoutCount</a></li><li class="lvl-2"><a href="#Sequence">序列 · Sequence</a></li><li class="lvl-2"><a href="#Select">选择 · Select</a></li><li class="lvl-2"><a href="#selectfromarray">从数组选择 · SelectFromArray</a></li><li class="lvl-2"><a href="#StopWatch">秒表 · StopWatch</a></li><li class="lvl-2"><a href="#squarewave">轮切 · SquareWave</a></li><li class="lvl-2"><a href="#timedelta">时间变量 · TimeDelta</a></li><li class="lvl-2"><a href="#totalresource">资源总量 · TotalResource</a></li><li class="lvl-2"><a href="#trigger-mutators">触发类 Mutator · Trigger mutators</a></li></ul></div></aside></div>

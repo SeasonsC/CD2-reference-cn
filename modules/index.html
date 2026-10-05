@@ -403,7 +403,7 @@
 </tr>
 
 <tr>
-<td>MaxAttackersOmoranFight<br><span class="td-zh">心石阶段最多攻击朵朵虫量?</span></td>
+<td>MaxAttackersOmoranFight<br><span class="td-zh">心石阶段最多攻击朵朵虫量？</span></td>
 <td class="tc">Float</td>
 <td class="tc">6</td>
 <td>Currently unsupported.</td>
@@ -1096,7 +1096,7 @@ Example:</p></div></details>
 }</code></pre></div>
 <p>虽然两个代码片段功能相同，但 <code>ByResuppliesCalled</code> 在指定前几次补给的不同费用时更简洁。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>While both snippets do the same thing, <code>ByResuppliesCalled</code> is usually more compact when specifying a different cost for the first few supplies.</p></div></details>
-<p>示例：补给消耗 45 硝石，但第 6 次之后降为 40。。</p>
+<p>示例：补给消耗 45 硝石，但第 6 次之后降为 40。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: the cost is 45, but after the 6th resupply it drops to 40. </p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{ 
   &quot;Resupply&quot;: {
@@ -1114,7 +1114,7 @@ Example:</p></div></details>
 <h2 id="Vars">全局变量池 · Vars</h2>
 <p>该模块用于储存全局变量，同时支持模块间通信。它采用字典结构，每个变量包含以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>A module to store global variables, which allow communication between modules. Vars is structured as a dictionary of names and values with the following fields:</p></div></details>
-<ul><li><code>Type</code>: 变量类型，可选类型包括 Boolean、String、Float、Strings ( Strings 表示字符串数组 )<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Type</code>: the variable type. Can be one of the following: Boolean, String, Float or Strings, the latter used for arrays of String.</div></details></li><li><code>Watch</code>: 布尔字段，用于选择是否在 UI 中显示该变量的值以便调试<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Watch</code>: a boolean which will show the variable's value in the UI for debugging.</div></details></li><li><code>Value</code>: 变量的值，可被 Mutators 修改<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Value</code>: the variable's value, which can be mutated.</div></details></li></ul>
+<ul><li><code>Type</code>: 变量类型，可选类型包括 Boolean、String、Float、Strings （Strings 表示字符串数组）<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Type</code>: the variable type. Can be one of the following: Boolean, String, Float or Strings, the latter used for arrays of String.</div></details></li><li><code>Watch</code>: 布尔字段，用于选择是否在 UI 中显示该变量的值以便调试<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Watch</code>: a boolean which will show the variable's value in the UI for debugging.</div></details></li><li><code>Value</code>: 变量的值，可被 Mutators 修改<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>Value</code>: the variable's value, which can be mutated.</div></details></li></ul>
 <p>在 <code>Vars</code> 中定义的变量，可在任何需要对应类型值的地方通过{<code>"Var": "MyVariable"</code>}引用。所有变量会在同一时刻统一更新，因此模块间状态始终保持一致，但这种实现方式可能导致变量实际状态与真实游戏状态之间存在 500ms 的延迟</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>A variable defined in <code>Vars</code> can be later used in any place which accepts a value of the same type by using {<code>"Var": "MyVariable"</code>}. Variables are all updated at once so they will always be consistent across modules, but the implementation can cause up to 500 ms of delay between the variable state and the true game state.</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,

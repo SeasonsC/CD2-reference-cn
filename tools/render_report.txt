@@ -4,8 +4,8 @@ basics             12,769       15
 direct            169,746      185
 enemies            56,262       77
 faq                12,804        1
-modules            63,909      118
-mutators          142,889      488
+modules            63,906      118
+mutators          142,887      488
 projectiles        22,189       18
 resources          18,580        9
 tips               11,970       28

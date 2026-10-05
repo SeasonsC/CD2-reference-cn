@@ -2,47 +2,47 @@
 ==========================================================================================
 
 ── / ──
-  h2  Main Sections(主要章节)  →  主要章节 · Main Sections
-  h2  Update Log(更新日志)  →  更新日志 · Update Log
+  h2  Main Sections（主要章节）  →  主要章节 · Main Sections
+  h2  Update Log（更新日志）  →  更新日志 · Update Log
 
 ── /basics ──
-  h2  The CD2 GUI(CD2 界面)  →  CD2 界面 · The CD2 GUI
-  h2  The CD2 files (CD2难度文件要求)  →  CD2 难度文件要求 · The CD2 files
+  h2  The CD2 GUI（CD2 界面）  →  CD2 界面 · The CD2 GUI
+  h2  The CD2 files （CD2难度文件要求）  →  CD2 难度文件要求 · The CD2 files
 
 ── /modules ──
-  h2  Caps(虫量上限)  →  虫量上限 · Caps
+  h2  Caps（虫量上限）  →  虫量上限 · Caps
   h2  Darkness（光照控制）  →  光照控制 · Darkness
-  h2  Description(描述)  →  描述 · Description
-  h2  DifficultySetting(难度设置)  →  难度设置 · DifficultySetting
-  h2  Dwarves(矮人属性)  →  矮人属性 · Dwarves
-  h2  Enemies / EnemiesNoSync(敌人配置[客户端同步/不同步])  →  敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync
-  h2  EscortMule(护送任务)  →  护送任务 · EscortMule
-  h2  MaxPlayers(最多玩家数)  →  最多玩家数 · MaxPlayers
-  h2  Messages(信息)  →  信息 · Messages
-  h2  Name(名称)  →  名称 · Name
+  h2  Description（描述）  →  描述 · Description
+  h2  DifficultySetting（难度设置）  →  难度设置 · DifficultySetting
+  h2  Dwarves（矮人属性）  →  矮人属性 · Dwarves
+  h2  Enemies / EnemiesNoSync（敌人配置[客户端同步/不同步]）  →  敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync
+  h2  EscortMule（护送任务）  →  护送任务 · EscortMule
+  h2  MaxPlayers（最多玩家数）  →  最多玩家数 · MaxPlayers
+  h2  Messages（信息）  →  信息 · Messages
+  h2  Name（名称）  →  名称 · Name
   h2  NextDifficulty（Next难度）  →  Next 难度 · NextDifficulty
-  h2  Pools(怪池)  →  怪池 · Pools
+  h2  Pools（怪池）  →  怪池 · Pools
   h2  Salvage 搜救行动  →  搜救行动 · Salvage
-  h2  SoundCues(声音提示)  →  声音提示 · SoundCues
-  h2  SpecialEncounters(特殊遭遇事件)  →  特殊遭遇事件 · SpecialEncounters
-  h2  Resupply(补给)  →  补给 · Resupply
-  h2  Vars(全局变量池)  →  全局变量池 · Vars
-  h2  Warnings(禁用任务词条)  →  禁用任务词条 · Warnings
+  h2  SoundCues（声音提示）  →  声音提示 · SoundCues
+  h2  SpecialEncounters（特殊遭遇事件）  →  特殊遭遇事件 · SpecialEncounters
+  h2  Resupply（补给）  →  补给 · Resupply
+  h2  Vars（全局变量池）  →  全局变量池 · Vars
+  h2  Warnings（禁用任务词条）  →  禁用任务词条 · Warnings
 
 ── /enemies ──
   h3  Outline special control（轮廓控制）  →  轮廓控制 · Outline special control
-  h3  Elite variants for all enemies(让所有敌人都有精英变种)  →  让所有敌人都有精英变种 · Elite variants for all enemies
-  h3  Veteran control(变种控制)  →  变种控制 · Veteran control
-  h3  Custom materials(自定义材质)  →  自定义材质 · Custom materials
-  h2  Resistances(抗性)  →  抗性 · Resistances
-  h2  Movement(移动)  →  移动 · Movement
-  h2  CaveLeech(水蛭)  →  水蛭 · CaveLeech
-  h2  Grabber(捕手异虫蝇)  →  捕手异虫蝇 · Grabber
-  h2  JellyBreeder(水母)  →  水母 · JellyBreeder
-  h2  Spawner(生成器)  →  生成器 · Spawner
-  h2  Temperature(温度)  →  温度 · Temperature
-  h2  DropResource(资源掉落)  →  资源掉落 · DropResource
-  h2  Goomba(踩踏击杀)  →  踩踏击杀 · Goomba
+  h3  Elite variants for all enemies（让所有敌人都有精英变种）  →  让所有敌人都有精英变种 · Elite variants for all enemies
+  h3  Veteran control（变种控制）  →  变种控制 · Veteran control
+  h3  Custom materials（自定义材质）  →  自定义材质 · Custom materials
+  h2  Resistances（抗性）  →  抗性 · Resistances
+  h2  Movement（移动）  →  移动 · Movement
+  h2  CaveLeech（水蛭）  →  水蛭 · CaveLeech
+  h2  Grabber（捕手异虫蝇）  →  捕手异虫蝇 · Grabber
+  h2  JellyBreeder（水母）  →  水母 · JellyBreeder
+  h2  Spawner（生成器）  →  生成器 · Spawner
+  h2  Temperature（温度）  →  温度 · Temperature
+  h2  DropResource（资源掉落）  →  资源掉落 · DropResource
+  h2  Goomba（踩踏击杀）  →  踩踏击杀 · Goomba
 
 ── /direct ──
   h2  ED_PumpkinLootBug 掠夺虫  →  ED_PumpkinLootBug · 掠夺虫
@@ -144,90 +144,90 @@
   h2  List of EEE projectiles（EEE 追加发射物列表）  →  EEE 追加发射物列表 · List of EEE projectiles
 
 ── /mutators ──
-  h2  Accumulate(累加)  →  累加 · Accumulate
-  h2  Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor(加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整)  →  加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整 · Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor
-  h2  And, Or, Not(与、或、非)  →  与、或、非 · And, Or, Not
-  h2  ByBiome(根据生物群系)  →  根据生物群系 · ByBiome
-  h2  ByDDStage(根据深潜阶段)  →  根据深潜阶段 · ByDDStage
-  h2  ByEscortPhase(根据护送任务阶段)  →  根据护送任务阶段 · ByEscortPhase
-  h2  ByMissionType(根据任务类型)  →  根据任务类型 · ByMissionType
-  h2  BySecondary(根据次要目标)  →  根据次要目标 · BySecondary
-  h2  ByTime(根据时间)  →  根据时间 · ByTime
-  h2  ByPlayerCount(根据玩家数量)  →  根据玩家数量 · ByPlayerCount
-  h2  ByRefineryPhase(根据炼油阶段)  →  根据炼油阶段 · ByRefineryPhase
-  h2  ByResuppliesCalled(根据呼叫补给次数)  →  根据呼叫补给次数 · ByResuppliesCalled
-  h2  BySaboPhase(根据设施破坏阶段)  →  根据设施破坏阶段 · BySaboPhase
-  h2  BySalvagePhase(根据搜救行动阶段)  →  根据搜救行动阶段 · BySalvagePhase
-  h2  Clamp(限制)  →  限制 · Clamp
-  h2  Countdown(倒计时)  →  倒计时 · Countdown
-  h2  DefenseProgress(守点进度)  →  守点进度 · DefenseProgress
-  h2  Delta(变量)  →  变量 · Delta
-  h2  DepositedResource(存放资源)  →  存放资源 · DepositedResource
-  h2  DescriptorExists(描述符是否可用)  →  描述符是否可用 · DescriptorExists
-  h2  DrillerCount(钻机数量检测)  →  钻机数量检测 · DrillerCount
-  h2  DistanceToDroppod(空降舱距离)  →  空降舱距离 · DistanceToDroppod
-  h2  DuringDefend(守点期间)  →  守点期间 · DuringDefend
-  h2  DuringDread(对战无畏异虫期间)  →  对战无畏异虫期间 · DuringDread
-  h2  DuringDrillevator(钻井电梯期间)  →  钻井电梯期间 · DuringDrillevator
-  h2  DuringEggAmbush(蛋潮期间)  →  蛋潮期间 · DuringEggAmbush
-  h2  DuringEncounters(遭遇潮期间)  →  遭遇潮期间 · DuringEncounters
-  h2  DuringExtraction(撤离期间)  →  撤离期间 · DuringExtraction
-  h2  DuringGenericSwarm(宣告潮期间)  →  宣告潮期间 · DuringGenericSwarm
-  h2  DuringMission(任务期间)  →  任务期间 · DuringMission
-  h2  DuringPECountdown(定点提取撤离期间)  →  定点提取撤离期间 · DuringPECountdown
-  h2  DwarfCount(矮人数量)  →  矮人数量 · DwarfCount
-  h2  DwarvesAmmo(团队弹药量比例)  →  团队弹药量比例 · DwarvesAmmo
-  h2  DwarvesDown(倒地矮人数量)  →  倒地矮人数量 · DwarvesDown
-  h2  DwarvesDownTime(倒地时间)  →  倒地时间 · DwarvesDownTime
-  h2  DwarvesDowns(矮人总倒地次数)  →  矮人总倒地次数 · DwarvesDowns
-  h2  DwarvesHealth(团队生命值比例)  →  团队生命值比例 · DwarvesHealth
-  h2  DwarvesRevives(矮人复活次数)  →  矮人复活次数 · DwarvesRevives
-  h2  DwarvesShield(团队护盾值比例)  →  团队护盾值比例 · DwarvesShield
-  h2  ElapsedExtraction(撤离已用时间)  →  撤离已用时间 · ElapsedExtraction
-  h2  EnemiesKilled(已击杀敌人数量)  →  已击杀敌人数量 · EnemiesKilled
-  h2  EnemiesRecentlySpawned(近期生成敌人计数)  →  近期生成敌人计数 · EnemiesRecentlySpawned
-  h2  EnemyCooldown(敌人生成冷却)  →  敌人生成冷却 · EnemyCooldown
-  h2  EnemyHealth(敌人血量比例)  →  敌人血量比例 · EnemyHealth
-  h2  EnemyDistance(敌人距离)  →  敌人距离 · EnemyDistance
-  h2  EnemyCount(当前敌人计数)  →  当前敌人计数 · EnemyCount
-  h2  EngineerCount(工程数量计数)  →  工程数量计数 · EngineerCount
-  h2  Float2String(浮点数转字符串)  →  浮点数转字符串 · Float2String
-  h2  GunnerCount(枪手数量计数)  →  枪手数量计数 · GunnerCount
-  h2  HeldResource(携带资源计数)  →  携带资源计数 · HeldResource
-  h2  IWsLeft(钢铁意志剩余数量)  →  钢铁意志剩余数量 · IWsLeft
-  h2  If(条件判断)  →  条件判断 · If
-  h2  IfFloat(浮点数条件判断)  →  浮点数条件判断 · IfFloat
-  h2  IfOnSpaceRig(是否在太空站)  →  是否在太空站 · IfOnSpaceRig
-  h2  Int2String(整数转字符串)  →  整数转字符串 · Int2String
-  h2  Join(字符串拼接)  →  字符串拼接 · Join
-  h2  LockFloat, LockBoolean, LockString(锁定浮点数、锁定布尔值和锁定字符串)  →  锁定浮点数、锁定布尔值和锁定字符串 · LockFloat, LockBoolean, LockString
-  h2  Max(最大值)  →  最大值 · Max
-  h2  Min(最小值)  →  最小值 · Min
-  h2  MuleDistanceToDroppod(矿骡与空降舱的距离)  →  矿骡与空降舱的距离 · MuleDistanceToDroppod
-  h2  Nonzero(非零判断)  →  非零判断 · Nonzero
-  h2  Random(随机值)  →  随机值 · Random
-  h2  RandomChoice(随机选择)  →  随机选择 · RandomChoice
-  h2  RandomChoicePerMission(每个任务随机选择一次)  →  每个任务随机选择一次 · RandomChoicePerMission
-  h2  ResupplyUsesLeft(补给剩余使用次数)  →  补给剩余使用次数 · ResupplyUsesLeft
-  h2  ResuppliesCalled(已呼叫补给次数)  →  已呼叫补给次数 · ResuppliesCalled
-  h2  ResupplyUsesConsumed(已消耗补给使用次数)  →  已消耗补给使用次数 · ResupplyUsesConsumed
-  h2  SecondaryFinished(根据次要完成情况)  →  根据次要完成情况 · SecondaryFinished
-  h2  ScoutCount(侦察数量计数)  →  侦察数量计数 · ScoutCount
-  h2  Sequence(序列)  →  序列 · Sequence
-  h2  Select(选择)  →  选择 · Select
-  h2  SelectFromArray(从数组选择)  →  从数组选择 · SelectFromArray
-  h2  StopWatch(秒表)  →  秒表 · StopWatch
-  h2  SquareWave(轮切)  →  轮切 · SquareWave
-  h2  TimeDelta(时间变量)  →  时间变量 · TimeDelta
-  h2  TotalResource(资源总量)  →  资源总量 · TotalResource
-  h2  Trigger mutators(触发类Mutator)  →  触发类 Mutator · Trigger mutators
-  h3  TriggerOnce(单次触发)  →  单次触发 · TriggerOnce
-  h3  TriggerNTimes(触发N次)  →  触发 N 次 · TriggerNTimes
-  h3  TriggerSometimes(概率触发)  →  概率触发 · TriggerSometimes
-  h3  TriggerCooldown(冷却触发)  →  冷却触发 · TriggerCooldown
-  h3  TriggerFixedDuration(固定持续时间触发)  →  固定持续时间触发 · TriggerFixedDuration
-  h3  TriggerSustain(持续延长触发)  →  持续延长触发 · TriggerSustain
-  h3  TriggerDelay(延迟触发)  →  延迟触发 · TriggerDelay
-  h3  TriggerOnChange(变化触发)  →  变化触发 · TriggerOnChange
-  h3  TriggerTimer(定时触发)  →  定时触发 · TriggerTimer
-  h3  Trigger examples(触发器示例)  →  触发器示例 · Trigger examples
+  h2  Accumulate（累加）  →  累加 · Accumulate
+  h2  Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor（加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整）  →  加、减、乘、除、幂、取模、四舍五入、向上取整、向下取整 · Add, Subtract, Multiply, Divide, Pow, Modulo, Round, Ceil, Floor
+  h2  And, Or, Not（与、或、非）  →  与、或、非 · And, Or, Not
+  h2  ByBiome（根据生物群系）  →  根据生物群系 · ByBiome
+  h2  ByDDStage（根据深潜阶段）  →  根据深潜阶段 · ByDDStage
+  h2  ByEscortPhase（根据护送任务阶段）  →  根据护送任务阶段 · ByEscortPhase
+  h2  ByMissionType（根据任务类型）  →  根据任务类型 · ByMissionType
+  h2  BySecondary（根据次要目标）  →  根据次要目标 · BySecondary
+  h2  ByTime（根据时间）  →  根据时间 · ByTime
+  h2  ByPlayerCount（根据玩家数量）  →  根据玩家数量 · ByPlayerCount
+  h2  ByRefineryPhase（根据炼油阶段）  →  根据炼油阶段 · ByRefineryPhase
+  h2  ByResuppliesCalled（根据呼叫补给次数）  →  根据呼叫补给次数 · ByResuppliesCalled
+  h2  BySaboPhase（根据设施破坏阶段）  →  根据设施破坏阶段 · BySaboPhase
+  h2  BySalvagePhase（根据搜救行动阶段）  →  根据搜救行动阶段 · BySalvagePhase
+  h2  Clamp（限制）  →  限制 · Clamp
+  h2  Countdown（倒计时）  →  倒计时 · Countdown
+  h2  DefenseProgress（守点进度）  →  守点进度 · DefenseProgress
+  h2  Delta（变量）  →  变量 · Delta
+  h2  DepositedResource（存放资源）  →  存放资源 · DepositedResource
+  h2  DescriptorExists（描述符是否可用）  →  描述符是否可用 · DescriptorExists
+  h2  DrillerCount（钻机数量检测）  →  钻机数量检测 · DrillerCount
+  h2  DistanceToDroppod（空降舱距离）  →  空降舱距离 · DistanceToDroppod
+  h2  DuringDefend（守点期间）  →  守点期间 · DuringDefend
+  h2  DuringDread（对战无畏异虫期间）  →  对战无畏异虫期间 · DuringDread
+  h2  DuringDrillevator（钻井电梯期间）  →  钻井电梯期间 · DuringDrillevator
+  h2  DuringEggAmbush（蛋潮期间）  →  蛋潮期间 · DuringEggAmbush
+  h2  DuringEncounters（遭遇潮期间）  →  遭遇潮期间 · DuringEncounters
+  h2  DuringExtraction（撤离期间）  →  撤离期间 · DuringExtraction
+  h2  DuringGenericSwarm（宣告潮期间）  →  宣告潮期间 · DuringGenericSwarm
+  h2  DuringMission（任务期间）  →  任务期间 · DuringMission
+  h2  DuringPECountdown（定点提取撤离期间）  →  定点提取撤离期间 · DuringPECountdown
+  h2  DwarfCount（矮人数量）  →  矮人数量 · DwarfCount
+  h2  DwarvesAmmo（团队弹药量比例）  →  团队弹药量比例 · DwarvesAmmo
+  h2  DwarvesDown（倒地矮人数量）  →  倒地矮人数量 · DwarvesDown
+  h2  DwarvesDownTime（倒地时间）  →  倒地时间 · DwarvesDownTime
+  h2  DwarvesDowns（矮人总倒地次数）  →  矮人总倒地次数 · DwarvesDowns
+  h2  DwarvesHealth（团队生命值比例）  →  团队生命值比例 · DwarvesHealth
+  h2  DwarvesRevives（矮人复活次数）  →  矮人复活次数 · DwarvesRevives
+  h2  DwarvesShield（团队护盾值比例）  →  团队护盾值比例 · DwarvesShield
+  h2  ElapsedExtraction（撤离已用时间）  →  撤离已用时间 · ElapsedExtraction
+  h2  EnemiesKilled（已击杀敌人数量）  →  已击杀敌人数量 · EnemiesKilled
+  h2  EnemiesRecentlySpawned（近期生成敌人计数）  →  近期生成敌人计数 · EnemiesRecentlySpawned
+  h2  EnemyCooldown（敌人生成冷却）  →  敌人生成冷却 · EnemyCooldown
+  h2  EnemyHealth（敌人血量比例）  →  敌人血量比例 · EnemyHealth
+  h2  EnemyDistance（敌人距离）  →  敌人距离 · EnemyDistance
+  h2  EnemyCount（当前敌人计数）  →  当前敌人计数 · EnemyCount
+  h2  EngineerCount（工程数量计数）  →  工程数量计数 · EngineerCount
+  h2  Float2String（浮点数转字符串）  →  浮点数转字符串 · Float2String
+  h2  GunnerCount（枪手数量计数）  →  枪手数量计数 · GunnerCount
+  h2  HeldResource（携带资源计数）  →  携带资源计数 · HeldResource
+  h2  IWsLeft（钢铁意志剩余数量）  →  钢铁意志剩余数量 · IWsLeft
+  h2  If（条件判断）  →  条件判断 · If
+  h2  IfFloat（浮点数条件判断）  →  浮点数条件判断 · IfFloat
+  h2  IfOnSpaceRig（是否在太空站）  →  是否在太空站 · IfOnSpaceRig
+  h2  Int2String（整数转字符串）  →  整数转字符串 · Int2String
+  h2  Join（字符串拼接）  →  字符串拼接 · Join
+  h2  LockFloat, LockBoolean, LockString（锁定浮点数、锁定布尔值和锁定字符串）  →  锁定浮点数、锁定布尔值和锁定字符串 · LockFloat, LockBoolean, LockString
+  h2  Max（最大值）  →  最大值 · Max
+  h2  Min（最小值）  →  最小值 · Min
+  h2  MuleDistanceToDroppod（矿骡与空降舱的距离）  →  矿骡与空降舱的距离 · MuleDistanceToDroppod
+  h2  Nonzero（非零判断）  →  非零判断 · Nonzero
+  h2  Random（随机值）  →  随机值 · Random
+  h2  RandomChoice（随机选择）  →  随机选择 · RandomChoice
+  h2  RandomChoicePerMission（每个任务随机选择一次）  →  每个任务随机选择一次 · RandomChoicePerMission
+  h2  ResupplyUsesLeft（补给剩余使用次数）  →  补给剩余使用次数 · ResupplyUsesLeft
+  h2  ResuppliesCalled（已呼叫补给次数）  →  已呼叫补给次数 · ResuppliesCalled
+  h2  ResupplyUsesConsumed（已消耗补给使用次数）  →  已消耗补给使用次数 · ResupplyUsesConsumed
+  h2  SecondaryFinished（根据次要完成情况）  →  根据次要完成情况 · SecondaryFinished
+  h2  ScoutCount（侦察数量计数）  →  侦察数量计数 · ScoutCount
+  h2  Sequence（序列）  →  序列 · Sequence
+  h2  Select（选择）  →  选择 · Select
+  h2  SelectFromArray（从数组选择）  →  从数组选择 · SelectFromArray
+  h2  StopWatch（秒表）  →  秒表 · StopWatch
+  h2  SquareWave（轮切）  →  轮切 · SquareWave
+  h2  TimeDelta（时间变量）  →  时间变量 · TimeDelta
+  h2  TotalResource（资源总量）  →  资源总量 · TotalResource
+  h2  Trigger mutators（触发类Mutator）  →  触发类 Mutator · Trigger mutators
+  h3  TriggerOnce（单次触发）  →  单次触发 · TriggerOnce
+  h3  TriggerNTimes（触发N次）  →  触发 N 次 · TriggerNTimes
+  h3  TriggerSometimes（概率触发）  →  概率触发 · TriggerSometimes
+  h3  TriggerCooldown（冷却触发）  →  冷却触发 · TriggerCooldown
+  h3  TriggerFixedDuration（固定持续时间触发）  →  固定持续时间触发 · TriggerFixedDuration
+  h3  TriggerSustain（持续延长触发）  →  持续延长触发 · TriggerSustain
+  h3  TriggerDelay（延迟触发）  →  延迟触发 · TriggerDelay
+  h3  TriggerOnChange（变化触发）  →  变化触发 · TriggerOnChange
+  h3  TriggerTimer（定时触发）  →  定时触发 · TriggerTimer
+  h3  Trigger examples（触发器示例）  →  触发器示例 · Trigger examples

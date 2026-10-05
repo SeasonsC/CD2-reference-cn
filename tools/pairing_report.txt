@@ -37,19 +37,19 @@
 [li] EN: 2-Dec-2025: Update for CD2-v17: added the Vars module, the Alert field on wavespawners, 
       ZH: 2025-12-2,CD2-v17:新增 Vars 模块，在 Wavespawners 中加入 Alert 字段；并新增以下Mutators: DroppodDistance 
 [li] EN: 11-Dec-2025: Added the Common Edits section, changed theme to material.
-      ZH: 2025-12-11:新增 Common Edits 章节,并将参考文档主题样式更改为 Material 风格【翻译版未更改】
+      ZH: 2025-12-11:新增 Common Edits 章节，并将参考文档主题样式更改为 Material 风格【翻译版未更改】
 [li] EN: 8-Mar-2026: Update for CD2-v18: added the StopWatch, TriggerTimer, Sequence and SelectFr
       ZH: 2026-2-8:新增以下 Mutators:Sequence、StopWatch、TriggerTimer、SelectFromArray;Enemies部分添加 DropR
 [p] EN: This document serves as a reference for Custom Difficulty 2, a mod for Deep Rock Galacti
       ZH: 本文档是《深岩银河》模组 Custom Difficulty 2（CD2） 的参考指南，它允许你创建新的难度。CD2 由@TheBrain 开发，作为 Custom Diffi
 [li] EN: Q: Where can I get the mod?
-      ZH: 问：我在那里可以获得这个模组？
+      ZH: 问：我在哪里可以获得这个模组？
 [li] EN: A: The mod right now is in open beta and the .pak file can be found in the Practical DRG
-      ZH: 答:该模组目前处于公开测试阶段,pak 文件可在 Practical DRG 的 Discord 服务器中获取，推荐使用 Mod Integration Loader来加载模组
+      ZH: 答：该模组目前处于公开测试阶段，pak 文件可在 Practical DRG 的 Discord 服务器中获取，推荐使用 Mod Integration Loader来加载模组
 [li] EN: Q: Can I use this at the same time as CD1?
-      ZH: 问:我能同时使用CD1和CD2吗?
+      ZH: 问：我能同时使用CD1和CD2吗？
 [li] EN: A: No. Only enable one CD version at a time. If you want to join CD1 lobbies while havin
-      ZH: 答:不可以。一次只能启用一个 CD 版本,如果你在启用 CD2 的情况下加入使用 CD1 的房间，并希望避免补给硝石消耗不同步的问题，可以使用 PDRG 内提供的 cd1-cl
+      ZH: 答：不可以。一次只能启用一个 CD 版本，如果你在启用 CD2 的情况下加入使用 CD1 的房间，并希望避免补给硝石消耗不同步的问题，可以使用 PDRG 内提供的 cd1-cl
 
 英文单飞段（无中文对应，共 7 段，全部列出）
 ==========================================================================================
