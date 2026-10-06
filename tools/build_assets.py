@@ -48,7 +48,10 @@ def main():
         raw = io.open(sp, encoding='utf-8').read()
         out = strip_css(raw) if kind == 'css' else strip_js(raw)
         os.makedirs(os.path.dirname(dp), exist_ok=True)
-        io.open(dp, 'w', encoding='utf-8').write(out)
+        # 统一按 LF 落盘：默认的 open(...,'w') 在 Windows 上会把 '\n' 再翻一次，
+        # 与内容里已有的 CRLF 叠成 '\r\r\n'（落单 CR），会让 git 判定成二进制。
+        io.open(dp, 'w', encoding='utf-8', newline='').write(
+            out.replace('\r\n', '\n').replace('\r', '\n'))
         b0, b1 = len(raw.encode('utf-8')), len(out.encode('utf-8'))
         rows.append((name, f'{b0:,}', f'{b1:,}', f'-{100 - b1 * 100 // b0}%'))
     # 图标等静态图片：原样拷贝（src/img → docs/assets/img）

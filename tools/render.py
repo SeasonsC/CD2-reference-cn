@@ -631,6 +631,18 @@ def notfound_page():
 
 
 # ── 主流程 ──────────────────────────────────────────────────────────────
+def wtext(path, s):
+    """统一按 LF 落盘。
+
+    内容里可能已经带 CRLF（来自上游 HTML / 切片）。若用默认的 open(..., 'w')
+    去写，Windows 会把每个 '\\n' 再翻成 '\\r\\n'，于是出现 '\\r\\r\\n' ——
+    这种**落单的 CR** 会让 git 把整个文件判定成二进制（i/-text），从此
+    它的 diff 在版本历史里完全看不见。所以这里先归一，再用 newline='' 写。
+    """
+    s = s.replace('\r\n', '\n').replace('\r', '\n')
+    io.open(path, 'w', encoding='utf-8', newline='').write(s)
+
+
 def write_sitemap(nav):
     rows = []
     for n in nav:
@@ -639,10 +651,10 @@ def write_sitemap(nav):
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
            + '\n'.join(rows) + '\n</urlset>\n')
-    io.open(os.path.join(SITE, 'sitemap.xml'), 'w', encoding='utf-8').write(xml)
-    io.open(os.path.join(SITE, 'robots.txt'), 'w', encoding='utf-8').write(
-        'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE_URL)
-    io.open(os.path.join(SITE, '.nojekyll'), 'w', encoding='utf-8').write('')
+    wtext(os.path.join(SITE, 'sitemap.xml'), xml)
+    wtext(os.path.join(SITE, 'robots.txt'),
+          'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % SITE_URL)
+    wtext(os.path.join(SITE, '.nojekyll'), '')
 
 
 def main():
@@ -678,26 +690,24 @@ def main():
         d = os.path.join(SITE, slug)
         os.makedirs(d, exist_ok=True)
         out = strip_dead_links(content_page(p, nav))
-        io.open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
+        wtext(os.path.join(d, 'index.html'), out)
         rows.append((slug, len(out), len(p['blocks'])))
 
-    io.open(os.path.join(SITE, 'index.html'), 'w', encoding='utf-8').write(
-        strip_dead_links(home_page(nav, pages)))
+    wtext(os.path.join(SITE, 'index.html'),
+          strip_dead_links(home_page(nav, pages)))
     d = os.path.join(SITE, 'toc')
     os.makedirs(d, exist_ok=True)
     out = strip_dead_links(toc_page(nav, pages))
-    io.open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
+    wtext(os.path.join(d, 'index.html'), out)
     rows.append(('toc', len(out), 0))
-    io.open(os.path.join(SITE, '404.html'), 'w', encoding='utf-8').write(
-        strip_dead_links(notfound_page()))
+    wtext(os.path.join(SITE, '404.html'), strip_dead_links(notfound_page()))
     idx = io.open(os.path.join(BUILD, 'search-index.json'), encoding='utf-8').read()
-    io.open(os.path.join(SITE, 'search-index.json'), 'w', encoding='utf-8').write(idx)
+    wtext(os.path.join(SITE, 'search-index.json'), idx)
     write_sitemap(nav)
 
     L = ['%-14s %10s %8s' % ('slug', 'HTML字节', '区块数'), '-' * 36]
     L += ['%-14s %10s %8s' % (a, f'{b:,}', c) for a, b, c in rows]
-    io.open(os.path.join(ROOT, 'tools', 'render_report.txt'), 'w',
-            encoding='utf-8').write('\n'.join(L))
+    wtext(os.path.join(ROOT, 'tools', 'render_report.txt'), '\n'.join(L))
     print('\n'.join(L))
     print('\nindex.html + 404.html + sitemap.xml + robots.txt + .nojekyll + %d 个内容页' % len(rows))
 

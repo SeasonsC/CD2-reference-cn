@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/enemies/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=72d8b7d9">
+<link rel="stylesheet" href="../assets/css/site.css?v=fb353816">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -48,279 +48,279 @@
 <p>要查看哪些功能需要使用  <code>Enemies</code>    模块的，请参考@Spy 提供的以下指南：《<a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa" target="_blank" rel="noopener">On Pubbing With CD2</a>》。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>To see which features require the <code>Enemies</code> module, please check the following guide by @Spy: <a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa" target="_blank" rel="noopener">On Pubbing With CD2</a>.</p></div></details>
 <h2 id="descriptor-controls">Descriptor controls</h2>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CanBeUsedForConstantPressure</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>CanBeUsedInEncounters</td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>CustomVeterans<br><span class="td-zh">自定义变种</span></td>
-<td>See <code>Veteran control</code> below.</td>
-</tr>
-<tr>
-<td>DifficultyRating</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>MaxSpawnCount</td>
-<td>Int</td>
-</tr>
-<tr>
-<td>MinSpawnCount</td>
-<td>Int</td>
-</tr>
-<tr>
-<td>Rarity</td>
-<td>Float</td>
-</tr>
-<tr>
-<td>Significance</td>
-<td>String, takes ("Swarmer", "Normal", "Critical", "Critter")</td>
-</tr>
-<tr>
-<td>SpawnAmountModifier<br><span class="td-zh">生出数量修正因子</span></td>
-<td>Float</td>
-</tr>
-<tr>
-<td>SpawnRarityModifiers<br><span class="td-zh">生成稀有度修正因子</span></td>
-<td>*</td>
-</tr>
-<tr>
-<td>SpawnSpread<br><span class="td-zh">生成分布</span></td>
-<td>Float</td>
-</tr>
-<tr>
-<td>UsesSpawnRarityModifiers<br><span class="td-zh">是否使用生成稀有度修正因子</span></td>
-<td>Boolean</td>
-</tr>
-<tr>
-<td>UsesVeteranLarge<br><span class="td-zh">是否使用大型敌人的变异率</span></td>
-<td>See <code>Veteran control</code> below.</td>
-</tr>
-<tr>
-<td>VeteranClasses<br><span class="td-zh">变种分类</span></td>
-<td>See <code>Veteran control</code> below.</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CanBeUsedForConstantPressure</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>CanBeUsedInEncounters</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>CustomVeterans<br><span class="td-zh">自定义变种</span></td>
+<td>See <code>Veteran control</code> below.</td>
+</tr>
+<tr>
+<td>DifficultyRating</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>MaxSpawnCount</td>
+<td>Int</td>
+</tr>
+<tr>
+<td>MinSpawnCount</td>
+<td>Int</td>
+</tr>
+<tr>
+<td>Rarity</td>
+<td>Float</td>
+</tr>
+<tr>
+<td>Significance</td>
+<td>String, takes ("Swarmer", "Normal", "Critical", "Critter")</td>
+</tr>
+<tr>
+<td>SpawnAmountModifier<br><span class="td-zh">生出数量修正因子</span></td>
+<td>Float</td>
+</tr>
+<tr>
+<td>SpawnRarityModifiers<br><span class="td-zh">生成稀有度修正因子</span></td>
+<td>*</td>
+</tr>
+<tr>
+<td>SpawnSpread<br><span class="td-zh">生成分布</span></td>
+<td>Float</td>
+</tr>
+<tr>
+<td>UsesSpawnRarityModifiers<br><span class="td-zh">是否使用生成稀有度修正因子</span></td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td>UsesVeteranLarge<br><span class="td-zh">是否使用大型敌人的变异率</span></td>
+<td>See <code>Veteran control</code> below.</td>
+</tr>
+<tr>
+<td>VeteranClasses<br><span class="td-zh">变种分类</span></td>
+<td>See <code>Veteran control</code> below.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="enemy-controls">Enemy controls</h2>
 <p>[[]]内的字段是特殊的子模块，可以在以下部分找到。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Fields inside [[]] are special submodules that can be found in the sections that follow.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alert<br><span class="td-zh">敌人是否为警戒状态</span></td>
-<td>Boolean</td>
-<td>If True, the enemy will spawn aggroed to the player. It is True by default in enemies spawned by a <a href="../wavespawners/">wave spawner</a>.</td>
-</tr>
-<tr>
-<td>AttackDamageMultiplier<br><span class="td-zh">敌人伤害倍率（包括近战/远程）</span></td>
-<td>Float</td>
-<td>Multiplies an enemy's melee and projectile damage. Can be used with EnemiesNoSync.</td>
-</tr>
-<tr>
-<td>Base</td>
-<td>ED</td>
-<td>The enemy will have the specified ED as base. Check the table in <a href="../resources/">Resources</a> for the vanilla descriptors.</td>
-</tr>
-<tr>
-<td>CanPlayerStandOn<br><span class="td-zh">敌人是否允许玩家站立</span></td>
-<td>Boolean</td>
-<td></td>
-
-</tr>
-<tr>
-<td>CaveLeech<br><span class="td-zh">水蛭</span></td>
-<td>[[CaveLeech]]</td>
-<td>See the <code>CaveLeech</code> module below for special Cave Leech controls.</td>
-
-</tr>
-<tr>
-<td>Courage<br><span class="td-zh">勇气值（恐惧抗性）[恐惧值 * （1-勇气值）= 恐惧概率]</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-<tr>
-<td>Direct<br><span class="td-zh">底层属性</span></td>
-<td>[Int, Float, Bool, Pcol]</td>
-<td>Special control that can expose enemy properties (see example below).</td>
-</tr>
-<tr>
-<td>DisplayName<br><span class="td-zh">命名</span></td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td>Elite<br><span class="td-zh">是否精英</span></td>
-<td>Float | Bool</td>
-<td>This field accepts a float number indicating the percentage of Elite enemies that will spawn for that descriptor.</td>
-</tr>
-<tr>
-<td>EnemyHealthScaling<br><span class="td-zh">敌人血量倍率</span></td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td>ForceEliteBase<br><span class="td-zh">强制精英（需要一个本来能精英的 ED）</span></td>
-<td>ED</td>
-<td>See <code>Elite variants for all enemies</code> below.</td>
-</tr>
-<tr>
-<td>Grabber<br><span class="td-zh">捕手异虫蝇</span></td>
-<td>[[Grabber]]</td>
-<td>See the <code>Grabber</code> module below for special Grabber controls.</td>
-</tr>
-<tr>
-<td>IsBossFight<br><span class="td-zh">是否为 boss 战</span></td>
-<td>Boolean</td>
-<td>If True, the enemy will have a boss bar in the player UI similar to the vanilla dreadnoughts. The name in the bar will be the descriptor's <code>DisplayName</code>.</td>
-</tr>
-<tr>
-<td>JellyBreeder<br><span class="td-zh">水母饲育控制</span></td>
-<td>[[JellyBreeder]]</td>
-<td>See the <code>JellyBreeder</code> module below for special breeder controls.</td>
-</tr>
-<tr>
-<td>Heal</td>
-<td>Float</td>
-<td>A positive number <code>N</code> will heal the enemy <code>N</code> hps. A negative number will do <code>N</code> dps to the enemy. This control has an advanced mode specified below.</td>
-</tr>
-<tr>
-<td>HealthMultiplier<br><span class="td-zh">血量倍率</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-<tr>
-<td>HealthRaw<br><span class="td-zh">血量</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-<tr>
-<td>Materials<br><span class="td-zh">材质</span></td>
-<td>[[Materials]]</td>
-<td>A list of UE4 materials that will be applied to different parts of the enemy. Each enemy is different with regard to how many materials will it accept and how will they be applied, so trial and error is usually needed to get the expected results.</td>
-</tr>
-<tr>
-<td>MEV</td>
-<td>Special</td>
-<td></td>
-</tr>
-<tr>
-<td>Movement<br><span class="td-zh">移动</span></td>
-<td>[[Movement]]</td>
-<td>See the <code>Movement</code> submodule below.</td>
-</tr>
-<tr>
-<td>NoSpawnWithin ……<br><span class="td-zh">范围内不生成</span></td>
-<td>Float</td>
-<td>Removes enemies that spawn within the specified distance of the player, in cm.</td>
-</tr>
-<tr>
-<td>Outline<br><span class="td-zh">轮廓</span></td>
-<td>[[Outline]]</td>
-<td>Allows setting a permanent outline (as if someone had pinged) to an enemy. See below in the outline section for the options.</td>
-</tr>
-<tr>
-<td>Projectile<br><span class="td-zh">发射物</span></td>
-<td>[[Projectile]]</td>
-<td>See <a href="../projectiles/">Projectiles</a>.</td>
-</tr>
-<tr>
-<td>PST_CritBonusDamage<br><span class="td-zh">暴击伤害加成倍率</span></td>
-<td>Int</td>
-<td>Multiplies the normal damage in case of a Critical Hit (see <code>PST_CritBonusDamage</code> below). Default of 1.2 (20% bonus).</td>
-</tr>
-<tr>
-<td>PST_CritChance<br><span class="td-zh">暴击概率</span></td>
-<td>Int</td>
-<td>Chance of both bugs dealing Critical Damage to players or the other way around (no way to have only one direction). Defaults to 0 (0% chance).</td>
-</tr>
-<tr>
-<td>PST_DamageFromPlayers<br><span class="td-zh">玩家伤害调整</span></td>
-<td>Int</td>
-<td>Multiplies all damage sources considered to be from players (including things like temperature shock damage). Defaults to 1.</td>
-</tr>
-<tr>
-<td>PST_ExplodeOnDeath<br><span class="td-zh">效果为易爆内脏</span></td>
-<td>Int</td>
-<td>When the enemy dies it explodes as if it was a Volatile Bugs mission.</td>
-</tr>
-<tr>
-<td>PST_MovementSpeed</td>
-<td>Int</td>
-<td>Modifies enemy speed. This is a legacy pawn stat. See the <code>Movement</code> module below for a more customizable module new in CD2.</td>
-</tr>
-<tr>
-<td>Resistances<br><span class="td-zh">抗性</span></td>
-<td>[[Resistances]]</td>
-<td>See the <code>Resistances</code> submodule below.</td>
-</tr>
-<tr>
-<td>Scale<br><span class="td-zh">尺寸比例</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-<tr>
-<td>Spawner</td>
-<td>[[Spawner]]</td>
-<td>See <code>Spawners</code> below.</td>
-</tr>
-<tr>
-<td>ShowHealthBar<br><span class="td-zh">血条显示</span></td>
-<td>Boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>StaggerImmunityWindow<br><span class="td-zh">免疫眩晕时间</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-<tr>
-<td>StaggerDurationMultiplier<br><span class="td-zh">眩晕持续时间倍率</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-<tr>
-<td>Temperature<br><span class="td-zh">温度</span></td>
-<td>[[Temperature]]</td>
-<td>See the <code>Temperature</code> submodule below.</td>
-</tr>
-<tr>
-<td>TimeDilation</td>
-<td>Float</td>
-<td>Speeds up the enemy's attack and movement. Please note that time-dilating enemies can be a source of desync.</td>
-</tr>
-<tr>
-<td>UsesBiomeVariants<br><span class="td-zh">是否使用群系变种</span></td>
-<td>Boolean</td>
-<td>Enables/disables the biome variants of enemies (eg. Frost Praetorian in Glacial Strata).</td>
-</tr>
-<tr>
-<td>WeakpointHP<br><span class="td-zh">弱点血量</span></td>
-<td>Float</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alert<br><span class="td-zh">敌人是否为警戒状态</span></td>
+<td>Boolean</td>
+<td>If True, the enemy will spawn aggroed to the player. It is True by default in enemies spawned by a <a href="../wavespawners/">wave spawner</a>.</td>
+</tr>
+<tr>
+<td>AttackDamageMultiplier<br><span class="td-zh">敌人伤害倍率（包括近战/远程）</span></td>
+<td>Float</td>
+<td>Multiplies an enemy's melee and projectile damage. Can be used with EnemiesNoSync.</td>
+</tr>
+<tr>
+<td>Base</td>
+<td>ED</td>
+<td>The enemy will have the specified ED as base. Check the table in <a href="../resources/">Resources</a> for the vanilla descriptors.</td>
+</tr>
+<tr>
+<td>CanPlayerStandOn<br><span class="td-zh">敌人是否允许玩家站立</span></td>
+<td>Boolean</td>
+<td></td>
+
+</tr>
+<tr>
+<td>CaveLeech<br><span class="td-zh">水蛭</span></td>
+<td>[[CaveLeech]]</td>
+<td>See the <code>CaveLeech</code> module below for special Cave Leech controls.</td>
+
+</tr>
+<tr>
+<td>Courage<br><span class="td-zh">勇气值（恐惧抗性）[恐惧值 * （1-勇气值）= 恐惧概率]</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td>Direct<br><span class="td-zh">底层属性</span></td>
+<td>[Int, Float, Bool, Pcol]</td>
+<td>Special control that can expose enemy properties (see example below).</td>
+</tr>
+<tr>
+<td>DisplayName<br><span class="td-zh">命名</span></td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>Elite<br><span class="td-zh">是否精英</span></td>
+<td>Float | Bool</td>
+<td>This field accepts a float number indicating the percentage of Elite enemies that will spawn for that descriptor.</td>
+</tr>
+<tr>
+<td>EnemyHealthScaling<br><span class="td-zh">敌人血量倍率</span></td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>ForceEliteBase<br><span class="td-zh">强制精英（需要一个本来能精英的 ED）</span></td>
+<td>ED</td>
+<td>See <code>Elite variants for all enemies</code> below.</td>
+</tr>
+<tr>
+<td>Grabber<br><span class="td-zh">捕手异虫蝇</span></td>
+<td>[[Grabber]]</td>
+<td>See the <code>Grabber</code> module below for special Grabber controls.</td>
+</tr>
+<tr>
+<td>IsBossFight<br><span class="td-zh">是否为 boss 战</span></td>
+<td>Boolean</td>
+<td>If True, the enemy will have a boss bar in the player UI similar to the vanilla dreadnoughts. The name in the bar will be the descriptor's <code>DisplayName</code>.</td>
+</tr>
+<tr>
+<td>JellyBreeder<br><span class="td-zh">水母饲育控制</span></td>
+<td>[[JellyBreeder]]</td>
+<td>See the <code>JellyBreeder</code> module below for special breeder controls.</td>
+</tr>
+<tr>
+<td>Heal</td>
+<td>Float</td>
+<td>A positive number <code>N</code> will heal the enemy <code>N</code> hps. A negative number will do <code>N</code> dps to the enemy. This control has an advanced mode specified below.</td>
+</tr>
+<tr>
+<td>HealthMultiplier<br><span class="td-zh">血量倍率</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td>HealthRaw<br><span class="td-zh">血量</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td>Materials<br><span class="td-zh">材质</span></td>
+<td>[[Materials]]</td>
+<td>A list of UE4 materials that will be applied to different parts of the enemy. Each enemy is different with regard to how many materials will it accept and how will they be applied, so trial and error is usually needed to get the expected results.</td>
+</tr>
+<tr>
+<td>MEV</td>
+<td>Special</td>
+<td></td>
+</tr>
+<tr>
+<td>Movement<br><span class="td-zh">移动</span></td>
+<td>[[Movement]]</td>
+<td>See the <code>Movement</code> submodule below.</td>
+</tr>
+<tr>
+<td>NoSpawnWithin ……<br><span class="td-zh">范围内不生成</span></td>
+<td>Float</td>
+<td>Removes enemies that spawn within the specified distance of the player, in cm.</td>
+</tr>
+<tr>
+<td>Outline<br><span class="td-zh">轮廓</span></td>
+<td>[[Outline]]</td>
+<td>Allows setting a permanent outline (as if someone had pinged) to an enemy. See below in the outline section for the options.</td>
+</tr>
+<tr>
+<td>Projectile<br><span class="td-zh">发射物</span></td>
+<td>[[Projectile]]</td>
+<td>See <a href="../projectiles/">Projectiles</a>.</td>
+</tr>
+<tr>
+<td>PST_CritBonusDamage<br><span class="td-zh">暴击伤害加成倍率</span></td>
+<td>Int</td>
+<td>Multiplies the normal damage in case of a Critical Hit (see <code>PST_CritBonusDamage</code> below). Default of 1.2 (20% bonus).</td>
+</tr>
+<tr>
+<td>PST_CritChance<br><span class="td-zh">暴击概率</span></td>
+<td>Int</td>
+<td>Chance of both bugs dealing Critical Damage to players or the other way around (no way to have only one direction). Defaults to 0 (0% chance).</td>
+</tr>
+<tr>
+<td>PST_DamageFromPlayers<br><span class="td-zh">玩家伤害调整</span></td>
+<td>Int</td>
+<td>Multiplies all damage sources considered to be from players (including things like temperature shock damage). Defaults to 1.</td>
+</tr>
+<tr>
+<td>PST_ExplodeOnDeath<br><span class="td-zh">效果为易爆内脏</span></td>
+<td>Int</td>
+<td>When the enemy dies it explodes as if it was a Volatile Bugs mission.</td>
+</tr>
+<tr>
+<td>PST_MovementSpeed</td>
+<td>Int</td>
+<td>Modifies enemy speed. This is a legacy pawn stat. See the <code>Movement</code> module below for a more customizable module new in CD2.</td>
+</tr>
+<tr>
+<td>Resistances<br><span class="td-zh">抗性</span></td>
+<td>[[Resistances]]</td>
+<td>See the <code>Resistances</code> submodule below.</td>
+</tr>
+<tr>
+<td>Scale<br><span class="td-zh">尺寸比例</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td>Spawner</td>
+<td>[[Spawner]]</td>
+<td>See <code>Spawners</code> below.</td>
+</tr>
+<tr>
+<td>ShowHealthBar<br><span class="td-zh">血条显示</span></td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>StaggerImmunityWindow<br><span class="td-zh">免疫眩晕时间</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td>StaggerDurationMultiplier<br><span class="td-zh">眩晕持续时间倍率</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+<tr>
+<td>Temperature<br><span class="td-zh">温度</span></td>
+<td>[[Temperature]]</td>
+<td>See the <code>Temperature</code> submodule below.</td>
+</tr>
+<tr>
+<td>TimeDilation</td>
+<td>Float</td>
+<td>Speeds up the enemy's attack and movement. Please note that time-dilating enemies can be a source of desync.</td>
+</tr>
+<tr>
+<td>UsesBiomeVariants<br><span class="td-zh">是否使用群系变种</span></td>
+<td>Boolean</td>
+<td>Enables/disables the biome variants of enemies (eg. Frost Praetorian in Glacial Strata).</td>
+</tr>
+<tr>
+<td>WeakpointHP<br><span class="td-zh">弱点血量</span></td>
+<td>Float</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 <h3 id="heal-advanced-mode">Heal advanced mode</h3>
 <p><code>Heal</code>   模块可以接受以下高级设置：</p>
@@ -342,7 +342,7 @@
 }</code></pre></div>
 <h3 id="direct-special-control">Direct special control 特殊控制</h3>
 <p><code>Direct</code>   允许直接更改 UE4 中定义的敌人属性。许多 CD2 未直接开放的属性可以通过 <code>Direct</code>   进行更改，比如：</p>
-<details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Direct</code> allows to directly change enemy properties as defined in UE4. Many properties that are not directly exposed
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Direct</code> allows to directly change enemy properties as defined in UE4. Many properties that are not directly exposed
 by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
     &quot;Direct&quot;: {
@@ -448,402 +448,402 @@ by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
         }
     }
 }</code></pre></div>
-<figure>
-  <img loading="lazy" alt="CD2modhub" src="../assets/media/orange-septic.webp" width="677" height="599">
-</figure>
+<figure>
+  <img loading="lazy" alt="CD2modhub" src="../assets/media/orange-septic.webp" width="677" height="599">
+</figure>
 
 <p>每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在<a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">沙盒工具</a>中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../assets/media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用<code>""</code>或 <code>Default</code>   都可以。</p>
-<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in <a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">Sandbox Utilities</a> and changing them, and you will be able to see the change in real time. This procedure is explained in <a href="../assets/media/Materials-1.pdf">this document</a> by @TheBrain.
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in <a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">Sandbox Utilities</a> and changing them, and you will be able to see the change in real time. This procedure is explained in <a href="../assets/media/Materials-1.pdf">this document</a> by @TheBrain.
 If you wish to leave a slot with the default material, both <code>""</code> and <code>Default</code> work.</p></div></details>
 <h2 id="resistances">抗性 · Resistances</h2>
 <p>Resistances 模块的字段，这些控制项可以用来定义敌人对所有类型伤害的抗性，<code>DamageMultiplier</code>    是适用于所有伤害类型的通用设置。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Fields for the resistances submodule. These controls can be used to define resistances to all types of damage in the game. <code>DamageMultiplier</code> is the catch-all for all damage types.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th class="tc">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>InvulnerableToNonDefinedResistances<br><span class="td-zh">免疫未定义的伤害类型</span></td>
-<td class="tc">Boolean</td>
-</tr>
-<tr>
-<td>DamageMultiplier<br><span class="td-zh">受到的所有类型伤害的倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>FireDamageMultiplier<br><span class="td-zh">火伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>CorrosiveDamageMultiplier<br><span class="td-zh">腐蚀伤害倍率（典型的如：泥枪）</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>ElectricDamageMultiplier<br><span class="td-zh">电伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>ColdDamageMultiplier<br><span class="td-zh">冰伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>KineticDamageMultiplier<br><span class="td-zh">动能伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>PhysicalDamageMultiplier<br><span class="td-zh">物理伤害倍率（近战）</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>ExplosionDamageMultiplier<br><span class="td-zh">爆炸伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>InternalDamageMultiplier<br><span class="td-zh">内部伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>RadiationDamageMultiplier<br><span class="td-zh">辐射伤害倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>PoisonDamageMultiplier<br><span class="td-zh">毒伤害倍率（典型的如：屁雷）</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>PiercingDamageMultiplier<br><span class="td-zh">穿刺伤害倍率（典型的如：弩）</span></td>
-<td class="tc">Float</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th class="tc">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InvulnerableToNonDefinedResistances<br><span class="td-zh">免疫未定义的伤害类型</span></td>
+<td class="tc">Boolean</td>
+</tr>
+<tr>
+<td>DamageMultiplier<br><span class="td-zh">受到的所有类型伤害的倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>FireDamageMultiplier<br><span class="td-zh">火伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>CorrosiveDamageMultiplier<br><span class="td-zh">腐蚀伤害倍率（典型的如：泥枪）</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>ElectricDamageMultiplier<br><span class="td-zh">电伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>ColdDamageMultiplier<br><span class="td-zh">冰伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>KineticDamageMultiplier<br><span class="td-zh">动能伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>PhysicalDamageMultiplier<br><span class="td-zh">物理伤害倍率（近战）</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>ExplosionDamageMultiplier<br><span class="td-zh">爆炸伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>InternalDamageMultiplier<br><span class="td-zh">内部伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>RadiationDamageMultiplier<br><span class="td-zh">辐射伤害倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>PoisonDamageMultiplier<br><span class="td-zh">毒伤害倍率（典型的如：屁雷）</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>PiercingDamageMultiplier<br><span class="td-zh">穿刺伤害倍率（典型的如：弩）</span></td>
+<td class="tc">Float</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="movement">移动 · Movement</h2>
 <p>以下值均为倍率，默认值为 1。描述由 @emctwo 提供。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following values are all multipliers with defaults of 1. The following descriptions are provided by @emctwo. </p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MaxPawnSpeed<br><span class="td-zh">最大速度</span></td>
-<td>Float</td>
-<td>Multiplies the maximum speed of the enemy.</td>
-</tr>
-<tr>
-<td>StrafeSpeed<br><span class="td-zh">侧移速度</span></td>
-<td>Float</td>
-<td>Multiplies enemy speed when strafing (enemy movement changes to strafe when they are close to a player).</td>
-</tr>
-<tr>
-<td>MinSlowdownAngle<br><span class="td-zh">最小转向减速角度</span></td>
-<td>Float</td>
-<td>When enemies turn they tend to slow down; this field multiplies the minimum angle for the speed change.</td>
-</tr>
-<tr>
-<td>MaxSlowdownAngle<br><span class="td-zh">最大转向减速角度</span></td>
-<td>Float</td>
-<td>When enemies turn they tend to slow down; this field multiplies the maximum angle for the speed change.</td>
-</tr>
-<tr>
-<td>MaxStrafeDistance<br><span class="td-zh">最大侧移起始距离</span></td>
-<td>Float</td>
-<td>The distance to a player where the enemy starts to strafe.</td>
-</tr>
-<tr>
-<td>AlignDirectionSpeed<br><span class="td-zh">转向速度</span></td>
-<td>Float</td>
-<td>Multiplies how quickly the enemy turns.</td>
-</tr>
-<tr>
-<td>FleeSpeedBoostMultiplier<br><span class="td-zh">恐惧逃离速度</span></td>
-<td>Float</td>
-<td>Multiplies enemy speed when feared.</td>
-</tr>
-<tr>
-<td>MaxAcceleration<br><span class="td-zh">最大加速度</span></td>
-<td>Float</td>
-<td>Multiplies how quickly the enemy can change speed.</td>
-</tr>
-<tr>
-<td>MaxBrakingDeceleration<br><span class="td-zh">最大减速度</span></td>
-<td>Float</td>
-<td>Affects how quickly the enemy slows down, which mostly changes how far away from the player they start to slow down.</td>
-</tr>
-<tr>
-<td>PathfinderSize<br><span class="td-zh">寻路距离大小</span></td>
-<td>Currently Unsupported</td>
-<td></td>
-</tr>
-<tr>
-<td>AlignToTargetMinRequiredAngle<br><span class="td-zh">转向对齐最小所需角度</span></td>
-<td>Float</td>
-<td>The minimal angle required between the enemy's forward direction and the player position to start turning.</td>
-</tr>
-<tr>
-<td>PathfinderPreference<br><span class="td-zh">寻路优先级</span></td>
-<td>Currently Unsupported</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MaxPawnSpeed<br><span class="td-zh">最大速度</span></td>
+<td>Float</td>
+<td>Multiplies the maximum speed of the enemy.</td>
+</tr>
+<tr>
+<td>StrafeSpeed<br><span class="td-zh">侧移速度</span></td>
+<td>Float</td>
+<td>Multiplies enemy speed when strafing (enemy movement changes to strafe when they are close to a player).</td>
+</tr>
+<tr>
+<td>MinSlowdownAngle<br><span class="td-zh">最小转向减速角度</span></td>
+<td>Float</td>
+<td>When enemies turn they tend to slow down; this field multiplies the minimum angle for the speed change.</td>
+</tr>
+<tr>
+<td>MaxSlowdownAngle<br><span class="td-zh">最大转向减速角度</span></td>
+<td>Float</td>
+<td>When enemies turn they tend to slow down; this field multiplies the maximum angle for the speed change.</td>
+</tr>
+<tr>
+<td>MaxStrafeDistance<br><span class="td-zh">最大侧移起始距离</span></td>
+<td>Float</td>
+<td>The distance to a player where the enemy starts to strafe.</td>
+</tr>
+<tr>
+<td>AlignDirectionSpeed<br><span class="td-zh">转向速度</span></td>
+<td>Float</td>
+<td>Multiplies how quickly the enemy turns.</td>
+</tr>
+<tr>
+<td>FleeSpeedBoostMultiplier<br><span class="td-zh">恐惧逃离速度</span></td>
+<td>Float</td>
+<td>Multiplies enemy speed when feared.</td>
+</tr>
+<tr>
+<td>MaxAcceleration<br><span class="td-zh">最大加速度</span></td>
+<td>Float</td>
+<td>Multiplies how quickly the enemy can change speed.</td>
+</tr>
+<tr>
+<td>MaxBrakingDeceleration<br><span class="td-zh">最大减速度</span></td>
+<td>Float</td>
+<td>Affects how quickly the enemy slows down, which mostly changes how far away from the player they start to slow down.</td>
+</tr>
+<tr>
+<td>PathfinderSize<br><span class="td-zh">寻路距离大小</span></td>
+<td>Currently Unsupported</td>
+<td></td>
+</tr>
+<tr>
+<td>AlignToTargetMinRequiredAngle<br><span class="td-zh">转向对齐最小所需角度</span></td>
+<td>Float</td>
+<td>The minimal angle required between the enemy's forward direction and the player position to start turning.</td>
+</tr>
+<tr>
+<td>PathfinderPreference<br><span class="td-zh">寻路优先级</span></td>
+<td>Currently Unsupported</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="caveleech">水蛭 · CaveLeech</h2>
 <p>水蛭的特殊控制</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special controls for cave leeches.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BiteDamage<br><span class="td-zh">撕咬伤害</span></td>
-<td class="tc">Float</td>
-<td class="tc">10</td>
-</tr>
-<tr>
-<td>BitesPerSecond<br><span class="td-zh">每秒撕咬次数</span></td>
-<td class="tc">Float</td>
-<td class="tc">1</td>
-</tr>
-<tr>
-<td>MaxDistanceXY<br><span class="td-zh">水平最大索敌距离</span></td>
-<td class="tc">Float</td>
-<td class="tc">1000</td>
-</tr>
-<tr>
-<td>GrapDelay<br><span class="td-zh">抓取启动延迟</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.1</td>
-</tr>
-<tr>
-<td>TentacleSpeed<br><span class="td-zh">触手伸出速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">600</td>
-</tr>
-<tr>
-<td>TentacleRetractSpeed<br><span class="td-zh">触手收回速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1100</td>
-</tr>
-<tr>
-<td>TentaclePullSpeed<br><span class="td-zh">触手拖拽速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">2000</td>
-</tr>
-<tr>
-<td>TentacleDropPlayerSpeed<br><span class="td-zh">触手释放玩家速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1500</td>
-</tr>
-<tr>
-<td>TentacleDropGroundDistance<br><span class="td-zh">触手释放玩家的地面距离阈值</span></td>
-<td class="tc">Float</td>
-<td class="tc">300</td>
-</tr>
-<tr>
-<td>MaxDropPlayerDuration<br><span class="td-zh">抓取玩家的最大持续时间</span></td>
-<td class="tc">Float</td>
-<td class="tc">2</td>
-</tr>
-<tr>
-<td>RevivedGracePeriod<br><span class="td-zh">复活后免疫抓取的宽限期</span></td>
-<td class="tc">Float</td>
-<td class="tc">10</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BiteDamage<br><span class="td-zh">撕咬伤害</span></td>
+<td class="tc">Float</td>
+<td class="tc">10</td>
+</tr>
+<tr>
+<td>BitesPerSecond<br><span class="td-zh">每秒撕咬次数</span></td>
+<td class="tc">Float</td>
+<td class="tc">1</td>
+</tr>
+<tr>
+<td>MaxDistanceXY<br><span class="td-zh">水平最大索敌距离</span></td>
+<td class="tc">Float</td>
+<td class="tc">1000</td>
+</tr>
+<tr>
+<td>GrapDelay<br><span class="td-zh">抓取启动延迟</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.1</td>
+</tr>
+<tr>
+<td>TentacleSpeed<br><span class="td-zh">触手伸出速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">600</td>
+</tr>
+<tr>
+<td>TentacleRetractSpeed<br><span class="td-zh">触手收回速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1100</td>
+</tr>
+<tr>
+<td>TentaclePullSpeed<br><span class="td-zh">触手拖拽速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">2000</td>
+</tr>
+<tr>
+<td>TentacleDropPlayerSpeed<br><span class="td-zh">触手释放玩家速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1500</td>
+</tr>
+<tr>
+<td>TentacleDropGroundDistance<br><span class="td-zh">触手释放玩家的地面距离阈值</span></td>
+<td class="tc">Float</td>
+<td class="tc">300</td>
+</tr>
+<tr>
+<td>MaxDropPlayerDuration<br><span class="td-zh">抓取玩家的最大持续时间</span></td>
+<td class="tc">Float</td>
+<td class="tc">2</td>
+</tr>
+<tr>
+<td>RevivedGracePeriod<br><span class="td-zh">复活后免疫抓取的宽限期</span></td>
+<td class="tc">Float</td>
+<td class="tc">10</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="grabber">捕手异虫蝇 · Grabber</h2>
 <p>控制捕手异虫蝇</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special controls for grabbers.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>WanderingSpeed<br><span class="td-zh">游荡速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">250</td>
-</tr>
-<tr>
-<td>WanderingAcceleration<br><span class="td-zh">游荡加速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1000</td>
-</tr>
-<tr>
-<td>ChaseSpeed<br><span class="td-zh">追击速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">750</td>
-</tr>
-<tr>
-<td>ChaseAcceleration<br><span class="td-zh">追击加速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">4000</td>
-</tr>
-<tr>
-<td>CarrySpeed<br><span class="td-zh">携带玩家移动速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">500</td>
-</tr>
-<tr>
-<td>CarryAcceleration<br><span class="td-zh">携带玩家加速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">3000</td>
-</tr>
-<tr>
-<td>FleeSpeed<br><span class="td-zh">逃跑速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">800</td>
-</tr>
-<tr>
-<td>FleeAcceleration<br><span class="td-zh">逃跑加速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1000</td>
-</tr>
-<tr>
-<td>ExtraUpForce<br><span class="td-zh">额外向上推力</span></td>
-<td class="tc">Float</td>
-<td class="tc">15</td>
-</tr>
-<tr>
-<td>PreventGrabAfterSpawn<br><span class="td-zh">生成后禁止抓取的持续时间</span></td>
-<td class="tc">Float</td>
-<td class="tc">3</td>
-</tr>
-<tr>
-<td>GrabTime<br><span class="td-zh">抓取持续时间</span></td>
-<td class="tc">Float</td>
-<td class="tc">20</td>
-</tr>
-<tr>
-<td>DamageTimeLimit<br><span class="td-zh">伤害判定时间窗口</span></td>
-<td class="tc">Float</td>
-<td class="tc">4</td>
-</tr>
-<tr>
-<td>DamageThreshold<br><span class="td-zh">伤害判定阈值</span></td>
-<td class="tc">Float</td>
-<td class="tc">25</td>
-</tr>
-<tr>
-<td>RevivedGravePeriod<br><span class="td-zh">复活后免疫抓取的宽限期</span></td>
-<td class="tc">Float</td>
-<td class="tc">5</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WanderingSpeed<br><span class="td-zh">游荡速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">250</td>
+</tr>
+<tr>
+<td>WanderingAcceleration<br><span class="td-zh">游荡加速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1000</td>
+</tr>
+<tr>
+<td>ChaseSpeed<br><span class="td-zh">追击速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">750</td>
+</tr>
+<tr>
+<td>ChaseAcceleration<br><span class="td-zh">追击加速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">4000</td>
+</tr>
+<tr>
+<td>CarrySpeed<br><span class="td-zh">携带玩家移动速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">500</td>
+</tr>
+<tr>
+<td>CarryAcceleration<br><span class="td-zh">携带玩家加速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">3000</td>
+</tr>
+<tr>
+<td>FleeSpeed<br><span class="td-zh">逃跑速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">800</td>
+</tr>
+<tr>
+<td>FleeAcceleration<br><span class="td-zh">逃跑加速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1000</td>
+</tr>
+<tr>
+<td>ExtraUpForce<br><span class="td-zh">额外向上推力</span></td>
+<td class="tc">Float</td>
+<td class="tc">15</td>
+</tr>
+<tr>
+<td>PreventGrabAfterSpawn<br><span class="td-zh">生成后禁止抓取的持续时间</span></td>
+<td class="tc">Float</td>
+<td class="tc">3</td>
+</tr>
+<tr>
+<td>GrabTime<br><span class="td-zh">抓取持续时间</span></td>
+<td class="tc">Float</td>
+<td class="tc">20</td>
+</tr>
+<tr>
+<td>DamageTimeLimit<br><span class="td-zh">伤害判定时间窗口</span></td>
+<td class="tc">Float</td>
+<td class="tc">4</td>
+</tr>
+<tr>
+<td>DamageThreshold<br><span class="td-zh">伤害判定阈值</span></td>
+<td class="tc">Float</td>
+<td class="tc">25</td>
+</tr>
+<tr>
+<td>RevivedGravePeriod<br><span class="td-zh">复活后免疫抓取的宽限期</span></td>
+<td class="tc">Float</td>
+<td class="tc">5</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="jellybreeder">水母 · JellyBreeder</h2>
 <p>控制水母</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special controls for breeders.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-<th class="tc">Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>EnemyToSpawn<br><span class="td-zh">卵孵化后生成的敌人类型</span></td>
-<td class="tc">ED</td>
-<td class="tc"></td>
-<td class="tc">Can be mutated.</td>
-</tr>
-<tr>
-<td>TimeBetweenBursts<br><span class="td-zh">卵批次之间的生成间隔（秒）</span></td>
-<td class="tc">Float</td>
-<td class="tc">20</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>TimeBetweenEggs<br><span class="td-zh">同一批次内各卵的生成间隔（秒）</span></td>
-<td class="tc">Float</td>
-<td class="tc">3</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>CloseToSpawnEggTime<br><span class="td-zh">玩家靠近时提前开始生成卵的时间（秒）</span></td>
-<td class="tc">Float</td>
-<td class="tc">3</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>EggBurstSize<br><span class="td-zh">每批次生成的卵数量</span></td>
-<td class="tc">Int</td>
-<td class="tc">3</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>MaxJellies<br><span class="td-zh">最大卵数量</span></td>
-<td class="tc">Int</td>
-<td class="tc">25</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>MultiplierOnHighPlayerCount<br><span class="td-zh">玩家数量多时的卵生成数量倍率</span></td>
-<td class="tc">Float</td>
-<td class="tc">1.5</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>SpawnAmount<br><span class="td-zh">每个卵孵化时生成的敌人数量</span></td>
-<td class="tc">Int</td>
-<td class="tc">4</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>EggName<br><span class="td-zh">卵的显示名称</span></td>
-<td class="tc">String</td>
-<td class="tc"></td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>EggMaterial<br><span class="td-zh">卵的材质</span></td>
-<td class="tc">Material</td>
-<td class="tc"></td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>EggHealth<br><span class="td-zh">卵的生命值</span></td>
-<td class="tc">Float</td>
-<td class="tc">125</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>EggSpeed<br><span class="td-zh">卵的移动速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1.0</td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>EggTime<br><span class="td-zh">卵的孵化时间（秒）</span></td>
-<td class="tc">Float</td>
-<td class="tc">17</td>
-<td class="tc"></td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+<th class="tc">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EnemyToSpawn<br><span class="td-zh">卵孵化后生成的敌人类型</span></td>
+<td class="tc">ED</td>
+<td class="tc"></td>
+<td class="tc">Can be mutated.</td>
+</tr>
+<tr>
+<td>TimeBetweenBursts<br><span class="td-zh">卵批次之间的生成间隔（秒）</span></td>
+<td class="tc">Float</td>
+<td class="tc">20</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>TimeBetweenEggs<br><span class="td-zh">同一批次内各卵的生成间隔（秒）</span></td>
+<td class="tc">Float</td>
+<td class="tc">3</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>CloseToSpawnEggTime<br><span class="td-zh">玩家靠近时提前开始生成卵的时间（秒）</span></td>
+<td class="tc">Float</td>
+<td class="tc">3</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>EggBurstSize<br><span class="td-zh">每批次生成的卵数量</span></td>
+<td class="tc">Int</td>
+<td class="tc">3</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>MaxJellies<br><span class="td-zh">最大卵数量</span></td>
+<td class="tc">Int</td>
+<td class="tc">25</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>MultiplierOnHighPlayerCount<br><span class="td-zh">玩家数量多时的卵生成数量倍率</span></td>
+<td class="tc">Float</td>
+<td class="tc">1.5</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>SpawnAmount<br><span class="td-zh">每个卵孵化时生成的敌人数量</span></td>
+<td class="tc">Int</td>
+<td class="tc">4</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>EggName<br><span class="td-zh">卵的显示名称</span></td>
+<td class="tc">String</td>
+<td class="tc"></td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>EggMaterial<br><span class="td-zh">卵的材质</span></td>
+<td class="tc">Material</td>
+<td class="tc"></td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>EggHealth<br><span class="td-zh">卵的生命值</span></td>
+<td class="tc">Float</td>
+<td class="tc">125</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>EggSpeed<br><span class="td-zh">卵的移动速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1.0</td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>EggTime<br><span class="td-zh">卵的孵化时间（秒）</span></td>
+<td class="tc">Float</td>
+<td class="tc">17</td>
+<td class="tc"></td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>示例：</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
@@ -902,62 +902,62 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <h2 id="spawner">生成器 · Spawner</h2>
 <p> <code>Spawner</code>    是一个特殊子模块，允许任何敌人周期性生成其他敌人，并提供多种灵活的选项。它包含以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Spawner</code> is a special submodule that allows any enemy to periodically spawn other enemies with different flexilibity options. It contains the following fields:</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th class="tc">Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>OnSpawnDelay</td>
-<td>Seconds until the first spawn<br><span class="td-zh">首次生成前的延迟时间（秒）</span></td>
-<td class="tc">2</td>
-</tr>
-<tr>
-<td>OnSpawnCount</td>
-<td>Initial number of enemies to spawn<br><span class="td-zh">初始生成数量</span></td>
-<td class="tc">0</td>
-</tr>
-<tr>
-<td>OnDeathCount</td>
-<td>Number of enemies to spawn on death<br><span class="td-zh">宿主死亡时额外生成的数量</span></td>
-<td class="tc">0</td>
-</tr>
-<tr>
-<td>IntervalSpawnCount</td>
-<td>Number of enemies to spawn periodically<br><span class="td-zh">每次周期生成的敌人数量</span></td>
-<td class="tc">0</td>
-</tr>
-<tr>
-<td>Interval</td>
-<td>Time between interval spawns. Min 0.1 seconds<br><span class="td-zh">周期生成的时间间隔（秒）</span></td>
-<td class="tc">2</td>
-</tr>
-<tr>
-<td>ED</td>
-<td>The descriptor to spawn<br><span class="td-zh">要生成的敌人描述符</span></td>
-<td class="tc"></td>
-</tr>
-<tr>
-<td>MaxSpawns</td>
-<td>Max alive enemies to be spawned by this spawner. Not compatible with EDs with CustomVeteran<br><span class="td-zh">最大同时存活生成数量</span></td>
-<td class="tc">200</td>
-</tr>
-<tr>
-<td>OnDeathKillSpawns</td>
-<td>If true, kill all spawned enemies when the host enemy dies<br><span class="td-zh">宿主死亡时杀死所有已生成单位</span></td>
-<td class="tc">False</td>
-</tr>
-<tr>
-<td>OnlySpawnOnAlert</td>
-<td>Will only spawn once the enemy is alerted<br><span class="td-zh">仅在敌人进入警戒状态后才生成</span></td>
-<td class="tc">True</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th class="tc">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnSpawnDelay</td>
+<td>Seconds until the first spawn<br><span class="td-zh">首次生成前的延迟时间（秒）</span></td>
+<td class="tc">2</td>
+</tr>
+<tr>
+<td>OnSpawnCount</td>
+<td>Initial number of enemies to spawn<br><span class="td-zh">初始生成数量</span></td>
+<td class="tc">0</td>
+</tr>
+<tr>
+<td>OnDeathCount</td>
+<td>Number of enemies to spawn on death<br><span class="td-zh">宿主死亡时额外生成的数量</span></td>
+<td class="tc">0</td>
+</tr>
+<tr>
+<td>IntervalSpawnCount</td>
+<td>Number of enemies to spawn periodically<br><span class="td-zh">每次周期生成的敌人数量</span></td>
+<td class="tc">0</td>
+</tr>
+<tr>
+<td>Interval</td>
+<td>Time between interval spawns. Min 0.1 seconds<br><span class="td-zh">周期生成的时间间隔（秒）</span></td>
+<td class="tc">2</td>
+</tr>
+<tr>
+<td>ED</td>
+<td>The descriptor to spawn<br><span class="td-zh">要生成的敌人描述符</span></td>
+<td class="tc"></td>
+</tr>
+<tr>
+<td>MaxSpawns</td>
+<td>Max alive enemies to be spawned by this spawner. Not compatible with EDs with CustomVeteran<br><span class="td-zh">最大同时存活生成数量</span></td>
+<td class="tc">200</td>
+</tr>
+<tr>
+<td>OnDeathKillSpawns</td>
+<td>If true, kill all spawned enemies when the host enemy dies<br><span class="td-zh">宿主死亡时杀死所有已生成单位</span></td>
+<td class="tc">False</td>
+</tr>
+<tr>
+<td>OnlySpawnOnAlert</td>
+<td>Will only spawn once the enemy is alerted<br><span class="td-zh">仅在敌人进入警戒状态后才生成</span></td>
+<td class="tc">True</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>以下代码片段展示了一个带有 Spawner 模块的蛭尾异虫。Spawner 将每秒生成 2 只蜂拥，直到存活 10 只为止，所有蜂拥会在蛭尾异虫死亡时一起死亡：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following snippet shows a stingtail descriptor with a swarmer module attached. The spawner will spawn 2 swarmers every second until 10 are alive and they will all die when the stingtail is killed:</p></div></details>
@@ -976,68 +976,68 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <h2 id="temperature">温度 · Temperature</h2>
 <p>特殊的温度控制，用于改变敌人对高温和低温的反应。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special temperature controls to change how enemies react to heat and cold.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Name</th>
-<th class="tc">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DieIfFrozen<br><span class="td-zh">冰冻时立即死亡</span></td>
-<td class="tc">Boolean</td>
-</tr>
-<tr>
-<td>DieIfBurning<br><span class="td-zh">着火时立即死亡</span></td>
-<td class="tc">Boolean</td>
-</tr>
-<tr>
-<td>IsHeatsourceWhenOnFire<br><span class="td-zh">着火时作为热源</span></td>
-<td class="tc">Boolean</td>
-</tr>
-<tr>
-<td>OnFireHeatRange<br><span class="td-zh">着火后作为热源的作用范围</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>BurnTemperature<br><span class="td-zh">点燃温度阈值</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>DouseFireTemperature<br><span class="td-zh">熄灭燃烧状态温度阈值</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>FreezeTemperature<br><span class="td-zh">冻结温度阈值（注意：冰冻的应该为负值）</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>UnfreezeTemperature<br><span class="td-zh">解冻温度阈值</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>WarmingRate<br><span class="td-zh">升温率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>CoolingRate<br><span class="td-zh">降温率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>TemperatureChangeScale<br><span class="td-zh">温度变化倍率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>FrozenDamageBonusScale<br><span class="td-zh">冻结状态下的伤害加成倍率。实测：CD2 v0.13 里生效的名字是 <code>FozenDamageBonusScale</code>（少一个 r），本页这个拼法<b>反而不生效</b>；CD2 作者以后可能修掉它。</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>MaxColdSlowdown<br><span class="td-zh">低温导致的最大减速比例</span></td>
-<td class="tc">Float</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th class="tc">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DieIfFrozen<br><span class="td-zh">冰冻时立即死亡</span></td>
+<td class="tc">Boolean</td>
+</tr>
+<tr>
+<td>DieIfBurning<br><span class="td-zh">着火时立即死亡</span></td>
+<td class="tc">Boolean</td>
+</tr>
+<tr>
+<td>IsHeatsourceWhenOnFire<br><span class="td-zh">着火时作为热源</span></td>
+<td class="tc">Boolean</td>
+</tr>
+<tr>
+<td>OnFireHeatRange<br><span class="td-zh">着火后作为热源的作用范围</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>BurnTemperature<br><span class="td-zh">点燃温度阈值</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>DouseFireTemperature<br><span class="td-zh">熄灭燃烧状态温度阈值</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>FreezeTemperature<br><span class="td-zh">冻结温度阈值（注意：冰冻的应该为负值）</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>UnfreezeTemperature<br><span class="td-zh">解冻温度阈值</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>WarmingRate<br><span class="td-zh">升温率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>CoolingRate<br><span class="td-zh">降温率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>TemperatureChangeScale<br><span class="td-zh">温度变化倍率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>FrozenDamageBonusScale<br><span class="td-zh">冻结状态下的伤害加成倍率。实测：CD2 v0.13 里生效的名字是 <code>FozenDamageBonusScale</code>（少一个 r），本页这个拼法<b>反而不生效</b>；CD2 作者以后可能修掉它。</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>MaxColdSlowdown<br><span class="td-zh">低温导致的最大减速比例</span></td>
+<td class="tc">Float</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>以下代码片段使用  <code>Temperature</code>    模块让 无畏异虫 变得可以点燃。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: the following snippet use the <code>Temperature</code> module to make dreadnoughts ignitable.</p></div></details>
@@ -1060,114 +1060,114 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 <h2 id="DropResource">资源掉落 · DropResource</h2>
 <p>令敌人在被击杀时掉落资源。这些字段上的 Mutator 会在每次敌人死亡时进行计算</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Enemies drop resources when they are killed.Mutators on these fields are evaluated between every enemy death.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field Name<br><span class="td-zh">字段名称</span></th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Enable<br><span class="td-zh">启用与否</span></td>
-<td class="tc">Boolean</td>
-<td class="tc">true</td>
-<td>Whether to drop resources when the enemy dies<br><span class="td-zh">决定敌人死亡时是否掉落资源</span></td>
-</tr>
-<tr>
-<td>Resource<br><span class="td-zh">资源类型</span></td>
-<td class="tc">String</td>
-<td class="tc">Nitra</td>
-<td>Allowed: Nitra, Gold, Dystrum, Iron, OilShale, RedSugar<br><span class="td-zh">允许设置为：硝石、黄金、异镝、吸铁石、油页岩和红糖</span></td>
-</tr>
-<tr>
-<td>Amount<br><span class="td-zh">掉落资源数量</span></td>
-<td class="tc">float</td>
-<td class="tc">1</td>
-<td>Amount of resource to drop, or hp heal amount of red sugar<br><span class="td-zh">掉落资源数量；若为红糖，则表示恢复的生命值量</span></td>
-</tr>
-<tr>
-<td>LaunchStrength<br><span class="td-zh">抛射力度</span></td>
-<td class="tc">float</td>
-<td class="tc">1</td>
-<td>Strength of resource dispersal<br><span class="td-zh">资源掉落时的抛射力度</span></td>
-</tr>
-<tr>
-<td>GoombaOnly<br><span class="td-zh">仅限踩踏击杀</span></td>
-<td class="tc">Boolean</td>
-<td class="tc">False</td>
-<td>If true, resources are only dropped if the enemy has been goomba'd<br><span class="td-zh">若为 true，则仅当敌人被 踩踏击杀 时才会掉落资源</span></td>
-</tr>
-</tbody>
-</table>
-
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field Name<br><span class="td-zh">字段名称</span></th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable<br><span class="td-zh">启用与否</span></td>
+<td class="tc">Boolean</td>
+<td class="tc">true</td>
+<td>Whether to drop resources when the enemy dies<br><span class="td-zh">决定敌人死亡时是否掉落资源</span></td>
+</tr>
+<tr>
+<td>Resource<br><span class="td-zh">资源类型</span></td>
+<td class="tc">String</td>
+<td class="tc">Nitra</td>
+<td>Allowed: Nitra, Gold, Dystrum, Iron, OilShale, RedSugar<br><span class="td-zh">允许设置为：硝石、黄金、异镝、吸铁石、油页岩和红糖</span></td>
+</tr>
+<tr>
+<td>Amount<br><span class="td-zh">掉落资源数量</span></td>
+<td class="tc">float</td>
+<td class="tc">1</td>
+<td>Amount of resource to drop, or hp heal amount of red sugar<br><span class="td-zh">掉落资源数量；若为红糖，则表示恢复的生命值量</span></td>
+</tr>
+<tr>
+<td>LaunchStrength<br><span class="td-zh">抛射力度</span></td>
+<td class="tc">float</td>
+<td class="tc">1</td>
+<td>Strength of resource dispersal<br><span class="td-zh">资源掉落时的抛射力度</span></td>
+</tr>
+<tr>
+<td>GoombaOnly<br><span class="td-zh">仅限踩踏击杀</span></td>
+<td class="tc">Boolean</td>
+<td class="tc">False</td>
+<td>If true, resources are only dropped if the enemy has been goomba'd<br><span class="td-zh">若为 true，则仅当敌人被 踩踏击杀 时才会掉落资源</span></td>
+</tr>
+</tbody>
+</table>
+
 </div>
 <h2 id="Goomba">踩踏击杀 · Goomba</h2>
 <p>允许矮人通过 跳到敌人身上 后造成伤害（马里奥）</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Allows dwarves to damage enemies by jumping/landing on top of the enemy.</p></div></details>
-<div class="table-wrap"><table>
-  <thead>
-    <tr>
-      <th>Field name<br><span class="td-zh">字段名称</span></th>
-      <th class="tc">Type<br><span class="td-zh">种类</span></th>
-      <th class="tc">Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Enable<br><span class="td-zh">启用与否</span></td>
-      <td class="tc">Boolean</td>
-      <td class="tc">True</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Cooldown<br><span class="td-zh">冷却时间</span></td>
-      <td class="tc">Float</td>
-      <td class="tc">0.2</td>
-      <td>Minimum time between successive damage to an enemy from goomba tech<br><span class="td-zh">对同一敌人通过 踩踏造成伤害的最小间隔时间（s）</span></td>
-    </tr>
-    <tr>
-      <td>MaxAngle<br><span class="td-zh">最大角度</span></td>
-      <td class="tc">Float</td>
-      <td class="tc">50</td>
-      <td>Max angle the dwarf may be away from a straight down hit to still be counted for goomba. At 180, all impact directions count.<br><span class="td-zh">矮人跳跃方向与垂直向下方向的最大允许夹角（单位°）。当设置为 180 时，任何方向的撞击都有效</span></td>
-    </tr>
-    <tr>
-      <td>SpeedThreshold<br><span class="td-zh">速度阈值</span></td>
-      <td class="tc">float</td>
-      <td class="tc">300</td>
-      <td>Speed a dwarf must be moving before an impact is considered goomba'ing<br><span class="td-zh">矮人必须达到的最低下落速度，其撞击才会被判定为踩踏。</span></td>
-    </tr>
-    <tr>
-      <td>FlattenAmount<br><span class="td-zh">压扁程度</span></td>
-      <td class="tc">Float</td>
-      <td class="tc">0</td>
-      <td>Amount to flatten an enemy when it is goomba'd between 0 and 0.7<br><span class="td-zh">敌人被踩踏时“压扁”视觉效果程度，取值范围为 0 到 0.7。</span></td>
-    </tr>
-    <tr>
-      <td>DamageMultiplier<br><span class="td-zh">伤害倍率</span></td>
-      <td class="tc">Float</td>
-      <td class="tc">0</td>
-      <td>DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage = damage dealt. Because speeds can be high (300-1000), this multiplier may be low.<br><span class="td-zh">最终伤害 = DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage。由于速度值通常较高（一般在 300~1000 之间），此倍率通常设为较小数值。</span></td>
-    </tr>
-    <tr>
-      <td>FlatDamage<br><span class="td-zh">固定伤害</span></td>
-      <td class="tc">float</td>
-      <td class="tc">0</td>
-      <td>Flat damage dealt regardless of speed. If not set and damagemultiplier not set, defaults to 10k damage.<br><span class="td-zh">与速度无关的固定伤害值。若 FlatDamage 和 DamageMultiplier 均未设置，则默认造成 10000 点伤害。</span></td>
-    </tr>
-    <tr>
-      <td>DamageType<br><span class="td-zh">伤害类型</span></td>
-      <td class="tc">DamageType</td>
-      <td class="tc">DMG_Physical</td>
-      <td>Most or all DMG_* types supported e.g. DMG_Burn<br><span class="td-zh">大多数/所有 种类都支持 DMG_xxx 的语法</span></td>
-    </tr>
-  </tbody>
-</table>
-
+<div class="table-wrap"><table>
+  <thead>
+    <tr>
+      <th>Field name<br><span class="td-zh">字段名称</span></th>
+      <th class="tc">Type<br><span class="td-zh">种类</span></th>
+      <th class="tc">Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Enable<br><span class="td-zh">启用与否</span></td>
+      <td class="tc">Boolean</td>
+      <td class="tc">True</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Cooldown<br><span class="td-zh">冷却时间</span></td>
+      <td class="tc">Float</td>
+      <td class="tc">0.2</td>
+      <td>Minimum time between successive damage to an enemy from goomba tech<br><span class="td-zh">对同一敌人通过 踩踏造成伤害的最小间隔时间（s）</span></td>
+    </tr>
+    <tr>
+      <td>MaxAngle<br><span class="td-zh">最大角度</span></td>
+      <td class="tc">Float</td>
+      <td class="tc">50</td>
+      <td>Max angle the dwarf may be away from a straight down hit to still be counted for goomba. At 180, all impact directions count.<br><span class="td-zh">矮人跳跃方向与垂直向下方向的最大允许夹角（单位°）。当设置为 180 时，任何方向的撞击都有效</span></td>
+    </tr>
+    <tr>
+      <td>SpeedThreshold<br><span class="td-zh">速度阈值</span></td>
+      <td class="tc">float</td>
+      <td class="tc">300</td>
+      <td>Speed a dwarf must be moving before an impact is considered goomba'ing<br><span class="td-zh">矮人必须达到的最低下落速度，其撞击才会被判定为踩踏。</span></td>
+    </tr>
+    <tr>
+      <td>FlattenAmount<br><span class="td-zh">压扁程度</span></td>
+      <td class="tc">Float</td>
+      <td class="tc">0</td>
+      <td>Amount to flatten an enemy when it is goomba'd between 0 and 0.7<br><span class="td-zh">敌人被踩踏时“压扁”视觉效果程度，取值范围为 0 到 0.7。</span></td>
+    </tr>
+    <tr>
+      <td>DamageMultiplier<br><span class="td-zh">伤害倍率</span></td>
+      <td class="tc">Float</td>
+      <td class="tc">0</td>
+      <td>DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage = damage dealt. Because speeds can be high (300-1000), this multiplier may be low.<br><span class="td-zh">最终伤害 = DamageMultiplier * (Speed - SpeedThreshold) + FlatDamage。由于速度值通常较高（一般在 300~1000 之间），此倍率通常设为较小数值。</span></td>
+    </tr>
+    <tr>
+      <td>FlatDamage<br><span class="td-zh">固定伤害</span></td>
+      <td class="tc">float</td>
+      <td class="tc">0</td>
+      <td>Flat damage dealt regardless of speed. If not set and damagemultiplier not set, defaults to 10k damage.<br><span class="td-zh">与速度无关的固定伤害值。若 FlatDamage 和 DamageMultiplier 均未设置，则默认造成 10000 点伤害。</span></td>
+    </tr>
+    <tr>
+      <td>DamageType<br><span class="td-zh">伤害类型</span></td>
+      <td class="tc">DamageType</td>
+      <td class="tc">DMG_Physical</td>
+      <td>Most or all DMG_* types supported e.g. DMG_Burn<br><span class="td-zh">大多数/所有 种类都支持 DMG_xxx 的语法</span></td>
+    </tr>
+  </tbody>
+</table>
+
             </div>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../modules/"><span class="dir">上一页</span><span class="title">模块 · Modules</span></a><a class="next" href="../direct/"><span class="dir">下一页</span><span class="title">Direct · 底层属性</span></a></nav>
 </main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="descriptor-controls"><a href="#descriptor-controls">Descriptor controls</a></li><li class="lvl-2" data-h="enemy-controls"><a href="#enemy-controls">Enemy controls</a></li><li class="lvl-3" data-p="enemy-controls"><a href="#heal-advanced-mode">Heal advanced mode</a></li><li class="lvl-3" data-p="enemy-controls"><a href="#outline-special-control">轮廓控制 · Outline special control</a></li><li class="lvl-3" data-p="enemy-controls"><a href="#direct-special-control">Direct special control 特殊控制</a></li><li class="lvl-3" data-p="enemy-controls"><a href="#elite-variants-for-all-enemies">让所有敌人都有精英变种 · Elite variants for all enemies</a></li><li class="lvl-3" data-p="enemy-controls"><a href="#veteran-control">变种控制 · Veteran control</a></li><li class="lvl-3" data-p="enemy-controls"><a href="#custom-materials">自定义材质 · Custom materials</a></li><li class="lvl-2" data-h="resistances"><a href="#resistances">抗性 · Resistances</a></li><li class="lvl-2" data-h="movement"><a href="#movement">移动 · Movement</a></li><li class="lvl-2" data-h="caveleech"><a href="#caveleech">水蛭 · CaveLeech</a></li><li class="lvl-2" data-h="grabber"><a href="#grabber">捕手异虫蝇 · Grabber</a></li><li class="lvl-2" data-h="jellybreeder"><a href="#jellybreeder">水母 · JellyBreeder</a></li><li class="lvl-2" data-h="spawner"><a href="#spawner">生成器 · Spawner</a></li><li class="lvl-2" data-h="temperature"><a href="#temperature">温度 · Temperature</a></li><li class="lvl-2" data-h="DropResource"><a href="#DropResource">资源掉落 · DropResource</a></li><li class="lvl-2" data-h="Goomba"><a href="#Goomba">踩踏击杀 · Goomba</a></li></ul></div></aside></div>
@@ -1203,6 +1203,6 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=72d8b7d9" defer></script>
+<script src="../assets/js/site.js?v=fb353816" defer></script>
 </body>
 </html>

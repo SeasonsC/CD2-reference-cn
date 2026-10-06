@@ -1,0 +1,30 @@
+# 让 git 自己判断文本/二进制，并在索引里统一存 LF。
+#
+# 为什么需要这一条：本站的 HTML/CSS/JS 都是**构建产物**，历史上曾因写入时
+# 二次翻译行尾而产生 '\r\r\n'（落单 CR）。落单 CR 会让 git 把整个文件当成
+# 二进制（ls-files --eol 显示 i/-text），从此该文件在 diff / blame 里完全看不见。
+# 构建端已改为统一按 LF 落盘（tools/render.py 的 wtext、tools/build_assets.py），
+# 这里再加一层声明，保证换一台机器、或 core.autocrlf 不同时行为一致。
+#
+# text=auto 只对「看起来是文本」的文件生效，真正的二进制（图片/PDF/字体）
+# 仍按二进制存储，不受影响。
+* text=auto
+
+# 明确的文本类型（可读性 + 避免极端情况下被误判）
+*.html text
+*.css  text
+*.js   text
+*.json text
+*.xml  text
+*.txt  text
+*.md   text
+*.py   text
+*.ps1  text
+
+# 明确的二进制类型
+*.webp binary
+*.gif  binary
+*.pdf  binary
+*.png  binary
+*.ico  binary
+*.jpg  binary

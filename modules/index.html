@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/modules/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=72d8b7d9">
+<link rel="stylesheet" href="../assets/css/site.css?v=fb353816">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -47,32 +47,32 @@
 <h2 id="caps">虫量上限 · Caps</h2>
 <p class="cn">控制地图中敌人数量的多少，包含以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Control for the maximum number of enemies in the map, with the following fields:</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-
-<tr>
-<th>Field</th>
-<th class="tc">Type</th>
-</tr>
-
-</thead>
-<tbody>
-<tr>
-<td>MaxActiveCritters<br><span class="td-zh">最大非敌对生物数量</span></td>
-<td class="tc">Int</td>
-</tr>
-<tr>
-<td>MaxActiveEnemies<br><span class="td-zh">最大大型生物数量</span></td>
-<td class="tc">Int</td>
-
-</tr>
-<tr>
-<td>MaxActiveSwarmers<br><span class="td-zh">最大小型生物数量</span></td>
-<td class="tc">Int</td>
-</tr>
-
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+
+<tr>
+<th>Field</th>
+<th class="tc">Type</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td>MaxActiveCritters<br><span class="td-zh">最大非敌对生物数量</span></td>
+<td class="tc">Int</td>
+</tr>
+<tr>
+<td>MaxActiveEnemies<br><span class="td-zh">最大大型生物数量</span></td>
+<td class="tc">Int</td>
+
+</tr>
+<tr>
+<td>MaxActiveSwarmers<br><span class="td-zh">最大小型生物数量</span></td>
+<td class="tc">Int</td>
+</tr>
+
+</tbody>
+</table>
 </div>
 <p class="cn">示例：</p>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Caps&quot;: {
@@ -85,88 +85,88 @@
 <h2 id="darkness">光照控制 · Darkness</h2>
 <p class="cn">Darkness 模块用于控制太空站与任务中照明与光照，包含以下字段。（描述来自@noskill）</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The Darkness module offers controls related to lighting and illumination both in the Space Rig and during a mission. It has the following fields (descriptions provided by @noskill):</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field</th>
-<th class="tc">Type</th>
-<th>Default</th>
-<th>Comment</th>
-
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FlashlightStrength<br><span class="td-zh">手电筒亮度</span></td>
-<td class="tc">Float</td>
-<td>1?</td>
-<td>Headlight light strength, affects both range and strength of the light.<br><span class="td-zh">手电筒，影响光照范围与亮度。</span></td>
-
-</tr>
-<tr>
-<td>PlayerIllumination<br><span class="td-zh">玩家自带光源</span></td>
-<td class="tc">Float</td>
-<td>1?</td>
-<td>Light strength in a radius around the player. Only affects strength and not radius.<br><span class="td-zh">玩家周围半径内的光照强度，仅影响亮度，不影响范围。</span></td>
-
-</tr>
-<tr>
-<td>FlareMax<br><span class="td-zh">最多荧光棒数量</span></td>
-<td class="tc">Int</td>
-<td>4</td>
-<td>Maximum number of flares that the player can keep.<br><span class="td-zh">玩家能携带的最大荧光棒数量。</span></td>
-
-</tr>
-<tr>
-<td>FlareStrength<br><span class="td-zh">荧光棒亮度</span></td>
-<td class="tc">Float</td>
-<td>1?</td>
-<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.<br><span class="td-zh">荧光棒的光照强度与范围，超过 3 无明显变化。</span></td>
-</tr>
-<tr>
-<td>FlareDuration<br><span class="td-zh">荧光棒持续时间</span></td>
-<td class="tc">Float</td>
-<td>30</td>
-<td>Duration of the player flares.<br><span class="td-zh">玩家荧光棒发光的持续时间。</span></td>
-
-</tr>
-<tr>
-<td>FlareProductionTime<br><span class="td-zh">荧光棒冷却时间</span></td>
-<td class="tc">Float</td>
-<td>12</td>
-<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.<br><span class="td-zh">玩家荧光棒的冷却时间，注意：不建议在任务中修改。</span></td>
-</tr>
-
-<tr>
-<td>EnvironmentalLight<br><span class="td-zh">环境光照</span></td>
-<td class="tc">Float</td>
-<td>1?</td>
-<td>Environmental (cave) light. Affects both radius and strength.<br><span class="td-zh">洞穴环境光亮度，影响光照范围和亮度。</span></td>
-
-</tr>
-<tr>
-<td>DisableFog<br><span class="td-zh">禁用迷雾</span></td>
-<td class="tc">Bool</td>
-<td>False</td>
-<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.<br><span class="td-zh">禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</span></td>
-</tr>
-
-<tr>
-<td>FlareGunStrength<br><span class="td-zh">侦察照明弹亮度</span></td>
-<td class="tc">Float</td>
-<td>1?</td>
-<td>Strength of Scout's flare gun flares.<br><span class="td-zh">侦察照明弹的光照强度</span></td>
-
-</tr>
-<tr>
-<td>FlareGunDuration<br><span class="td-zh">侦察照明弹持续时间</span></td>
-<td class="tc">Float</td>
-<td>Depends on flare gun stats</td>
-<td>Duration of Scout's flare gun flares.<br><span class="td-zh">侦察照明弹的发光持续时间。</span></td>
-
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th class="tc">Type</th>
+<th>Default</th>
+<th>Comment</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FlashlightStrength<br><span class="td-zh">手电筒亮度</span></td>
+<td class="tc">Float</td>
+<td>1?</td>
+<td>Headlight light strength, affects both range and strength of the light.<br><span class="td-zh">手电筒，影响光照范围与亮度。</span></td>
+
+</tr>
+<tr>
+<td>PlayerIllumination<br><span class="td-zh">玩家自带光源</span></td>
+<td class="tc">Float</td>
+<td>1?</td>
+<td>Light strength in a radius around the player. Only affects strength and not radius.<br><span class="td-zh">玩家周围半径内的光照强度，仅影响亮度，不影响范围。</span></td>
+
+</tr>
+<tr>
+<td>FlareMax<br><span class="td-zh">最多荧光棒数量</span></td>
+<td class="tc">Int</td>
+<td>4</td>
+<td>Maximum number of flares that the player can keep.<br><span class="td-zh">玩家能携带的最大荧光棒数量。</span></td>
+
+</tr>
+<tr>
+<td>FlareStrength<br><span class="td-zh">荧光棒亮度</span></td>
+<td class="tc">Float</td>
+<td>1?</td>
+<td>Strength of the flares, affects both radius and strength. Seems no have no effect above 3.<br><span class="td-zh">荧光棒的光照强度与范围，超过 3 无明显变化。</span></td>
+</tr>
+<tr>
+<td>FlareDuration<br><span class="td-zh">荧光棒持续时间</span></td>
+<td class="tc">Float</td>
+<td>30</td>
+<td>Duration of the player flares.<br><span class="td-zh">玩家荧光棒发光的持续时间。</span></td>
+
+</tr>
+<tr>
+<td>FlareProductionTime<br><span class="td-zh">荧光棒冷却时间</span></td>
+<td class="tc">Float</td>
+<td>12</td>
+<td>Recharge time of the player's flares. It has been noted that changing this setting while in-game could cause flares to get stuck and not recharge.<br><span class="td-zh">玩家荧光棒的冷却时间，注意：不建议在任务中修改。</span></td>
+</tr>
+
+<tr>
+<td>EnvironmentalLight<br><span class="td-zh">环境光照</span></td>
+<td class="tc">Float</td>
+<td>1?</td>
+<td>Environmental (cave) light. Affects both radius and strength.<br><span class="td-zh">洞穴环境光亮度，影响光照范围和亮度。</span></td>
+
+</tr>
+<tr>
+<td>DisableFog<br><span class="td-zh">禁用迷雾</span></td>
+<td class="tc">Bool</td>
+<td>False</td>
+<td>Removes "fog", making the caves look darker. It seems that after disabling it in-mission it can't be enabled again.<br><span class="td-zh">禁用迷雾，使洞穴看起来更暗。在任务中禁用后，似乎无法再次启用。</span></td>
+</tr>
+
+<tr>
+<td>FlareGunStrength<br><span class="td-zh">侦察照明弹亮度</span></td>
+<td class="tc">Float</td>
+<td>1?</td>
+<td>Strength of Scout's flare gun flares.<br><span class="td-zh">侦察照明弹的光照强度</span></td>
+
+</tr>
+<tr>
+<td>FlareGunDuration<br><span class="td-zh">侦察照明弹持续时间</span></td>
+<td class="tc">Float</td>
+<td>Depends on flare gun stats</td>
+<td>Duration of Scout's flare gun flares.<br><span class="td-zh">侦察照明弹的发光持续时间。</span></td>
+
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="description">描述 · Description</h2>
 <p>Description 用于简要说明该难度</p>
@@ -182,193 +182,193 @@
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The descriptions here are very summarized, please check <a href="https://docs.google.com/document/d/131FqOl0FnwiAslvvDSYkV35oBQXYx2kH0oZYwEpjoBI/edit?tab=t.0" target="_blank" rel="noopener">A Quick and Dirty Guide to Custom Difficulty for Deep Rock Galactic</a>, a CD1 guide explaining most of the fields inside this module foe details. </p></div></details>
 <p>若要查看原版难度及其他的一些难度（如 6 级、7 级），请查阅《<a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview" target="_blank" rel="noopener">DRG Hazard Scaling</a>》这个文件[Resource 里面]</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>To see the values of these fields for the vanilla Hazards and some others, please check the <a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview" target="_blank" rel="noopener">DRG Hazard Scaling</a> file.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-
-</thead>
-<tbody>
-<tr>
-<td>BaseHazard<br><span class="td-zh">基础难度</span></td>
-<td>Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the <code>BaseHazard</code> specified here.</td>
-</tr>
-
-<tr>
-<td>ExtraLargeEnemyDamageResistance<br><span class="td-zh">无畏、看守者抗性</span></td>
-<td>Affects the damage resistance of the three dreadnought variants.</td>
-</tr>
-
-<tr>
-<td>ExtraLargeEnemyDamageResistanceB<br><span class="td-zh">王草抗性</span></td>
-<td>Affects the damage resistance of the Korlok Tyrant Weed.</td>
-</tr>
-
-<tr>
-<td>ExtraLargeEnemyDamageResistanceC<br><span class="td-zh">除虫器抗性</span></td>
-<td>Affects the damage resistance of the OMEN Tower.</td>
-</tr>
-
-<tr>
-<td>ExtraLargeEnemyDamageResistanceD<br><span class="td-zh">精英抗性</span></td>
-<td>Affects the damage resistance of Elite enemies.</td>
-</tr>
-
-<tr>
-<td>EnemyDamageResistance<br><span class="td-zh">普通敌人抗性</span></td>
-<td>Damage resistance of most larger enemies in the game: praetorians, oppressors, menaces, goo bombers, bulk detonators, etc.</td>
-</tr>
-
-<tr>
-<td>SmallEnemyDamageResistance<br><span class="td-zh">小型敌人抗性</span></td>
-<td>Damage resistance of everything not covered by the other resistance fields: grunts, mactera, swarmers, etc.</td>
-</tr>
-
-<tr>
-<td>EncounterDifficulty<br><span class="td-zh">遭遇潮点数</span></td>
-<td>Difficulty of the encounters, waves that appear when the players come within a certain distance of an unexplored cave.</td>
-</tr>
-
-<tr>
-<td>StationaryDifficulty<br><span class="td-zh">固定点数</span></td>
-<td>How many stationary enemies will spawn.</td>
-</tr>
-
-<tr>
-<td>EnemyCountModifier<br><span class="td-zh">敌人数量</span></td>
-<td>A global multiplier on the number of enemies that will spawn in waves, swarms, constant pressure, extraction, among others.</td>
-</tr>
-
-<tr>
-<td>EnemyWaveInterval<br><span class="td-zh">播报潮间隔</span></td>
-<td>Interval in seconds between swarms (announced).</td>
-</tr>
-
-<tr>
-<td>EnemyNormalWaveInterval<br><span class="td-zh">自然潮间隔</span></td>
-<td>Interval in seconds between normal (non-announced) waves.</td>
-</tr>
-
-<tr>
-<td>EnemyNormalWaveDifficulty<br><span class="td-zh">自然潮点数</span></td>
-<td>How many enemies will spawn in a normal wave.</td>
-</tr>
-
-<tr>
-<td>EnemyDiversity<br><span class="td-zh">敌人多样性</span></td>
-<td>Determines how many enemies will spawn in a given spawn event, given an <code>EnemyPool</code>.</td>
-</tr>
-
-<tr>
-<td>StationaryEnemyDiversity<br><span class="td-zh">固定敌人多样性</span></td>
-<td>Enemy diversity roll for stationary enemies (everything in the <code>StationaryPool</code>).</td>
-</tr>
-
-<tr>
-<td>VeteranNormal<br><span class="td-zh">小型敌人变异率</span></td>
-<td>Percentage of Grunt and Mactera veterans promoting from the non-veteran variants.</td>
-</tr>
-
-<tr>
-<td>VeteranLarge<br><span class="td-zh">大型敌人变异率</span></td>
-<td>Percentage of Oppressors promoting to veterans from Praetorians.</td>
-</tr>
-
-<tr>
-<td>EnviromentalDamageModifier<br><span class="td-zh">环境伤害</span></td>
-<td>环境伤害倍率。实测：CD2 v0.13 里生效的名字是 <code>EnvironmentalDamageModifier</code>（多一个 n），本页这个拼法<b>反而不生效</b>；CD2 作者以后可能修掉它。</td>
-</tr>
-
-<tr>
-<td>PointExtractionScalar</td>
-<td>Interval between swarms in Point Extraction, taking effect after the first swarm. The value is capped at 1 and the formula seems to be Interval = 165/ PointExtractionScalar.</td>
-</tr>
-
-<tr>
-<td>FriendlyFireModifier<br><span class="td-zh">友伤系数</span></td>
-<td>How much friendly fire players deal to each other.</td>
-</tr>
-
-<tr>
-<td>WaveStartDelayScale<br><span class="td-zh">播报潮延迟</span></td>
-<td>Adds (or subtracts) a delay for the first swarm in a mission. The delay in seconds will be 150 · WaveStartDelayScale. The default is zero; if negative (eg. -1), a swarm will spawn directly at mission start.</td>
-</tr>
-
-<tr>
-<td>SpeedModifier<br><span class="td-zh">敌人移速</span></td>
-<td>Global modifier affecting the speed of ground enemies. Mactera are unaffected.</td>
-</tr>
-
-<tr>
-<td>AttackCooldownModifier<br><span class="td-zh">敌人攻速</span></td>
-<td>Global modifier affecting the speed of enemy attack animations.</td>
-</tr>
-
-<tr>
-<td>ProjectileSpeedModifier<br><span class="td-zh">敌人发射物速度</span></td>
-<td>Global modifier affecting the speed of all projectiles.</td>
-</tr>
-
-<tr>
-<td>HealthRegenerationMax<br><span class="td-zh">残血后最大回血比例</span></td>
-<td>Maximum health that the dwarves regenerate naturally to.</td>
-</tr>
-
-<tr>
-<td>ReviveHealthRatio<br><span class="td-zh">复活后回血比例</span></td>
-<td>Health points after revive.</td>
-</tr>
-
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+
+</thead>
+<tbody>
+<tr>
+<td>BaseHazard<br><span class="td-zh">基础难度</span></td>
+<td>Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the <code>BaseHazard</code> specified here.</td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistance<br><span class="td-zh">无畏、看守者抗性</span></td>
+<td>Affects the damage resistance of the three dreadnought variants.</td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistanceB<br><span class="td-zh">王草抗性</span></td>
+<td>Affects the damage resistance of the Korlok Tyrant Weed.</td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistanceC<br><span class="td-zh">除虫器抗性</span></td>
+<td>Affects the damage resistance of the OMEN Tower.</td>
+</tr>
+
+<tr>
+<td>ExtraLargeEnemyDamageResistanceD<br><span class="td-zh">精英抗性</span></td>
+<td>Affects the damage resistance of Elite enemies.</td>
+</tr>
+
+<tr>
+<td>EnemyDamageResistance<br><span class="td-zh">普通敌人抗性</span></td>
+<td>Damage resistance of most larger enemies in the game: praetorians, oppressors, menaces, goo bombers, bulk detonators, etc.</td>
+</tr>
+
+<tr>
+<td>SmallEnemyDamageResistance<br><span class="td-zh">小型敌人抗性</span></td>
+<td>Damage resistance of everything not covered by the other resistance fields: grunts, mactera, swarmers, etc.</td>
+</tr>
+
+<tr>
+<td>EncounterDifficulty<br><span class="td-zh">遭遇潮点数</span></td>
+<td>Difficulty of the encounters, waves that appear when the players come within a certain distance of an unexplored cave.</td>
+</tr>
+
+<tr>
+<td>StationaryDifficulty<br><span class="td-zh">固定点数</span></td>
+<td>How many stationary enemies will spawn.</td>
+</tr>
+
+<tr>
+<td>EnemyCountModifier<br><span class="td-zh">敌人数量</span></td>
+<td>A global multiplier on the number of enemies that will spawn in waves, swarms, constant pressure, extraction, among others.</td>
+</tr>
+
+<tr>
+<td>EnemyWaveInterval<br><span class="td-zh">播报潮间隔</span></td>
+<td>Interval in seconds between swarms (announced).</td>
+</tr>
+
+<tr>
+<td>EnemyNormalWaveInterval<br><span class="td-zh">自然潮间隔</span></td>
+<td>Interval in seconds between normal (non-announced) waves.</td>
+</tr>
+
+<tr>
+<td>EnemyNormalWaveDifficulty<br><span class="td-zh">自然潮点数</span></td>
+<td>How many enemies will spawn in a normal wave.</td>
+</tr>
+
+<tr>
+<td>EnemyDiversity<br><span class="td-zh">敌人多样性</span></td>
+<td>Determines how many enemies will spawn in a given spawn event, given an <code>EnemyPool</code>.</td>
+</tr>
+
+<tr>
+<td>StationaryEnemyDiversity<br><span class="td-zh">固定敌人多样性</span></td>
+<td>Enemy diversity roll for stationary enemies (everything in the <code>StationaryPool</code>).</td>
+</tr>
+
+<tr>
+<td>VeteranNormal<br><span class="td-zh">小型敌人变异率</span></td>
+<td>Percentage of Grunt and Mactera veterans promoting from the non-veteran variants.</td>
+</tr>
+
+<tr>
+<td>VeteranLarge<br><span class="td-zh">大型敌人变异率</span></td>
+<td>Percentage of Oppressors promoting to veterans from Praetorians.</td>
+</tr>
+
+<tr>
+<td>EnviromentalDamageModifier<br><span class="td-zh">环境伤害</span></td>
+<td>环境伤害倍率。实测：CD2 v0.13 里生效的名字是 <code>EnvironmentalDamageModifier</code>（多一个 n），本页这个拼法<b>反而不生效</b>；CD2 作者以后可能修掉它。</td>
+</tr>
+
+<tr>
+<td>PointExtractionScalar</td>
+<td>Interval between swarms in Point Extraction, taking effect after the first swarm. The value is capped at 1 and the formula seems to be Interval = 165/ PointExtractionScalar.</td>
+</tr>
+
+<tr>
+<td>FriendlyFireModifier<br><span class="td-zh">友伤系数</span></td>
+<td>How much friendly fire players deal to each other.</td>
+</tr>
+
+<tr>
+<td>WaveStartDelayScale<br><span class="td-zh">播报潮延迟</span></td>
+<td>Adds (or subtracts) a delay for the first swarm in a mission. The delay in seconds will be 150 · WaveStartDelayScale. The default is zero; if negative (eg. -1), a swarm will spawn directly at mission start.</td>
+</tr>
+
+<tr>
+<td>SpeedModifier<br><span class="td-zh">敌人移速</span></td>
+<td>Global modifier affecting the speed of ground enemies. Mactera are unaffected.</td>
+</tr>
+
+<tr>
+<td>AttackCooldownModifier<br><span class="td-zh">敌人攻速</span></td>
+<td>Global modifier affecting the speed of enemy attack animations.</td>
+</tr>
+
+<tr>
+<td>ProjectileSpeedModifier<br><span class="td-zh">敌人发射物速度</span></td>
+<td>Global modifier affecting the speed of all projectiles.</td>
+</tr>
+
+<tr>
+<td>HealthRegenerationMax<br><span class="td-zh">残血后最大回血比例</span></td>
+<td>Maximum health that the dwarves regenerate naturally to.</td>
+</tr>
+
+<tr>
+<td>ReviveHealthRatio<br><span class="td-zh">复活后回血比例</span></td>
+<td>Health points after revive.</td>
+</tr>
+
+</tbody>
+</table>
 </div>
 <h2 id="dwarves">矮人属性 · Dwarves</h2>
 <p class="cn">提供与玩家有关的一些参数。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Offers some controls related to the players.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field</th>
-<th class="tc">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>FallDamageModifier<br><span class="td-zh">摔落伤害</span></td>
-<td class="tc">0.175</td>
-<td></td>
-</tr>
-
-<tr>
-<td>FallDamageStartVelocity<br><span class="td-zh">开始计算摔落伤害的速度</span></td>
-<td class="tc">1000</td>
-<td>Multiplier for player shield capacity.</td>
-</tr>
-
-<tr>
-<td>RegenHealthPerSecond<br><span class="td-zh">每秒回复血量</span></td>
-<td class="tc"></td>
-<td></td>
-</tr>
-
-<tr>
-<td>RegenDelayAfterDamage<br><span class="td-zh">受致命伤后回复延迟</span></td>
-<td class="tc"></td>
-<td></td>
-</tr>
-
-<tr>
-<td>Scale<br><span class="td-zh">玩家体型比例</span></td>
-<td class="tc"></td>
-<td>Player size.</td>
-</tr>
-
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th class="tc">Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FallDamageModifier<br><span class="td-zh">摔落伤害</span></td>
+<td class="tc">0.175</td>
+<td></td>
+</tr>
+
+<tr>
+<td>FallDamageStartVelocity<br><span class="td-zh">开始计算摔落伤害的速度</span></td>
+<td class="tc">1000</td>
+<td>Multiplier for player shield capacity.</td>
+</tr>
+
+<tr>
+<td>RegenHealthPerSecond<br><span class="td-zh">每秒回复血量</span></td>
+<td class="tc"></td>
+<td></td>
+</tr>
+
+<tr>
+<td>RegenDelayAfterDamage<br><span class="td-zh">受致命伤后回复延迟</span></td>
+<td class="tc"></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Scale<br><span class="td-zh">玩家体型比例</span></td>
+<td class="tc"></td>
+<td>Player size.</td>
+</tr>
+
+</tbody>
+</table>
 </div>
 <h2 id="enemies-enemiesnosync">敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync</h2>
 <p>详情见  <a href="../enemies/"> Enemies/EnemiesNoSync</a>   部分</p>
@@ -376,95 +376,95 @@
 <h2 id="escortmule">执勤护送 · EscortMule</h2>
 <p>控制执勤护送中 朵朵属性 的字段部分</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Controls for the Drilldozer in Escort missions.</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field</th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-<th>Comments</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HealPerTickNormal<br><span class="td-zh">每刻回血量</span></td>
-<td class="tc">Float</td>
-<td class="tc">13</td>
-<td>Currently unsupported.</td>
-</tr>
-
-<tr>
-<td>HealPerTickUnderAttack<br><span class="td-zh">被攻击时每刻回血量</span></td>
-<td class="tc">Float</td>
-<td class="tc">4.5</td>
-<td>Currently unsupported.</td>
-</tr>
-
-<tr>
-<td>MaxAttackersOmoranFight<br><span class="td-zh">心石阶段最多攻击朵朵虫量？</span></td>
-<td class="tc">Float</td>
-<td class="tc">6</td>
-<td>Currently unsupported.</td>
-</tr>
-
-<tr>
-<td>MaxHealth<br><span class="td-zh">最大血量</span></td>
-<td class="tc">Float</td>
-<td class="tc">520</td>
-<td>Currently unsupported.</td>
-</tr>
-
-<tr>
-<td>FriendlyFireModifier<br><span class="td-zh">友伤系数</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.1</td>
-<td></td> 
-</tr>
-
-<tr>
-<td>NeutralDamageModifier<br><span class="td-zh">中立生物伤害系数</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.1</td>
-<td></td>
-</tr>
-
-<tr>
-<td>BigHitDamageModifier<br><span class="td-zh">减伤系数</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.5</td>
-<td></td>
-</tr>
-
-<tr>
-<td>BigHitDamageReductionThreshold<br><span class="td-zh">减伤判定阈值</span></td>
-<td class="tc">Float</td>
-<td class="tc">6</td>
-<td></td>
-</tr>
-
-<tr>
-<td>PST_PoisonResistance<br><span class="td-zh">毒抗</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.25</td>
-<td>Currently unsupported.</td>
-</tr>
-
-<tr>
-<td>PST_RadiationResistance<br><span class="td-zh">辐射抗性</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.5</td>
-<td>Currently unsupported.</td>
-</tr>
-
-<tr>
-<td>PST_ExplosionResistance<br><span class="td-zh">爆炸抗性</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.5</td>
-<td>Currently unsupported.</td>
-</tr>
-
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HealPerTickNormal<br><span class="td-zh">每刻回血量</span></td>
+<td class="tc">Float</td>
+<td class="tc">13</td>
+<td>Currently unsupported.</td>
+</tr>
+
+<tr>
+<td>HealPerTickUnderAttack<br><span class="td-zh">被攻击时每刻回血量</span></td>
+<td class="tc">Float</td>
+<td class="tc">4.5</td>
+<td>Currently unsupported.</td>
+</tr>
+
+<tr>
+<td>MaxAttackersOmoranFight<br><span class="td-zh">心石阶段最多攻击朵朵虫量？</span></td>
+<td class="tc">Float</td>
+<td class="tc">6</td>
+<td>Currently unsupported.</td>
+</tr>
+
+<tr>
+<td>MaxHealth<br><span class="td-zh">最大血量</span></td>
+<td class="tc">Float</td>
+<td class="tc">520</td>
+<td>Currently unsupported.</td>
+</tr>
+
+<tr>
+<td>FriendlyFireModifier<br><span class="td-zh">友伤系数</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.1</td>
+<td></td> 
+</tr>
+
+<tr>
+<td>NeutralDamageModifier<br><span class="td-zh">中立生物伤害系数</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.1</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BigHitDamageModifier<br><span class="td-zh">减伤系数</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.5</td>
+<td></td>
+</tr>
+
+<tr>
+<td>BigHitDamageReductionThreshold<br><span class="td-zh">减伤判定阈值</span></td>
+<td class="tc">Float</td>
+<td class="tc">6</td>
+<td></td>
+</tr>
+
+<tr>
+<td>PST_PoisonResistance<br><span class="td-zh">毒抗</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.25</td>
+<td>Currently unsupported.</td>
+</tr>
+
+<tr>
+<td>PST_RadiationResistance<br><span class="td-zh">辐射抗性</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.5</td>
+<td>Currently unsupported.</td>
+</tr>
+
+<tr>
+<td>PST_ExplosionResistance<br><span class="td-zh">爆炸抗性</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.5</td>
+<td>Currently unsupported.</td>
+</tr>
+
+</tbody>
+</table>
 </div>
 <h2 id="maxplayers">最多玩家数 · MaxPlayers</h2>
 <p>一个整数字段，用于设置房间允许的最大玩家数</p>
@@ -475,54 +475,54 @@
 <h2 id="messages">信息 · Messages</h2>
 <p>该模块允许 CD2 在任务期间发生某些事件时，向聊天框发送信息。它包含以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>A module that allows CD2 to send messages to chat in response to events happening during the mission. It has The following fields:</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th class="tc">Field</th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tc">Send<br><span class="td-zh">发送条件</span></td>
-<td class="tc">Boolean</td>
-<td class="tc">False</td>
-<td>Send chat message when true</td>
-</tr>
-
-<tr>
-<td class="tc">SendOnChange</td>
-<td class="tc">Boolean</td>
-<td class="tc">False</td>
-<td>Send chat message when another value (e.g. message) changes<br><span class="td-zh">当另一个值发生变化时发送消息（例如：倒计时性质的消息）</span></td>
-</tr>
-
-<tr>
-<td class="tc">Type<br><span class="td-zh">发送人类别</span></td>
-<td class="tc">String</td>
-<td class="tc">Game</td>
-<td>Options:  Game, Normal, Delux, Developer, Streamer, Modder</td>
-</tr>
-
-<tr>
-<td class="tc">Sender<br><span class="td-zh">发送人名称</span></td>
-<td class="tc">String</td>
-<td class="tc">CD2</td>
-<td>Name of the Sender</td>
-</tr>
-
-<tr>
-<td class="tc">Message<br><span class="td-zh">发送的消息</span></td>
-<td class="tc">String</td>
-<td class="tc"></td>
-<td></td>
-</tr>
-
-</tbody>
-</table>
-
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th class="tc">Field</th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tc">Send<br><span class="td-zh">发送条件</span></td>
+<td class="tc">Boolean</td>
+<td class="tc">False</td>
+<td>Send chat message when true</td>
+</tr>
+
+<tr>
+<td class="tc">SendOnChange</td>
+<td class="tc">Boolean</td>
+<td class="tc">False</td>
+<td>Send chat message when another value (e.g. message) changes<br><span class="td-zh">当另一个值发生变化时发送消息（例如：倒计时性质的消息）</span></td>
+</tr>
+
+<tr>
+<td class="tc">Type<br><span class="td-zh">发送人类别</span></td>
+<td class="tc">String</td>
+<td class="tc">Game</td>
+<td>Options:  Game, Normal, Delux, Developer, Streamer, Modder</td>
+</tr>
+
+<tr>
+<td class="tc">Sender<br><span class="td-zh">发送人名称</span></td>
+<td class="tc">String</td>
+<td class="tc">CD2</td>
+<td>Name of the Sender</td>
+</tr>
+
+<tr>
+<td class="tc">Message<br><span class="td-zh">发送的消息</span></td>
+<td class="tc">String</td>
+<td class="tc"></td>
+<td></td>
+</tr>
+
+</tbody>
+</table>
+
 </div>
 <p>示例：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Examples:</p></div></details>
@@ -571,7 +571,7 @@
 ...</code></pre></div>
 <h2 id="name">名称 · Name</h2>
 <p>难度名称。此字段为必填项，用于在游戏内 CD2 下拉菜单中识别并保存该配置。例如：</p>
-<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The name of the difficulty. This field is necessary to be able to save the file in the in-game CD2 dropdown.
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The name of the difficulty. This field is necessary to be able to save the file in the in-game CD2 dropdown.
 Example:</p></div></details>
 <div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Name&quot;: &quot;Hazard 6x2 40 nitra&quot;
@@ -631,48 +631,48 @@ Example:</p></div></details>
 <h2 id="pools">怪池 · Pools</h2>
 <p><code>Pools</code>    模块是用于从游戏中的不同怪池中添加或移除敌人的地方。更多的信息请参阅<a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing" target="_blank" rel="noopener">文件</a>中对怪池系统的解释，以及决定任务中出现哪些敌人的原理。其接受的字段有以下内容：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Pools</code> is where enemies can be added or removed from the different pools in the game. For more information, <a href="https://docs.google.com/document/d/1g13t4J77OL-R5R72WK9vxErqGPINazwweAvTdi9aOVQ/edit?usp=sharing" target="_blank" rel="noopener">this document</a> is a detailed explanation about the pools system and how are they used when deciding which enemies are present in a mission. The accepted fields in <code>Pools</code> are:</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field</th>
-<th class="tc">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MinPoolSize</td>
-<td class="tc">Int</td>
-</tr>
-<tr>
-<td>DisruptiveEnemyPoolCount</td>
-<td class="tc">Int (min, max)</td>
-</tr>
-<tr>
-<td>StationaryEnemycount</td>
-<td class="tc">Int (min, max)</td>
-</tr>
-<tr>
-<td>CommonEnemies </td>
-<td class="tc">*</td>
-</tr>
-<tr>
-<td>SpecialEnemies<br><span class="td-zh">特殊敌人池</span></td>
-<td class="tc">*</td>
-</tr>
-<tr>
-<td>DisruptiveEnemies<br><span class="td-zh">破坏性敌人池</span></td>
-<td class="tc">*</td>
-</tr>
-<tr>
-<td>StationaryPool<br><span class="td-zh">固定敌人池</span></td>
-<td class="tc">*</td>
-</tr>
-<tr>
-<td>EnemyPool</td>
-<td class="tc">*</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th class="tc">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MinPoolSize</td>
+<td class="tc">Int</td>
+</tr>
+<tr>
+<td>DisruptiveEnemyPoolCount</td>
+<td class="tc">Int (min, max)</td>
+</tr>
+<tr>
+<td>StationaryEnemycount</td>
+<td class="tc">Int (min, max)</td>
+</tr>
+<tr>
+<td>CommonEnemies </td>
+<td class="tc">*</td>
+</tr>
+<tr>
+<td>SpecialEnemies<br><span class="td-zh">特殊敌人池</span></td>
+<td class="tc">*</td>
+</tr>
+<tr>
+<td>DisruptiveEnemies<br><span class="td-zh">破坏性敌人池</span></td>
+<td class="tc">*</td>
+</tr>
+<tr>
+<td>StationaryPool<br><span class="td-zh">固定敌人池</span></td>
+<td class="tc">*</td>
+</tr>
+<tr>
+<td>EnemyPool</td>
+<td class="tc">*</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>带有<code>✳</code>标记的字段可接受 <code>Add</code>、<code>Remove</code>   和 <code>Clear</code>，用于按需添加或移除敌人。<code>EnemyPool</code>   在任务过程中可以通过   <a href="../mutators/"> Mutator</a>    自由编辑，允许根据游戏条件动态添减敌人。其它池子不推荐使用 Mutator 实时更改</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The fields marked with <code>*</code> accept the <code>Add</code> (list), <code>Remove</code> (list) and <code>Clear</code> (bool) fields for adding and removing enemies at will. The <code>EnemyPool</code> can be freely manipulated with <a href="../mutators/">mutators</a> during the mission, opening the possibility of adding and removing enemies based on gameplay conditions. <strong>It is not recommended to mutate the other pools.</strong> </p></div></details>
@@ -705,167 +705,167 @@ Example:</p></div></details>
 <h2 id="salvage">搜救行动 · Salvage</h2>
 <p>一个专为 搜救行动任务 提供自定义选项的模块，包括三个子模块：<code>MiniMules</code>、<code>Uplink</code>、<code>Refuel</code>，各具有以下字段</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>A special module offering customization options for Salvage missions. It contains three submodules: <code>MiniMules</code>, <code>Uplink</code> and <code>Refuel</code> with the following fields:</p></div></details>
-<div class="table-wrap"><table class="tbl-salvage">
-<thead>
-<tr>
-<th class="tc">Submodule</th>
-<th>Field</th>
-<th class="tc">Type</th>
-<th class="tc">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tc">MiniMules</td>
-<td>ScanUsable<br><span class="td-zh">可否扫描骡腿</span></td>
-<td class="tc">Usable</td>
-<td class="tc"></td>
-<td>Settings for e holding to scan for legs</td>
-</tr>
-<tr>
-<td class="tc">MiniMules</td>
-<td>RepairUsable<br><span class="td-zh">可否修骡子</span></td>
-<td class="tc">Usable</td>
-<td class="tc"></td>
-<td>Settings for e holding to repair the minimule</td>
-</tr>
-<tr>
-<td class="tc">MiniMules</td>
-<td>LegsRequired<br><span class="td-zh">每个骡子需要的骡腿数量</span></td>
-<td class="tc">Int</td>
-<td class="tc">3</td>
-<td>Number of legs that must be attached before allowing repair</td>
-</tr>
-<tr>
-<td class="tc">MiniMules</td>
-<td>LegsPerMule<br><span class="td-zh">每个骡子周围生成的骡腿</span></td>
-<td class="tc">Int</td>
-<td class="tc">4</td>
-<td>Number of legs to spawn per minimule</td>
-</tr>
-<tr>
-<td class="tc">MiniMules</td>
-<td>LegDistance<br><span class="td-zh">每个骡腿距离骡子的距离</span></td>
-<td class="tc">Float</td>
-<td class="tc">1500</td>
-<td>Untested, should be distance legs spawn from the minimules</td>
-</tr>
-<tr>
-<td class="tc">MiniMules</td>
-<td>Count<br><span class="td-zh">骡子总量</span></td>
-<td class="tc">Int</td>
-<td class="tc">2</td>
-<td>Number of minimules to spawn (or 1.5x on long Salvage)</td>
-</tr>
-<tr>
-<td class="tc">MiniMules</td>
-<td>NitraToGive<br><span class="td-zh">修完骡子给的硝石量</span></td>
-<td class="tc">Int</td>
-<td class="tc">50</td>
-<td>Nitra given by the mules after repairing them</td>
-</tr>
-<tr>
-<td class="tc">---------</td>
-<td>----------------------</td>
-<td class="tc">------</td>
-<td class="tc">-------</td>
-<td>--------------------------------------------------------------------------------</td>
-</tr>
-<tr>
-<td class="tc">Uplink</td>
-<td>RepairUsable<br><span class="td-zh">可否激活上传</span></td>
-<td class="tc">Usable</td>
-<td class="tc"></td>
-<td>Settings for holding e to activate the uplink</td>
-</tr>
-<tr>
-<td class="tc">Uplink</td>
-<td>Scale<br><span class="td-zh">区域大小</span></td>
-<td class="tc">Float</td>
-<td class="tc">1</td>
-<td>Size of the triangulation zone</td>
-</tr>
-<tr>
-<td class="tc">Uplink</td>
-<td>Duration<br><span class="td-zh">守点持续时间</span></td>
-<td class="tc">Float</td>
-<td class="tc">80</td>
-<td>Defense duration in seconds</td>
-</tr>
-<tr>
-<td class="tc">Uplink</td>
-<td>ExtraDefenderBonus<br><span class="td-zh">额外抗性</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.25</td>
-<td></td>
-</tr>
-<tr>
-<td class="tc">Uplink</td>
-<td>DisableLeaveShout<br><span class="td-zh">禁用出圈警告</span></td>
-<td class="tc">Bool</td>
-<td class="tc">false</td>
-<td>Disables mission control messages when there are no players in the defense area.</td>
-</tr>
-<tr>
-<td class="tc">Uplink</td>
-<td>LeavePenaltyMultiplier<br><span class="td-zh">离开上传区域掉进度的速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1</td>
-<td>1 means vanilla penalty (2x the speed progress normally increases)</td>
-</tr>
-<tr>
-<td class="tc">---------</td>
-<td>----------------------</td>
-<td class="tc">------</td>
-<td class="tc">-------</td>
-<td>--------------------------------------------------------------------------------</td>
-</tr>
-<tr>
-<td class="tc">Refuel</td>
-<td>RepairUsable<br><span class="td-zh">可否交互</span></td>
-<td class="tc">Usable</td>
-<td class="tc"></td>
-<td></td>
-</tr>
-<tr>
-<td class="tc">Refuel</td>
-<td>Scale<br><span class="td-zh">区域大小</span></td>
-<td class="tc">Float</td>
-<td class="tc">1</td>
-<td>Size of the triangulation zone</td>
-</tr>
-<tr>
-<td class="tc">Refuel</td>
-<td>Duration<br><span class="td-zh">守点持续时间</span></td>
-<td class="tc">Float</td>
-<td class="tc">100</td>
-<td>Defense duration in seconds</td>
-</tr>
-<tr>
-<td class="tc">Refuel</td>
-<td>ExtraDefenderBonus<br><span class="td-zh">额外抗性</span></td>
-<td class="tc">Float</td>
-<td class="tc">0.25</td>
-<td></td>
-</tr>
-<tr>
-<td class="tc">Refuel</td>
-<td>DisableLeaveShout</td>
-<td class="tc">Bool</td>
-<td class="tc">false</td>
-<td></td>
-</tr>
-<tr>
-<td class="tc">Refuel</td>
-<td>LeavePenaltyMultiplier<br><span class="td-zh">离开上传区域掉进度的速度</span></td>
-<td class="tc">Float</td>
-<td class="tc">1</td>
-<td>0 means no lost progress if leaving the defense area</td>
-
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table class="tbl-salvage">
+<thead>
+<tr>
+<th class="tc">Submodule</th>
+<th>Field</th>
+<th class="tc">Type</th>
+<th class="tc">Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tc">MiniMules</td>
+<td>ScanUsable<br><span class="td-zh">可否扫描骡腿</span></td>
+<td class="tc">Usable</td>
+<td class="tc"></td>
+<td>Settings for e holding to scan for legs</td>
+</tr>
+<tr>
+<td class="tc">MiniMules</td>
+<td>RepairUsable<br><span class="td-zh">可否修骡子</span></td>
+<td class="tc">Usable</td>
+<td class="tc"></td>
+<td>Settings for e holding to repair the minimule</td>
+</tr>
+<tr>
+<td class="tc">MiniMules</td>
+<td>LegsRequired<br><span class="td-zh">每个骡子需要的骡腿数量</span></td>
+<td class="tc">Int</td>
+<td class="tc">3</td>
+<td>Number of legs that must be attached before allowing repair</td>
+</tr>
+<tr>
+<td class="tc">MiniMules</td>
+<td>LegsPerMule<br><span class="td-zh">每个骡子周围生成的骡腿</span></td>
+<td class="tc">Int</td>
+<td class="tc">4</td>
+<td>Number of legs to spawn per minimule</td>
+</tr>
+<tr>
+<td class="tc">MiniMules</td>
+<td>LegDistance<br><span class="td-zh">每个骡腿距离骡子的距离</span></td>
+<td class="tc">Float</td>
+<td class="tc">1500</td>
+<td>Untested, should be distance legs spawn from the minimules</td>
+</tr>
+<tr>
+<td class="tc">MiniMules</td>
+<td>Count<br><span class="td-zh">骡子总量</span></td>
+<td class="tc">Int</td>
+<td class="tc">2</td>
+<td>Number of minimules to spawn (or 1.5x on long Salvage)</td>
+</tr>
+<tr>
+<td class="tc">MiniMules</td>
+<td>NitraToGive<br><span class="td-zh">修完骡子给的硝石量</span></td>
+<td class="tc">Int</td>
+<td class="tc">50</td>
+<td>Nitra given by the mules after repairing them</td>
+</tr>
+<tr>
+<td class="tc">---------</td>
+<td>----------------------</td>
+<td class="tc">------</td>
+<td class="tc">-------</td>
+<td>--------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td class="tc">Uplink</td>
+<td>RepairUsable<br><span class="td-zh">可否激活上传</span></td>
+<td class="tc">Usable</td>
+<td class="tc"></td>
+<td>Settings for holding e to activate the uplink</td>
+</tr>
+<tr>
+<td class="tc">Uplink</td>
+<td>Scale<br><span class="td-zh">区域大小</span></td>
+<td class="tc">Float</td>
+<td class="tc">1</td>
+<td>Size of the triangulation zone</td>
+</tr>
+<tr>
+<td class="tc">Uplink</td>
+<td>Duration<br><span class="td-zh">守点持续时间</span></td>
+<td class="tc">Float</td>
+<td class="tc">80</td>
+<td>Defense duration in seconds</td>
+</tr>
+<tr>
+<td class="tc">Uplink</td>
+<td>ExtraDefenderBonus<br><span class="td-zh">额外抗性</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.25</td>
+<td></td>
+</tr>
+<tr>
+<td class="tc">Uplink</td>
+<td>DisableLeaveShout<br><span class="td-zh">禁用出圈警告</span></td>
+<td class="tc">Bool</td>
+<td class="tc">false</td>
+<td>Disables mission control messages when there are no players in the defense area.</td>
+</tr>
+<tr>
+<td class="tc">Uplink</td>
+<td>LeavePenaltyMultiplier<br><span class="td-zh">离开上传区域掉进度的速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1</td>
+<td>1 means vanilla penalty (2x the speed progress normally increases)</td>
+</tr>
+<tr>
+<td class="tc">---------</td>
+<td>----------------------</td>
+<td class="tc">------</td>
+<td class="tc">-------</td>
+<td>--------------------------------------------------------------------------------</td>
+</tr>
+<tr>
+<td class="tc">Refuel</td>
+<td>RepairUsable<br><span class="td-zh">可否交互</span></td>
+<td class="tc">Usable</td>
+<td class="tc"></td>
+<td></td>
+</tr>
+<tr>
+<td class="tc">Refuel</td>
+<td>Scale<br><span class="td-zh">区域大小</span></td>
+<td class="tc">Float</td>
+<td class="tc">1</td>
+<td>Size of the triangulation zone</td>
+</tr>
+<tr>
+<td class="tc">Refuel</td>
+<td>Duration<br><span class="td-zh">守点持续时间</span></td>
+<td class="tc">Float</td>
+<td class="tc">100</td>
+<td>Defense duration in seconds</td>
+</tr>
+<tr>
+<td class="tc">Refuel</td>
+<td>ExtraDefenderBonus<br><span class="td-zh">额外抗性</span></td>
+<td class="tc">Float</td>
+<td class="tc">0.25</td>
+<td></td>
+</tr>
+<tr>
+<td class="tc">Refuel</td>
+<td>DisableLeaveShout</td>
+<td class="tc">Bool</td>
+<td class="tc">false</td>
+<td></td>
+</tr>
+<tr>
+<td class="tc">Refuel</td>
+<td>LeavePenaltyMultiplier<br><span class="td-zh">离开上传区域掉进度的速度</span></td>
+<td class="tc">Float</td>
+<td class="tc">1</td>
+<td>0 means no lost progress if leaving the defense area</td>
+
+</tr>
+</tbody>
+</table>
 </div>
 <p>示例：一次搜救行动，每个骡子生成 20 条腿，各自需要 15 条腿才能修好，且上传区域大小是正常的 1.5 倍</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: a salvage where each mule spawns 20 legs and requires 15 to be repaired, and the area of the uplink bubble is 1.5x the normal.</p></div></details>
@@ -898,52 +898,52 @@ Example:</p></div></details>
 <h3 id="usable-fields">Usable fields</h3>
 <p>上述表格中被标记为  <code>Usable</code>   的字段，会影响某些情况下 E 键交互的方式，例如修理骡子。它们接受以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Some of the fields in the table above are marked as <code>Usable</code>. These affect how the E key interactions work in some instances such as mule repairing. They accept the following fields:</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field</th>
-<th class="tc">Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CoopUse<br><span class="td-zh">是否允许多玩家协作交互</span></td>
-<td class="tc">Boolean</td>
-<td>TODO</td>
-</tr>
-<tr>
-<td>CoopUseMultiplier<br><span class="td-zh">多玩家交互时的速度加成倍率</span></td>
-<td class="tc">Float</td>
-<td>Increases or decreases the speed boost granted when multiple players are interacting. Defaults to 1.</td>
-</tr>
-<tr>
-<td>Priority<br><span class="td-zh">交互优先级</span></td>
-<td class="tc">Int</td>
-<td>Sets up the priority of the E actions.</td>
-</tr>
-<tr>
-<td>ResetOnFail<br><span class="td-zh">交互失败时是否重置进度</span></td>
-<td class="tc">Boolean</td>
-<td>TODO</td>
-</tr>
-<tr>
-<td>UseText<br><span class="td-zh">交互时显示的文本</span></td>
-<td class="tc">String</td>
-<td>TODO</td>
-</tr>
-<tr>
-<td>UseCooldown<br><span class="td-zh">再次交互前的冷却时间</span></td>
-<td class="tc">Float</td>
-<td>Cooldown before interaction can happen again.</td>
-</tr>
-<tr>
-<td>UseDuration<br><span class="td-zh">交互所需时间</span></td>
-<td class="tc">Float</td>
-<td>Duration of the E interaction.</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th class="tc">Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CoopUse<br><span class="td-zh">是否允许多玩家协作交互</span></td>
+<td class="tc">Boolean</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>CoopUseMultiplier<br><span class="td-zh">多玩家交互时的速度加成倍率</span></td>
+<td class="tc">Float</td>
+<td>Increases or decreases the speed boost granted when multiple players are interacting. Defaults to 1.</td>
+</tr>
+<tr>
+<td>Priority<br><span class="td-zh">交互优先级</span></td>
+<td class="tc">Int</td>
+<td>Sets up the priority of the E actions.</td>
+</tr>
+<tr>
+<td>ResetOnFail<br><span class="td-zh">交互失败时是否重置进度</span></td>
+<td class="tc">Boolean</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>UseText<br><span class="td-zh">交互时显示的文本</span></td>
+<td class="tc">String</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>UseCooldown<br><span class="td-zh">再次交互前的冷却时间</span></td>
+<td class="tc">Float</td>
+<td>Cooldown before interaction can happen again.</td>
+</tr>
+<tr>
+<td>UseDuration<br><span class="td-zh">交互所需时间</span></td>
+<td class="tc">Float</td>
+<td>Duration of the E interaction.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>使用示例：以下代码片段可在多个玩家参与交互时，让 Uplink 的修复速度更快：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Some examples of use. The following snippet makes the uplink repair faster than normal when more than 1 player is interacting:</p></div></details>
@@ -993,28 +993,28 @@ Example:</p></div></details>
 <h2 id="specialencounters">特殊遭遇事件 · SpecialEncounters</h2>
 <p>该模块用于控制一些随机特殊遭遇事件（如 Korlok、Bet-C 等）的出现概率。请注意，该模块不能 100%正常运行，因为某些遭遇依赖于 CD2 目前无法控制的赛季系统。每个 <code>SpecialEncounter</code>   接受以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This module controls the chance of some random events such as the Korlok, Bet-C, etc. Please note that this module is not 100% functional as some of the encounters depend on the seasons system which CD2 cannot control for now. Each <code>SpecialEncounter</code> accepts the following fields:</p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Field</th>
-<th class="tc">Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>BaseChance<br><span class="td-zh">基础概率</span></td>
-<td class="tc">Float</td>
-</tr>
-<tr>
-<td>Enemy<br><span class="td-zh">敌人描述符</span></td>
-<td class="tc">Descriptor</td>
-</tr>
-<tr>
-<td>CanSpawnInDeepDive<br><span class="td-zh">是否能在深潜中生成</span></td>
-<td class="tc">Bool</td>
-</tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th class="tc">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BaseChance<br><span class="td-zh">基础概率</span></td>
+<td class="tc">Float</td>
+</tr>
+<tr>
+<td>Enemy<br><span class="td-zh">敌人描述符</span></td>
+<td class="tc">Descriptor</td>
+</tr>
+<tr>
+<td>CanSpawnInDeepDive<br><span class="td-zh">是否能在深潜中生成</span></td>
+<td class="tc">Bool</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>原版 <code>SpecialEncounters</code>   配置如下所示：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The vanilla <code>SpecialEncounters</code> would look like:</p></div></details>
@@ -1198,116 +1198,116 @@ Example:</p></div></details>
 <h2 id="warnings">禁用任务词条 · Warnings</h2>
 <p><code>Warnings</code>     模块可用于禁止任务词条。它接受一个  <code>Banned</code>    字段，其值可为下表中的一个或多个。<strong>请注意，禁用影响资源产出的词条（如矿石天堂/淘金热潮）会导致未安装 CD2 的客户端矿物数据不同步，并且无法获得硝石。</strong></p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The <code>Warnings</code> module can be used to ban mission anomalies. It accepts a single <code>Banned</code> field which is one or more from the table below. <strong>Please note that banning anomalies that affect resource generation such as Mineral Mania or Gold Rush will cause clients without CD2 to have mineral desync and they will not be able to get nitra.</strong> </p></div></details>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>CD2 name</th>
-<th>In-game name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>"MMUT_BloodSugar"</td>
-<td>Blood Sugar<br><span class="td-zh">凝血化糖</span></td>
-  </tr>
-<tr>
-<td>"MMUT_ExplosiveEnemies"</td>
-<td>Volatile Guts<br><span class="td-zh">易爆内脏</span></td>
-  </tr>
-<tr>
-<td>"MMUT_ExterminationContract"</td>
-<td>Golden Bugs<br><span class="td-zh">黄金虫群</span></td>
-  </tr>
-<tr>
-<td>"MMUT_GoldRush"</td>
-<td>Gold Rush<br><span class="td-zh">淘金热潮</span></td>
-  </tr>
-<tr>
-<td>"MMUT_LowGravity"</td>
-<td>Low Gravity<br><span class="td-zh">低倍重力</span></td>
-  </tr>
-<tr>
-<td>"MMUT_OxygenRich"</td>
-<td>Rich Atmosphere<br><span class="td-zh">氧气充裕</span></td>
-  </tr>
-<tr>
-<td>"MMUT_RichInMinerals"</td>
-<td>Mineral Mania<br><span class="td-zh">矿石天堂</span></td>
-  </tr>
-<tr>
-<td>"MMUT_SecretSecondary"</td>
-<td>Secret Secondary<br><span class="td-zh">神秘次要</span></td>
-  </tr>
-<tr>
-<td>"MMUT_Weakspot"</td>
-<td>Critical Weakness<br><span class="td-zh">致命弱点</span></td>
-  </tr>
-<tr>
-<td>"MMUT_XXXP"</td>
-<td>Double XP<br><span class="td-zh">双倍经验</span></td>
-  </tr>
-<tr>
-<td>"WRN_BulletHell"</td>
-<td>Duck and Cover<br><span class="td-zh">远程狂潮</span></td>
-  </tr>
-<tr>
-<td>"WRN_CaveLeechDen"</td>
-<td>Cave Leech Cluster<br><span class="td-zh">水蛭丛生</span></td>
-  </tr>
-<tr>
-<td>"WRN_ExploderInfestation"</td>
-<td>Exploder Infestation<br><span class="td-zh">自爆群袭</span></td>
-  </tr>
-<tr>
-<td>"WRN_Ghost"</td>
-<td>Haunted Cave<br><span class="td-zh">幽魂不散</span></td>
-  </tr>
-<tr>
-<td>"WRN_HeroEnemies"</td>
-<td>Elite Enemies<br><span class="td-zh">精英敌人</span></td>
-  </tr>
-<tr>
-<td>"WRN_InfestedEnemies"</td>
-<td>Parasites<br><span class="td-zh">寄生感染</span></td>
-  </tr>
-<tr>
-<td>"WRN_LethalEnemies"</td>
-<td>Lethal Enemies<br><span class="td-zh">致命虫群</span></td>
-  </tr>
-<tr>
-<td>"WRN_MacteraCave"</td>
-<td>Mactera Plague<br><span class="td-zh">异虫蝇瘟疫</span></td>
-  </tr>
-<tr>
-<td>"WRN_NoOxygen"</td>
-<td>Low O2<br><span class="td-zh">氧气稀薄</span></td>
-  </tr>
-<tr>
-<td>"WRN_NoShields"</td>
-<td>Shield Disruption<br><span class="td-zh">护盾瓦解</span></td>
-  </tr>
-<tr>
-<td>"WRN_Plague"</td>
-<td>Lithophage Outbreak<br><span class="td-zh">噬岩体爆发</span></td>
-  </tr>
-<tr>
-<td>"WRN_RegenerativeEnemies"</td>
-<td>Regenerative Enemies<br><span class="td-zh">虫群再生</span></td>
-  </tr>
-<tr>
-<td>"WRN_RivalIncursion"</td>
-<td>Rival Presence<br><span class="td-zh">强敌环伺</span></td>
-  </tr>
-<tr>
-<td>"WRN_RockInfestation"</td>
-<td>Ebonite Outbreak<br><span class="td-zh">矿化爆发</span></td>
-  </tr>
-<tr>
-<td>"WRN_Swarmagedon</td>
-<td>Swarmageddon<br><span class="td-zh">蜂拥群袭</span></td>
-  </tr>
-</tbody>
-</table>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>CD2 name</th>
+<th>In-game name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"MMUT_BloodSugar"</td>
+<td>Blood Sugar<br><span class="td-zh">凝血化糖</span></td>
+  </tr>
+<tr>
+<td>"MMUT_ExplosiveEnemies"</td>
+<td>Volatile Guts<br><span class="td-zh">易爆内脏</span></td>
+  </tr>
+<tr>
+<td>"MMUT_ExterminationContract"</td>
+<td>Golden Bugs<br><span class="td-zh">黄金虫群</span></td>
+  </tr>
+<tr>
+<td>"MMUT_GoldRush"</td>
+<td>Gold Rush<br><span class="td-zh">淘金热潮</span></td>
+  </tr>
+<tr>
+<td>"MMUT_LowGravity"</td>
+<td>Low Gravity<br><span class="td-zh">低倍重力</span></td>
+  </tr>
+<tr>
+<td>"MMUT_OxygenRich"</td>
+<td>Rich Atmosphere<br><span class="td-zh">氧气充裕</span></td>
+  </tr>
+<tr>
+<td>"MMUT_RichInMinerals"</td>
+<td>Mineral Mania<br><span class="td-zh">矿石天堂</span></td>
+  </tr>
+<tr>
+<td>"MMUT_SecretSecondary"</td>
+<td>Secret Secondary<br><span class="td-zh">神秘次要</span></td>
+  </tr>
+<tr>
+<td>"MMUT_Weakspot"</td>
+<td>Critical Weakness<br><span class="td-zh">致命弱点</span></td>
+  </tr>
+<tr>
+<td>"MMUT_XXXP"</td>
+<td>Double XP<br><span class="td-zh">双倍经验</span></td>
+  </tr>
+<tr>
+<td>"WRN_BulletHell"</td>
+<td>Duck and Cover<br><span class="td-zh">远程狂潮</span></td>
+  </tr>
+<tr>
+<td>"WRN_CaveLeechDen"</td>
+<td>Cave Leech Cluster<br><span class="td-zh">水蛭丛生</span></td>
+  </tr>
+<tr>
+<td>"WRN_ExploderInfestation"</td>
+<td>Exploder Infestation<br><span class="td-zh">自爆群袭</span></td>
+  </tr>
+<tr>
+<td>"WRN_Ghost"</td>
+<td>Haunted Cave<br><span class="td-zh">幽魂不散</span></td>
+  </tr>
+<tr>
+<td>"WRN_HeroEnemies"</td>
+<td>Elite Enemies<br><span class="td-zh">精英敌人</span></td>
+  </tr>
+<tr>
+<td>"WRN_InfestedEnemies"</td>
+<td>Parasites<br><span class="td-zh">寄生感染</span></td>
+  </tr>
+<tr>
+<td>"WRN_LethalEnemies"</td>
+<td>Lethal Enemies<br><span class="td-zh">致命虫群</span></td>
+  </tr>
+<tr>
+<td>"WRN_MacteraCave"</td>
+<td>Mactera Plague<br><span class="td-zh">异虫蝇瘟疫</span></td>
+  </tr>
+<tr>
+<td>"WRN_NoOxygen"</td>
+<td>Low O2<br><span class="td-zh">氧气稀薄</span></td>
+  </tr>
+<tr>
+<td>"WRN_NoShields"</td>
+<td>Shield Disruption<br><span class="td-zh">护盾瓦解</span></td>
+  </tr>
+<tr>
+<td>"WRN_Plague"</td>
+<td>Lithophage Outbreak<br><span class="td-zh">噬岩体爆发</span></td>
+  </tr>
+<tr>
+<td>"WRN_RegenerativeEnemies"</td>
+<td>Regenerative Enemies<br><span class="td-zh">虫群再生</span></td>
+  </tr>
+<tr>
+<td>"WRN_RivalIncursion"</td>
+<td>Rival Presence<br><span class="td-zh">强敌环伺</span></td>
+  </tr>
+<tr>
+<td>"WRN_RockInfestation"</td>
+<td>Ebonite Outbreak<br><span class="td-zh">矿化爆发</span></td>
+  </tr>
+<tr>
+<td>"WRN_Swarmagedon</td>
+<td>Swarmageddon<br><span class="td-zh">蜂拥群袭</span></td>
+  </tr>
+</tbody>
+</table>
 </div>
 <p>示例：在难度中禁止蜂拥群袭与氧气稀薄词条。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: ban Swarmageddon and Low O2 from a difficulty.</p></div></details>
@@ -1356,6 +1356,6 @@ Example:</p></div></details>
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=72d8b7d9" defer></script>
+<script src="../assets/js/site.js?v=fb353816" defer></script>
 </body>
 </html>
