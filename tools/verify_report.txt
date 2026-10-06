@@ -9,7 +9,7 @@
 
 预算：CSS 28,818 字节 (上限 30720，余 1,902) ｜ JS 16,218 字节 (上限 20480，余 4,262)
 最大的 5 个页面：
-   natural-selection\index.html 302,534 字节
+   natural-selection\index.html 300,009 字节
    direct\index.html            183,306 字节
    mutators\index.html          175,111 字节
    modules\index.html           73,617 字节
