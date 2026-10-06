@@ -220,7 +220,7 @@
       data.forEach(function (pg, pi) {
         var seen = {};
         var push = function (t) { if (!seen[t]) { seen[t] = 1; (index[t] = index[t] || []).push(pi); } };
-        terms(pg.text).forEach(push);                       // 章节标题不进页面级索引
+        terms(pg.text + ' ' + (pg.kw || '')).forEach(push);  // R12：kw = 人话关键词
         (pg.headings || []).forEach(function (h) {          // 它们走章节级结果（§4）
           if (h.text) SECTIONS.push({ pi: pi, id: h.id, level: h.level, text: h.text, page: pg });
         });
@@ -391,5 +391,16 @@
     addEventListener('touchmove', function () { settled = true; }, { passive: true });
     go();
     addEventListener('hashchange', go);
+  })();
+
+  /* ── 10. 返回上一位置（R13）────────────────────────────────────────
+     读者从 A 页跳进 B 页（或跳进某个锚点）之后，一键回到跳转前的位置。
+     浏览器自己会恢复上一页的滚动位置，所以这里只需要 history.back()；
+     没有历史记录（新标签页直接打开）时不显示按钮。 */
+  (function () {
+    var back = $('#jump-back');
+    if (!back) return;
+    if (history.length > 1) back.hidden = false;
+    back.addEventListener('click', function () { history.back(); });
   })();
 })();

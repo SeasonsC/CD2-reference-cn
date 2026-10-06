@@ -67,6 +67,8 @@ _ICON_PATHS = {
                '<rect x="8.4" y="13.2" width="7.2" height="7.2" rx="1.2"/>',
     'common-edits': '<path d="M9.4 5.3a4.1 4.1 0 0 1 6.8-1.2l-2.7 2.7 1.5 1.5 2.7-2.7a4.1 4.1 0 0 1-5.2 5.2l-6 6a2 2 0 1 1-2.8-2.8l6-6a4.1 4.1 0 0 1-.3-2.7z"/>',
     'tutorials': '<path d="M12 3.2v17.6"/><path d="M5.4 5.6h10.2l3 3-3 3H5.4z"/>',
+    'tutorial': '<path d="M9 4.5 5 6.2v13.3l4-1.7 6 1.7 4-1.7V4.5l-4 1.7z"/>'
+                '<path d="M9 4.5v13.3M15 6.2v13.3"/>',
     'resources': '<path d="M3 7.2A2.2 2.2 0 0 1 5.2 5h3.6l2.2 2.6h8A2.2 2.2 0 0 1 21 9.8V18a2.2 2.2 0 0 1-2.2 2.2H5.2A2.2 2.2 0 0 1 3 18z"/>',
     'tips': '<path d="M12 3a6 6 0 0 0-3.4 10.9c.6.5.9 1.2.9 2v.6h5v-.6c0-.8.3-1.5.9-2A6 6 0 0 0 12 3z"/>'
             '<path d="M9.8 19.7h4.4M10.6 22h2.8"/>',
@@ -82,7 +84,9 @@ def icon(slug):
 
 # R2 §3.5：卡片简介人工撰写（≤40 字），不用正文首段截断
 CARD_DESC = {
-    'natural-selection': '拿一个真实难度当样本，六个功能由浅入深拆给你看',
+    'natural-selection': '一个完整 CD2 是怎么把多个机制拼起来的：六道功能由浅入深拆开讲',
+    'common-edits': '两种最常见的改动：让虫变多／变少、从难度里删掉某类敌人',
+    'tutorial': '完全不懂 CD2？从这里走到「改出第一个生效的数字」',
     'faq': '关于 CD2 的常见疑问与解答',
     'basics': 'CD2 界面、文件格式与最小可用难度示例',
     'modules': '有效 CD2 配置文件的顶层字段说明',
@@ -94,6 +98,113 @@ CARD_DESC = {
     'resources': '原版默认值表与外部参考资料',
     'tips': '写难度文件时的调试技巧与常见避坑',
 }
+
+# R11：学习路径 vs 查表路径 —— 左导航与目录页分组。
+#   分组必须连续，所以这里同时定义「组名」与「组内顺序」，nav 会按它重排；
+#   没有列到的页面自动落到末尾的「其他」，将来新增页不会凭空消失。
+NAV_GROUPS = [
+    ('入门 · 从这里开始', ['', 'toc', 'tutorial', 'basics']),
+    ('实战 · 学着做', ['common-edits', 'natural-selection']),
+    ('Reference · 查表', ['modules', 'enemies', 'direct', 'wavespawners',
+                          'projectiles', 'mutators', 'resources']),
+    ('排障 · 出问题', ['faq', 'tips']),
+]
+NAV_GROUP_OTHER = '其他'
+
+# R12 §13：Reference → 新手内容 的反向连接。
+#   只在 Reference / FAQ 页出现；用 div 而不是 h2，避免污染右侧目录与搜索索引。
+#   目的是「在 Reference 里走不死」：查完字段还能往下动手。
+PRACTICE = {
+    'basics': [('新手入门 · 从零走到第一次修改', '/tutorial/'),
+               ('常见修改 · Cookbook', '/common-edits/')],
+    'modules': [('Cookbook · 让虫更多 / 更少', '/common-edits/#enemy-count'),
+                ('Cookbook · 删掉某类敌人', '/common-edits/#remove-vanilla-enemies'),
+                ('案例拆解 · 这些模块拼出来的完整难度', '/natural-selection/')],
+    'enemies': [('Cookbook · 从难度里移除原版敌人', '/common-edits/#remove-vanilla-enemies'),
+                ('案例拆解 · 锁血与生态重置怎么用敌人控制项', '/natural-selection/')],
+    'wavespawners': [('案例拆解 · 动态怪池与波次生成', '/natural-selection/'),
+                     ('Debug · 写了 WaveSpawner 却没有生成', '/tips/#debug-wavespawner')],
+    'mutators': [('新手入门 · 早点学会 Vars', '/tutorial/#vars'),
+                 ('案例拆解 · Trigger / Vars 的组合用法', '/natural-selection/'),
+                 ('Debug · Mutator 不工作或报错', '/tips/#debug-mutator')],
+    'faq': [('新手入门 · 从零走到第一次修改', '/tutorial/'),
+            ('为什么没生效 · Debug', '/tips/')],
+}
+
+# R11 首页新人入口：① 三条入口 ② 3 步第一次修改 ③ 术语地图 ④ 我想做什么
+#   链接一律写根绝对（relize() 会按页面深度改成相对），锚点全部经构建产物核对。
+# R12：完整 6 步教程已移入「新手入门 · Getting Started」，首页只留极短预览。
+HOME_PATHS = [
+    ('第一次接触 CD2？', '新手入门 · 从零走到第一次修改', '/tutorial/', 'primary'),
+    ('已经会写一点？', '常见修改 · Cookbook', '/common-edits/', ''),
+    ('知道自己要找什么？', '进入 Reference 查表', '/toc/', ''),
+]
+
+HOME_STEPS = [
+    '复制 <a href="/basics/#the-cd2-files">Hazard 5x2 最小示例</a>，粘进游戏里的 CD2 面板',
+    '把 <code>EnemyCountModifier</code> 里的 <code>1.7</code> 改成 <code>2</code>'
+    ' —— 见<a href="/modules/#difficultysetting">模块 · DifficultySetting</a>',
+    '点 <code>Save</code> 保存，再进游戏验证；没变化就去'
+    '<a href="/tips/">为什么没生效 · Debug</a>',
+]
+
+HOME_MAP = [
+    ('Module 模块', '一个功能板块：补给、虫量上限、光照、矮人属性……',
+     [('模块', '/modules/')]),
+    ('Enemy / Descriptor', '某类敌人的配置与描述：血量、速度、抗性、外观',
+     [('敌人配置', '/enemies/'), ('Direct 底层属性', '/direct/')]),
+    ('Pool 怪池', '哪些敌人可以出现、按什么权重出现',
+     [('模块 · 怪池', '/modules/#pools')]),
+    ('Mutator', '让某个值跟着游戏条件变：加减乘、判断、按人数……',
+     [('动态参数与逻辑控制', '/mutators/')]),
+    ('WaveSpawner', '主动安排一波敌人：何时、在哪、多少、什么怪',
+     [('波次生成器', '/wavespawners/')]),
+]
+
+# R12 §16：顺序永远是「用户目标 → 技术机制 → Reference」，不拿具体字段当入口
+#   （旧版把「特定条件下的敌人」直接指向 ByTime，会让人以为条件只有时间一种）
+HOME_WANT = [
+    ('让虫更多 / 更少', '虫量倍率 + 上限',
+     [('Cookbook · 增加或减少敌人数量', '/common-edits/#enemy-count'),
+      ('模块 · 难度设置 DifficultySetting', '/modules/#difficultysetting'),
+      ('模块 · 虫量上限 Caps', '/modules/#caps')]),
+    ('删掉 / 换掉某类敌人', '怪池',
+     [('Cookbook · 从难度里移除原版敌人', '/common-edits/#remove-vanilla-enemies'),
+      ('模块 · 怪池 Pools', '/modules/#pools')]),
+    ('让某个敌人更肉 / 更快 / 更痛', '敌人控制项',
+     [('敌人配置 · 敌人控制项', '/enemies/#enemy-controls')]),
+    ('改某个敌人的底层数值', 'Direct',
+     [('Direct 底层属性', '/direct/'),
+      ('敌人配置 · Direct 特殊控制', '/enemies/#direct-special-control')]),
+    ('满足条件后生成一波敌人', '条件判断 + 生成器',
+     [('Mutators（条件与计算）', '/mutators/'),
+      ('Mutator · 触发类 Trigger', '/mutators/#trigger-mutators'),
+      ('波次生成器 WaveSpawners', '/wavespawners/')]),
+    ('按玩家人数改变数值', '按人数选择值',
+     [('Mutator · 根据玩家数量', '/mutators/#byplayercount'),
+      ('基础部分 · 难度文件要求', '/basics/#the-cd2-files')]),
+    ('按补给次数 / 任务阶段改变难度', '读游戏状态 → 改数值',
+     [('Mutator · 根据呼叫补给次数', '/mutators/#byresuppliescalled'),
+      ('动态参数与逻辑控制（全部条件）', '/mutators/')]),
+    ('做动态事件（条件 → 延迟 → 持续）', 'Trigger 系列',
+     [('Mutator · 触发类 Trigger', '/mutators/#trigger-mutators')]),
+    ('改远程敌人的投射物', 'Projectile',
+     [('发射物 Projectiles', '/projectiles/')]),
+    ('想让别人也能玩（公共房间）', '同步相关机制',
+     [('FAQ · 我的难度能给别人玩吗', '/faq/#faq-public-match'),
+      ('模块 · 敌人配置（同步 / 不同步）', '/modules/#enemies-enemiesnosync')]),
+    ('改完没生效', '按症状排查',
+     [('为什么没生效 · Debug', '/tips/'), ('FAQ · 改完难度文件，为什么游戏里没变化', '/faq/#faq-no-effect')]),
+]
+
+# 首页新增小节由 render 直接生成、不经过 extract，必须手工补进搜索索引的
+# 章节级结果（关键词走 extract.py 的 SEARCH_KW，见那边）。
+HOME_SEARCH = {
+    'headings': [{'id': 'first-edit', 'level': 2, 'text': '第一次修改：3 步，5 分钟'},
+                 {'id': 'map', 'level': 2, 'text': 'CD2 是怎么运作的（术语地图）'},
+                 {'id': 'what', 'level': 2, 'text': '我想做什么？'}],
+}
+
 
 THEME_ICON = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
               'stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="2"/>'
@@ -172,14 +283,16 @@ def fold(en):
 def list_items(b):
     out = []
     for it in b['items']:
+        # R13：列表项也能带稳定锚点（FAQ 的 id="faq-…" 靠这条落进输出）
+        aid = f' id="{esc(it["id"])}"' if it.get('id') else ''
         cls = f' class="{esc(it["cls"])}"' if it.get('cls') else ''
         zh, en = it.get('zh'), it.get('en')
         if zh and en:
-            out.append(f'<li{cls}>{zh}{fold(en)}</li>')
+            out.append(f'<li{aid}{cls}>{zh}{fold(en)}</li>')
         elif zh:
-            out.append(f'<li{cls}>{zh}</li>')
+            out.append(f'<li{aid}{cls}>{zh}</li>')
         else:
-            out.append(f'<li lang="en"{cls}>{en}</li>')
+            out.append(f'<li{aid} lang="en"{cls}>{en}</li>')
     return out
 
 
@@ -239,12 +352,47 @@ def render_block(b, has_table=False, anchor=''):
 
 
 # ── 页面骨架 ────────────────────────────────────────────────────────────
-def drawer_html(nav, cur):
-    items = []
+def nav_order(nav):
+    """R11：按 NAV_GROUPS 重排导航 —— 分组必须连续，否则左导航里会一段段跳。
+    未列进分组的页面按原顺序追加到末尾（不会被丢掉）。"""
+    by = {}
     for n in nav:
-        c = ' class="current"' if n['slug'] == cur else ''
-        aria = ' aria-current="page"' if n['slug'] == cur else ''
-        items.append(f'<li><a href="{n["path"]}"{c}{aria}>{esc(n["label"])}</a></li>')
+        by.setdefault(n['slug'], n)
+    out, seen = [], set()
+    for _, slugs in NAV_GROUPS:
+        for s in slugs:
+            if s in by and s not in seen:
+                out.append(by[s])
+                seen.add(s)
+    for n in nav:
+        if n['slug'] not in seen:
+            out.append(n)
+            seen.add(n['slug'])
+    return out
+
+
+def nav_group_title(slug, fallback):
+    for title, slugs in NAV_GROUPS:
+        if slug in slugs:
+            return title
+    return fallback
+
+
+def _nav_link(n, cur):
+    c = ' class="current"' if n['slug'] == cur else ''
+    aria = ' aria-current="page"' if n['slug'] == cur else ''
+    return f'<li><a href="{n["path"]}"{c}{aria}>{esc(n["label"])}</a></li>'
+
+
+def drawer_html(nav, cur):
+    """R11：在平铺列表里插入非链接分组标题（保持「首页 / 目录」仍是前两个 <a>）。"""
+    items, prev = [], None
+    for n in nav:
+        g = nav_group_title(n['slug'], NAV_GROUP_OTHER)
+        if g != prev:
+            items.append(f'<li class="nav-head">{esc(g)}</li>')
+            prev = g
+        items.append(_nav_link(n, cur))
     return ('<nav class="drawer" id="drawer" aria-label="站点导航">'
             f'<ul class="drawer-list">{"".join(items)}</ul></nav>')
 
@@ -330,7 +478,7 @@ def footer_html(nav):
 
 
 # R5：已删除的页面 —— 出口兜底，任何指向它们的 <a> 一律剥成纯文字（防死链）
-REMOVED_SLUGS = {'mev-dea', 'common-edits', 'tutorials'}
+REMOVED_SLUGS = {'mev-dea', 'tutorials'}
 
 
 def strip_dead_links(t):
@@ -385,6 +533,7 @@ def shell(title, desc, path, body, nav, slug, prefix, has_toc=False):
 <div class="drawer-overlay" id="drawer-overlay"></div>
 {body}
 {footer_html(nav)}
+ <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部">{ARROW_UP}</button>
 <div class="search-modal" id="search-modal" hidden>
   <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
@@ -414,9 +563,14 @@ def content_page(page, nav):
     navitem = next((n for n in nav if n['slug'] == slug), None) or HOME
     title = f'{navitem["label"]} — {SITE_NAME}'
     toc, has_toc = toc_html(page)
+    # R12 §14：面包屑带层级 —— 从搜索 / 分享链接直接落进来的人，一眼知道自己在哪
+    grp = nav_group_title(slug, '')
+    crumb = '<a href="/">首页</a>'
+    if grp:
+        crumb += f' › <span class="crumb-g">{esc(grp)}</span>'
+    crumb += f' › {esc(navitem["label"])}'
     main = [f'<main id="main" class="content">',
-            f'<nav class="breadcrumb" aria-label="面包屑"><a href="/">首页</a> › '
-            f'{esc(navitem["label"])}</nav>',
+            f'<nav class="breadcrumb" aria-label="面包屑">{crumb}</nav>',
             f'<h1>{esc(navitem["label"])}</h1>']
     if page.get('no_translation'):
         main.append('<div class="admonition notice"><div class="admonition-title">'
@@ -452,6 +606,12 @@ def content_page(page, nav):
         if b['t'] == 'h' and b.get('level') == 2:
             cur_anchor = b.get('id') or ''
         main.append(render_block(b, has_table=sec_tbl[i], anchor=cur_anchor))
+    pr = PRACTICE.get(slug)
+    if pr:
+        main.append('<aside class="admonition practice">'
+                    '<div class="admonition-title">想继续实践？</div><ul>' +
+                    ''.join(f'<li><a href="{h}">{esc(t)}</a></li>' for t, h in pr) +
+                    '</ul></aside>')
     main.append(page_nav_html(nav, slug))
     main.append('</main>')
     body = (f'<div class="layout{" has-toc" if has_toc else ""}">'
@@ -461,26 +621,44 @@ def content_page(page, nav):
 
 
 def cards_html(nav, pages):
-    """章节卡片网格（目录页用）。"""
-    out = ['<a class="card" href="/resources/#get-cd2">'
-           f'<span class="card-icon">{icon("get-cd2")}</span>'
-           '<span class="card-main"><span class="card-title">获取 CD2'
-           '<span class="card-en">Get CD2</span></span>'
-           '<span class="card-desc">官方 Discord、友站与中文交流群</span></span></a>']
+    """章节卡片（目录页用）—— R11：按 NAV_GROUPS 分组，与左导航同构。"""
+    cards = {}
     for n in nav:
         if n['slug'] in ('', 'toc'):
             continue
         desc = CARD_DESC.get(n['slug'], clean_desc(pages.get(n['slug'], {}).get('desc') or ''))
         en = n['label'].split(' · ')[-1] if ' · ' in n['label'] else ''
         zh = n['label'].split(' · ')[0]
-        out.append(
+        cards[n['slug']] = (
             f'<a class="card" href="{n["path"]}">'
             f'<span class="card-icon">{icon(n["slug"])}</span>'
             f'<span class="card-main">'
             f'<span class="card-title">{esc(zh)}'
             + (f'<span class="card-en">{esc(en)}</span>' if en and en != zh else '')
             + f'</span><span class="card-desc">{esc(desc)}</span></span></a>')
-    return ''.join(out)
+    # 「获取 CD2」不是站内页，挂在第一组的开头（新人第一件事就是装它）
+    get_cd2 = ('<a class="card" href="/resources/#get-cd2">'
+               f'<span class="card-icon">{icon("get-cd2")}</span>'
+               '<span class="card-main"><span class="card-title">获取 CD2'
+               '<span class="card-en">Get CD2</span></span>'
+               '<span class="card-desc">官方 Discord、友站与中文交流群</span></span></a>')
+    groups, seen = [], set()
+    for title, slugs in NAV_GROUPS:
+        items = [get_cd2] if not groups else []
+        for s in slugs:
+            if s in cards and s not in seen:
+                items.append(cards[s])
+                seen.add(s)
+        if items:
+            groups.append(f'<div class="card-group">'
+                          f'<h2 class="card-group-title">{esc(title)}</h2>'
+                          f'<div class="card-grid">{"".join(items)}</div></div>')
+    rest = [cards[n['slug']] for n in nav if n['slug'] in cards and n['slug'] not in seen]
+    if rest:
+        groups.append(f'<div class="card-group">'
+                      f'<h2 class="card-group-title">{esc(NAV_GROUP_OTHER)}</h2>'
+                      f'<div class="card-grid">{"".join(rest)}</div></div>')
+    return ''.join(groups)
 
 
 def stats_html(nav, pages):
@@ -492,6 +670,48 @@ def stats_html(nav, pages):
             f'<span><b>{n_chapters}</b> 个章节</span>'
             f'<span><b>{n_direct}</b> 种敌人控制项</span>'
             f'<span><b>{n_code}</b> 段配置示例</span></div>')
+
+
+def _linx(pairs):
+    return ' · '.join(f'<a href="{h}">{esc(t)}</a>' for t, h in pairs)
+
+
+def home_entry_html():
+    """R11：首页三条入口（问题 → 按钮），替代原来两个孤立按钮。"""
+    items = []
+    for q, label, href, cls in HOME_PATHS:
+        btn = f'btn {cls}' if cls else 'btn'
+        items.append(f'<li><span class="hp-q">{esc(q)}</span>'
+                     f'<a class="{btn}" href="{href}">{esc(label)}</a></li>')
+    return f'<ul class="home-paths">{"".join(items)}</ul>'
+
+
+def home_sections_html():
+    """R11：5 分钟第一个难度 / 术语地图 / 我想做什么 —— 只做导航与出路指向，
+    机制解释一律留在 Reference（首页不重复正文）。"""
+    steps = ''.join(f'<li>{s}</li>' for s in HOME_STEPS)
+    maprows = ''.join(f'<tr><td>{esc(k)}</td><td>{esc(v)}</td><td>{_linx(l)}</td></tr>'
+                      for k, v, l in HOME_MAP)
+    wantrows = ''.join(f'<tr><td>{esc(k)}</td><td>{esc(v)}</td><td>{_linx(l)}</td></tr>'
+                       for k, v, l in HOME_WANT)
+    return f'''<h2 id="first-edit">第一次修改：3 步，5 分钟</h2>
+<p>不需要先读完文档。改一个数字、看一眼游戏里的变化，你就入门了。</p>
+<ol class="home-steps">{steps}</ol>
+<p class="home-next">每一步的出处、以及之后该走哪条路，见
+<a href="/tutorial/">新手入门 · Getting Started</a>；想直接找事做，看下面的
+<a href="#what">「我想做什么？」</a>。</p>
+<h2 id="map">CD2 是怎么运作的</h2>
+<p>一个 CD2 难度 = <b>基础配置</b>（Module / Pool / Enemy）+ <b>动态逻辑</b>（Mutator / Trigger / WaveSpawner）。
+先知道哪个词管哪一块，再去查它的完整字段。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>术语</th><th>它管什么</th><th>去哪看</th></tr></thead>
+<tbody>{maprows}</tbody></table></div>
+<h2 id="what">我想做什么？</h2>
+<p>从「玩法目标」反查「技术实现」：每行给出这类需求通常要动什么，以及先看哪一页。
+字段的完整含义一律在 Reference，本页只负责把你送过去。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>我想做什么</th><th>通常要动什么</th><th>先看这里</th></tr></thead>
+<tbody>{wantrows}</tbody></table></div>'''
 
 
 def home_page(nav, pages):
@@ -518,12 +738,9 @@ def home_page(nav, pages):
                 log_items.extend(list_items(b))
             else:
                 log.append(render_block(b))
-    # 首页引导按钮：插在引言之后、截图之前（不恢复 hero）
-    cta = ('<div class="home-cta">'
-           '<a class="btn primary" href="toc/">浏览章节目录</a>'
-           '<a class="btn" href="basics/">从基础开始</a></div>')
+    # R11：三条入口插在引言之后、截图之前（不恢复 hero，也不用卡片）
     pos = next((k for k, h in enumerate(intro) if '<figure' in h), len(intro))
-    intro.insert(pos, cta)
+    intro.insert(pos, home_entry_html())
     if log_items:
         log.append('<ul class="update-log">' + ''.join(log_items) + '</ul>')
     body = f'''<div class="layout">
@@ -533,6 +750,7 @@ def home_page(nav, pages):
 <div class="home-wrap">
   <h1>{esc(SITE_NAME)}</h1>
   <div class="home-lead">{''.join(intro)}</div>
+  {home_sections_html()}
   {''.join(log)}
 </div>
 </main>
@@ -550,7 +768,7 @@ def toc_page(nav, pages):
 <nav class="breadcrumb" aria-label="面包屑"><a href="/">首页</a> › 目录</nav>
 <h1>目录 · Contents</h1>
 {stats_html(nav, pages)}
-<div class="card-grid">{cards_html(nav, pages)}</div>
+{cards_html(nav, pages)}
 {page_nav_html(nav, 'toc')}
 </main>
 </div>'''
@@ -600,7 +818,8 @@ def notfound_page():
   <p>你访问的地址没有对应的页面。站内搜索请到首页后按 <kbd>Ctrl</kbd>+<kbd>K</kbd> 唤起。</p>
   <p>旧站路径变更对照：</p>
   <ul>
-    <li><code>/Common%20edits/</code>、<code>/grouped_cooldowns/</code> → 该页已删除，见<a href="{REPO_PATH}/toc/">目录</a></li>
+    <li><code>Common%20edits/</code> → 现为<a href="{REPO_PATH}/common-edits/">常见修改 · Cookbook</a></li>
+    <li><code>/grouped_cooldowns/</code> → 该页已删除，见<a href="{REPO_PATH}/toc/">目录</a></li>
     <li><code>/search.html</code> → 站内搜索（按 <kbd>Ctrl</kbd>+<kbd>K</kbd>）</li>
   </ul>
   <p><a class="btn" href="{REPO_PATH}/toc/">打开目录</a> <a class="btn" href="{REPO_PATH}/">回到首页</a></p>
@@ -609,9 +828,8 @@ def notfound_page():
 (function(){{
   var BASE = '{REPO_PATH}';
   var LEGACY = {{
-    '/common edits/': '/toc/',
-    '/common edits': '/toc/',
-    '/common-edits/': '/toc/',
+    '/common edits/': '/common-edits/',
+    '/common edits': '/common-edits/',
     '/grouped_cooldowns/': '/toc/',
     '/grouped_cooldowns': '/toc/',
     '/grouped-cooldowns/': '/toc/',
@@ -667,6 +885,8 @@ def main():
     if not any(n['slug'] == 'toc' for n in nav):
         nav.insert(1, {'slug': 'toc', 'path': '/toc/', 'label': '目录 · Contents',
                        'label_raw': ''})
+    # R11：按分组重排（分组必须连续）—— 左导航、翻页、页脚地图、目录卡片、sitemap 共用
+    nav = nav_order(nav)
     os.makedirs(SITE, exist_ok=True)
     pages, rows = {}, []
     for fn in sorted(os.listdir(CONTENT)):
@@ -701,8 +921,15 @@ def main():
     wtext(os.path.join(d, 'index.html'), out)
     rows.append(('toc', len(out), 0))
     wtext(os.path.join(SITE, '404.html'), strip_dead_links(notfound_page()))
-    idx = io.open(os.path.join(BUILD, 'search-index.json'), encoding='utf-8').read()
-    wtext(os.path.join(SITE, 'search-index.json'), idx)
+    # R11：把首页新人入口的章节补进搜索索引（它们由 render 生成，不经过 extract）
+    # R12：关键词改走 extract.py 的 SEARCH_KW（kw 字段），这里只补章节级结果
+    idx = json.loads(io.open(os.path.join(BUILD, 'search-index.json'),
+                             encoding='utf-8').read())
+    home_idx = next((p for p in idx if p.get('slug') == ''), None)
+    if home_idx is not None:
+        home_idx['headings'] = (home_idx.get('headings') or []) + HOME_SEARCH['headings']
+    wtext(os.path.join(SITE, 'search-index.json'),
+          json.dumps(idx, ensure_ascii=False, separators=(',', ':')))
     write_sitemap(nav)
 
     L = ['%-14s %10s %8s' % ('slug', 'HTML字节', '区块数'), '-' * 36]

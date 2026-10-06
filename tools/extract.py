@@ -35,15 +35,18 @@ PAGES = [
     ('projectiles/index.html', 'projectiles'), ('mutators/index.html', 'mutators'),
     ('resources/index.html', 'resources'), ('tips/index.html', 'tips'),
     ('natural-selection/index.html', 'natural-selection'),
+    ('Common edits/index.html', 'common-edits'),
+    ('tutorial/index.html', 'tutorial'),
 ]
 # R5：已删除的页面 —— 指向它们的 <a> 一律拆掉只留文字，避免死链
-#   mev-dea / common-edits 整页删除；tutorials 内容并入 resources 的「其他资源」
-REMOVED = {'mev-dea', 'common-edits', 'tutorials'}
+#   mev-dea 整页删除；tutorials 内容并入 resources 的「其他资源」
+#   common-edits 已在 R12 恢复（它就是「常见修改 · Cookbook」）
+REMOVED = {'mev-dea', 'tutorials'}
 # 标题方向：direct 页是「英文键 · 中文」，其余「中文 · 英文」（§5）
 EN_FIRST_PAGES = {'direct'}
 
 DIR_MAP = {'common edits': 'common-edits', 'grouped_cooldowns': 'tutorials', '': ''}
-KNOWN_DIRS = {p[1] for p in PAGES if p[1]}
+KNOWN_DIRS = {p[1] for p in PAGES if p[1]} | {'toc'}   # toc 由 render.py 合成，不在上游页里
 ASSET_MAP = {
     'pictures/cd2-modhub.png': '/assets/media/cd2-modhub.webp',
     'pictures/countdown-mutator.png': '/assets/media/countdown-mutator.webp',
@@ -54,6 +57,45 @@ ASSET_MAP = {
 }
 
 REPORT = {'pairs': [], 'lone_en': [], 'headings': [], 'warnings': []}
+
+# ── R12：人话搜索 ───────────────────────────────────────────────────────
+#   新人不会输入 EnemyCountModifier，他们会输入「虫更多」「删怪」「动态刷怪」。
+#   这些词**不进正文、不进摘要**，只在建索引时并进倒排表（site.js 里一行）。
+#   页面自己的正文照旧；这里只补「用户的说法 → 正式术语」这层桥。
+SEARCH_KW = {
+    # 首页只接「导航类说法」——具体目标交给具体页面，避免首页盖住 Cookbook / Debug
+    '': '我想做什么 第一次修改 从哪里开始 从哪里入手 新手 新手怎么开始 怎么开始 入门 术语 '
+        '学习路线 我该看什么 完全不懂 第一步做什么',
+    'tutorial': '新手 新手怎么开始 怎么开始 从零开始 从哪里入手 完全不懂 第一次 第一次修改 '
+                '第一步做什么 我该看什么 教程 学习路线 五个词 cd2 是什么 长什么样 最小难度',
+    'common-edits': '删怪 怎么删怪 删除敌人 移除敌人 去掉敌人 去掉水蛭 不要某种虫子 虫更多 '
+                    '虫更少 虫变多 虫太少 虫太多 敌人更多 敌人更少 敌人变少 数量太多 数量太少 '
+                    '虫量 数量 倍率 加虫 减虫 怪池 移除原版敌人 常见修改',
+    'natural-selection': '案例 完整难度 实战 拆解 组合 一整套 怎么组合 机制怎么拼 综合 '
+                         '参考案例 别人怎么写的 动态换池 兜底 锁血 加血 回血 硝石不够 '
+                         '阶段评级',
+    'basics': '基础 界面 文件格式 最小示例 最小难度 数组 数组怎么用 按人数 按玩家人数 '
+              '每个玩家不同 修改一个数字 顶层字段 基准难度',
+    'modules': '模块 顶层字段 虫量上限 上限 虫子上限 补给 补给太贵 怪池 硝石 硝石不够 '
+               '硝石太多 改硝石 光照 矮人 回血 变量 信息 声音',
+    'enemies': '敌人 怪物 血量 敌人血更多 敌人血更厚 敌人更肉 敌人太弱 加强敌人 虫子加强 '
+               '爆炸虫 速度 抗性 材质 外观 精英 变种 生成器 同步 不同步 删掉某个敌人 '
+               '敌人变强 敌人变弱',
+    'direct': '底层 属性 默认值 血量 移动速度 抗性 敌人底层数值',
+    'wavespawners': '波次 刷怪 动态刷怪 无宣告潮 生成一波 敌人波次 主动生成 刷怪器 '
+                    '一波敌人 定时刷怪',
+    'projectiles': '发射物 投射物 远程敌人 弹道 子弹 弹速 爆炸',
+    'mutators': '动态 条件 计算 表达式 加减乘 判断 随机 计时 触发 按人数 按玩家人数 '
+                '根据人数 按玩家数量 按时间 按阶段 补给以后虫变多 按补给次数 读游戏状态 '
+                '加血 回血 变量 锁存',
+    'resources': '资源 下载 获取 速查 默认值表 敌人名字 描述符 中英对照 外部链接 '
+                 '公开房间 指南',
+    'tips': '没生效 没变化 没效果 为什么没效果 为什么没生效 改了没生效 改了没变化 '
+            '照着写没效果 不生效 无效 不工作 报错 排查 为什么 调试 常见错误 坑 调不通 '
+            '看不到变化 联机问题 别人进不来 加血 回血',
+    'faq': '别人进不来 朋友进不来 进不去 房间进不来 联机问题 需要装吗 兼容 卡不卡 '
+           '从哪一页开始学',
+}
 
 
 # ── 工具 ────────────────────────────────────────────────────────────────
@@ -560,6 +602,7 @@ def extract_list(el, page_dir, pcount):
             en_html = html_of(li, page_dir, pcount)
             zh_html = html_of(nxt, page_dir, pcount)
             items.append({'zh': copy_links_to_zh(en_html, zh_html), 'en': en_html,
+                          'id': li.get('id') or nxt.get('id') or '',
                           'cls': nxt.get('class') or li.get('class') or ''})
             REPORT['pairs'].append(('li', lt, nt))
             i += 2
@@ -572,7 +615,8 @@ def extract_list(el, page_dir, pcount):
         ap = auto_pair_text(lt) if len(li) == 0 else None
         if ap:                       # R3 §9.3：英文句号直贴中文 → 拆成一对
             REPORT['autopair'] = REPORT.get('autopair', 0) + 1
-            items.append({'zh': ap[1], 'en': ap[0], 'cls': li.get('class') or ''})
+            items.append({'zh': ap[1], 'en': ap[0], 'id': li.get('id') or '',
+                          'cls': li.get('class') or ''})
             i += 1
             continue
         zz, ee = is_zh(lt), is_en(lt)
@@ -580,6 +624,7 @@ def extract_list(el, page_dir, pcount):
             zz = True          # 中英混排的说明行：归到中文槽，绝不丢内容
         items.append({'zh': html_of(li, page_dir, pcount) if zz else None,
                       'en': html_of(li, page_dir, pcount) if ee else None,
+                      'id': li.get('id') or '',
                       'cls': li.get('class') or ''})
         i += 1
     if not items:
@@ -781,7 +826,10 @@ NAV_OVERRIDE = {
     '': '首页 · Introduction',
     'enemies': '敌人配置 · Enemies / EnemiesNoSync',   # R5 ②：去掉「(客机 同步/非同步)」
     'tips': '写作提示与常见错误 · Tips',              # R5：与其它中英混排标题对齐
-    'natural-selection': '难度实战拆解 · Case Study',   # 真实难度的功能拆解
+    'natural-selection': '案例拆解 · Case Study',   # R12：它是完整案例，不是 Cookbook
+    'common-edits': '常见修改 · Cookbook',        # R12：上游 Common Edits，恢复并译为 Cookbook
+    'tutorial': '新手入门 · Getting Started',     # R12：本站自写的新人第一段路
+    'tips': '为什么没生效 · Debug',               # R12：重定位为排障页
 }
 
 
@@ -852,7 +900,7 @@ def main():
                 encoding='utf-8').write(json.dumps(page, ensure_ascii=False, indent=1))
         index.append({'title': page['title'], 'title_zh': page['title_zh'],
                       'path': page['path'], 'slug': slug, 'headings': page['headings'],
-                      'text': page['text'],
+                      'text': page['text'], 'kw': SEARCH_KW.get(slug, ''),
                       'desc': clean_desc(page['desc'])})
         s, l = page['stats']['blocks'], page['stats']['langs']
         rows.append((slug or '(home)', s.get('h', 0), s.get('p', 0), s.get('list', 0),

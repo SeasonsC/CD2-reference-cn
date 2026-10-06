@@ -1,4 +1,4 @@
-标题规范化（共改动 218 条，全部列出）
+标题规范化（共改动 221 条，全部列出）
 ==========================================================================================
 
 ── / ──
@@ -233,4 +233,9 @@
   h3  Trigger examples（触发器示例）  →  触发器示例 · Trigger examples
 
 ── /tips ──
+  h2  Mutator 不工作或报错  →  不工作或报错 · Mutator
   h3  MaxSpawnCount 实际会多刷一只  →  实际会多刷一只 · MaxSpawnCount
+
+── /common-edits ──
+  h2  Increase or decrease the number of enemies（增加或减少敌人数量）  →  增加或减少敌人数量 · Increase or decrease the number of enemies
+  h2  Removing vanilla enemies from a difficulty（从难度里移除原版敌人）  →  从难度里移除原版敌人 · Removing vanilla enemies from a difficulty

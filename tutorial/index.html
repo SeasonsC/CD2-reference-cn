@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark" data-lang="both" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新手入门 · Getting Started — CD2 参考文档</title>
+<meta name="description" content="这一页只做一件事——把你从「完全不懂 CD2」带到「改出第一个生效的数字，并且知道下一步去哪」。它不替代 Reference。">
+<link rel="canonical" href="https://seasonsc.github.io/CD2-reference-cn/tutorial/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CD2 参考文档">
+<meta property="og:title" content="新手入门 · Getting Started — CD2 参考文档">
+<meta property="og:description" content="这一页只做一件事——把你从「完全不懂 CD2」带到「改出第一个生效的数字，并且知道下一步去哪」。它不替代 Reference。">
+<meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/tutorial/">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+<link rel="stylesheet" href="../assets/css/site.css?v=82d35298">
+</head>
+<body class="has-toc">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <button class="icon-btn" id="drawer-btn" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <a class="brand" href="../"><img src="../assets/img/logo.svg" alt="" width="22" height="22" loading="eager"><span>CD2 参考文档</span></a>
+    </div>
+    <div class="topbar-mid">
+      <div class="topbar-spacer"></div>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索文档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+      <div class="topbar-spacer"></div>
+    </div>
+    <div class="topbar-right">
+      <div class="lang-switch" role="group" aria-label="语言显示">
+        <button type="button" data-lang-btn="zh" aria-pressed="false" title="仅显示中文">中</button>
+        <button type="button" data-lang-btn="both" aria-pressed="true" title="中文 + 英文原文">中 + 英</button>
+      </div>
+      <button class="icon-btn" type="button" data-theme-btn aria-label="切换主题"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="read-progress" id="read-progress" aria-hidden="true"></div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/" class="current" aria-current="page">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
+<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">入门 · 从这里开始</span> › 新手入门 · Getting Started</nav>
+<h1>新手入门 · Getting Started</h1>
+<p>这一页只做一件事——把你从「完全不懂 CD2」带到<b>「改出第一个生效的数字，并且知道下一步去哪」</b>。它<b>不替代</b> Reference。</p>
+<h2 id="what-is-cd2">一、CD2 是什么</h2>
+<p>CD2（Custom Difficulty 2）是《深岩银河》的一个模组，它让你<b>自己定义一个难度</b>：虫量、敌人种类与行为、补给成本、光照、矮人属性……都能改。</p>
+<p>它不是在原版难度上再加一级，而是把决定难度的那些参数交到你手上。你写的东西是一份 <b>JSON 文本</b>，通过游戏里的 CD2 面板使用。</p>
+<ul><li>获取方式：见 <a href="../resources/#get-cd2">资源页 · 获取 CD2</a></li><li>安装方式、以及和其它模组的兼容问题：见 <a href="../faq/#faq-install">FAQ · 我该如何使用它</a> 与 <a href="../faq/#faq-mev-dea-compat">FAQ · 与 MEV/DEA 等扩展模组兼容吗</a></li></ul>
+<h2 id="what-is-a-cd2-file">二、一个 CD2 就是一份 JSON</h2>
+<ul><li>文件的<b>顶层字段就是各种模块</b>：<code>Caps</code>、<code>Resupply</code>、<code>DifficultySetting</code>、<code>Pools</code>、<code>Enemies</code>……</li><li><b>没有填写的配置项</b>不会归零，而是从<b>基准难度</b>取默认值。基准难度由 <code>DifficultySetting.BaseHazard</code> 指定；</li></ul>
+<p><b>不写 <code>BaseHazard</code> 时，基准就是你「在任务里选的那个官难」</b>——不是固定 Hazard 5。</p>
+<ul><li>顶层 <code>Name</code> 决定这份难度保存后叫什么名字。</li><li>所以「只写自己想改的那几个字段」是常见写法：其余全部沿用基准难度。</li></ul>
+<p>所以一份最小、但真的能干点事的难度长这样：</p>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+    &quot;Name&quot;: &quot;My First CD2&quot;,
+    &quot;DifficultySetting&quot;: {
+        &quot;EnemyCountModifier&quot;: 2
+    }
+}</code></pre></div>
+<p>这就是<b>「一个难度 + 一个简单修改」</b>：基于 Hazard 5，把全局敌人数量倍率设成 2。</p>
+<p>→ 字段与格式的完整规则：<a href="../basics/#the-cd2-files">基础部分 · CD2 难度文件要求</a></p>
+<h2 id="two-parts">三、入门时，先把它理解成两部分</h2>
+<div class="table-wrap"><table><thead><tr><th class="tc"></th><th class="tc">你写下的是</th><th>谁负责</th></tr></thead><tbody><tr><td class="tc"><b>基础配置</b>（静态）</td><td class="tc">「这个值是多少」</td><td>Module · Pool · Enemy</td></tr><tr><td class="tc"><b>动态逻辑</b>（会变）</td><td class="tc">「这个值怎么算、什么时候变」</td><td>Mutator · Trigger · WaveSpawner</td></tr></tbody></table>
+</div>
+<p>这是<b>学习用的模型</b>，不是严格的 API 分类——但它能解释你 90% 的困惑。</p>
+<p><b>先静态、再动态。</b> 大部分入门时的挫败感，都来自还没试过「改一个数字」，就直接去写动态逻辑。</p>
+<h2 id="five-words">四、五个词就够了</h2>
+<div class="table-wrap"><table><thead><tr><th>术语</th><th>它管什么</th><th class="tc">去哪看</th></tr></thead><tbody><tr><td><code>Module</code><br><span class="td-zh">模块</span></td><td>一个功能板块：补给、虫量上限、光照、矮人属性……</td><td class="tc"><a href="../modules/">模块</a></td></tr><tr><td><code>Enemy</code> / Descriptor</td><td>某类敌人的配置与描述：血量、速度、抗性、外观等</td><td class="tc"><a href="../enemies/">敌人配置</a> · <a href="../direct/">Direct</a></td></tr><tr><td><code>Pool</code><br><span class="td-zh">怪池</span></td><td>哪些敌人可以出现、按什么权重出现</td><td class="tc"><a href="../modules/#pools">模块 · 怪池</a></td></tr><tr><td><code>Mutator</code></td><td>让某个值跟着游戏条件变化：加减乘、判断、按人数……</td><td class="tc"><a href="../mutators/">Mutators</a></td></tr><tr><td><code>WaveSpawner</code></td><td>主动安排一波敌人：何时、在哪、多少、什么怪</td><td class="tc"><a href="../wavespawners/">波次生成器</a></td></tr></tbody></table>
+</div>
+<p>正式术语保持英文原名，中文只负责解释用途。字段、Descriptor、Mutator 的名字一律照抄原文——<b>不要给字段自己编中文代码名</b>。</p>
+<h2 id="first-edit">五、第一次修改（6 步）</h2>
+<ol><li><b>装好 CD2 与加载器</b> —— 获取方式见 <a href="../resources/#get-cd2">资源页 · 获取 CD2</a>，安装方式见 <a href="../faq/#faq-install">FAQ · 我该如何使用它</a></li><li><b>打开游戏里的 CD2 面板</b>（ModHub）—— 见 <a href="../basics/#the-cd2-gui">基础部分 · CD2 界面</a></li><li><b>复制一个最小文件</b>：<a href="../basics/#the-cd2-files">Hazard 5x2 示例</a>——就是 Hazard 5 + 敌人翻倍 + 补给 60 硝石</li><li><b>只改一个数字</b>：把 <code>EnemyCountModifier</code> 里的 <code>1.7</code> 改成 <code>2</code> —— 见 <a href="../modules/#difficultysetting">模块 · 难度设置</a></li><li><b>点 <code>Save</code> 保存</b>；难度名取顶层 <code>Name</code> 字段</li><li><b>进游戏验证</b> —— 没变化就去 <a href="../tips/">为什么没生效 · Debug</a></li></ol>
+<h2 id="first-test">六、第一次测试</h2>
+<ul><li><b>先 Save，再进游戏。</b> 不建议进游戏之后再切难度。</li><li>想确认某个值到底是多少，可以用 <code>Vars</code> + <code>Watch</code> 把它显示在界面上。</li><li>改完<b>没有任何变化</b> → 直接进 <a href="../tips/">为什么没生效 · Debug</a>。</li></ul>
+<h2 id="vars">七、早点学会 Vars，会省下很多时间</h2>
+<p><code>Vars</code> 是 CD2 里<b>最强大、也最容易被新作者忽略</b>的模块。它不只是个调试工具：</p>
+<ul><li><b>看得见</b>：把想验证的表达式接进一个变量，打开 <code>Watch</code>，它的值就直接显示在游戏 UI 上。关键在于：<b>代码一旦写错，这个变量会什么都不显示</b>——所以「屏幕上找不到它」本身就是明确的报错信号。</li><li><b>写得短</b>：变量定义一次，之后就能在<b>任何</b>接受同类型值的地方用 <code>{"Var": "变量名"}</code> 引用。把重复出现的表达式抽成一个变量，代码会短很多，日后要改也只需要改一处。</li><li><b>连得通</b>：所有变量在同一时刻统一更新，因此不同模块里读到的值始终一致，可以用来做模块之间通信。</li></ul>
+<p>一个限制：变量之间<b>不能形成循环依赖</b>。</p>
+<p>→ 完整说明（三种用法、限制与示例）：<a href="../tips/#tips-watch">写作提示与常见错误 · 第一节「先用 Vars + watch 字段把逻辑调通」</a></p>
+<h2 id="next">八、接下来去哪</h2>
+<p>推荐顺序——<b>这是路线，不是门槛</b>，卡住或想跳都可以：</p>
+<p>改一个数字 → 改虫量上限 / 怪池 / 敌人 → 简单 Mutator（按人数、按时间）→ 条件逻辑（<code>If</code> / <code>IfFloat</code>）→ <code>Trigger</code>（条件 → 触发 → 持续）→ <code>WaveSpawner</code>（主动安排一波）→ <code>Vars</code> + <code>Mutators</code> + <code>Trigger</code> 组合</p>
+<h2 id="exits">九、三条出路</h2>
+<div class="table-wrap"><table><thead><tr><th class="tc">你现在想做什么</th><th>去哪</th></tr></thead><tbody><tr><td class="tc">动手做一次具体改动</td><td><a href="../common-edits/">常见修改 · Cookbook</a></td></tr><tr><td class="tc">查某个字段到底怎么用</td><td><a href="../toc/">Reference · 查表</a>（<a href="../modules/">模块</a> / <a href="../mutators/">Mutators</a> / <a href="../enemies/">敌人配置</a>…）</td></tr><tr><td class="tc">改了没生效</td><td><a href="../tips/">为什么没生效 · Debug</a></td></tr><tr><td class="tc">想看一整套机制怎么拼起来</td><td><a href="../natural-selection/">案例拆解 · Case Study</a></td></tr></tbody></table>
+</div>
+<nav class="page-nav" aria-label="翻页"><a class="prev" href="../toc/"><span class="dir">上一页</span><span class="title">目录 · Contents</span></a><a class="next" href="../basics/"><span class="dir">下一页</span><span class="title">基础部分 · The Basics of CD2</span></a></nav>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="what-is-cd2"><a href="#what-is-cd2">一、CD2 是什么</a></li><li class="lvl-2" data-h="what-is-a-cd2-file"><a href="#what-is-a-cd2-file">二、一个 CD2 就是一份 JSON</a></li><li class="lvl-2" data-h="two-parts"><a href="#two-parts">三、入门时，先把它理解成两部分</a></li><li class="lvl-2" data-h="five-words"><a href="#five-words">四、五个词就够了</a></li><li class="lvl-2" data-h="first-edit"><a href="#first-edit">五、第一次修改（6 步）</a></li><li class="lvl-2" data-h="first-test"><a href="#first-test">六、第一次测试</a></li><li class="lvl-2" data-h="vars"><a href="#vars">七、早点学会 Vars，会省下很多时间</a></li><li class="lvl-2" data-h="next"><a href="#next">八、接下来去哪</a></li><li class="lvl-2" data-h="exits"><a href="#exits">九、三条出路</a></li></ul></div></aside></div>
+<footer class="footer">
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h3>站点地图</h3>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h3>相关资源</h3>
+      <ul class="footer-links"><li><a href="https://drg.arthurlin.dev/zh-cn/" target="_blank" rel="noopener">深岩资源站 · CD2 中文教学</a></li><li><a href="https://vonacht.github.io/cd2reference/" target="_blank" rel="noopener">原英文文档 · CD2 Reference</a></li><li><a href="https://github.com/SeasonsC/CD2-reference-cn" target="_blank" rel="noopener">GitHub 仓库</a></li><li><a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/" target="_blank" rel="noopener">Deep Rock Galactic（Steam）</a></li><li><a href="https://github.com/trumank/drg-custom-difficulties/blob/master/DATA.md" target="_blank" rel="noopener">原版敌人描述符 DATA.md</a></li><li><a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview" target="_blank" rel="noopener">DRG Hazard Scaling 数值表</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h3>声明</h3>
+      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+    </div>
+  </div>
+</footer>
+ <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
+<button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-results" id="search-results"></ul>
+    <div class="search-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+      <span><kbd>Enter</kbd> 打开</span>
+      <span><kbd>Esc</kbd> 关闭</span>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/site.js?v=82d35298" defer></script>
+</body>
+</html>

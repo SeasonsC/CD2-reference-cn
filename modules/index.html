@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/modules/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=fb353816">
+<link rel="stylesheet" href="../assets/css/site.css?v=82d35298">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -39,8 +39,8 @@
 </header>
 <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
-<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/" class="current" aria-current="page">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul></nav><main id="main" class="content">
-<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › 模块 · Modules</nav>
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/" class="current" aria-current="page">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
+<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">Reference · 查表</span> › 模块 · Modules</nav>
 <h1>模块 · Modules</h1>
 <p class="cn">模块是有效 CD2 JSON 配置文件中的顶层字段名称。以以下出了当前可用的所有模块（按字母顺序排列）。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Modules are the top level hierarchy names for a valid CD2 JSON. The following is an alphabetized list of the current modules.</p></div></details>
@@ -194,7 +194,7 @@
 <tbody>
 <tr>
 <td>BaseHazard<br><span class="td-zh">基础难度</span></td>
-<td>Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the <code>BaseHazard</code> specified here.</td>
+<td>Declares a base vanilla hazard, with values from 1 to 5. When a CD2 JSON doesn't specify a certain field, the value is taken from the <code>BaseHazard</code> specified here.<br><span class="td-zh"><b>实测</b>：未写 <code>BaseHazard</code> 时，CD2 实际以<b>玩家在任务里选择的那个官难</b>为基准，而不是固定 Hazard 5。</span></td>
 </tr>
 
 <tr>
@@ -1322,13 +1322,14 @@ Example:</p></div></details>
 <h2 id="wavespawners">WaveSpawners</h2>
 <p>请查看<a href="../wavespawners/">波次生成器</a>部分</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>See the <a href="../wavespawners/">WaveSpawners</a> section. </p></div></details>
-<nav class="page-nav" aria-label="翻页"><a class="prev" href="../basics/"><span class="dir">上一页</span><span class="title">基础部分 · The Basics of CD2</span></a><a class="next" href="../enemies/"><span class="dir">下一页</span><span class="title">敌人配置 · Enemies / EnemiesNoSync</span></a></nav>
+<aside class="admonition practice"><div class="admonition-title">想继续实践？</div><ul><li><a href="../common-edits/#enemy-count">Cookbook · 让虫更多 / 更少</a></li><li><a href="../common-edits/#remove-vanilla-enemies">Cookbook · 删掉某类敌人</a></li><li><a href="../natural-selection/">案例拆解 · 这些模块拼出来的完整难度</a></li></ul></aside>
+<nav class="page-nav" aria-label="翻页"><a class="prev" href="../natural-selection/"><span class="dir">上一页</span><span class="title">案例拆解 · Case Study</span></a><a class="next" href="../enemies/"><span class="dir">下一页</span><span class="title">敌人配置 · Enemies / EnemiesNoSync</span></a></nav>
 </main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="caps"><a href="#caps">虫量上限 · Caps</a></li><li class="lvl-2" data-h="darkness"><a href="#darkness">光照控制 · Darkness</a></li><li class="lvl-2" data-h="description"><a href="#description">描述 · Description</a></li><li class="lvl-2" data-h="difficultysetting"><a href="#difficultysetting">难度设置 · DifficultySetting</a></li><li class="lvl-2" data-h="dwarves"><a href="#dwarves">矮人属性 · Dwarves</a></li><li class="lvl-2" data-h="enemies-enemiesnosync"><a href="#enemies-enemiesnosync">敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync</a></li><li class="lvl-2" data-h="escortmule"><a href="#escortmule">执勤护送 · EscortMule</a></li><li class="lvl-2" data-h="maxplayers"><a href="#maxplayers">最多玩家数 · MaxPlayers</a></li><li class="lvl-2" data-h="messages"><a href="#messages">信息 · Messages</a></li><li class="lvl-2" data-h="name"><a href="#name">名称 · Name</a></li><li class="lvl-2" data-h="nextdifficulty"><a href="#nextdifficulty">Next 难度 · NextDifficulty</a></li><li class="lvl-2" data-h="nitramultiplier"><a href="#nitramultiplier">NitraMultiplier</a></li><li class="lvl-2" data-h="pools"><a href="#pools">怪池 · Pools</a></li><li class="lvl-2" data-h="salvage"><a href="#salvage">搜救行动 · Salvage</a></li><li class="lvl-3" data-p="salvage"><a href="#usable-fields">Usable fields</a></li><li class="lvl-2" data-h="soundcues"><a href="#soundcues">声音提示 · SoundCues</a></li><li class="lvl-2" data-h="specialencounters"><a href="#specialencounters">特殊遭遇事件 · SpecialEncounters</a></li><li class="lvl-2" data-h="resupply"><a href="#resupply">补给 · Resupply</a></li><li class="lvl-2" data-h="Vars"><a href="#Vars">全局变量池 · Vars</a></li><li class="lvl-2" data-h="warnings"><a href="#warnings">禁用任务词条 · Warnings</a></li><li class="lvl-2" data-h="wavespawners"><a href="#wavespawners">WaveSpawners</a></li></ul></div></aside></div>
 <footer class="footer">
   <div class="footer-cols">
     <div class="footer-col">
       <h3>站点地图</h3>
-      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul>
     </div>
     <div class="footer-col">
       <h3>相关资源</h3>
@@ -1340,6 +1341,7 @@ Example:</p></div></details>
     </div>
   </div>
 </footer>
+ <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
 <div class="search-modal" id="search-modal" hidden>
   <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
@@ -1356,6 +1358,6 @@ Example:</p></div></details>
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=fb353816" defer></script>
+<script src="../assets/js/site.js?v=82d35298" defer></script>
 </body>
 </html>

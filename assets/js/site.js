@@ -191,7 +191,7 @@
       data.forEach(function (pg, pi) {
         var seen = {};
         var push = function (t) { if (!seen[t]) { seen[t] = 1; (index[t] = index[t] || []).push(pi); } };
-        terms(pg.text).forEach(push);
+        terms(pg.text + ' ' + (pg.kw || '')).forEach(push);
         (pg.headings || []).forEach(function (h) {
           if (h.text) SECTIONS.push({ pi: pi, id: h.id, level: h.level, text: h.text, page: pg });
         });
@@ -352,5 +352,11 @@
     addEventListener('touchmove', function () { settled = true; }, { passive: true });
     go();
     addEventListener('hashchange', go);
+  })();
+  (function () {
+    var back = $('#jump-back');
+    if (!back) return;
+    if (history.length > 1) back.hidden = false;
+    back.addEventListener('click', function () { history.back(); });
   })();
 })();

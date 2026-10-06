@@ -32,6 +32,25 @@ def resolve(page_rel, href):
 errors, warns = [], []
 tot_fold = tot_code = 0
 abs_links = 0
+xref_bad = []                 # R11：跨页锚点缺失（含目标页自身不存在的 id）
+
+
+def page_key(rel):
+    """页面相对路径 → 站点内路径键（与 resolve() 的返回值对齐）。"""
+    if rel == 'index.html':
+        return '/'
+    if rel.endswith('/index.html'):
+        return '/' + rel[:-len('/index.html')]
+    return '/' + rel
+
+
+# 先收集所有页面的 id 集合，供跨页锚点检查用（需要区分大小写）
+PAGE_IDS = {}
+for fp in pages:
+    rel = os.path.relpath(fp, SITE).replace('\\', '/')
+    d = LH.fromstring(io.open(fp, encoding='utf-8').read().encode('utf-8'))
+    PAGE_IDS[page_key(rel)] = {e.get('id') for e in d.xpath('//*[@id]')}
+
 for fp in pages:
     rel = os.path.relpath(fp, SITE).replace('\\', '/')
     raw = io.open(fp, encoding='utf-8').read()
@@ -65,6 +84,11 @@ for fp in pages:
         dst = os.path.join(SITE, t.strip('/').replace('/', os.sep))
         if not os.path.exists(dst) and not os.path.exists(os.path.join(dst, 'index.html')):
             errors.append(f'{rel}: 内链目标缺失 {h} → {t}')
+        # R11：跨页锚点也要真的存在（同页锚点在上面已查过）
+        if '#' in h:
+            frag = urllib.parse.unquote(h.split('#', 1)[1])
+            if frag and t in PAGE_IDS and frag not in PAGE_IDS[t]:
+                xref_bad.append(f'{rel}: 跨页锚点缺失 {h} → {t}#{frag}')
     for im in doc.xpath('//img[@src]'):
         s = im.get('src')
         if s.startswith('/'):
@@ -169,7 +193,7 @@ CHECKS = [
     # R1/R2 无回归
     ('R1 §1 站内相对路径（无根绝对）', abs_links == 0),
     ('R2 §1 左导航栏头已删', count(r'drawer-head') == 0),
-    ('R2 §3 卡片用 SVG 图标', count(r'class="card-icon"><svg') == 12),
+    ('R2 §3 卡片用 SVG 图标', count(r'class="card-icon"><svg') == 14),
 ]
 
 # ── R4 回归清单 ────────────────────────────────────────────────────────
@@ -180,6 +204,11 @@ _stats_b = _stats.group(1).count('<b>') if _stats else -1
 _toc_nav = re.search(r'class="drawer-list">(.*?)</ul>', home_html, re.S)
 _toc_nav_labels = re.findall(r'<a [^>]*>([^<]*)</a>', _toc_nav.group(1)) if _toc_nav else []
 res_html = io.open(os.path.join(SITE, 'resources', 'index.html'), encoding='utf-8').read()
+tut_html = io.open(os.path.join(SITE, 'tutorial', 'index.html'), encoding='utf-8').read()
+ce_html = io.open(os.path.join(SITE, 'common-edits', 'index.html'), encoding='utf-8').read()
+tips_html = io.open(os.path.join(SITE, 'tips', 'index.html'), encoding='utf-8').read()
+basics_html = io.open(os.path.join(SITE, 'basics', 'index.html'), encoding='utf-8').read()
+mods_html = io.open(os.path.join(SITE, 'modules', 'index.html'), encoding='utf-8').read()
 tzh_empty = [p['path'] for p in idx if not (p.get('title_zh') or '').strip()]
 CHECKS += [
     # §1 折叠条按钮化
@@ -233,11 +262,13 @@ CHECKS += [
      not re.search(r'class="card"|class="stats"', home_html)),
     ('R5 目录页插在首页之后',
      len(_toc_nav_labels) > 1 and _toc_nav_labels[1] == '目录 · Contents'),
-    ('R5 目录页 12 张卡片', len(re.findall(r'class="card"', toc_html)) == 12),
-    ('R5 已删页面无死链', count(r'href="(?:\.\./)?/(?:mev-dea|common-edits|tutorials)/') == 0
-     and count(r'href="(?:\.\./)+(?:mev-dea|common-edits|tutorials)/') == 0),
+    ('R5 目录页 14 张卡片', len(re.findall(r'class="card"', toc_html)) == 14),
+    ('R5 已删页面无死链', count(r'href="(?:\.\./)?/(?:mev-dea|tutorials)/') == 0
+     and count(r'href="(?:\.\./)+(?:mev-dea|tutorials)/') == 0),
     ('R5 已删页面不存在', not any(os.path.exists(os.path.join(SITE, s))
-                                  for s in ('mev-dea', 'common-edits', 'tutorials'))),
+                                  for s in ('mev-dea', 'tutorials'))
+     and os.path.exists(os.path.join(SITE, 'common-edits', 'index.html'))
+     and os.path.exists(os.path.join(SITE, 'tutorial', 'index.html'))),
     ('R5 分组冷却已并入资源页',
      'id="grouped-cooldowns"' in io.open(os.path.join(SITE, 'resources', 'index.html'),
                                          encoding='utf-8').read()),
@@ -278,7 +309,72 @@ CHECKS += [
      count(r'<span class="td-zh">[^<]*\)</span>') == 0
      and count(r'<t[dh][^>]*>[^<]*[（(]\s*<br') == 0),
     ('R5 ⑧ 无空表头 / 空列', count(r'<th>\s*</th>') == 0),
+    # ── R11 信息架构 ──
+    ('R11 跨页锚点全部存在', not xref_bad),
+    ('R11 左导航有分组标题', count(r'class="nav-head"') == (len(pages) - 1) * 4),
+    ('R11 目录页分组卡片 4 组', len(re.findall(r'class="card-group"',
+                                                io.open(os.path.join(SITE, 'toc', 'index.html'),
+                                                        encoding='utf-8').read())) == 4),
+    ('R11 首页三条入口 + 三节新手内容',
+     'class="home-paths"' in home_html and 'id="first-edit"' in home_html
+     and 'id="map"' in home_html and 'id="what"' in home_html
+     and 'class="home-cta"' not in raw_all),
+    ('R11 首页新手小节进了搜索索引',
+     any(h.get('id') in ('first-edit', 'map', 'what')
+         for h in next((p.get('headings') or [] for p in idx if p.get('slug') == ''),
+                       []))),
+    # ── R12 新手层 ──
+    ('R12 新手入门页存在且九节齐全',
+     all((f'id="{x}"' in tut_html) for x in
+         ('what-is-cd2', 'what-is-a-cd2-file', 'two-parts', 'five-words',
+          'first-edit', 'first-test', 'vars', 'next', 'exits'))),
+    ('R12 首页不再承担完整教程（6 步已移出）',
+     len(re.findall(r'<li>', re.search(r'<ol class="home-steps">(.*?)</ol>',
+                                       home_html, re.S).group(1))) == 3
+     and '新手入门' in home_html),
+    ('R12 Cookbook 存在且两条配方 + 已核实 Descriptor',
+     'id="enemy-count"' in ce_html and 'id="remove-vanilla-enemies"' in ce_html
+     and 'ED_Spider_Stalker' in ce_html and 'ED_Spider_Lobber' in ce_html
+     and 'Pools module field' in ce_html),
+    ('R12 Cookbook 声明了上限与未确认行为',
+     'MaxActiveEnemies' in ce_html and '还没有被完全弄明白' in ce_html
+     and '不建议超过 300' in ce_html),
+    ('R12 Debug 页有分诊表 + 九步 + 五类症状',
+     'id="debug-symptoms"' in tips_html and 'id="debug-order"' in tips_html
+     and all((f'id="{x}"' in tips_html) for x in
+             ('debug-no-change', 'debug-wrong-effect', 'debug-wavespawner',
+              'debug-mutator', 'debug-mp'))),
+    ('R12 tips 导语不再被 title 吞掉（存量 bug）',
+     '这一页专门回答一件事' in tips_html),
+    ('R12 人话关键词已进搜索索引',
+     sum(1 for p in idx if (p.get('kw') or '').strip()) >= 10
+     and '删怪' in next((p.get('kw') or '' for p in idx if p.get('slug') == 'common-edits'), '')
+     and '虫更多' in next((p.get('kw') or '' for p in idx if p.get('slug') == 'common-edits'), '')
+     and '我想做什么' in next((p.get('kw') or '' for p in idx if p.get('slug') == ''), '')),
+    ('R12 面包屑带分组层级',
+     'class="crumb-g"' in raw_all and 'Reference · 查表' in raw_all),
+    ('R12 Reference 页有「想继续实践？」出口',
+     count(r'class="admonition practice"') >= 6
+     and '想继续实践？' in raw_all),
+    ('R12 案例拆解与 Cookbook 名称不再冲突',
+     '案例拆解 · Case Study' in raw_all and '常见修改 · Cookbook' in raw_all
+     and '实战配方 · Cookbook' not in raw_all),
+    # ── R13 链路闭环 ──
+    ('R13 FAQ 问答条目有稳定英文锚点', count(r'<li id="faq-') == 14),
+    ('R13 Debug 的 FAQ 链接指向具体问题',
+     'faq/#faq-no-effect' in tips_html and 'faq/#faq-mutator-debug' in tips_html
+     and 'faq/#faq-public-match' in tips_html and 'faq/#faq-cd1-conflict' in tips_html),
+    ('R13 返回上一位置按钮', count(r'id="jump-back"') == len(pages) - 1
+     and 'jump-back' in js and '.jump-back{' in css),
+    ('R13 BaseHazard 口径已按实测修正',
+     'BaseHazard' in tut_html and '默认使用 Hazard 5' not in tut_html
+     and '玩家在任务里选择的那个官难' in basics_html
+     and '玩家在任务里选择的那个官难' in mods_html),
+    ('R13 Reference 反向入口收敛到核心页',
+     count(r'class="admonition practice"') == 6),
 ]
+if xref_bad:
+    errors.extend(xref_bad[:40])
 failed = [name for name, ok in CHECKS if not ok]
 if failed:
     errors.extend('回归检查未通过：' + n for n in failed)
@@ -301,8 +397,10 @@ P(f'⚠️ 提示 {len(warns)} 条')
 for w in warns[:40]:
     P('   ' + w)
 P('')
-P('预算：CSS %s 字节 (上限 30720，余 %s) ｜ JS %s 字节 (上限 20480，余 %s)'
-  % (f'{sz_css:,}', f'{30720 - sz_css:,}', f'{sz_js:,}', f'{20480 - sz_js:,}'))
+P(f'预算：CSS {sz_css:,} / 30,720 = {sz_css / 30720 * 100:.2f}%'
+  f'（余 {30720 - sz_css:,} 字节 = {(30720 - sz_css) / 30720 * 100:.2f}%）'
+  f' ｜ JS {sz_js:,} / 20,480 = {sz_js / 20480 * 100:.2f}%'
+  f'（余 {20480 - sz_js:,} 字节 = {(20480 - sz_js) / 20480 * 100:.2f}%）')
 sizes = sorted(((os.path.getsize(p), os.path.relpath(p, SITE)) for p in pages), reverse=True)
 P('最大的 5 个页面：')
 for s, r in sizes[:5]:

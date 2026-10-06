@@ -2,8 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/toc/</loc></url>
-  <url><loc>https://seasonsc.github.io/CD2-reference-cn/faq/</loc></url>
+  <url><loc>https://seasonsc.github.io/CD2-reference-cn/tutorial/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/basics/</loc></url>
+  <url><loc>https://seasonsc.github.io/CD2-reference-cn/common-edits/</loc></url>
+  <url><loc>https://seasonsc.github.io/CD2-reference-cn/natural-selection/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/modules/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/enemies/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/direct/</loc></url>
@@ -11,6 +13,6 @@
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/projectiles/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/mutators/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/resources/</loc></url>
+  <url><loc>https://seasonsc.github.io/CD2-reference-cn/faq/</loc></url>
   <url><loc>https://seasonsc.github.io/CD2-reference-cn/tips/</loc></url>
-  <url><loc>https://seasonsc.github.io/CD2-reference-cn/natural-selection/</loc></url>
 </urlset>

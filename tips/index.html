@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>写作提示与常见错误 · Tips — CD2 参考文档</title>
-<meta name="description" content="Vars 是 CD2 里最强大、也最容易被新作者忽略的模块。它远不只是个调试工具，至少能同时帮你做三件事：">
+<title>为什么没生效 · Debug — CD2 参考文档</title>
+<meta name="description" content="这一页专门回答一件事：CD2 改了却看不到效果，先查什么。内容是我们自己踩过的坑与给新作者的建议，不属于官方文档的翻译内容。">
 <link rel="canonical" href="https://seasonsc.github.io/CD2-reference-cn/tips/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="CD2 参考文档">
-<meta property="og:title" content="写作提示与常见错误 · Tips — CD2 参考文档">
-<meta property="og:description" content="Vars 是 CD2 里最强大、也最容易被新作者忽略的模块。它远不只是个调试工具，至少能同时帮你做三件事：">
+<meta property="og:title" content="为什么没生效 · Debug — CD2 参考文档">
+<meta property="og:description" content="这一页专门回答一件事：CD2 改了却看不到效果，先查什么。内容是我们自己踩过的坑与给新作者的建议，不属于官方文档的翻译内容。">
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/tips/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=fb353816">
+<link rel="stylesheet" href="../assets/css/site.css?v=82d35298">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -39,9 +39,41 @@
 </header>
 <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
-<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/" class="current" aria-current="page">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul></nav><main id="main" class="content">
-<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › 写作提示与常见错误 · Tips</nav>
-<h1>写作提示与常见错误 · Tips</h1>
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/" class="current" aria-current="page">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
+<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">排障 · 出问题</span> › 为什么没生效 · Debug</nav>
+<h1>为什么没生效 · Debug</h1>
+<p>这一页专门回答一件事：<b>CD2 改了却看不到效果，先查什么</b>。内容是我们自己踩过的坑与给新作者的建议，不属于官方文档的翻译内容。</p>
+<h2 id="debug-symptoms">按症状排查：先定位，再深入</h2>
+<p>「没生效」不是一个问题，是一类问题。先在下面找到最像你的一条，它会告诉你该看哪一节。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr><th>症状</th><th>最可能的原因</th><th class="tc">先看</th></tr>
+</thead>
+<tbody>
+<tr><td>完全没有变化</td><td>文件没加载 / 字段名或位置不对 / 版本不支持</td><td class="tc"><a href="#debug-no-change">完全没有变化</a></td></tr>
+<tr><td>数值变了，但效果和想象不一样</td><td>被上限压住 / 被别处覆盖 / 池子里没有它</td><td class="tc"><a href="#debug-wrong-effect">效果和想象不一样</a></td></tr>
+<tr><td>写了 WaveSpawner 但没有生成</td><td>条件没成立 / 少了 Spawner / 被上限或冷却拦住</td><td class="tc"><a href="#debug-wavespawner">WaveSpawner 没有生成</a></td></tr>
+<tr><td>Mutator<br><span class="td-zh">报错，或一直是初始值</span></td><td>输入输出类型不匹配（数值直接喂了布尔字段最常见）</td><td class="tc"><a href="#debug-mutator">Mutator 不工作或报错</a></td></tr>
+<tr><td>本地能玩，朋友进不来</td><td>用到了需要客户端同步的功能</td><td class="tc"><a href="#debug-mp">联机时出问题</a></td></tr>
+</tbody>
+</table>
+
+</div>
+<h2 id="debug-order">九步顺序排查</h2>
+<p>不确定自己属于哪一类，就按这个顺序排除。顺序是<b>从便宜到贵</b>——先排除那些不用进游戏就能看出来的错误。</p>
+<ol><li><b>JSON / 文件格式</b>：粘进 CD2 面板时如果报 JSON 错，先修语法。见<a href="../basics/#the-cd2-files">基础部分 · 难度文件要求</a>。</li><li><b>字段名称</b>：大小写、下划线必须一致。本页<a href="#tips-mistakes">第七节</a>列了常见错误写法。</li><li><b>当前 CD2 版本是否支持</b>：字段是哪个版本加入的，查对应的 Reference 页与首页更新日志。</li><li><b>字段放在正确位置</b>：同名字段在不同模块里含义不同，要放进它该在的那一层。</li><li><b>Mutator 的输入输出类型</b>：数值型输出不能直接喂给要布尔信号的字段——这是本站出现最多的坑。</li><li><b>条件是否真的成立</b>：条件依赖游戏状态（人数、时间、阶段、补给次数），单人测试时可能压根不会触发。</li><li><b>Pool / WaveSpawner 是否还有别的限制</b>：上限、池子内容、生成位置、冷却都可能挡住你。</li><li><b>是否涉及客户端同步</b>：用到同步类功能时，没装 CD2 的客户端会被断开——这不是你的逻辑写错了。</li><li><b>用 Vars / Watch 看实际值</b>：到这一步还找不到，就把值显示在界面上，直接看它到底等于几。</li></ol>
+<h2 id="debug-no-change">完全没有变化</h2>
+<ul><li>文件到底有没有被用上：<b>先 Save，再进游戏</b>；见 <a href="../faq/#faq-no-effect">FAQ · 改完难度文件，为什么游戏里没变化？</a></li><li>字段名或位置写错了：见<a href="#tips-mistakes">七、常见错误写法</a>。</li><li>这个字段当前版本还不支持：查对应 Reference 页与首页更新日志。</li><li>仍然没头绪：把值接到 <code>Vars</code> + <code>Watch</code> 上直接看，见<a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a>。</li></ul>
+<h2 id="debug-wrong-effect">数值变了，但效果和想象不一样</h2>
+<ul><li>是不是被上限压住了：虫量看 <code>Caps</code>，见<a href="../modules/#caps">模块 · 虫量上限</a>。</li><li>是不是被别处覆盖了：同一个值可能被多处写入，用 <code>Vars</code> 收敛成一个来源。</li><li>改了敌人，但它不在任何池子里：先看<a href="../modules/#pools">模块 · 怪池</a>。</li><li>生成数量类字段容易多出一只：见<a href="#spawncount-plus-one">六、生成数量与点数</a>。</li></ul>
+<h2 id="debug-wavespawner">写了 WaveSpawner 但没有生成</h2>
+<ul><li>条件根本没有成立：Trigger 要的是布尔信号，数值输出要先经 <code>TriggerOnChange</code>——见<a href="../mutators/#trigger-mutators">Mutator · 触发类</a>。</li><li>一次性的击杀事件是瞬时的，要先用 <code>TriggerFixedDuration</code> 拉成持续窗口：见<a href="#tips-momentary">五、「一瞬间」的布尔信号</a>。</li><li>Spawner 与难度点数的关系：见<a href="../enemies/#spawner">敌人生成器 Spawner</a> 与<a href="#spawncount-plus-one">六、生成数量与点数</a>。</li><li>被上限或冷却挡住：见<a href="../mutators/#enemycooldown">Mutator · 敌人生成冷却</a>。</li></ul>
+<h2 id="debug-mutator">不工作或报错 · Mutator</h2>
+<ul><li>最常见的一条：把数值型 Mutator 直接喂给需要布尔信号的字段——见<a href="#mistake-boolean-input">七 ①</a> 与 <a href="../faq/#faq-mutator-debug">FAQ · 我写的 Mutator 没反应，怎么查</a>。</li><li>类型要对齐：Float / Int / Boolean / String / 数组，输出必须和下游字段的要求一致。</li><li>下标从 0 开始：见<a href="#index-from-zero">二、CD2 的下标从 0 开始</a>。</li><li>它<b>不是瞬时响应</b>的，别用一帧的结果判断对错：见<a href="#tips-polling">三、Mutator 不是瞬时响应的</a>。</li></ul>
+<h2 id="debug-mp">本地能玩，联机出问题</h2>
+<ul><li>用到了需要同步的功能（例如敌人缩放、自定义材质）：客户端必须安装 CD2，否则任务开始会被断开——见<a href="../modules/#enemies-enemiesnosync">模块 · 敌人配置</a>。</li><li>不想强制客户端安装：改用 <code>EnemiesNoSync</code>，代价是少一部分功能。</li><li>与 CD1 共存、公开匹配的规则：见 <a href="../faq/#faq-cd1-conflict">FAQ · 能同时使用 CD1 和 CD2 吗</a> 与 <a href="../faq/#faq-public-match">FAQ · 我的难度能给别人玩吗</a>。</li><li><b>需要进一步核实</b>：具体哪些字段属于「必须同步」，目前没有逐字段的权威清单，本站不做推测。</li></ul>
+<h2 id="debug-deepdive">深挖：七节常见坑</h2>
+<p>下面七节是更细的原因与写法对照。上面的分诊表把你送到这里之后，再从对应一节读起。</p>
 <h2 id="tips-watch">一、先用 Vars + watch 字段把逻辑调通</h2>
 <p><code>Vars</code>    是 CD2 里最强大、也最容易被新作者忽略的模块。它远不只是个调试工具，至少能同时帮你做三件事：</p>
 <ul><li><b>判断自己的代码有没有问题</b>：把想验证的表达式接进一个变量，打开  <code>Watch</code>，它的值就会<b>直接显示在游戏 UI 上</b>。关键在于：<b>一旦代码写出问题，这个变量就会什么都不显示</b>——所以「屏幕上找不到它」本身就是一个明确的报错信号。对刚上手写难度的作者来说，<b>这一点的价值怎么强调都不过分</b>。</li><li><b>储存信息，让代码更简洁</b>：变量定义一次之后，就能在<b>任何</b>接受同类型值的地方用 <code>{"Var": "变量名"}</code> 引用。把重复出现的表达式抽成一个变量，代码会短很多，日后要改也只需要改一处。</li><li><b>让模块之间能够通信</b>：所有变量在同一时刻统一更新，因此它在各个模块里读到的值始终一致。</li></ul>
@@ -95,13 +127,13 @@
     &quot;RiseOnly&quot;: true,
     &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDowns&quot;}
 }</code></pre></div>
-<nav class="page-nav" aria-label="翻页"><a class="prev" href="../resources/"><span class="dir">上一页</span><span class="title">资源 · Resources</span></a><a class="next" href="../natural-selection/"><span class="dir">下一页</span><span class="title">难度实战拆解 · Case Study</span></a></nav>
-</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="tips-watch"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2" data-h="index-from-zero"><a href="#index-from-zero">二、CD2 的下标从 0 开始</a></li><li class="lvl-2" data-h="tips-polling"><a href="#tips-polling">三、Mutator 不是瞬时响应的</a></li><li class="lvl-2" data-h="random-mutators"><a href="#random-mutators">四、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-2" data-h="tips-momentary"><a href="#tips-momentary">五、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2" data-h="spawncount-plus-one"><a href="#spawncount-plus-one">六、生成数量与点数：两个容易踩的坑</a></li><li class="lvl-3" data-p="spawncount-plus-one"><a href="#maxplusone">实际会多刷一只 · MaxSpawnCount</a></li><li class="lvl-3" data-p="spawncount-plus-one"><a href="#parent-variant">用「母体 + 自定义变种」控制生成，而不是直接调敌人本身</a></li><li class="lvl-2" data-h="tips-mistakes"><a href="#tips-mistakes">七、常见错误写法</a></li><li class="lvl-3" data-p="tips-mistakes"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li></ul></div></aside></div>
+<nav class="page-nav" aria-label="翻页"><a class="prev" href="../faq/"><span class="dir">上一页</span><span class="title">常见问题 · FAQ</span></a><span></span></nav>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="debug-symptoms"><a href="#debug-symptoms">按症状排查：先定位，再深入</a></li><li class="lvl-2" data-h="debug-order"><a href="#debug-order">九步顺序排查</a></li><li class="lvl-2" data-h="debug-no-change"><a href="#debug-no-change">完全没有变化</a></li><li class="lvl-2" data-h="debug-wrong-effect"><a href="#debug-wrong-effect">数值变了，但效果和想象不一样</a></li><li class="lvl-2" data-h="debug-wavespawner"><a href="#debug-wavespawner">写了 WaveSpawner 但没有生成</a></li><li class="lvl-2" data-h="debug-mutator"><a href="#debug-mutator">不工作或报错 · Mutator</a></li><li class="lvl-2" data-h="debug-mp"><a href="#debug-mp">本地能玩，联机出问题</a></li><li class="lvl-2" data-h="debug-deepdive"><a href="#debug-deepdive">深挖：七节常见坑</a></li><li class="lvl-2" data-h="tips-watch"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2" data-h="index-from-zero"><a href="#index-from-zero">二、CD2 的下标从 0 开始</a></li><li class="lvl-2" data-h="tips-polling"><a href="#tips-polling">三、Mutator 不是瞬时响应的</a></li><li class="lvl-2" data-h="random-mutators"><a href="#random-mutators">四、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-2" data-h="tips-momentary"><a href="#tips-momentary">五、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2" data-h="spawncount-plus-one"><a href="#spawncount-plus-one">六、生成数量与点数：两个容易踩的坑</a></li><li class="lvl-3" data-p="spawncount-plus-one"><a href="#maxplusone">实际会多刷一只 · MaxSpawnCount</a></li><li class="lvl-3" data-p="spawncount-plus-one"><a href="#parent-variant">用「母体 + 自定义变种」控制生成，而不是直接调敌人本身</a></li><li class="lvl-2" data-h="tips-mistakes"><a href="#tips-mistakes">七、常见错误写法</a></li><li class="lvl-3" data-p="tips-mistakes"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li></ul></div></aside></div>
 <footer class="footer">
   <div class="footer-cols">
     <div class="footer-col">
       <h3>站点地图</h3>
-      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul>
     </div>
     <div class="footer-col">
       <h3>相关资源</h3>
@@ -113,6 +145,7 @@
     </div>
   </div>
 </footer>
+ <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
 <div class="search-modal" id="search-modal" hidden>
   <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
@@ -129,6 +162,6 @@
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=fb353816" defer></script>
+<script src="../assets/js/site.js?v=82d35298" defer></script>
 </body>
 </html>

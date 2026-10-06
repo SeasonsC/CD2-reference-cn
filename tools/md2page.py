@@ -418,6 +418,49 @@ MERGE = {
         ('附录：判断链用到的底层指标', ['H'])],
 }
 
+# ── R11：Cookbook 入口 —— 从「我想做什么」反查配方 ─────────────────────
+#   左列是玩法目标，中列是配方编号（由下方 fmap 生成锚点），右列是这类需求通常
+#   会用到的原语。只做导航，不在这里解释原语含义（那是 Reference 的事）。
+CB_GOALS = [
+    ('让一个数值自己累加、记账', '①', 'Accumulate · Delta'),
+    ('一次性事件 → 拉成一个持续窗口', '②', 'TriggerOnChange · TriggerFixedDuration'),
+    ('在关键时刻采样一次并保持住', '③', 'LockFloat · Max'),
+    ('按阶段发奖励、播报', '④', 'Sequence · TriggerTimer'),
+    ('满足条件才出现的兜底机制（是 / 否）', '⑤', '状态评估 · 是 / 否选择单位'),
+    ('按玩家表现动态换怪池', '⑥', 'Sequence · 怪物池分发'),
+    ('计时 / 冷却 / 延迟', '② ④ ⑤ ⑥', 'StopWatch · TriggerTimer · TriggerDelay'),
+]
+
+_LOCKS = urllib.parse.quote('LockFloat, LockBoolean, LockString')
+
+# R11：每道配方末尾的「想深入了解」出口 —— 锚点全部来自构建产物，已被跨页锚点检查覆盖
+CB_REF = {
+    '①': [('模块 · 硝石倍率 NitraMultiplier', '../modules/#nitramultiplier'),
+          ('模块 · 补给 Resupply', '../modules/#resupply'),
+          ('Mutator · 累加 Accumulate', '../mutators/#accumulate'),
+          ('Mutator · 变量 Delta', '../mutators/#delta')],
+    '②': [('敌人生成器 Spawner', '../enemies/#spawner'),
+          ('Mutator · 变化触发 TriggerOnChange', '../mutators/#triggeronchange'),
+          ('Mutator · 固定持续时间 TriggerFixedDuration', '../mutators/#triggerfixedduration')],
+    '③': [('Mutator · ' + '、'.join(['锁定浮点数', '锁定布尔值', '锁定字符串']),
+           '../mutators/#' + _LOCKS),
+          ('Mutator · 最大值 Max', '../mutators/#max'),
+          ('Mutator · 团队生命值比例 DwarvesHealth', '../mutators/#dwarveshealth'),
+          ('模块 · 矮人属性 Dwarves', '../modules/#dwarves')],
+    '④': [('Mutator · 序列 Sequence', '../mutators/#Sequence'),
+          ('Mutator · 秒表 StopWatch', '../mutators/#StopWatch'),
+          ('Mutator · 定时触发 TriggerTimer', '../mutators/#triggertimer')],
+    '⑤': [('Mutator · ' + '、'.join(['锁定浮点数', '锁定布尔值', '锁定字符串']),
+           '../mutators/#' + _LOCKS),
+          ('模块 · 怪池 Pools', '../modules/#pools'),
+          ('Mutator · 非零判断 Nonzero', '../mutators/#Nonzero')],
+    '⑥': [('模块 · 怪池 Pools', '../modules/#pools'),
+          ('Mutator · 已击杀敌人数量 EnemiesKilled', '../mutators/#enemieskilled'),
+          ('Mutator · 已呼叫补给次数 ByResuppliesCalled', '../mutators/#byresuppliescalled'),
+          ('Mutator · 近期生成敌人计数 EnemiesRecentlySpawned',
+           '../mutators/#enemiesrecentlyspawned')],
+}
+
 
 def main():
     raw = io.open(MD, encoding='utf-8').read()
@@ -436,7 +479,13 @@ def main():
         else:
             pre.append(s)
 
-    html = [f'<h1 id="ns-case">{esc(title)}</h1>']
+    html = [f'<h1 id="ns-case">{esc(title)}</h1>',
+            # R13 §6：定位句必须在最前——读者一眼就知道这是「完整案例」而不是要通读的教程
+            '<p><b>这一页是什么：</b>一个完整案例的拆解（Case Study）——回答的是'
+            '<b>「一整套机制是怎么拼起来的」</b>。<b>它不要求你从头读到尾</b>：'
+            '每道功能后面都有一行「想深入了解」，指向对应字段的完整定义。'
+            '只想先做一个小改动，请去看 <a href="../common-edits/">常见修改 · Cookbook</a>；'
+            '完全没接触过 CD2，从 <a href="../tutorial/">新手入门</a> 开始。</p>']
     if h1 and any(x.strip() for x in h1['lines']):   # H1 下面的引言/元信息（此前被整个丢掉）
         html.append(render(h1['lines']))
     html += ['<p>下面用的是一个真实存在、能在游戏里跑起来的难度：<b>Hazard 9 · 物竞天择</b>。'
@@ -464,6 +513,28 @@ def main():
         m = re.match(r'功能\s*([①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬])', g['h']['text'])
         if m:
             fmap[m.group(1)] = slug(g['h']['text'])
+    # R11：Cookbook 入口表 —— 放在功能索引之前，先按「我想做什么」找，再按难度浏览
+    grows = []
+    for goal, num, prim in CB_GOALS:
+        nums = num.split()
+        if len(nums) == 1 and nums[0] in fmap:
+            where = f'<a href="#{fmap[nums[0]]}">功能 {nums[0]}</a>'
+        else:
+            inner = ' '.join(
+                (f'<a href="#{fmap[n]}">{n}</a>' if n in fmap else esc(n)) for n in nums)
+            where = '功能 ' + inner
+        grows.append(f'<tr><td>{esc(goal)}</td><td>{where}</td>'
+                     f'<td>{esc(prim)}</td></tr>')
+    html.append('<h2 id="cb-goals">按目标查案例</h2>')
+    html.append('<p>不知道从哪一节开始，就先看这张表：左边是<b>你想实现的效果</b>，'
+                '中间是对应的功能，右边是这类需求通常会用到的原语。</p>')
+    html.append('<table><thead><tr><th>我想做什么</th><th>先看哪一节</th>'
+                '<th>通常会用到的原语</th></tr></thead><tbody>'
+                + ''.join(grows) + '</tbody></table>')
+    html.append('<p class="mt-global">字段的完整含义不在本页：顶层模块查 '
+                '<a href="../modules/">模块</a>，条件与计算查 '
+                '<a href="../mutators/">Mutator</a>，敌人控制项查 '
+                '<a href="../enemies/">敌人配置</a>。</p>')
     rows = []
     for num, cn, one, star in (('①', '硝石经济改造', '关掉地图硝石，改用一本自己记的账', '★'),
                                ('②', '勘探者无人机', '击杀换一个 20~30 秒的开关', '★★'),
@@ -521,6 +592,12 @@ def main():
                 html.append(f'<table class="mf-table mf-guide"><tbody>{tr}</tbody></table>')
             else:
                 html.append(render(subs['它做了什么']['lines']))
+
+        # R11：每道配方的 Reference 出口（不让本页变成又一个需要通读的大分类）
+        ref = CB_REF.get(num)
+        if ref:
+            links = ' · '.join(f'<a href="{u}">{esc(t)}</a>' for t, u in ref)
+            html.append(f'<p class="ns-ref"><b>想深入了解：</b>{links}</p>')
 
         if '精简骨架' in subs:
             html.append(f'<h3 id="{aid}-skeleton">精简骨架</h3>')

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark" data-lang="both" data-base="../">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>常见修改 · Cookbook — CD2 参考文档</title>
+<meta name="description" content="这一页只讲最常见的两种 CD2 改动——让虫变多／变少、从难度里删掉某类敌人。都是最小改动，抄进你自己的文件就能用。">
+<link rel="canonical" href="https://seasonsc.github.io/CD2-reference-cn/common-edits/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="CD2 参考文档">
+<meta property="og:title" content="常见修改 · Cookbook — CD2 参考文档">
+<meta property="og:description" content="这一页只讲最常见的两种 CD2 改动——让虫变多／变少、从难度里删掉某类敌人。都是最小改动，抄进你自己的文件就能用。">
+<meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/common-edits/">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
+<link rel="stylesheet" href="../assets/css/site.css?v=82d35298">
+</head>
+<body class="has-toc">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <button class="icon-btn" id="drawer-btn" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+      <a class="brand" href="../"><img src="../assets/img/logo.svg" alt="" width="22" height="22" loading="eager"><span>CD2 参考文档</span></a>
+    </div>
+    <div class="topbar-mid">
+      <div class="topbar-spacer"></div>
+      <button class="search-btn" type="button" data-search-open aria-label="搜索文档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+      <div class="topbar-spacer"></div>
+    </div>
+    <div class="topbar-right">
+      <div class="lang-switch" role="group" aria-label="语言显示">
+        <button type="button" data-lang-btn="zh" aria-pressed="false" title="仅显示中文">中</button>
+        <button type="button" data-lang-btn="both" aria-pressed="true" title="中文 + 英文原文">中 + 英</button>
+      </div>
+      <button class="icon-btn" type="button" data-theme-btn aria-label="切换主题"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="read-progress" id="read-progress" aria-hidden="true"></div>
+<div class="drawer-overlay" id="drawer-overlay"></div>
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/" class="current" aria-current="page">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
+<nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">实战 · 学着做</span> › 常见修改 · Cookbook</nav>
+<h1>常见修改 · Cookbook</h1>
+<p>这一页只讲最常见的两种 CD2 改动——<b>让虫变多／变少</b>、<b>从难度里删掉某类敌人</b>。都是最小改动，抄进你自己的文件就能用。</p>
+<h2 id="enemy-count">增加或减少敌人数量 · Increase or decrease the number of enemies</h2>
+<p>如果你喜欢某个难度，但觉得敌人太多或太少，只要一处极简单的改动就能按你的口味调整：找到 <code>DifficultySetting</code> 里的 <code>EnemyCountModifier</code>（下称 ECM）。ECM 是这个难度的<b>全局敌人数量倍率</b>，可以理解为整体放大或缩小虫量——想调大就调大、想调小就调小。下面这段来自 Hazard 6x2：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>If you enjoy a certain difficulty file but you think the number of enemies is either too small or too big, you can modify it to your taste with a very simple edit: look for the <code>EnemyCountModifier</code> (ECM) field inside <code>DifficultySettings</code>. The ECM works as a global multiplier for all spawn events in the difficulty, so you just need to increase it or decrease it however you like. As an example, the following snippet is from Hazard 6x2:</p></div></details>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+&quot;DifficultySetting&quot;: {
+        &quot;EnemyCountModifier&quot;: [
+            2,
+            2.1,
+            2.7,
+            3.3
+        ]
+}
+...,</code></pre></div>
+<p>如果你的目标只是把 <b>Hazard 6x2 的 ECM 整体翻倍</b>，可以改成：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>so if we wanted to create Hazard 6x4 we would double these values:</p></div></details>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+&quot;DifficultySetting&quot;: {
+        &quot;EnemyCountModifier&quot;: [
+            4,
+            4.2,
+            5.4,
+            6.6
+        ]
+}
+...,</code></pre></div>
+<p><b>注意</b>：这只是调整 ECM，并不等于完整定义一个「Hazard 6x4」的全部难度配置。</p>
+<p>想要多少敌人，还取决于 <code>Caps</code> 里的 <code>MaxActiveEnemies</code> 上限：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Depending on how many enemies you want to get you might have to edit also the <code>MaxActiveEnemies</code> cap in <code>Caps</code>:</p></div></details>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+&quot;Caps&quot;: {
+        &quot;MaxActiveCritters&quot;: 40,
+        &quot;MaxActiveSwarmers&quot;: [
+            60,
+            120,
+            180,
+            180
+        ],
+        &quot;MaxActiveEnemies&quot;: [
+            100,
+            120,
+            180,
+            180
+        ]
+    }
+...,</code></pre></div>
+<p>当一局任务里的敌人数量超过 <code>MaxActiveEnemies</code> 时，游戏会 despawn 掉一部分——不过这个行为目前<b>还没有被完全弄明白</b>。另外要有心理准备：提高敌人上限会<b>拖低帧率</b>，不建议超过 300。</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>When the number of enemies in a mission goes above <code>MaxActiveEnemies</code> the game will despawn some of them, although this behaviour is not completely understood. Take into account that increasing the enemy cap will negatively affect the frame rate and going above 300 is not recommended.</p></div></details>
+<p><b>想深入了解</b>：<a href="../modules/#caps">模块 · 虫量上限 Caps</a> · <a href="../modules/#difficultysetting">模块 · 难度设置 DifficultySetting</a></p>
+<h2 id="remove-vanilla-enemies">从难度里移除原版敌人 · Removing vanilla enemies from a difficulty</h2>
+<p>你是独狼、讨厌 Stingtail 或 Stalker？还是想从盐坑（Salt Pits）里去掉 younglings？这是最常见的修改之一，而且非常容易。你需要两样东西：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Are you a solo player that hates stingtails or stalkers? Or maybe you want to remove younglings from Salt Pits? This is one of the most common edits and it's really easy to do. You will need two things:</p></div></details>
+<ul><li>1. 知道你想移除的敌人在游戏内的名字（也就是它的描述符名）<details class="orig"><summary>英文原文</summary><div class="orig-body">1. Know the in-game name of the enemy you want to remove (the descriptor's name)</div></details></li><li>2. 知道这个敌人默认属于哪个原版怪池<details class="orig"><summary>英文原文</summary><div class="orig-body">2. Know the vanilla pool the enemy is in by default</div></details></li></ul>
+<p><code>Pools</code> 的 <code>Remove</code> 是从<b>原有怪池</b>中移除敌人，所以你得先知道这个敌人原本属于哪个池，才能改对地方。</p>
+<p>第一项查 <a href="../resources/">Resources</a> 页的描述符表——举例，想移除 Stalker，你需要 <code>ED_Spider_Stalker</code>。第二项，在下表里找到你的敌人（这张表<b>不算完整</b>）：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>For the first, check the table in Resources. As an example, if you wanted to remove stalkers the name you'd need is <code>ED_Spider_Stalker</code>. For the second, locate your enemy in the following (slightly incomplete) table:</p></div></details>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Pool<br><span class="td-zh">怪池</span></th>
+<th>Pools module field<br><span class="td-zh">模块字段</span></th>
+<th>Enemies<br><span class="td-zh">默认敌人（示例）</span></th>
+</tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Common Pool<br><span class="td-zh">常见池</span></td>
+    <td>CommonEnemies</td>
+    <td>Grunts, Praetorians</td>
+  </tr>
+  <tr>
+    <td>Disruptor Pool<br><span class="td-zh">破坏性敌人池</span></td>
+    <td>DisruptiveEnemies</td>
+    <td>Menaces, Wardens, Bulk Detonators, Stingtails, Shellbacks, Grabbers, Goo Bombers, Stalkers</td>
+  </tr>
+    <tr>
+    <td>Special Pool<br><span class="td-zh">特殊敌人池</span></td>
+    <td>SpecialEnemies</td>
+    <td>Swarmers, Exploders, Web Spitters, Acid Spitters, Septic Spreaders, Mactera Spawns and Trijaws</td>
+  </tr>
+    <tr>
+    <td>Stationary Pool<br><span class="td-zh">固定敌人池</span></td>
+    <td>StationaryPool</td>
+    <td>Breeders, Swarmer Nexii, Spitballers, Cave Leech, Barragers, Vartok Scalebramble</td>
+  </tr>
+</tbody>
+</table>
+</div>
+<p><b>注意</b>：上表只是常见敌人的示例，不是完整的敌人数据库；敌人名保持英文，与 <a href="../resources/">Resources</a> 页的描述符表一致。</p>
+<p>知道它原本在哪个池之后，把它移除就行。例如从一个难度里移除 Stalker 和 Septic（<code>ED_Spider_Lobber</code> = Glyphid Septic Spreader）：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Once you know the original pool where your enemy is, just remove it. For example, removing stalkers and septics from a difficulty:</p></div></details>
+<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+&quot;Pools&quot;: {
+    &quot;DisruptiveEnemies&quot;: {
+        &quot;Remove&quot;: [&quot;ED_Spider_Stalker&quot;]
+    },
+    &quot;SpecialEnemies&quot;: {
+        &quot;Remove&quot;: [&quot;ED_Spider_Lobber&quot;]
+    }
+}
+...,</code></pre></div>
+<p><b>想深入了解</b>：<a href="../modules/#pools">模块 · 怪池 Pools</a> · <a href="../resources/">Resources · 敌人描述符表</a></p>
+<p>想看的不是「改哪一行」，而是「一整套机制怎么拼起来」？→ <a href="../natural-selection/">案例拆解 · Case Study</a></p>
+<nav class="page-nav" aria-label="翻页"><a class="prev" href="../basics/"><span class="dir">上一页</span><span class="title">基础部分 · The Basics of CD2</span></a><a class="next" href="../natural-selection/"><span class="dir">下一页</span><span class="title">案例拆解 · Case Study</span></a></nav>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="enemy-count"><a href="#enemy-count">增加或减少敌人数量 · Increase or decrease the number of enemies</a></li><li class="lvl-2" data-h="remove-vanilla-enemies"><a href="#remove-vanilla-enemies">从难度里移除原版敌人 · Removing vanilla enemies from a difficulty</a></li></ul></div></aside></div>
+<footer class="footer">
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h3>站点地图</h3>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h3>相关资源</h3>
+      <ul class="footer-links"><li><a href="https://drg.arthurlin.dev/zh-cn/" target="_blank" rel="noopener">深岩资源站 · CD2 中文教学</a></li><li><a href="https://vonacht.github.io/cd2reference/" target="_blank" rel="noopener">原英文文档 · CD2 Reference</a></li><li><a href="https://github.com/SeasonsC/CD2-reference-cn" target="_blank" rel="noopener">GitHub 仓库</a></li><li><a href="https://store.steampowered.com/app/548430/Deep_Rock_Galactic/" target="_blank" rel="noopener">Deep Rock Galactic（Steam）</a></li><li><a href="https://github.com/trumank/drg-custom-difficulties/blob/master/DATA.md" target="_blank" rel="noopener">原版敌人描述符 DATA.md</a></li><li><a href="https://docs.google.com/spreadsheets/u/0/d/15L6sCaM5WdfuI65X54qDhD5sRDCGpb1Q4fkVkRhbBU4/htmlview" target="_blank" rel="noopener">DRG Hazard Scaling 数值表</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h3>声明</h3>
+      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+    </div>
+  </div>
+</footer>
+ <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
+<button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
+<div class="search-modal" id="search-modal" hidden>
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
+    <div class="search-input-row">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+      <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="search-results" id="search-results"></ul>
+    <div class="search-foot">
+      <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+      <span><kbd>Enter</kbd> 打开</span>
+      <span><kbd>Esc</kbd> 关闭</span>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/site.js?v=82d35298" defer></script>
+</body>
+</html>
