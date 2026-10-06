@@ -144,6 +144,7 @@
     var toc = $('.toc-list');
     if (!toc) return;
     var links = $$('a', toc);
+    var subs = $$('li.lvl-3[data-p]', toc);
     var map = {}, heads = [];
     links.forEach(function (a) {
       var id = (a.getAttribute('href') || '').slice(1);
@@ -167,8 +168,19 @@
         }
       }
       links.forEach(function (a) { a.classList.remove('current'); });
+      if (map[best]) map[best].classList.add('current');
+
+      /* R10：右侧目录「有次级标题的默认收起」—— 滚到哪一节，就只展开哪一节的次级条目 */
+      var grp = '';
       if (map[best]) {
-        map[best].classList.add('current');
+        var pli = map[best].parentNode;
+        grp = pli.getAttribute('data-h') || pli.getAttribute('data-p') || '';
+      }
+      subs.forEach(function (li) {
+        li.classList.toggle('show', !!grp && li.getAttribute('data-p') === grp);
+      });
+
+      if (map[best]) {
         /* 改进清单 §5：只滚目录容器自身，绝不动主窗口 */
         var box = toc.getBoundingClientRect(), lb = map[best].getBoundingClientRect();
         if (lb.top < box.top || lb.bottom > box.bottom) {

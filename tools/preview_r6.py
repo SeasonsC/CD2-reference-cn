@@ -3,8 +3,8 @@
    表格列宽是百分比，容器宽度一致时渲染结果等价于真实页面。"""
 import io, os, re
 
-SITE = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2\docs'
-OUT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2\_preview\r6.html'
+SITE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs')
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_preview', 'r6.html')
 
 WANT = [
     ('modules/index.html', 'salvage', '搜救行动 · Salvage（② 列宽调整）'),

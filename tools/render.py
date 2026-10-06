@@ -17,7 +17,7 @@ try:
 except Exception:
     INTRO = {}
 
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, 'docs')          # R2 §6.1：GitHub Pages 发布源
 BUILD = os.path.join(ROOT, 'build')
 CONTENT = os.path.join(BUILD, 'content')
@@ -82,6 +82,7 @@ def icon(slug):
 
 # R2 §3.5：卡片简介人工撰写（≤40 字），不用正文首段截断
 CARD_DESC = {
+    'natural-selection': '拿一个真实难度当样本，六个功能由浅入深拆给你看',
     'faq': '关于 CD2 的常见疑问与解答',
     'basics': 'CD2 界面、文件格式与最小可用难度示例',
     'modules': '有效 CD2 配置文件的顶层字段说明',
@@ -275,12 +276,17 @@ def toc_html(page):
     hs = page['headings']
     n2 = sum(1 for h in hs if h['level'] == 2)
     use3 = n2 <= 30
-    items = []
+    items, cur = [], None
     for h in hs:
         if h['level'] == 2:
-            items.append(f'<li class="lvl-2"><a href="#{esc(h["id"])}">{esc(h["text"])}</a></li>')
+            cur = h['id']
+            items.append(f'<li class="lvl-2" data-h="{esc(h["id"])}">'
+                         f'<a href="#{esc(h["id"])}">{esc(h["text"])}</a></li>')
         elif h['level'] == 3 and use3:
-            items.append(f'<li class="lvl-3"><a href="#{esc(h["id"])}">{esc(h["text"])}</a></li>')
+            # R10：带上父级 id，前端据此决定「滚到这一节才展开」
+            p = f' data-p="{esc(cur)}"' if cur else ''
+            items.append(f'<li class="lvl-3"{p}>'
+                         f'<a href="#{esc(h["id"])}">{esc(h["text"])}</a></li>')
     if not items:
         return '', False
     return (f'<aside class="toc" aria-label="本页目录"><div class="toc-inner">'

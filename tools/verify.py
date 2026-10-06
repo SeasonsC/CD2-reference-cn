@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """自检：内链 / 锚点 / 图片 / 结构 / 相对路径 / 预算。按改进清单 §1 支持相对路径。"""
 import os, io, re, posixpath
+import urllib.parse
 from lxml import html as LH
 
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, 'docs')
 OUT = os.path.join(ROOT, 'tools', 'verify_report.txt')
 L = []
@@ -47,7 +48,7 @@ for fp in pages:
         if not h:
             continue
         if h.startswith('#'):
-            if h != '#' and h[1:] not in ids:
+            if h != '#' and urllib.parse.unquote(h[1:]) not in ids:
                 errors.append(f'{rel}: 锚点 #{h[1:]} 不存在')
             continue
         if re.match(r'^[a-z][a-z0-9+.-]*:', h, re.I) or h.startswith('//'):
@@ -168,7 +169,7 @@ CHECKS = [
     # R1/R2 无回归
     ('R1 §1 站内相对路径（无根绝对）', abs_links == 0),
     ('R2 §1 左导航栏头已删', count(r'drawer-head') == 0),
-    ('R2 §3 卡片用 SVG 图标', count(r'class="card-icon"><svg') == 11),
+    ('R2 §3 卡片用 SVG 图标', count(r'class="card-icon"><svg') == 12),
 ]
 
 # ── R4 回归清单 ────────────────────────────────────────────────────────
@@ -232,7 +233,7 @@ CHECKS += [
      not re.search(r'class="card"|class="stats"', home_html)),
     ('R5 目录页插在首页之后',
      len(_toc_nav_labels) > 1 and _toc_nav_labels[1] == '目录 · Contents'),
-    ('R5 目录页 11 张卡片', len(re.findall(r'class="card"', toc_html)) == 11),
+    ('R5 目录页 12 张卡片', len(re.findall(r'class="card"', toc_html)) == 12),
     ('R5 已删页面无死链', count(r'href="(?:\.\./)?/(?:mev-dea|common-edits|tutorials)/') == 0
      and count(r'href="(?:\.\./)+(?:mev-dea|common-edits|tutorials)/') == 0),
     ('R5 已删页面不存在', not any(os.path.exists(os.path.join(SITE, s))

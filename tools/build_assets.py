@@ -7,11 +7,12 @@ CD2 参考文档 v2 · 资源构建
 """
 import os, io, re
 
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src')
 SITE = os.path.join(ROOT, 'docs')
 
 IMGDIR = os.path.join(SRC, 'img')
+FILEDIR = os.path.join(SRC, 'files')
 
 ITEMS = [
     ('site.css', 'assets/css/site.css', 'css'),
@@ -59,6 +60,14 @@ def main():
                 data = io.open(os.path.join(IMGDIR, f), 'rb').read()
                 io.open(os.path.join(dst, f), 'wb').write(data)
                 rows.append((f, f'{len(data):,}', f'{len(data):,}', 'copy'))
+    # 可下载文件（难度 JSON 等）
+    if os.path.isdir(FILEDIR):
+        dd = os.path.join(SITE, 'assets', 'files')
+        os.makedirs(dd, exist_ok=True)
+        for f in sorted(os.listdir(FILEDIR)):
+            data = io.open(os.path.join(FILEDIR, f), 'rb').read()
+            io.open(os.path.join(dd, f), 'wb').write(data)
+            rows.append((f, f'{len(data):,}', f'{len(data):,}', 'copy'))
     for r in rows:
         print('%-10s %9s → %9s  %s' % r)
 

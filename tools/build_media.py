@@ -3,8 +3,8 @@
 import os, io, json
 from PIL import Image
 
-SRC = r'E:\learn\github\dsh\CD2\CD2-upstream-src'   # 上游源（图片在这里）
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+SRC = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'CD2-upstream-src')   # 上游源（图片在这里）
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, 'docs')          # R2 §6.1：发布源
 MEDIA = os.path.join(SITE, 'assets', 'media')
 IMG = os.path.join(SITE, 'assets', 'img')

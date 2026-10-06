@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/tips/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=023daf6c">
+<link rel="stylesheet" href="../assets/css/site.css?v=72d8b7d9">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -39,7 +39,7 @@
 </header>
 <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
-<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/" class="current" aria-current="page">写作提示与常见错误 · Tips</a></li></ul></nav><main id="main" class="content">
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/" class="current" aria-current="page">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › 写作提示与常见错误 · Tips</nav>
 <h1>写作提示与常见错误 · Tips</h1>
 <h2 id="tips-watch">一、先用 Vars + watch 字段把逻辑调通</h2>
@@ -69,11 +69,11 @@
 <p><code>Random</code>、<code>RandomChoice</code> 等随机类 Mutator，只要被求值就会返回一个结果——在设定范围内<b>每一次取值都可能不同</b>。也就是说，它们不是「摇一次就固定下来」，而是随着求值不断变化。</p>
 <p>如果希望一个随机结果固定下来，有两种做法：</p>
 <ul><li>使用 <code>RandomChoicePerMission</code>：它只在任务开始时抽取一次，之后保持不变。</li><li>用 <code>LockFloat</code> / <code>LockBoolean</code> / <code>LockString</code> 等锁定类 Mutator 把随机结果锁住。如果还想把这个值<b>存下来反复引用</b>，可以把它放进 <code>Vars</code>，这样也能和其它 Vars 配合，做出更复杂的效果。</li></ul>
-<h2 id="tips-momentary">三、「一瞬间」的布尔信号能干什么</h2>
+<h2 id="tips-momentary">四、「一瞬间」的布尔信号能干什么</h2>
 <p>很多触发器（例如  <code>TriggerOnChange</code>）产生的 True 只持续一瞬间，但它并不等于没用：</p>
 <ul><li>大部分布尔字段会被一瞬间的信号正常激活一次；</li><li>波次生成器这类带  <code>Interval</code>    的字段要留意：<code>Interval</code>    比信号持续时间长时，它可能一直在等下一次，结果根本不生成；<code>Interval</code>    设得短，一瞬间的信号也能触发一次生成。</li></ul>
 <p>结论：能不能用取决于目标字段，<b>建议实际跑一次再下结论</b>。确实需要一段稳定的持续窗口时，用  <code>TriggerFixedDuration</code>    把信号拉长。</p>
-<h2 id="tips-mistakes">四、常见错误写法</h2>
+<h2 id="tips-mistakes">五、常见错误写法</h2>
 <p>❌ 是错误写法，✅ 是修正写法。</p>
 <h3 id="mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</h3>
 <p><code>In</code>、<code>If</code>    的  <code>Condition</code>    等字段要求布尔信号，而  <code>DwarvesDown</code>、<code>EnemiesKilled</code>    这类 Mutator 返回的是数值。数值输出必须先经  <code>TriggerOnChange</code>    转换。</p>
@@ -84,31 +84,24 @@
     &quot;RiseOnly&quot;: true,
     &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDowns&quot;}
 }</code></pre></div>
-<h3 id="mistake-long-signal">② 拿「一直是 true」的长信号做「延长」</h3>
-<p><code>DuringExtraction</code>、<code>SecondaryFinished</code>    这类信号一旦变 true 就会长时间保持 true（<code>SecondaryFinished</code>    会一直保持到任务结束）。对它们用  <code>TriggerSustain</code>    再延长 N 秒几乎没有意义——这类触发器是给<b>短信号</b>准备的。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">❌ &quot;Enabled&quot;: {
-    &quot;Mutate&quot;: &quot;TriggerSustain&quot;,
-    &quot;N&quot;: 15,
-    &quot;In&quot;: {&quot;Mutate&quot;: &quot;DuringExtraction&quot;}
-}</code></pre></div>
-<p>✅ 先拿到一个短信号，再延长：</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;Enabled&quot;: {
-    &quot;Mutate&quot;: &quot;TriggerSustain&quot;,
-    &quot;N&quot;: 15,
-    &quot;In&quot;: {
-        &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
-        &quot;RiseOnly&quot;: true,
-        &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDowns&quot;}
-    }
-}</code></pre></div>
-<p>反过来想把长信号缩短，要用  <code>TriggerFixedDuration</code>，而不是  <code>TriggerSustain</code>。</p>
-<nav class="page-nav" aria-label="翻页"><a class="prev" href="../resources/"><span class="dir">上一页</span><span class="title">资源 · Resources</span></a><span></span></nav>
-</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2"><a href="#tips-polling">二、Mutator 不是瞬时响应的</a></li><li class="lvl-2"><a href="#random-mutators">三、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-2"><a href="#tips-momentary">三、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2"><a href="#tips-mistakes">四、常见错误写法</a></li><li class="lvl-3"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li><li class="lvl-3"><a href="#mistake-long-signal">② 拿「一直是 true」的长信号做「延长」</a></li></ul></div></aside></div>
+<h2 id="spawncount-plus-one">六、生成数量与点数：两个容易踩的坑</h2>
+<h3 id="maxplusone">实际会多刷一只 · MaxSpawnCount</h3>
+<p>波次的实际点数充足时，<code>MaxSpawnCount</code> 限制的数量<b>会多生成 1 只</b>——写成 3 时可能看到 4 只。做数量控制时要按这个来预留余量。</p>
+<h3 id="parent-variant">用「母体 + 自定义变种」控制生成，而不是直接调敌人本身</h3>
+<p>如果想控制某种敌人刷出多少、多稀有，<b>直接在该敌人身上</b>设置数量、稀有度或点数并不可靠——它仍然可能被波次刷出来。</p>
+<p>更稳的做法是：放一个<b>母体单位</b>，用它的<b>自定义变种（CustomVeterans）</b>字段去改成你想要的目标敌人。这样数量与稀有度的控制就落在母体上，目标敌人本身不再受波次直刷的影响。</p>
+<p>另外，<b>WaveSpawner</b> 的波次实际点数，推测约为 <code>Difficulty × EnemyCountModifier</code>（<i>此式未在官方文档中确认，仅供参考</i>）。</p>
+<h2 id="index-from-zero">七、CD2 的下标从 0 开始</h2>
+<p>这是很容易踩的一个坑：CD2 里凡是「按序号取第几个」的字段，<b>序号都从 0 开始数</b>。</p>
+<ul><li><code>SelectFromArray</code>：<code>Select</code> 返回 <code>0</code> → 取数组<b>第 1 个</b>；返回 <code>1</code> → 取<b>第 2 个</b>，以此类推。</li><li><code>Sequence</code>：同理，<code>0</code> 对应序列的第一项。</li></ul>
+<p>写映射表时不要按「第几个」去数，要按「<b>从 0 开始的序号</b>」去数——差一位是最常见的调试来源。</p>
+<nav class="page-nav" aria-label="翻页"><a class="prev" href="../resources/"><span class="dir">上一页</span><span class="title">资源 · Resources</span></a><a class="next" href="../natural-selection/"><span class="dir">下一页</span><span class="title">难度实战拆解 · Case Study</span></a></nav>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="tips-watch"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-2" data-h="tips-polling"><a href="#tips-polling">二、Mutator 不是瞬时响应的</a></li><li class="lvl-2" data-h="random-mutators"><a href="#random-mutators">三、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-2" data-h="tips-momentary"><a href="#tips-momentary">四、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-2" data-h="tips-mistakes"><a href="#tips-mistakes">五、常见错误写法</a></li><li class="lvl-3" data-p="tips-mistakes"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li><li class="lvl-2" data-h="spawncount-plus-one"><a href="#spawncount-plus-one">六、生成数量与点数：两个容易踩的坑</a></li><li class="lvl-3" data-p="spawncount-plus-one"><a href="#maxplusone">实际会多刷一只 · MaxSpawnCount</a></li><li class="lvl-3" data-p="spawncount-plus-one"><a href="#parent-variant">用「母体 + 自定义变种」控制生成，而不是直接调敌人本身</a></li><li class="lvl-2" data-h="index-from-zero"><a href="#index-from-zero">七、CD2 的下标从 0 开始</a></li></ul></div></aside></div>
 <footer class="footer">
   <div class="footer-cols">
     <div class="footer-col">
       <h3>站点地图</h3>
-      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li></ul>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul>
     </div>
     <div class="footer-col">
       <h3>相关资源</h3>
@@ -136,6 +129,6 @@
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=023daf6c" defer></script>
+<script src="../assets/js/site.js?v=72d8b7d9" defer></script>
 </body>
 </html>

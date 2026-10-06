@@ -5,7 +5,7 @@ import os, io, json, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import parse_mtio as P
 
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, '_preview', 'mtio.html')
 
 NEW_CSS = """

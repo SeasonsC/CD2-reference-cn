@@ -4,7 +4,8 @@
 # NOTE: keep this file ASCII-only. Windows PowerShell 5.1 reads .ps1 as ANSI/GBK
 # unless a UTF-8 BOM is present, which silently corrupts non-ASCII string literals.
 $ErrorActionPreference = 'Stop'
-$PY = 'C:\Users\HowTc\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe'
+# Python interpreter: set $env:CD2_PYTHON to override, else use 'python' from PATH.
+$PY = if ($env:CD2_PYTHON) { $env:CD2_PYTHON } else { 'python' }
 $ROOT = Split-Path -Parent $PSScriptRoot
 $env:PYTHONIOENCODING = 'utf-8'
 

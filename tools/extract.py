@@ -18,8 +18,8 @@ CD2 参考文档 v2 · 内容提取器（M1）
 import os, re, io, json, posixpath
 from lxml import html as LH
 
-SRC = r'E:\learn\github\dsh\CD2\CD2-upstream-src'   # 上游源（MkDocs 老站 + 中文编辑）
-DEST = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+SRC = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'CD2-upstream-src')   # 上游源（MkDocs 老站 + 中文编辑）
+DEST = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(DEST, 'build')
 CONTENT = os.path.join(BUILD, 'content')
 
@@ -34,6 +34,7 @@ PAGES = [
     ('direct/index.html', 'direct'), ('wavespawners/index.html', 'wavespawners'),
     ('projectiles/index.html', 'projectiles'), ('mutators/index.html', 'mutators'),
     ('resources/index.html', 'resources'), ('tips/index.html', 'tips'),
+    ('natural-selection/index.html', 'natural-selection'),
 ]
 # R5：已删除的页面 —— 指向它们的 <a> 一律拆掉只留文字，避免死链
 #   mev-dea / common-edits 整页删除；tutorials 内容并入 resources 的「其他资源」
@@ -780,6 +781,7 @@ NAV_OVERRIDE = {
     '': '首页 · Introduction',
     'enemies': '敌人配置 · Enemies / EnemiesNoSync',   # R5 ②：去掉「(客机 同步/非同步)」
     'tips': '写作提示与常见错误 · Tips',              # R5：与其它中英混排标题对齐
+    'natural-selection': '难度实战拆解 · Case Study',   # 真实难度的功能拆解
 }
 
 

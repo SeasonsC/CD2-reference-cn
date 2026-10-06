@@ -3,7 +3,7 @@
 import os, io, re, json
 from lxml import html as LH
 
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, 'build', 'content')
 OUT = os.path.join(ROOT, '_preview', 'threeline.html')
 

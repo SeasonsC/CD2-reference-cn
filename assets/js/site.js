@@ -124,6 +124,7 @@
     var toc = $('.toc-list');
     if (!toc) return;
     var links = $$('a', toc);
+    var subs = $$('li.lvl-3[data-p]', toc);
     var map = {}, heads = [];
     links.forEach(function (a) {
       var id = (a.getAttribute('href') || '').slice(1);
@@ -147,8 +148,16 @@
         }
       }
       links.forEach(function (a) { a.classList.remove('current'); });
+      if (map[best]) map[best].classList.add('current');
+      var grp = '';
       if (map[best]) {
-        map[best].classList.add('current');
+        var pli = map[best].parentNode;
+        grp = pli.getAttribute('data-h') || pli.getAttribute('data-p') || '';
+      }
+      subs.forEach(function (li) {
+        li.classList.toggle('show', !!grp && li.getAttribute('data-p') === grp);
+      });
+      if (map[best]) {
         var box = toc.getBoundingClientRect(), lb = map[best].getBoundingClientRect();
         if (lb.top < box.top || lb.bottom > box.bottom) {
           toc.scrollTo({

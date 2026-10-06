@@ -11,7 +11,7 @@ Mutators 页「类型栏」重设计 —— 散文 → 结构化解析器（预�
 """
 import os, io, re, json, html as H
 
-ROOT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2'
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, 'build', 'content')
 OUT = os.path.join(ROOT, 'tools', 'mtio_preview.txt')
 

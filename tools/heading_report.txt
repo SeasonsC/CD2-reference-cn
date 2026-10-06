@@ -1,4 +1,4 @@
-标题规范化（共改动 217 条，全部列出）
+标题规范化（共改动 218 条，全部列出）
 ==========================================================================================
 
 ── / ──
@@ -231,3 +231,6 @@
   h3  TriggerOnChange（变化触发）  →  变化触发 · TriggerOnChange
   h3  TriggerTimer（定时触发）  →  定时触发 · TriggerTimer
   h3  Trigger examples（触发器示例）  →  触发器示例 · Trigger examples
+
+── /tips ──
+  h3  MaxSpawnCount 实际会多刷一只  →  实际会多刷一只 · MaxSpawnCount

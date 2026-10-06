@@ -237,6 +237,9 @@ blockquote{
   color:var(--strong); border-left-color:var(--brand); font-weight:600;
 }
 .toc-list .lvl-3 a{ padding-left:1.6rem; font-size:.82em; }
+/* R10：有次级标题的默认收起 —— 只有滚到所在章节（主标题或它的次级标题）时才展开 */
+.toc-list li.lvl-3[data-p]{ display:none; }
+.toc-list li.lvl-3[data-p].show{ display:block; }
 
 /* --------------------------------------------------------------------------
    7. 代码
@@ -280,12 +283,6 @@ pre:not(.code-block pre){
   background:var(--panel); border:1px solid var(--border-soft);
   border-radius:var(--radius); line-height:1.5;
 }
-/* JSON 高亮 token */
-.hl-attr{ color:var(--hl-attr); }
-.hl-string{ color:var(--hl-string); }
-.hl-number{ color:var(--hl-number); }
-.hl-literal{ color:var(--hl-literal); }
-
 /* --------------------------------------------------------------------------
    8. 表格 —— 论文式「三线表」（R5 ⑤ 定稿）
    只留顶线 / 表头下线 / 底线，无竖线无行线；全居中；占满内容列宽。
@@ -337,9 +334,6 @@ td:not(:last-child) .td-zh{ word-break:keep-all; }
 }
 .admonition > :last-child{ margin-bottom:0; }
 .admonition-title{ font-weight:650; color:var(--strong); margin-bottom:.35em; }
-.admonition.tip{ border-left-color:var(--ok); }
-.admonition.warning{ border-left-color:var(--warn); }
-.admonition.danger{ border-left-color:var(--danger); }
 
 /* --------------------------------------------------------------------------
    10. 自定义内容块
@@ -368,7 +362,7 @@ td:not(:last-child) .td-zh{ word-break:keep-all; }
 .mf-empty{ color:var(--muted); }
 /* 「可选」跟在字段名后，避免被误读成「填写内容随意」 */
 .mf-opt{ color:var(--muted); font-size:.85em; margin-left:.35em; }
-.mf-table .mf-plus code{ color:var(--muted); }
+
 /* 页面级的「所有字段都可填 Var」提示 */
 .mt-global{
   margin:0 0 1.4em; padding:.55rem .9rem;
@@ -392,7 +386,7 @@ td:not(:last-child) .td-zh{ word-break:keep-all; }
 }
 .mf-ret b{ color:var(--brand); font-weight:600; }
 .mf-gloss{ color:var(--muted2); font-size:.94em; }
-.mf-retnote{ color:var(--muted); font-size:.9em; }
+
 .mf-note{ margin:.35rem 0 0; font-size:.88em; color:var(--muted); }
 
 /* 英文原文折叠条（§6.3：无边框、无底色，只有一行灰色小字）—— R4 §1 按钮化 */
@@ -462,10 +456,8 @@ figure img{ border:1px solid var(--border); border-radius:var(--radius); }
 figcaption{ margin-top:.5rem; font-size:.85em; color:var(--muted); }
 
 /* 公告条 / 空态 */
-.empty-state{
-  padding:2rem 1rem; text-align:center; color:var(--muted);
-  border:1px dashed var(--border-soft); border-radius:var(--radius);
-}
+.search-results .empty-state{ border:0; padding:1.5rem 0; text-align:center; color:var(--muted); }
+
 
 /* --------------------------------------------------------------------------
    11. 章节筛选 & 输入框
@@ -546,29 +538,30 @@ input::placeholder{ color:var(--muted); }
   grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
 }
 .card{
-  display:flex; gap:.7rem; align-items:flex-start;
+  display:grid; grid-template-columns:auto 1fr; column-gap:.7rem; row-gap:.25rem;
+  align-items:start;
   padding:1rem 1.1rem; background:var(--panel);
   border:1px solid var(--border); border-radius:var(--radius); color:var(--text);
 }
 .card:hover{ border-color:var(--brand); text-decoration:none; transform:translateY(-1px); }
-.card-icon{ flex:none; width:20px; height:20px; margin-top:.2rem; color:var(--brand); }
+.card-icon{ grid-area:1/1; width:20px; height:20px; margin-top:.2rem; color:var(--brand); }
 .card-icon svg{ width:20px; height:20px; display:block; }
-.card-main{ min-width:0; flex:1 1 auto; display:flex; flex-direction:column; gap:.25rem; }
+/* display:contents —— 标题与描述直接成为 .card 的网格项，描述才能横跨图标那一列 */
+.card-main{ display:contents; }
 /* 标题固定占两行高度，让所有卡片的描述起始位置对齐 */
 .card-title{
+  grid-area:1/2; min-width:0;
   color:var(--strong); font-weight:650; font-size:.98em; line-height:1.4;
   min-height:2.8em;
 }
 .card-en{ font-size:.78em; color:var(--muted); font-weight:400; margin-left:.35em; }
 .card-desc{
+  grid-area:2/1/3/3; min-width:0;
   font-size:.86em; color:var(--muted); line-height:1.6; margin-top:auto;
   display:-webkit-box; -webkit-line-clamp:2; line-clamp:2;
   -webkit-box-orient:vertical; overflow:hidden;
 }
-.home-section-title{
-  font-size:1.3em; margin:3rem 0 1.25rem; padding-bottom:.4rem;
-  border-bottom:1px solid var(--border);
-}
+
 /* 首页引言区（原 Update Log 上方的介绍与特性列表） */
 .home-lead{ margin-top:2.5rem; }
 .home-lead > p:first-child{ font-size:1.05em; color:var(--text); }
@@ -618,7 +611,7 @@ input::placeholder{ color:var(--muted); }
 }
 .search-box input:focus-visible{ outline:none; }    /* 杀掉那条只露下边缘的蓝线 */
 .search-results{ list-style:none; margin:0; padding:.4rem; overflow-y:auto; flex:0 1 auto; }
-.search-results .empty-state{ border:0; padding:1.5rem 1rem; }
+.search-results 
 .search-foot{
   display:flex; gap:1.25rem; justify-content:center; flex:none;
   padding:.5rem; border-top:1px solid var(--border);
@@ -761,3 +754,89 @@ input::placeholder{ color:var(--muted); }
   background:var(--brand-soft); border-color:var(--brand);
 }
 .btn.primary:hover{ background:var(--brand); color:#0b0f14; }
+
+/* 方案实作页：可折叠的代码块 */
+.ns-code{
+  margin:.8em 0 1.1em; border-left:3px solid var(--brand);
+  background:var(--surface); border-radius:0 4px 4px 0;
+}
+.ns-code>summary{
+  cursor:pointer; padding:.5rem .9rem; font-size:.88em;
+  color:var(--muted); list-style:none;
+}
+.ns-code>summary::-webkit-details-marker{ display:none; }
+.ns-code>summary::before{ content:"▸ "; color:var(--brand); }
+.ns-code[open]>summary::before{ content:"▾ "; }
+.ns-code>summary:hover{ color:var(--strong); }
+.ns-code pre{
+  margin:0; border-radius:0 0 4px 0; max-height:560px;
+  overflow-y:auto; overflow-x:hidden;          /* 只纵向滚动，绝不横向 */
+  white-space:pre-wrap; overflow-wrap:anywhere;
+  line-height:1.55; font-size:.86em;
+}
+.ns-code pre code{ font-size:1em; }
+/* 精简骨架：变量名 / 关键字段 / 注释 分色，给新作者层级感 */
+.jk{ color:var(--code-fg); }                     /* "变量名" */
+.jc{ color:var(--muted); font-style:normal; }    /* // 注释 */
+.jn{ color:var(--muted2); }                      /* 数字等字面量 */
+.jsp{ }                                          /* 其它原样 */
+
+/* 功能页：步骤头（h4）与流程条 */
+.ns-impl h4, article h4{ font-size:1.02em; margin:1.6rem 0 .5rem; }
+.flow-strip{ display:flex; flex-wrap:wrap; align-items:center; gap:.35rem; margin:.8rem 0 1.1rem; }
+.fs-chip{
+  padding:.22rem .7rem; border-radius:999px; font-size:.85em; font-weight:600; white-space:nowrap;
+  background:color-mix(in srgb, var(--brand) 12%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--brand) 35%, transparent);
+  color:var(--strong);
+}
+.fs-arrow{ color:var(--muted2); font-size:.85em; }
+
+/* 附录类折叠块（引用清单 / 实现说明 / 提取方法） */
+.ns-aside{ border-left-color:var(--border-soft); background:transparent; }
+.ns-aside>summary{ color:var(--muted2); font-size:.9em; }
+.ns-aside>.ns-aside-body{ padding:.2rem .9rem .8rem; font-size:.95em; }
+.ns-aside>.ns-aside-body>h4{ margin-top:.8rem; }
+/* 实现拆解：每一步的「这一步在算什么」 */
+.step-note{
+  margin:.25rem 0 .7rem; padding-left:.8rem;
+  border-left:2px solid var(--brand-soft);
+  color:var(--muted2); font-size:.95em;
+}
+/* 中文标识符（CD2 变量名）：用名字的样式，不用代码的样式，避免正文糊成一片蓝 */
+.vzh{ color:var(--strong); font-weight:500; }
+/* 行内数值与比较运算符：跟正文同色，避免满屏蓝框 */
+.vnum{ color:var(--muted2); }
+/* 行内原语（本页）：保留蓝色，但去掉代码底框——正文型页面底框一多就糊 */
+.vcode{ font-family:var(--mono); font-size:.94em; color:var(--code-fg); }
+/* 详解条（公式与推演）：左条中性色，与琥珀色的代码条一眼区分 */
+.ns-dive{
+  margin:.5em 0 .9em; border-left:3px solid var(--muted2);
+  background:transparent; border-radius:0 4px 4px 0;
+}
+.ns-dive>summary{
+  cursor:pointer; padding:.45rem .9rem; font-size:.88em;
+  color:var(--muted2); list-style:none;
+}
+.ns-dive>summary::-webkit-details-marker{ display:none; }
+.ns-dive>summary::before{ content:"▸ "; }
+.ns-dive[open]>summary::before{ content:"▾ "; }
+.ns-dive>summary:hover{ color:var(--strong); }
+.ns-dive>.ns-dive-body{ padding:.2rem .9rem .7rem; font-size:.96em; }
+.ns-dive>.ns-dive-body>ul{ margin:.3rem 0; }
+/* 精简骨架：定义列表（变量 → 作用），避免一列蓝框 */
+dl.sk{
+  margin:.7em 0 1.3em; padding:.8rem 1rem 1rem;
+  border:1px solid var(--border-soft); border-radius:6px;
+  background:var(--surface);
+}
+dl.sk>dt{
+  font-weight:600; color:var(--strong); margin:.7rem 0 .15rem;
+  border-top:1px solid var(--border); padding-top:.5rem;
+}
+dl.sk>dt:first-of-type{ border-top:0; padding-top:0; }
+dl.sk>dt.sk-stage{
+  font-size:1em; font-weight:600; letter-spacing:.02em;
+  color:var(--brand); border-top:0; padding-top:.9rem; margin-top:.4rem;
+}
+dl.sk>dd{ margin:0 0 .35rem; color:var(--text); font-size:.95em; }

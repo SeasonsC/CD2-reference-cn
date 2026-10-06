@@ -3,8 +3,8 @@
 import io, os, re
 from lxml import html as LH
 
-SITE = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2\docs'
-OUT = r'E:\learn\github\dsh\CD2\CD2-reference-cn-v2\_preview\mutator-fields.html'
+SITE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs')
+OUT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), '_preview', 'mutator-fields.html')
 
 WANT = [
     ('accumulate', '常规：4 个字段'),

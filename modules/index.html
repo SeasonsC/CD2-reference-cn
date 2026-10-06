@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/modules/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=023daf6c">
+<link rel="stylesheet" href="../assets/css/site.css?v=72d8b7d9">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -39,7 +39,7 @@
 </header>
 <div class="read-progress" id="read-progress" aria-hidden="true"></div>
 <div class="drawer-overlay" id="drawer-overlay"></div>
-<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/" class="current" aria-current="page">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li></ul></nav><main id="main" class="content">
+<div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/" class="current" aria-current="page">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › 模块 · Modules</nav>
 <h1>模块 · Modules</h1>
 <p class="cn">模块是有效 CD2 JSON 配置文件中的顶层字段名称。以以下出了当前可用的所有模块（按字母顺序排列）。</p>
@@ -279,7 +279,7 @@
 
 <tr>
 <td>EnviromentalDamageModifier<br><span class="td-zh">环境伤害</span></td>
-<td></td>
+<td>环境伤害倍率。实测：CD2 v0.13 里生效的名字是 <code>EnvironmentalDamageModifier</code>（多一个 n），本页这个拼法<b>反而不生效</b>；CD2 作者以后可能修掉它。</td>
 </tr>
 
 <tr>
@@ -1323,12 +1323,12 @@ Example:</p></div></details>
 <p>请查看<a href="../wavespawners/">波次生成器</a>部分</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>See the <a href="../wavespawners/">WaveSpawners</a> section. </p></div></details>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../basics/"><span class="dir">上一页</span><span class="title">基础部分 · The Basics of CD2</span></a><a class="next" href="../enemies/"><span class="dir">下一页</span><span class="title">敌人配置 · Enemies / EnemiesNoSync</span></a></nav>
-</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2"><a href="#caps">虫量上限 · Caps</a></li><li class="lvl-2"><a href="#darkness">光照控制 · Darkness</a></li><li class="lvl-2"><a href="#description">描述 · Description</a></li><li class="lvl-2"><a href="#difficultysetting">难度设置 · DifficultySetting</a></li><li class="lvl-2"><a href="#dwarves">矮人属性 · Dwarves</a></li><li class="lvl-2"><a href="#enemies-enemiesnosync">敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync</a></li><li class="lvl-2"><a href="#escortmule">执勤护送 · EscortMule</a></li><li class="lvl-2"><a href="#maxplayers">最多玩家数 · MaxPlayers</a></li><li class="lvl-2"><a href="#messages">信息 · Messages</a></li><li class="lvl-2"><a href="#name">名称 · Name</a></li><li class="lvl-2"><a href="#nextdifficulty">Next 难度 · NextDifficulty</a></li><li class="lvl-2"><a href="#nitramultiplier">NitraMultiplier</a></li><li class="lvl-2"><a href="#pools">怪池 · Pools</a></li><li class="lvl-2"><a href="#salvage">搜救行动 · Salvage</a></li><li class="lvl-3"><a href="#usable-fields">Usable fields</a></li><li class="lvl-2"><a href="#soundcues">声音提示 · SoundCues</a></li><li class="lvl-2"><a href="#specialencounters">特殊遭遇事件 · SpecialEncounters</a></li><li class="lvl-2"><a href="#resupply">补给 · Resupply</a></li><li class="lvl-2"><a href="#Vars">全局变量池 · Vars</a></li><li class="lvl-2"><a href="#warnings">禁用任务词条 · Warnings</a></li><li class="lvl-2"><a href="#wavespawners">WaveSpawners</a></li></ul></div></aside></div>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="caps"><a href="#caps">虫量上限 · Caps</a></li><li class="lvl-2" data-h="darkness"><a href="#darkness">光照控制 · Darkness</a></li><li class="lvl-2" data-h="description"><a href="#description">描述 · Description</a></li><li class="lvl-2" data-h="difficultysetting"><a href="#difficultysetting">难度设置 · DifficultySetting</a></li><li class="lvl-2" data-h="dwarves"><a href="#dwarves">矮人属性 · Dwarves</a></li><li class="lvl-2" data-h="enemies-enemiesnosync"><a href="#enemies-enemiesnosync">敌人配置[客户端同步/不同步] · Enemies / EnemiesNoSync</a></li><li class="lvl-2" data-h="escortmule"><a href="#escortmule">执勤护送 · EscortMule</a></li><li class="lvl-2" data-h="maxplayers"><a href="#maxplayers">最多玩家数 · MaxPlayers</a></li><li class="lvl-2" data-h="messages"><a href="#messages">信息 · Messages</a></li><li class="lvl-2" data-h="name"><a href="#name">名称 · Name</a></li><li class="lvl-2" data-h="nextdifficulty"><a href="#nextdifficulty">Next 难度 · NextDifficulty</a></li><li class="lvl-2" data-h="nitramultiplier"><a href="#nitramultiplier">NitraMultiplier</a></li><li class="lvl-2" data-h="pools"><a href="#pools">怪池 · Pools</a></li><li class="lvl-2" data-h="salvage"><a href="#salvage">搜救行动 · Salvage</a></li><li class="lvl-3" data-p="salvage"><a href="#usable-fields">Usable fields</a></li><li class="lvl-2" data-h="soundcues"><a href="#soundcues">声音提示 · SoundCues</a></li><li class="lvl-2" data-h="specialencounters"><a href="#specialencounters">特殊遭遇事件 · SpecialEncounters</a></li><li class="lvl-2" data-h="resupply"><a href="#resupply">补给 · Resupply</a></li><li class="lvl-2" data-h="Vars"><a href="#Vars">全局变量池 · Vars</a></li><li class="lvl-2" data-h="warnings"><a href="#warnings">禁用任务词条 · Warnings</a></li><li class="lvl-2" data-h="wavespawners"><a href="#wavespawners">WaveSpawners</a></li></ul></div></aside></div>
 <footer class="footer">
   <div class="footer-cols">
     <div class="footer-col">
       <h3>站点地图</h3>
-      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li></ul>
+      <ul class="footer-links"><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li><a href="../tips/">写作提示与常见错误 · Tips</a></li><li><a href="../natural-selection/">难度实战拆解 · Case Study</a></li></ul>
     </div>
     <div class="footer-col">
       <h3>相关资源</h3>
@@ -1356,6 +1356,6 @@ Example:</p></div></details>
     </div>
   </div>
 </div>
-<script src="../assets/js/site.js?v=023daf6c" defer></script>
+<script src="../assets/js/site.js?v=72d8b7d9" defer></script>
 </body>
 </html>

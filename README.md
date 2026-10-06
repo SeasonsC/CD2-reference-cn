@@ -1,92 +1,85 @@
-# CD2 参考文档 · 中文
+# CD2 参考文档 · v2
 
-《深岩银河》（Deep Rock Galactic）自定义难度模组 **Custom Difficulty 2（CD2）** 的中文参考手册。
+《深岩银河》（Deep Rock Galactic）自定义难度 mod **Custom Difficulty 2（CD2）** 的中文参考站。
 
-**在线访问**：<https://seasonsc.github.io/CD2-reference-cn/>
+由原 MkDocs（Read the Docs 主题）站点重建为**零生成器、零框架的纯静态站**：不引任何 CDN / CSS 框架 / 字体文件 / JS 库，只用系统字体栈与原生 HTML/CSS/JS。
+
+- 线上地址：<https://seasonsc.github.io/CD2-reference-cn/>
+- 主仓库：<https://github.com/SeasonsC/CD2-reference-cn>
+- 本仓库：`CD2-reference-cn-v2`（并行预览用，验收通过后替换主仓库 main）
 
 ---
 
-## 关于本项目
-
-本仓库收录 **CD2 Mod Reference** 的中文翻译。原参考文档主要由 **vonacht** 编写，与 **Brain** 共同制作，并有 carrot、spy、noskill 等多位作者的协作与贡献。
-
-注意：本项目为**非官方**的中文翻译项目。
-
-除了翻译，本站在原作者文档之外补充了面向中文作者的「写作提示与常见错误」一页。
-
-**英文原文**：<https://vonacht.github.io/cd2reference/>
-
-## 站点特点
-
-| | |
-|---|---|
-| **零依赖** | 全站只有 **1 个 CSS + 1 个 JS**，无框架、无 CDN、无第三方请求 |
-| **纯静态** | 任意静态托管都能跑，不需要服务端 |
-| **中英对照** | 默认中文；顶栏可切换「中 / 中 + 英」，英文原文折叠在 `<details>` 中 |
-| **本地搜索** | 内置 bigram 倒排索引（`search-index.json`），不依赖外部搜索服务 |
-| **离线可用** | 无外部字体、无外部脚本、无统计代码 |
-
-## 目录结构
-
-仓库根目录**就是** GitHub Pages 的发布目录（Pages 源 = `main` + `/`）：
+## 仓库结构
 
 ```
 .
-├── index.html          首页（引言 + 更新日志）
-├── 404.html            404（含旧站路径重定向）
-├── toc/                ★ 目录页（章节卡片网格 + 统计条）
-├── basics/  faq/  modules/  enemies/  direct/  wavespawners/
-├── projectiles/  mutators/  resources/  tips/     内容页（共 10 章）
-├── assets/
-│   ├── css/site.css    样式（由 src/site.css 构建）
-│   ├── js/site.js      脚本（由 src/site.js 构建）
-│   ├── img/            图标（由 src/img/ 拷贝）
-│   └── media/          图片与 PDF
-├── search-index.json   搜索索引
-├── sitemap.xml  robots.txt  .nojekyll
+├── docs/                  # ★ GitHub Pages 发布源（只有这个目录会上线）
+│   ├── index.html         # 首页（hero + 统计条 + 章节卡片 + 更新日志）
+│   ├── faq/  basics/  modules/  enemies/  direct/  wavespawners/
+│   ├── projectiles/  mutators/  mev-dea/  common-edits/
+│   ├── tutorials/  resources/  tips/
+│   ├── 404.html           # 自足页（内联样式 + 旧路径智能跳转）
+│   ├── search-index.json  # 内置搜索数据源（打开搜索时才加载）
+│   ├── sitemap.xml  robots.txt  .nojekyll
+│   └── assets/
+│       ├── css/site.css   # 构建产物（由 src/site.css 去注释生成）
+│       ├── js/site.js     # 构建产物（由 src/site.js 去注释生成）
+│       ├── img/           # favicon.svg / logo.svg
+│       └── media/         # WebP 图片 + GIF + Materials-1.pdf
 │
-├── src/                ★ 作者源：site.css / site.js / img/（构建后输出到 assets/）
-└── tools/              ★ 构建脚本（见下）
+├── src/                   # ★ 手写源码（带注释，不发布）
+│   ├── site.css           # 全站唯一样式表（在此修改）
+│   └── site.js            # 全站唯一脚本（在此修改）
+│
+├── tools/                 # 构建脚本（不发布）
+│   ├── extract.py         # 内容提取：HTML → build/content/*.json
+│   ├── build_media.py     # 图片转 WebP + 尺寸清单
+│   ├── build_assets.py    # src/ → docs/assets/（去注释、压空行）
+│   ├── render.py          # 渲染：JSON → docs/ 静态页
+│   ├── verify.py          # 自检 + 56 项回归清单
+│   └── build.ps1          # 一键构建（保持纯 ASCII）
+│
+├── build/                 # 中间产物（不发布）
+│   ├── content/*.json     # 每页结构化内容
+│   ├── nav.json  media.json  search-index.json
+│   └── *_report.txt       # 提取/配对/标题规范化报告
+│
+└── _preview/              # 一次性预览页（不发布）
 ```
 
-> `src/` 与 `tools/` 是站点的**构建源**，会被 Pages 一并发布为静态文件，但不参与页面渲染。
->
-> 章节卡片与统计条在**目录页**（`toc/`），首页只保留引言与更新日志。
+> **改样式/脚本请改 `src/`，不要改 `docs/assets/`**——后者每次构建都会被覆盖。
 
-## 本地预览
-
-纯静态，任意 HTTP 服务即可：
-
-```bash
-python -m http.server 8000
-# 打开 http://127.0.0.1:8000/
-```
-
-> 注意：站点大量使用相对路径，**必须经过 HTTP 服务访问**，直接双击 `index.html` 会因 `file://` 协议而链接失效。
-
-## 重新构建
-
-构建流程是「从上游 MkDocs 老站抽取内容 → 生成静态页」，需要 **Windows + PowerShell + Python 3**，并安装：
-
-```bash
-pip install lxml Pillow
-```
+## 构建
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\build.ps1
 ```
 
-脚本依次执行：`extract.py`（抽取）→ `build_media.py`（转图）→ `build_assets.py`（压缩 CSS/JS、拷贝图标）→ `render.py`（生成页面）→ `verify.py`（**83 项**回归自检）。
+依次执行 `extract.py` → `build_media.py` → `build_assets.py` → `render.py` → `verify.py`，全部产物落在 `docs/`。
 
-### ⚠️ 已知限制
+**依赖**：Python 3 + Pillow（仅构建期用于转 WebP）。运行期零依赖。
+**内容源**：`../CD2-reference-cn`（旧 MkDocs 站，含后续人工修订）。
 
-`tools/` 里的路径目前是**绝对路径**，指向作者的本地目录：
+本地预览（`docs/` 即站点根）：
 
-- `tools/extract.py` 顶部的 `SRC` —— 上游 MkDocs 老站的位置
-- `tools/extract.py` 顶部的 `DEST` —— 构建输出位置
-- `tools/build.ps1` 里的 `$PY` —— Python 解释器路径
+```powershell
+python -m http.server 8767 --bind 127.0.0.1 --directory docs
+```
 
-要在别的机器上重建，需要先改这三处。上游老站本身不在本仓库内（历史上曾是，见 commit `4c14730` 及更早）。
+## 部署
+
+GitHub Pages → **Settings → Pages → Source = Deploy from a branch → `main` + `/docs`**。
+
+站点使用**相对路径**，因此可以部署在仓库子路径（`/<repo>/`）下而无需改动；`canonical` / `og:url` / `sitemap.xml` 中的子路径由 `tools/render.py` 顶部的 `REPO_PATH` 常量控制。
+
+## 页面结构约定
+
+- 每页有且仅有一个 `<h1>`；`<html lang="zh-CN">`。
+- 双语处理：正文成对段落「中文为主 + `<details class="orig">` 折叠英文」；无中文对应的英文段落原样保留；`mev-dea/`、`common-edits/` 两页整页英文并挂「本页尚未翻译」提示。
+- 表格单元格与图注中的中英并存内容**分行**显示（英文一行 + `.td-zh` 中文一行）。
+- 顶部栏「中 / 中＋英」开关控制折叠条显隐（`localStorage`: `cd2-lang`）；主题三态（`localStorage`: `cd2-theme`）。
+- 断点：`<1200px` 单栏 + 抽屉；`≥1200px` 左导航常驻两栏；`≥1360px` 三栏（加右侧本页目录）。
 
 ## 许可与声明
 
@@ -107,3 +100,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\build.ps1
 | **Kugua** | 提供了翻译帮助 |
 
 本翻译仅用于帮助更多玩家学习和理解 CD2 的难度编写。
+
+**英文原文**：<https://vonacht.github.io/cd2reference/>
