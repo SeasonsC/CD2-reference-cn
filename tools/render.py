@@ -151,7 +151,7 @@ HOME_STEPS = [
 HOME_MAP = [
     ('Module 模块', '一个功能板块：补给、虫量上限、光照、矮人属性……',
      [('模块', '/modules/')]),
-    ('Enemy / Descriptor', '某类敌人的配置与描述：血量、速度、抗性、外观',
+    ('Enemy / Descriptor', '某类敌人的配置 / 描述：血量、速度、抗性、外观',
      [('敌人配置', '/enemies/'), ('Direct 底层属性', '/direct/')]),
     ('Pool 怪池', '哪些敌人可以出现、按什么权重出现',
      [('模块 · 怪池', '/modules/#pools')]),

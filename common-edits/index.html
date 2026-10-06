@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>常见修改 · Cookbook — CD2 参考文档</title>
-<meta name="description" content="这一页只讲最常见的两种 CD2 改动——让虫变多／变少、从难度里删掉某类敌人。都是最小改动，抄进你自己的文件就能用。">
+<meta name="description" content="这一页只讲最常见的两种 CD2 改动——让虫变多／变少、从难度里删掉某类敌人。都是最小改动，放进你自己的难度文件对应位置即可使用（下面给的是片段，不是完整文件）。">
 <link rel="canonical" href="https://seasonsc.github.io/CD2-reference-cn/common-edits/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="CD2 参考文档">
 <meta property="og:title" content="常见修改 · Cookbook — CD2 参考文档">
-<meta property="og:description" content="这一页只讲最常见的两种 CD2 改动——让虫变多／变少、从难度里删掉某类敌人。都是最小改动，抄进你自己的文件就能用。">
+<meta property="og:description" content="这一页只讲最常见的两种 CD2 改动——让虫变多／变少、从难度里删掉某类敌人。都是最小改动，放进你自己的难度文件对应位置即可使用（下面给的是片段，不是完整文件）。">
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/common-edits/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
@@ -42,7 +42,7 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/" class="current" aria-current="page">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">实战 · 学着做</span> › 常见修改 · Cookbook</nav>
 <h1>常见修改 · Cookbook</h1>
-<p>这一页只讲最常见的两种 CD2 改动——<b>让虫变多／变少</b>、<b>从难度里删掉某类敌人</b>。都是最小改动，抄进你自己的文件就能用。</p>
+<p>这一页只讲最常见的两种 CD2 改动——<b>让虫变多／变少</b>、<b>从难度里删掉某类敌人</b>。都是最小改动，<b>放进你自己的难度文件对应位置即可使用</b>（下面给的是片段，不是完整文件）。</p>
 <h2 id="enemy-count">增加或减少敌人数量 · Increase or decrease the number of enemies</h2>
 <p>如果你喜欢某个难度，但觉得敌人太多或太少，只要一处极简单的改动就能按你的口味调整：找到 <code>DifficultySetting</code> 里的 <code>EnemyCountModifier</code>（下称 ECM）。ECM 是这个难度的<b>全局敌人数量倍率</b>，可以理解为整体放大或缩小虫量——想调大就调大、想调小就调小。下面这段来自 Hazard 6x2：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>If you enjoy a certain difficulty file but you think the number of enemies is either too small or too big, you can modify it to your taste with a very simple edit: look for the <code>EnemyCountModifier</code> (ECM) field inside <code>DifficultySettings</code>. The ECM works as a global multiplier for all spawn events in the difficulty, so you just need to increase it or decrease it however you like. As an example, the following snippet is from Hazard 6x2:</p></div></details>

@@ -1,16 +1,16 @@
 slug               HTML字节      区块数
 ------------------------------------
-basics             13,834       15
-common-edits       15,076       22
+basics             13,923       15
+common-edits       15,152       22
 direct            173,087      185
 enemies            57,675       77
-faq                20,677        1
+faq                20,718        1
 modules            65,295      118
 mutators          150,002      489
 natural-selection    264,278      214
 projectiles        22,982       18
 resources          19,319        9
 tips               17,896       56
-tutorial           13,936       34
+tutorial           14,932       40
 wavespawners       15,655        7
 toc                14,884        0

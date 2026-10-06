@@ -209,6 +209,7 @@ ce_html = io.open(os.path.join(SITE, 'common-edits', 'index.html'), encoding='ut
 tips_html = io.open(os.path.join(SITE, 'tips', 'index.html'), encoding='utf-8').read()
 basics_html = io.open(os.path.join(SITE, 'basics', 'index.html'), encoding='utf-8').read()
 mods_html = io.open(os.path.join(SITE, 'modules', 'index.html'), encoding='utf-8').read()
+faq_html = io.open(os.path.join(SITE, 'faq', 'index.html'), encoding='utf-8').read()
 tzh_empty = [p['path'] for p in idx if not (p.get('title_zh') or '').strip()]
 CHECKS += [
     # §1 折叠条按钮化
@@ -372,6 +373,27 @@ CHECKS += [
      and '玩家在任务里选择的那个官难' in mods_html),
     ('R13 Reference 反向入口收敛到核心页',
      count(r'class="admonition practice"') == 6),
+    # ── R14 Vars 定位与措辞一致性 ──
+    ('R14 新手页 Vars 一节保留，并按「作者工具」定位',
+     'id="vars"' in tut_html and '建议尽早认识' in tut_html
+     and '看得见' in tut_html and '写得短' in tut_html and '连得通' in tut_html
+     and '不需要把 Vars 的全部细节学完' in tut_html),
+    ('R14 新手页给出「什么时候需要 Vars」三档',
+     '只改一个数字' in tut_html and '开始写动态机制' in tut_html
+     and '写复杂的 Mutator / Trigger / WaveSpawner' in tut_html),
+    ('R14 新手页在早期小节预告 Vars', 'href="#vars"' in tut_html),
+    ('R14 新手页不把示例钉死在 Hazard 5',
+     '基于 Hazard 5' not in tut_html and '当前基准难度' in tut_html),
+    ('R14 FAQ「从哪一页开始学」指向新手入门与现结构',
+     'faq-where-to-start' in faq_html and '../tutorial/' in faq_html
+     and '写作提示与常见错误' not in faq_html),
+    ('R14 Cookbook 片段措辞已修正',
+     '放进你自己的难度文件对应位置即可使用' in ce_html
+     and '抄进你自己的文件就能用' not in ce_html),
+    ('R14「{} = Hazard 5」已标待核实', '待核实' in basics_html),
+    ('R14 全站无旧页面名残留（不把读者送回旧结构）',
+     '写作提示与常见错误' not in raw_all and '实战配方 · Cookbook' not in raw_all
+     and '难度实战拆解' not in raw_all and '案例拆解 · Case Study' in raw_all),
 ]
 if xref_bad:
     errors.extend(xref_bad[:40])
