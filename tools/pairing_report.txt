@@ -1,4 +1,4 @@
-双语配对样本（共 344 对，展示前 25 对）
+双语配对样本（共 362 对，展示前 25 对）
 ==========================================================================================
 [li] EN: Allows players to a have a much finer control over many aspects of the gameplay by intro
       ZH: 通过引入类似编程语言结构的 Mutators，让代码作者可以更精细地控制游戏逻辑。
@@ -8,8 +8,22 @@
       ZH: 支持在任务中，根据游戏条件实时调整怪池。
 [li] EN: Offers many features not available in CD1 such as controls for illumination, player scal
       ZH: 新增多项 CD1 不具备的功能，比如光照控制、玩家体型缩放、地图硝石数量调节等等
-[li] EN: Common edits. Reference section for common difficulty edits.
-      ZH: Resources. Useful links related to Custom Difficulty.相关资源
+[li] EN: ... and many others.
+      ZH: 以及更多内容
+[li] EN: Modules. A list of the top level modules for a valid CD2 file.
+      ZH: 模块部分
+[li] EN: Enemies. Reference for the Enemies or EnemiesNoSync modules.
+      ZH: 敌人配置
+[li] EN: Direct. A compilation of Direct enemy controls with default values.
+      ZH: 底层属性
+[li] EN: Wave Spawners. Reference for the WaveSpawners module.
+      ZH: 波次生成器
+[li] EN: Projectiles. Reference for the Projectile field of enemy descriptors.
+      ZH: 发射物部分
+[li] EN: Mutators. A list of currently supported mutators.
+      ZH: 动态参数与逻辑控制
+[li] EN: Resources. Useful links related to Custom Difficulty.
+      ZH: 相关资源
 [li] EN: 4-Dec-2024: Updated for CD2-v9: added ByEscortPhase and ByRefineryPhase mutators.
       ZH: 2024-12-04,CD2-v9:新增 ByEscortPhase 和 ByRefineryPhase Mutator。
 [li] EN: 25-Dec-2024: Updated for CD2-v10: added the Projectiles page, added the MEV and DEA page
@@ -36,27 +50,12 @@
       ZH: 2025-11-11,CD2-v16:新增 Countdown、EnemiesRecentlySpawned、Int2String、Float2String 与 Join 的 
 [li] EN: 2-Dec-2025: Update for CD2-v17: added the Vars module, the Alert field on wavespawners, 
       ZH: 2025-12-02,CD2-v17:新增 Vars 模块，在 Wavespawners 中加入 Alert 字段；并新增以下 Mutators: DroppodDistanc
-[li] EN: 11-Dec-2025: Added the Common Edits section, changed theme to material.
-      ZH: 2025-12-11:新增 Common Edits 章节，并将参考文档主题样式更改为 Material 风格
-[li] EN: 8-Mar-2026: Update for CD2-v18: added the StopWatch, TriggerTimer, Sequence and SelectFr
-      ZH: 2026-03-08,CD2-v18:新增以下 Mutators:Sequence、StopWatch、TriggerTimer、SelectFromArray;Enemies
-[p] EN: This document serves as a reference for Custom Difficulty 2, a mod for Deep Rock Galacti
-      ZH: 本文档是《深岩银河》模组 Custom Difficulty 2（CD2） 的参考指南，它允许你创建新的难度。CD2 由@TheBrain 开发，作为 Custom Diffi
-[li] EN: Q: Where can I get the mod?
-      ZH: 问：我在哪里可以获得这个模组？
-[li] EN: A: The mod is still in open beta. The .pak file is distributed through the Practical DRG
-      ZH: 答：该模组目前仍处于公开测试阶段。pak 文件通过 Practical DRG 社区发布——可加入其 Discord 服务器获取官方公告与最新版本；另有深岩资源站整理了下载、难
-[li] EN: Q: Can I use this at the same time as CD1?
-      ZH: 问：我能同时使用 CD1 和 CD2 吗？
-[li] EN: A: No — only one CD version can be enabled at a time. If you want to join CD1 lobbies wh
-      ZH: 答：不可以，一次只能启用一个 CD 版本。如果你在启用 CD2 的情况下要加入使用 CD1 的房间，并希望避免补给硝石消耗不同步，可以使用 cd1-client.pak——它可
 
-英文单飞段（无中文对应，共 7 段，全部列出）
+英文单飞段（无中文对应，共 6 段，全部列出）
 ==========================================================================================
 [/] MEV, DEA and EEE. A reference for the MEV and DEA mods and links to the EEE reference, used to add new enemy v
+[/] Common edits. Reference section for common difficulty edits.
 [/modules/] When launching a mission from the space rig.
 [/modules/] When a mission is finished.
-[/mutators/] Parameters:
 [/mutators/] Another example: we create a mutator that will hold the value of a string until a dwarf is revived, and at tha
-[/mutators/] Parameters:
 [/mutators/] Example:

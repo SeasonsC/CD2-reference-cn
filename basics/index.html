@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/basics/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=82d35298">
+<link rel="stylesheet" href="../assets/css/site.css?v=e29631e0">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -25,7 +25,22 @@
     </div>
     <div class="topbar-mid">
       <div class="topbar-spacer"></div>
-      <button class="search-btn" type="button" data-search-open aria-label="搜索文档"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+      <div class="search-slot" id="search-slot">
+        <button class="search-btn" type="button" data-search-open aria-label="搜索文档" aria-expanded="false" aria-controls="search-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+        <div class="search-panel" id="search-panel" hidden>
+          <div class="search-input-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+            <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
+            <kbd>Esc</kbd>
+          </div>
+          <ul class="search-results" id="search-results"></ul>
+          <div class="search-foot">
+            <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+            <span><kbd>Enter</kbd> 打开</span>
+            <span><kbd>Esc</kbd> 关闭</span>
+          </div>
+        </div>
+      </div>
       <div class="topbar-spacer"></div>
     </div>
     <div class="topbar-right">
@@ -110,21 +125,6 @@
 </footer>
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
-<div class="search-modal" id="search-modal" hidden>
-  <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
-    <div class="search-input-row">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
-      <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
-      <kbd>Esc</kbd>
-    </div>
-    <ul class="search-results" id="search-results"></ul>
-    <div class="search-foot">
-      <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
-      <span><kbd>Enter</kbd> 打开</span>
-      <span><kbd>Esc</kbd> 关闭</span>
-    </div>
-  </div>
-</div>
-<script src="../assets/js/site.js?v=82d35298" defer></script>
+<script src="../assets/js/site.js?v=e29631e0" defer></script>
 </body>
 </html>

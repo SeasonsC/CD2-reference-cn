@@ -2,11 +2,15 @@
 """自检：内链 / 锚点 / 图片 / 结构 / 相对路径 / 预算。按改进清单 §1 支持相对路径。"""
 import os, io, re, posixpath
 import urllib.parse
+import html as H
 from lxml import html as LH
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, 'docs')
 OUT = os.path.join(ROOT, 'tools', 'verify_report.txt')
+# 预算上限（字节）。R16：CSS 从 30,720 抬到 32,768 —— 搜索面板 + Mutators 卡片索引
+# 是真实功能增长，靠清理死规则腾不出空间（全站只剩一条不可删的 .ns-impl 规则）。
+CSS_MAX, JS_MAX = 32768, 20480
 L = []
 P = L.append
 
@@ -138,6 +142,32 @@ js = io.open(os.path.join(SITE, 'assets/js/site.js'), encoding='utf-8').read()
 raw_all = '\n'.join(io.open(p, encoding='utf-8').read() for p in pages)
 
 
+# R15 §P2-1：正文里「成句英文 + 中文」粘在同一行（= 上游把两种语言写在同一个 <li>/<td>）。
+# 排除：英文原文折叠块、代码块、右侧目录（右侧目录在 </main> 之后，天然不在切片内）。
+def glued_lines(raw):
+    body = raw[raw.find('<main'):raw.find('</main>')]
+    body = re.sub(r'<details class="orig">.*?</details>', ' ', body, flags=re.S)
+    body = re.sub(r'<pre>.*?</pre>', ' ', body, flags=re.S)
+    bad = []
+    for m in re.finditer(r'<(li|td|p)[^>]*>(.*?)</\1>', body, re.S):
+        for part in re.split(r'<br\s*/?>', m.group(2), flags=re.I):
+            t = re.sub(r'\s+', ' ', H.unescape(re.sub(r'<[^>]+>', ' ', part))).strip()
+            k = re.search(r'[\u4e00-\u9fff]', t)
+            if not k:
+                continue
+            head = re.sub(r'《[^》]*》', '', t[:k.start()])   # 中文句里的《英文书名》不算混排
+            if (re.search(r'[A-Za-z]{3,}\s+[A-Za-z]{3,}\s+[A-Za-z]{3,}', head)
+                    and len(re.findall(r'[\u4e00-\u9fff]', t)) >= 4):
+                bad.append(t[:80])
+    return bad
+
+
+GLUED = []
+for _p in pages:
+    GLUED += [(os.path.relpath(_p, SITE).replace('\\', '/'), x)
+              for x in glued_lines(io.open(_p, encoding='utf-8').read())]
+
+
 def count(pat, flags=0):
     return len(re.findall(pat, raw_all, flags))
 
@@ -154,7 +184,7 @@ CHECKS = [
     # R3 §2.2 搜索模态框（404 为自足页，不含搜索框）
     ('R3 §2.2 输入行 + 图标 + Esc', count(r'class="search-input-row"') == len(pages) - 1),
     ('R3 §2.2 底部快捷键提示条', count(r'class="search-foot"') == len(pages) - 1),
-    ('R3 §2.2 聚焦蓝线已杀', '.search-box input:focus-visible{ outline:none; }' in css),
+    ('R3 §2.2 聚焦蓝线已杀', '.search-panel input:focus-visible{ outline:none; }' in css),
     ('R3 §2.2 空态不再撑高', '.search-results .empty-state{ border:0' in css),
     ('R3 §2.2 章节结果不暴露 hash', 'r.page.title_zh || r.page.title' in js),
     # R3 §3 宽度阶梯
@@ -210,6 +240,11 @@ tips_html = io.open(os.path.join(SITE, 'tips', 'index.html'), encoding='utf-8').
 basics_html = io.open(os.path.join(SITE, 'basics', 'index.html'), encoding='utf-8').read()
 mods_html = io.open(os.path.join(SITE, 'modules', 'index.html'), encoding='utf-8').read()
 faq_html = io.open(os.path.join(SITE, 'faq', 'index.html'), encoding='utf-8').read()
+mut_html = io.open(os.path.join(SITE, 'mutators', 'index.html'), encoding='utf-8').read()
+# R16 ③：索引里的 chip 锚点必须覆盖该页全部 h2（无遗漏）
+_mut_anchors = set(re.findall(r'class="mut-chip" href="#([^"]*)"', mut_html))
+_mut_h2 = set(re.findall(r'<h2 id="([^"]+)"', mut_html)) - {'mutator-index'}
+MUT_IDX_OK = bool(_mut_h2) and _mut_h2 <= _mut_anchors
 tzh_empty = [p['path'] for p in idx if not (p.get('title_zh') or '').strip()]
 CHECKS += [
     # §1 折叠条按钮化
@@ -232,9 +267,10 @@ CHECKS += [
      and '.search-btn{\n  display:inline-flex' in css),
     # §3.2 title_zh 已填
     ('R4 §3.2 索引 title_zh 全部非空', not tzh_empty),
-    # §3.3 模态框贴合 + 语言开关同高
-    ('R4 §3.3 模态框高度贴合内容', 'align-items:flex-start;' in css
-     and '.search-results{ list-style:none; margin:0; padding:.4rem; overflow-y:auto; flex:0 1 auto; }' in css),
+    # §3.3 结果面板贴合 + 语言开关同高
+    ('R15 结果面板贴合内容并内部滚动',
+     '.search-results{ list-style:none; margin:0; padding:.4rem; overflow-y:auto; flex:0 1 auto; }' in css
+     and 'max-height:60vh' in css),
     ('R4 §3.3 语言开关与图标同高', 'min-height:34px; box-sizing:border-box' in css),
     # §4 名录扩展
     ('R4 §4 名录 ≥2 处（OBJ + ByMissionType）', count(r'class="name-grid"') >= 2),
@@ -333,10 +369,15 @@ CHECKS += [
      len(re.findall(r'<li>', re.search(r'<ol class="home-steps">(.*?)</ol>',
                                        home_html, re.S).group(1))) == 3
      and '新手入门' in home_html),
-    ('R12 Cookbook 存在且两条配方 + 已核实 Descriptor',
-     'id="enemy-count"' in ce_html and 'id="remove-vanilla-enemies"' in ce_html
+    ('R12/R15 Cookbook 8 条配方，Descriptor 已核实',
+     all((f'id="{i}"' in ce_html) for i in
+         ('enemy-count', 'remove-vanilla-enemies', 'cb-supply-cost', 'cb-player-count',
+          'cb-nitra', 'cb-dwarves', 'cb-enemy-tune', 'cb-wavespawner'))
      and 'ED_Spider_Stalker' in ce_html and 'ED_Spider_Lobber' in ce_html
      and 'Pools module field' in ce_html),
+    ('R15 每条 Cookbook 配方都有「没生效？」与 Reference 出口',
+     ce_html.count('没生效？') == 8 and ce_html.count('想深入了解') >= 8
+     and ce_html.count('../tips/#debug-') >= 8),
     ('R12 Cookbook 声明了上限与未确认行为',
      'MaxActiveEnemies' in ce_html and '还没有被完全弄明白' in ce_html
      and '不建议超过 300' in ce_html),
@@ -394,7 +435,48 @@ CHECKS += [
     ('R14 全站无旧页面名残留（不把读者送回旧结构）',
      '写作提示与常见错误' not in raw_all and '实战配方 · Cookbook' not in raw_all
      and '难度实战拆解' not in raw_all and '案例拆解 · Case Study' in raw_all),
+    # ── R15 §P0-1 搜索：原位展开 + 下拉结果面板 ──
+    ('R15 搜索不再有遮罩层',
+     count(r'class="search-modal"') == 0 and '.search-modal' not in css),
+    ('R15 结果面板挂在搜索槽内（每页一份）',
+     count(r'id="search-panel"') == len(pages) - 1
+     and count(r'class="search-slot"') == len(pages) - 1),
+    ('R15 面板锚定在搜索框正下方',
+     'top:calc(100% + 8px)' in css and 'translateX(-50%)' in css),
+    ('R15 窄屏退化为顶部结果页',
+     'top:var(--topbar-h)' in css),
+    ('R15 空态给常用入口 + 点面板外关闭',
+     '常用入口' in js and 'SUGGEST' in js and '#search-slot' in js),
+    ('R15 键盘行为保留（Ctrl K / 方向键 / Enter / Esc）',
+     "toLowerCase() === 'k'" in js and 'ArrowDown' in js and 'ArrowUp' in js
+     and "e.key === 'Escape'" in js),
+    # ── R15 §P2-3 猜测路径与去向引导 ──
+    ('R15 404 有去向引导 + 猜测路径跳转',
+     '你可能在找' in f4 and "'/getting-started/': '/tutorial/'" in f4
+     and "'/cookbook/': '/common-edits/'" in f4 and "'/debug/': '/tips/'" in f4),
+    # ── R15 §P2-1 中英呈现统一 ──
+    ('R15 正文无「成句英文 + 中文」同行混排', not GLUED),
+    ('R15 无未译的英文小标题残留',
+     '<p lang="en">Parameters:</p>' not in raw_all
+     and '<p lang="en">Note:</p>' not in raw_all),
+    # ── R16 ① 侧栏跟随 / ② 访问态颜色 / ③ Mutators 索引重做 ──
+    ('R16 侧栏加载后滚到当前项（只滚抽屉自身）',
+     'drawer.scrollTop +=' in js and '#drawer .drawer-list a.current' in js),
+    ('R16 链接不再区分访问态颜色',
+     'var(--visited)' not in css and '--visited:' not in css
+     and 'a:visited{ color:var(--link); }' in css),
+    ('R16 Mutators 索引：卡片 + chip + 筛选框',
+     'class="mut-filter"' in mut_html and 'id="mut-filter"' in mut_html
+     and 'details class="mut-card"' in mut_html and 'mut-chip' in mut_html
+     and 'mut-chip' in js and 'mut-filter' in js),
+    ('R16 Mutators 索引覆盖全部小节（无遗漏）', MUT_IDX_OK),
+    ('R16 多合一条目已拆成独立 chip',
+     all((f'>{x}<span class="en">' in mut_html) for x in
+         ('加', '减', '乘', '除', '幂', '取模', '四舍五入', '向上取整', '向下取整',
+          '锁定浮点数', '锁定布尔值', '锁定字符串'))),
 ]
+if GLUED:
+    errors.extend('EN/ZH 同行混排 %s → %s' % (f, t) for f, t in GLUED[:20])
 if xref_bad:
     errors.extend(xref_bad[:40])
 failed = [name for name, ok in CHECKS if not ok]
@@ -403,7 +485,7 @@ if failed:
 
 sz_css = os.path.getsize(os.path.join(SITE, 'assets/css/site.css'))
 sz_js = os.path.getsize(os.path.join(SITE, 'assets/js/site.js'))
-if sz_css > 30720 * 0.95 or sz_js > 20480 * 0.95:
+if sz_css > CSS_MAX * 0.95 or sz_js > JS_MAX * 0.95:
     warns.append('预算余量不足 5%%，下一轮改动容易超限')
 
 P(f'检查页面 {len(pages)} 个')
@@ -419,10 +501,10 @@ P(f'⚠️ 提示 {len(warns)} 条')
 for w in warns[:40]:
     P('   ' + w)
 P('')
-P(f'预算：CSS {sz_css:,} / 30,720 = {sz_css / 30720 * 100:.2f}%'
-  f'（余 {30720 - sz_css:,} 字节 = {(30720 - sz_css) / 30720 * 100:.2f}%）'
-  f' ｜ JS {sz_js:,} / 20,480 = {sz_js / 20480 * 100:.2f}%'
-  f'（余 {20480 - sz_js:,} 字节 = {(20480 - sz_js) / 20480 * 100:.2f}%）')
+P(f'预算：CSS {sz_css:,} / {CSS_MAX:,} = {sz_css / CSS_MAX * 100:.2f}%'
+  f'（余 {CSS_MAX - sz_css:,} 字节 = {(CSS_MAX - sz_css) / CSS_MAX * 100:.2f}%）'
+  f' ｜ JS {sz_js:,} / {JS_MAX:,} = {sz_js / JS_MAX * 100:.2f}%'
+  f'（余 {JS_MAX - sz_js:,} 字节 = {(JS_MAX - sz_js) / JS_MAX * 100:.2f}%）')
 sizes = sorted(((os.path.getsize(p), os.path.relpath(p, SITE)) for p in pages), reverse=True)
 P('最大的 5 个页面：')
 for s, r in sizes[:5]:

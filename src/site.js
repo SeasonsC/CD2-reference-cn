@@ -196,11 +196,21 @@
 
   /* ── 6. 章节筛选：已移除（R5 ③ 全站只保留顶栏那一个搜索入口）──────── */
 
-  /* ── 7. 搜索（内置轻量版：bigram 倒排 + 子串兜底）─────────────────── */
+  /* ── 7. 搜索（内置轻量版：bigram 倒排 + 子串兜底）
+     R15 §P0-1：原位展开 + 下拉结果面板——无遮罩层、不锁页面滚动 ──────── */
   (function () {
-    var modal = $('#search-modal');
-    if (!modal) return;
+    var panel = $('#search-panel'), slot = $('#search-slot');
+    if (!panel || !slot) return;
     var input = $('#search-input'), list = $('#search-results');
+    var btn = $('[data-search-open]', slot);
+    /* 空输入时展示的常用入口（而不是一句「输入关键词开始搜索」的死提示） */
+    var SUGGEST = [
+      ['新手入门 · Getting Started', 'tutorial/'],
+      ['常见修改 · Cookbook', 'common-edits/'],
+      ['案例拆解 · Case Study', 'natural-selection/'],
+      ['为什么没生效 · Debug', 'tips/'],
+      ['Reference · 目录', 'toc/']
+    ];
     var data = null, index = null, loading = false, SECTIONS = [];
     var CACHE = [];
 
@@ -272,7 +282,7 @@
     }
     function render(results, q) {
       if (!results.length) {
-        list.innerHTML = '<li class="empty-state">没有匹配「' + esc(q) + '」的内容</li>';
+        list.innerHTML = '<li class="empty-state">没有找到与「' + esc(q) + '」相关的内容</li>';
         return;
       }
       list.innerHTML = results.map(function (r, i) {
@@ -297,23 +307,36 @@
     }
     function esc(s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
     function escRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+    /* R15 §P0-1：空态展示常用入口，点一条就直接跳过去 */
+    function showSuggest() {
+      list.innerHTML = SUGGEST.map(function (s, i) {
+        return '<li><a href="' + siteUrl('/' + s[1]) + '"' + (i === 0 ? ' class="active"' : '') +
+          '><span class="sr-title">' + esc(s[0]) + '</span>' +
+          '<span class="sr-path">常用入口</span></a></li>';
+      }).join('');
+    }
 
     function open() {
-      modal.hidden = false; input.value = ''; list.innerHTML = '';
+      panel.hidden = false;
+      if (btn) btn.setAttribute('aria-expanded', 'true');
+      input.value = '';
+      showSuggest();
       input.focus();
-      if (data) return;
-      if (loading) return;
+      if (data || loading) return;
       loading = true;
       list.innerHTML = '<li class="empty-state">正在载入索引…</li>';
       fetch(siteUrl('/search-index.json')).then(function (r) { return r.json(); }).then(function (j) {
         data = j; build(); loading = false;
-        list.innerHTML = '<li class="empty-state">输入关键词开始搜索</li>';
+        showSuggest();
       }).catch(function () {
         loading = false;
         list.innerHTML = '<li class="empty-state">索引载入失败</li>';
       });
     }
-    function close() { modal.hidden = true; }
+    function close() {
+      panel.hidden = true;
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
     function move(d) {
       var as = $$('a', list);
       if (!as.length) return;
@@ -324,12 +347,18 @@
       as[i].scrollIntoView({ block: 'nearest' });
     }
     doc.addEventListener('click', function (e) {
-      if (e.target.closest && e.target.closest('[data-search-open]')) { e.preventDefault(); open(); }
-      else if (e.target === modal) close();
+      var t = e.target;
+      if (t.closest && t.closest('[data-search-open]')) {
+        e.preventDefault();
+        if (panel.hidden) open(); else close();      // 再点一次收起
+        return;
+      }
+      /* 页面不再遮罩，所以「点外面关闭」必须显式判断 */
+      if (!panel.hidden && t.closest && !t.closest('#search-slot')) close();
     });
     doc.addEventListener('keydown', function (e) {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); open(); return; }
-      if (modal.hidden) return;
+      if (panel.hidden) return;
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
@@ -340,7 +369,7 @@
       var q = input.value.trim();
       clearTimeout(timer);
       timer = setTimeout(function () {
-        if (!q) { list.innerHTML = '<li class="empty-state">输入关键词开始搜索</li>'; return; }
+        if (!q) { showSuggest(); return; }
         if (!data) return;
         render(search(q), q);
       }, 90);
@@ -402,5 +431,38 @@
     if (!back) return;
     if (history.length > 1) back.hidden = false;
     back.addEventListener('click', function () { history.back(); });
+  })();
+
+  /* ── 11. 侧栏跟随当前页（R15 ①）──────────────────────────────────────
+     从侧栏跳页后，抽屉自身会滚回顶部，当前项（例如排障组在最下面）就被滚出了
+     可视区。这里在加载后只调整抽屉自己的 scrollTop，绝不碰窗口滚动位置。 */
+  (function () {
+    var drawer = $('#drawer'), cur = $('#drawer .drawer-list a.current');
+    if (!drawer || !cur) return;
+    var d = drawer.getBoundingClientRect(), c = cur.getBoundingClientRect();
+    if (c.top < d.top || c.bottom > d.bottom) {
+      drawer.scrollTop += (c.top - d.top) - (d.height - c.height) / 2;
+    }
+  })();
+
+  /* ── 12. Mutators 用途索引的筛选（R16 ③）────────────────────────── */
+  (function () {
+    var box = $('#mut-filter');
+    if (!box) return;
+    var cards = $$('.mut-idx details.mut-card');
+    if (!cards.length) return;
+    box.addEventListener('input', function () {
+      var q = box.value.trim().toLowerCase();
+      cards.forEach(function (c) {
+        var n = 0;
+        $$('.mut-chip', c).forEach(function (a) {
+          var hit = !q || a.textContent.toLowerCase().indexOf(q) >= 0;
+          a.parentNode.hidden = !hit;
+          if (hit) n++;
+        });
+        c.hidden = !n;
+        if (q && n) c.open = true;      // 筛出来却折叠着等于没筛
+      });
+    });
   })();
 })();

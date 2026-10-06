@@ -31,7 +31,14 @@ text-decoration:none;font-weight:600}
 <body>
 <main>
   <h1>页面不存在</h1>
-  <p>你访问的地址没有对应的页面。站内搜索请到首页后按 <kbd>Ctrl</kbd>+<kbd>K</kbd> 唤起。</p>
+  <p>你访问的地址没有对应的页面。</p>
+  <p><b>你可能在找：</b></p>
+  <ul>
+    <li><a href="/CD2-reference-cn/tutorial/">新手入门 · Getting Started</a> —— 完全不懂 CD2？从这里开始</li>
+    <li><a href="/CD2-reference-cn/common-edits/">常见修改 · Cookbook</a> —— 一个目标，一个最小方案</li>
+    <li><a href="/CD2-reference-cn/toc/">Reference · 目录</a> —— 查字段、查机制</li>
+  </ul>
+  <p>站内搜索：回到任意页面后按 <kbd>Ctrl</kbd>+<kbd>K</kbd>。</p>
   <p>旧站路径变更对照：</p>
   <ul>
     <li><code>Common%20edits/</code> → 现为<a href="/CD2-reference-cn/common-edits/">常见修改 · Cookbook</a></li>
@@ -43,7 +50,14 @@ text-decoration:none;font-weight:600}
 <script>
 (function(){
   var BASE = '/CD2-reference-cn';
+  /* 旧站路径 + 常见猜测路径（GitHub Pages 无服务端重定向，只能在这里兜） */
   var LEGACY = {
+    '/getting-started/': '/tutorial/',
+    '/getting-started': '/tutorial/',
+    '/cookbook/': '/common-edits/',
+    '/cookbook': '/common-edits/',
+    '/debug/': '/tips/',
+    '/debug': '/tips/',
     '/common edits/': '/common-edits/',
     '/common edits': '/common-edits/',
     '/grouped_cooldowns/': '/toc/',

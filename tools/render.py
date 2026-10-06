@@ -398,6 +398,8 @@ def drawer_html(nav, cur):
 
 
 def topbar_html():
+    # R15 §P0-1：搜索改成「原位展开 + 下拉结果面板」——面板就挂在按钮下方，
+    # 没有遮罩层、不锁滚动，读者可以边看正文边查（移动端在 CSS 里退化为顶部页）。
     return f'''<header class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
@@ -406,7 +408,22 @@ def topbar_html():
     </div>
     <div class="topbar-mid">
       <div class="topbar-spacer"></div>
-      <button class="search-btn" type="button" data-search-open aria-label="搜索文档">{SEARCH_ICON}<span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+      <div class="search-slot" id="search-slot">
+        <button class="search-btn" type="button" data-search-open aria-label="搜索文档" aria-expanded="false" aria-controls="search-panel">{SEARCH_ICON}<span class="search-btn-text">搜索</span><kbd>Ctrl K</kbd></button>
+        <div class="search-panel" id="search-panel" hidden>
+          <div class="search-input-row">
+            {SEARCH_ICON}
+            <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
+            <kbd>Esc</kbd>
+          </div>
+          <ul class="search-results" id="search-results"></ul>
+          <div class="search-foot">
+            <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
+            <span><kbd>Enter</kbd> 打开</span>
+            <span><kbd>Esc</kbd> 关闭</span>
+          </div>
+        </div>
+      </div>
       <div class="topbar-spacer"></div>
     </div>
     <div class="topbar-right">
@@ -535,21 +552,6 @@ def shell(title, desc, path, body, nav, slug, prefix, has_toc=False):
 {footer_html(nav)}
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部">{ARROW_UP}</button>
-<div class="search-modal" id="search-modal" hidden>
-  <div class="search-box" role="dialog" aria-modal="true" aria-label="搜索文档">
-    <div class="search-input-row">
-      {SEARCH_ICON}
-      <input id="search-input" type="search" placeholder="搜索文档" aria-label="搜索文档" autocomplete="off">
-      <kbd>Esc</kbd>
-    </div>
-    <ul class="search-results" id="search-results"></ul>
-    <div class="search-foot">
-      <span><kbd>↑</kbd><kbd>↓</kbd> 选择</span>
-      <span><kbd>Enter</kbd> 打开</span>
-      <span><kbd>Esc</kbd> 关闭</span>
-    </div>
-  </div>
-</div>
 <script src="/assets/js/site.js?v={ASSET_VER}" defer></script>
 </body>
 </html>'''
@@ -562,7 +564,13 @@ def content_page(page, nav):
     prefix = '../'
     navitem = next((n for n in nav if n['slug'] == slug), None) or HOME
     title = f'{navitem["label"]} — {SITE_NAME}'
-    toc, has_toc = toc_html(page)
+    # R15 §P1-2：Mutators 页在最前面插入「按用途」索引，并让它进右侧目录
+    idx = mutator_index_html(page) if slug == 'mutators' else ''
+    toc_src = page
+    if idx:
+        toc_src = dict(page, headings=[{'id': 'mutator-index', 'level': 2,
+                                        'text': '按用途查 Mutator'}] + page['headings'])
+    toc, has_toc = toc_html(toc_src)
     # R12 §14：面包屑带层级 —— 从搜索 / 分享链接直接落进来的人，一眼知道自己在哪
     grp = nav_group_title(slug, '')
     crumb = '<a href="/">首页</a>'
@@ -572,6 +580,8 @@ def content_page(page, nav):
     main = [f'<main id="main" class="content">',
             f'<nav class="breadcrumb" aria-label="面包屑">{crumb}</nav>',
             f'<h1>{esc(navitem["label"])}</h1>']
+    if idx:
+        main.append(idx)
     if page.get('no_translation'):
         main.append('<div class="admonition notice"><div class="admonition-title">'
                     '本页尚未翻译</div><p>以下为英文原文。</p></div>')
@@ -618,6 +628,148 @@ def content_page(page, nav):
             + drawer_html(nav, slug) + '\n'.join(main) + toc + '</div>')
     return shell(title, page['desc'] or TAGLINE, page['path'], body, nav, slug,
                  prefix, has_toc)
+
+
+# R15 §P1-2 / R16 ③：Mutators 页的「按用途」索引。
+#   每个分组一张卡片，卡片内是一个个 chip（中文名 + 英文名的小链接）。
+#   多合一条目（加/减/乘/除…、LockFloat/Boolean/String）拆成独立 chip——它们指向
+#   同一节，但读起来是「一个词一个 chip」，不再是塞满一行的一长串。
+#   没列到的节自动落进「其他」卡片 → 「索引覆盖全部 Mutator」是结构上保证的。
+MUTATOR_GROUPS = [
+    ('数学、计数与状态', 'Math & State', [
+        ('累加', 'Accumulate', 'accumulate'),
+        ('最大值', 'Max', 'max'), ('最小值', 'Min', 'min'),
+        ('变量', 'Delta', 'delta'), ('序列', 'Sequence', 'Sequence'),
+        ('加', 'Add', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('减', 'Subtract', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('乘', 'Multiply', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('除', 'Divide', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('幂', 'Pow', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('取模', 'Modulo', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('四舍五入', 'Round', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('向上取整', 'Ceil', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('向下取整', 'Floor', 'add-subtract-multiply-divide-pow-modulo-round-ceil-floor'),
+        ('限制', 'Clamp', 'clamp')]),
+    ('条件、选择与触发', 'Logic & Trigger', [
+        ('条件判断', 'If', 'if'), ('浮点数条件判断', 'IfFloat', 'iffloat'),
+        ('与', 'And', 'and-or-not'), ('或', 'Or', 'and-or-not'), ('非', 'Not', 'and-or-not'),
+        ('非零判断', 'Nonzero', 'Nonzero'),
+        ('选择', 'Select', 'Select'), ('从数组选择', 'SelectFromArray', 'selectfromarray'),
+        ('锁定浮点数', 'LockFloat', 'LockFloat, LockBoolean, LockString'),
+        ('锁定布尔值', 'LockBoolean', 'LockFloat, LockBoolean, LockString'),
+        ('锁定字符串', 'LockString', 'LockFloat, LockBoolean, LockString'),
+        ('触发类', 'Trigger', 'trigger-mutators')]),
+    ('时间与节奏', 'Time', [
+        ('根据时间', 'ByTime', 'bytime'), ('倒计时', 'Countdown', 'countdown'),
+        ('秒表', 'StopWatch', 'StopWatch'), ('时间变量', 'TimeDelta', 'timedelta'),
+        ('撤离已用时间', 'ElapsedExtraction', 'elapsedextraction'),
+        ('轮切', 'SquareWave', 'squarewave')]),
+    ('任务阶段与进度', 'Mission phase', [
+        ('根据深潜阶段', 'ByDDStage', 'byddstage'),
+        ('根据炼油阶段', 'ByRefineryPhase', 'byrefineryphase'),
+        ('根据设施破坏阶段', 'BySaboPhase', 'bysabophase'),
+        ('根据搜救行动阶段', 'BySalvagePhase', 'bysalvagephase'),
+        ('根据执勤护送阶段', 'ByEscortPhase', 'byescortphase'),
+        ('根据任务类型', 'ByMissionType', 'bymissiontype'),
+        ('根据次要目标', 'BySecondary', 'bysecondary'),
+        ('根据次要完成情况', 'SecondaryFinished', 'SecondaryFinished'),
+        ('守点进度', 'DefenseProgress', 'defenseprogress')]),
+    ('敌人与战斗', 'Enemies', [
+        ('已击杀敌人数量', 'EnemiesKilled', 'enemieskilled'),
+        ('近期生成敌人计数', 'EnemiesRecentlySpawned', 'enemiesrecentlyspawned'),
+        ('敌人生成冷却', 'EnemyCooldown', 'enemycooldown'),
+        ('敌人血量比例', 'EnemyHealth', 'EnemyHealth'),
+        ('敌人距离', 'EnemyDistance', 'EnemyDistance'),
+        ('当前敌人计数', 'EnemyCount', 'enemycount'),
+        ('描述符是否可用', 'DescriptorExists', 'descriptorexists')]),
+    ('矮人与团队', 'Dwarves & team', [
+        ('矮人数量', 'DwarfCount', 'dwarfcount'),
+        ('团队弹药量比例', 'DwarvesAmmo', 'dwarvesammo'),
+        ('倒地矮人数量', 'DwarvesDown', 'dwarvesdown'),
+        ('倒地时间', 'DwarvesDownTime', 'dwarvesdowntime'),
+        ('矮人总倒地次数', 'DwarvesDowns', 'dwarvesdowns'),
+        ('团队生命值比例', 'DwarvesHealth', 'dwarveshealth'),
+        ('矮人复活次数', 'DwarvesRevives', 'dwarvesrevives'),
+        ('团队护盾值比例', 'DwarvesShield', 'dwarvesshield'),
+        ('钢铁意志剩余数量', 'IWsLeft', 'iwsleft'),
+        ('钻机数量检测', 'DrillerCount', 'drillercount'),
+        ('工程数量计数', 'EngineerCount', 'engineercount'),
+        ('枪手数量计数', 'GunnerCount', 'gunnercount'),
+        ('侦察数量计数', 'ScoutCount', 'scoutcount')]),
+    ('资源与补给', 'Resources & resupply', [
+        ('存放资源', 'DepositedResource', 'depositedresource'),
+        ('携带资源计数', 'HeldResource', 'heldresource'),
+        ('资源总量', 'TotalResource', 'totalresource'),
+        ('补给剩余使用次数', 'ResupplyUsesLeft', 'resupplyusesleft'),
+        ('已呼叫补给次数', 'ResuppliesCalled', 'resuppliescalled'),
+        ('已消耗补给使用次数', 'ResupplyUsesConsumed', 'resupplyusesconsumed'),
+        ('根据呼叫补给次数', 'ByResuppliesCalled', 'byresuppliescalled')]),
+    ('游戏条件与任务期间', 'Game state & During', [
+        ('根据生物群系', 'ByBiome', 'bybiome'), ('ByDNA', 'ByDNA', 'bydna'),
+        ('根据玩家数量', 'ByPlayerCount', 'byplayercount'),
+        ('是否在太空站', 'IfOnSpaceRig', 'ifonspacerig'),
+        ('任务期间', 'DuringMission', 'duringmission'),
+        ('宣告潮期间', 'DuringGenericSwarm', 'duringgenericswarm'),
+        ('守点期间', 'DuringDefend', 'duringdefend'),
+        ('撤离期间', 'DuringExtraction', 'duringextraction'),
+        ('对战无畏异虫期间', 'DuringDread', 'duringdread'),
+        ('定点提取撤离期间', 'DuringPECountdown', 'duringpecountdown'),
+        ('蛋潮期间', 'DuringEggAmbush', 'duringeggambush'),
+        ('钻井电梯期间', 'DuringDrillevator', 'duringdrillevator'),
+        ('遭遇潮期间', 'DuringEncounters', 'duringencounters')]),
+    ('随机', 'Random', [
+        ('随机值', 'Random', 'random'), ('随机选择', 'RandomChoice', 'randomchoice'),
+        ('每个任务随机选择一次', 'RandomChoicePerMission', 'randomchoicepermission')]),
+    ('位置与距离', 'Position', [
+        ('空降舱距离', 'DistanceToDroppod', 'DistanceToDroppod'),
+        ('矿骡与空降舱的距离', 'MuleDistanceToDroppod', 'MuleDistanceToDroppod')]),
+    ('值与字符串', 'Value & string', [
+        ('整数转字符串', 'Int2String', 'int2string'),
+        ('浮点数转字符串', 'Float2String', 'float2string'),
+        ('字符串拼接', 'Join', 'join')]),
+]
+
+
+def _chip(zh, en, anchor):
+    return (f'<li><a class="mut-chip" href="#{esc(anchor)}">{esc(zh)}'
+            f'<span class="en">{esc(en)}</span></a></li>')
+
+
+def mutator_index_html(page):
+    """按用途索引：卡片式分组 + chip；未列到的节自动进「其他」，保证无遗漏。"""
+    hs = [h for h in page['headings'] if h['level'] == 2]
+    byid = {h['id']: h for h in hs}
+    covered, cards = set(), []
+    for zh, en, chips in MUTATOR_GROUPS:
+        items = []
+        for czh, cen, aid in chips:
+            if aid in byid:
+                covered.add(aid)          # 只用于「其他」兜底；chip 本身不去重
+                items.append(_chip(czh, cen, aid))
+        if items:
+            cards.append((zh, en, items))
+    rest = []
+    for h in hs:
+        if h['id'] in covered:
+            continue
+        parts = (h['text'] or '').split(' · ', 1)
+        rest.append(_chip(parts[0].strip(), parts[1].strip() if len(parts) > 1 else '',
+                          h['id']))
+    if rest:
+        cards.append(('其他', 'Other', rest))
+    if not cards:
+        return ''
+    body = ''.join(
+        f'<details class="mut-card" open><summary><b>{esc(zh)}</b>'
+        f'<span class="en">{esc(en)}</span></summary>'
+        f'<ul>{"".join(items)}</ul></details>'
+        for zh, en, items in cards)
+    return ('<h2 id="mutator-index">按用途查 Mutator</h2>'
+            '<p>不知道某个 Mutator 叫什么？直接在下框里筛，或者按用途找——'
+            '每个标签点进去就是它的完整说明。</p>'
+            '<p class="mut-filter"><input id="mut-filter" type="search" '
+            'placeholder="筛选：输入中文名或英文名" aria-label="筛选 Mutator"></p>'
+            f'<div class="mut-idx">{body}</div>')
 
 
 def cards_html(nav, pages):
@@ -815,7 +967,14 @@ def notfound_page():
 <body>
 <main>
   <h1>页面不存在</h1>
-  <p>你访问的地址没有对应的页面。站内搜索请到首页后按 <kbd>Ctrl</kbd>+<kbd>K</kbd> 唤起。</p>
+  <p>你访问的地址没有对应的页面。</p>
+  <p><b>你可能在找：</b></p>
+  <ul>
+    <li><a href="{REPO_PATH}/tutorial/">新手入门 · Getting Started</a> —— 完全不懂 CD2？从这里开始</li>
+    <li><a href="{REPO_PATH}/common-edits/">常见修改 · Cookbook</a> —— 一个目标，一个最小方案</li>
+    <li><a href="{REPO_PATH}/toc/">Reference · 目录</a> —— 查字段、查机制</li>
+  </ul>
+  <p>站内搜索：回到任意页面后按 <kbd>Ctrl</kbd>+<kbd>K</kbd>。</p>
   <p>旧站路径变更对照：</p>
   <ul>
     <li><code>Common%20edits/</code> → 现为<a href="{REPO_PATH}/common-edits/">常见修改 · Cookbook</a></li>
@@ -827,7 +986,14 @@ def notfound_page():
 <script>
 (function(){{
   var BASE = '{REPO_PATH}';
+  /* 旧站路径 + 常见猜测路径（GitHub Pages 无服务端重定向，只能在这里兜） */
   var LEGACY = {{
+    '/getting-started/': '/tutorial/',
+    '/getting-started': '/tutorial/',
+    '/cookbook/': '/common-edits/',
+    '/cookbook': '/common-edits/',
+    '/debug/': '/tips/',
+    '/debug': '/tips/',
     '/common edits/': '/common-edits/',
     '/common edits': '/common-edits/',
     '/grouped_cooldowns/': '/toc/',

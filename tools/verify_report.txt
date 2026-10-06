@@ -1,16 +1,16 @@
 检查页面 16 个
-英文折叠条 331 ｜ 代码块 156 ｜ 搜索索引章节 323 条（缺 id 0 条）
+英文折叠条 342 ｜ 代码块 163 ｜ 搜索索引章节 329 条（缺 id 0 条）
 站内根绝对路径残留 0 处 ｜ description 超 120 字的页面 0 个
-回归清单：111 / 111 通过
+回归清单：126 / 126 通过
 
 ❌ 错误 0 条
 
 ⚠️ 提示 0 条
 
-预算：CSS 29,070 / 30,720 = 94.63%（余 1,650 字节 = 5.37%） ｜ JS 16,082 / 20,480 = 78.53%（余 4,398 字节 = 21.47%）
+预算：CSS 30,045 / 32,768 = 91.69%（余 2,723 字节 = 8.31%） ｜ JS 17,803 / 20,480 = 86.93%（余 2,677 字节 = 13.07%）
 最大的 5 个页面：
-   natural-selection\index.html 300,554 字节
-   mutators\index.html          174,245 字节
-   direct\index.html            168,929 字节
-   modules\index.html           72,622 字节
-   enemies\index.html           64,439 字节
+   natural-selection\index.html 300,657 字节
+   mutators\index.html          187,051 字节
+   direct\index.html            169,032 字节
+   modules\index.html           72,725 字节
+   enemies\index.html           64,542 字节
