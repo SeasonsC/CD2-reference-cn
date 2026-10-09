@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/tutorial/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=e29631e0">
+<link rel="stylesheet" href="../assets/css/site.css?v=c6eff14d">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -57,54 +57,55 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/" class="current" aria-current="page">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">入门 · 从这里开始</span> › 新手入门 · Getting Started</nav>
 <h1>新手入门 · Getting Started</h1>
-<p>这一页只做一件事——把你从「完全不懂 CD2」带到<b>「改出第一个生效的数字，并且知道下一步去哪」</b>。它<b>不替代</b> Reference。</p>
+<p id="b-cd2-referenc">这一页只做一件事——把你从「完全不懂 CD2」带到<b>「改出第一个生效的数字，并且知道下一步去哪」</b>。它<b>不替代</b> Reference。</p>
 <h2 id="what-is-cd2">一、CD2 是什么</h2>
-<p>CD2（Custom Difficulty 2）是《深岩银河》的一个模组，它让你<b>自己定义一个难度</b>：虫量、敌人种类与行为、补给成本、光照、矮人属性……都能改。</p>
-<p>它不是在原版难度上再加一级，而是把决定难度的那些参数交到你手上。你写的东西是一份 <b>JSON 文本</b>，通过游戏里的 CD2 面板使用。</p>
-<ul><li>获取方式：见 <a href="../resources/#get-cd2">资源页 · 获取 CD2</a></li><li>安装方式、以及和其它模组的兼容问题：见 <a href="../faq/#faq-install">FAQ · 我该如何使用它</a> 与 <a href="../faq/#faq-mev-dea-compat">FAQ · 与 MEV/DEA 等扩展模组兼容吗</a></li></ul>
+<p id="b-cd2-custom-difficulty-2">CD2（Custom Difficulty 2）是《深岩银河》的一个模组，它让你<b>自己定义一个难度</b>：虫量、敌人种类与行为、补给成本、光照、矮人属性……都能改。</p>
+<p id="b-json-cd2">它不是在原版难度上再加一级，而是把决定难度的那些参数交到你手上。你写的东西是一份 <b>JSON 文本</b>，通过游戏里的 CD2 面板使用。</p>
+<ul id="b-cd2-faq-faq"><li>获取方式：见 <a href="../resources/#get-cd2">资源页 · 获取 CD2</a></li><li>安装方式、以及和其它模组的兼容问题：见 <a href="../faq/#faq-install">FAQ · 我该如何使用它</a> 与 <a href="../faq/#faq-mev-dea-compat">FAQ · 与 MEV/DEA 等扩展模组兼容吗</a></li></ul>
 <h2 id="what-is-a-cd2-file">二、一个 CD2 就是一份 JSON</h2>
-<ul><li>文件的<b>顶层字段就是各种模块</b>：<code>Caps</code>、<code>Resupply</code>、<code>DifficultySetting</code>、<code>Pools</code>、<code>Enemies</code>……</li><li><b>没有填写的配置项</b>不会归零，而是从<b>基准难度</b>取默认值。基准难度由 <code>DifficultySetting.BaseHazard</code> 指定；</li></ul>
-<p><b>不写 <code>BaseHazard</code> 时，基准就是你「在任务里选的那个官难」</b>——不是固定 Hazard 5。</p>
-<ul><li>顶层 <code>Name</code> 决定这份难度保存后叫什么名字。</li><li>所以「只写自己想改的那几个字段」是常见写法：其余全部沿用基准难度。</li></ul>
-<p>所以一份最小、但真的能干点事的难度长这样：</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<ul id="b-caps-resupply-difficulty"><li>文件的<b>顶层字段就是各种模块</b>：<code>Caps</code>、<code>Resupply</code>、<code>DifficultySetting</code>、<code>Pools</code>、<code>Enemies</code>……</li><li><b>没有填写的配置项</b>不会归零，而是从<b>基准难度</b>取默认值。基准难度由 <code>DifficultySetting.BaseHazard</code> 指定；</li></ul>
+<p id="b-basehazard-hazard-5"><b>不写 <code>BaseHazard</code> 时，基准就是你「在任务里选的那个官难」</b>——不是固定 Hazard 5。</p>
+<ul id="b-a90b59"><li>顶层 <code>Name</code> 决定这份难度保存后叫什么名字。</li><li>所以「只写自己想改的那几个字段」是常见写法：其余全部沿用基准难度。</li></ul>
+<p id="b-60874f">所以一份最小、但真的能干点事的难度长这样：</p>
+<div class="code-block" id="b-name-my-first-cd2-diffic"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Name&quot;: &quot;My First CD2&quot;,
     &quot;DifficultySetting&quot;: {
         &quot;EnemyCountModifier&quot;: 2
     }
 }</code></pre></div>
-<p>这就是<b>「一个难度 + 一个简单修改」</b>：把<b>当前基准难度</b>的全局敌人数量倍率设成 2。 （这里没有写 <code>BaseHazard</code>，所以基准就是你进游戏时选的那个官难。）</p>
-<p>→ 字段与格式的完整规则：<a href="../basics/#the-cd2-files">基础部分 · CD2 难度文件要求</a></p>
+<p id="b-2-basehazard">这就是<b>「一个难度 + 一个简单修改」</b>：把<b>当前基准难度</b>的全局敌人数量倍率设成 2。 （这里没有写 <code>BaseHazard</code>，所以基准就是你进游戏时选的那个官难。）</p>
+<p id="b-d1a014">→ 字段与格式的完整规则：<a href="../basics/#the-cd2-files">基础部分 · CD2 难度文件要求</a></p>
 <h2 id="two-parts">三、入门时，可以先把 CD2 理解成两部分</h2>
-<div class="table-wrap"><table><thead><tr><th class="tc"></th><th class="tc">你写下的是</th><th>谁负责</th></tr></thead><tbody><tr><td class="tc"><b>基础配置</b>（静态）</td><td class="tc">「这个值是多少」</td><td>Module · Pool · Enemy</td></tr><tr><td class="tc"><b>动态逻辑</b>（会变）</td><td class="tc">「这个值怎么算、什么时候变」</td><td>Mutator · Trigger · WaveSpawner</td></tr></tbody></table>
+<div class="table-wrap" id="b-module-pool-enemy"><table><thead><tr><th class="tc"></th><th class="tc">你写下的是</th><th>谁负责</th></tr></thead><tbody><tr><td class="tc"><b>基础配置</b>（静态）</td><td class="tc">「这个值是多少」</td><td>Module · Pool · Enemy</td></tr><tr><td class="tc"><b>动态逻辑</b>（会变）</td><td class="tc">「这个值怎么算、什么时候变」</td><td>Mutator · Trigger · WaveSpawner</td></tr></tbody></table>
 </div>
-<p>这是<b>学习用的模型</b>，不是严格的 API 分类——但它能解释你 90% 的困惑。</p>
-<p><b>先静态、再动态。</b> 大部分入门时的挫败感，都来自还没试过「改一个数字」，就直接去写动态逻辑。 等你真的开始写动态逻辑，有一件工具值得<b>尽早认识</b>：<a href="#vars"><code>Vars</code></a>（见第七节——它不是高级内容，而是早点养成会省事的习惯）。</p>
+<p id="b-e85ddd">这是<b>学习用的模型</b>，不是严格的 API 分类——但它能解释你 90% 的困惑。</p>
+<p id="b-38a062"><b>先静态、再动态。</b> 大部分入门时的挫败感，都来自还没试过「改一个数字」，就直接去写动态逻辑。 等你真的开始写动态逻辑，有一件工具值得<b>尽早认识</b>：<a href="#vars"><code>Vars</code></a>（见第七节——它不是高级内容，而是早点养成会省事的习惯）。</p>
 <h2 id="five-words">四、五个词就够了</h2>
-<div class="table-wrap"><table><thead><tr><th>术语</th><th>它管什么</th><th class="tc">去哪看</th></tr></thead><tbody><tr><td><code>Module</code><br><span class="td-zh">模块</span></td><td>一个功能板块：补给、虫量上限、光照、矮人属性……</td><td class="tc"><a href="../modules/">模块</a></td></tr><tr><td><code>Enemy</code> / Descriptor</td><td>某类敌人的配置 / 描述：血量、速度、抗性、外观等</td><td class="tc"><a href="../enemies/">敌人配置</a> · <a href="../direct/">Direct</a></td></tr><tr><td><code>Pool</code><br><span class="td-zh">怪池</span></td><td>哪些敌人可以出现、按什么权重出现</td><td class="tc"><a href="../modules/#pools">模块 · 怪池</a></td></tr><tr><td><code>Mutator</code></td><td>让某个值跟着游戏条件变化：加减乘、判断、按人数……</td><td class="tc"><a href="../mutators/">Mutators</a></td></tr><tr><td><code>WaveSpawner</code></td><td>主动安排一波敌人：何时、在哪、多少、什么怪</td><td class="tc"><a href="../wavespawners/">波次生成器</a></td></tr></tbody></table>
+<div class="table-wrap" id="b-module-enemy-descri"><table><thead><tr><th>术语</th><th>它管什么</th><th class="tc">去哪看</th></tr></thead><tbody><tr><td><code>Module</code><br><span class="td-zh">模块</span></td><td>一个功能板块：补给、虫量上限、光照、矮人属性……</td><td class="tc"><a href="../modules/">模块</a></td></tr><tr><td><code>Enemy</code> / Descriptor</td><td>某类敌人的配置 / 描述：血量、速度、抗性、外观等</td><td class="tc"><span class="reflinks"><a href="../enemies/">敌人配置</a><a href="../direct/">Direct</a></span></td></tr><tr><td><code>Pool</code><br><span class="td-zh">怪池</span></td><td>哪些敌人可以出现、按什么权重出现</td><td class="tc"><a href="../modules/#pools">模块 · 怪池</a></td></tr><tr><td><code>Mutator</code></td><td>让某个值跟着游戏条件变化：加减乘、判断、按人数……</td><td class="tc"><a href="../mutators/">Mutators</a></td></tr><tr><td><code>WaveSpawner</code></td><td>主动安排一波敌人：何时、在哪、多少、什么怪</td><td class="tc"><a href="../wavespawners/">波次生成器</a></td></tr></tbody></table>
 </div>
-<p>正式术语保持英文原名，中文只负责解释用途。字段、Descriptor、Mutator 的名字一律照抄原文——<b>不要给字段自己编中文代码名</b>。</p>
+<p id="b-descriptor-mutator">正式术语保持英文原名，中文只负责解释用途。字段、Descriptor、Mutator 的名字一律照抄原文——<b>不要给字段自己编中文代码名</b>。</p>
 <h2 id="first-edit">五、第一次修改（6 步）</h2>
-<ol><li><b>装好 CD2 与加载器</b> —— 获取方式见 <a href="../resources/#get-cd2">资源页 · 获取 CD2</a>，安装方式见 <a href="../faq/#faq-install">FAQ · 我该如何使用它</a></li><li><b>打开游戏里的 CD2 面板</b>（ModHub）—— 见 <a href="../basics/#the-cd2-gui">基础部分 · CD2 界面</a></li><li><b>复制一个最小文件</b>：<a href="../basics/#the-cd2-files">Hazard 5x2 示例</a>——就是 Hazard 5 + 敌人翻倍 + 补给 60 硝石</li><li><b>只改一个数字</b>：把 <code>EnemyCountModifier</code> 里的 <code>1.7</code> 改成 <code>2</code> —— 见 <a href="../modules/#difficultysetting">模块 · 难度设置</a></li><li><b>点 <code>Save</code> 保存</b>；难度名取顶层 <code>Name</code> 字段</li><li><b>进游戏验证</b> —— 没变化就去 <a href="../tips/">为什么没生效 · Debug</a></li></ol>
+<ol id="b-cd2-cd2-faq-cd"><li><b>装好 CD2 与加载器</b> —— 获取方式见 <a href="../resources/#get-cd2">资源页 · 获取 CD2</a>，安装方式见 <a href="../faq/#faq-install">FAQ · 我该如何使用它</a></li><li><b>打开游戏里的 CD2 面板</b>（ModHub）—— 见 <a href="../basics/#the-cd2-gui">基础部分 · CD2 界面</a></li><li><b>复制一个最小文件</b>：<a href="../basics/#the-cd2-files">Hazard 5x2 示例</a>——就是 Hazard 5 + 敌人翻倍 + 补给 60 硝石</li><li><b>只改一个数字</b>：挑 <code>EnemyCountModifier</code> 里的一个数字改大或改小——它是<b>按人数排列的数组</b>，改的时候每个元素都要动 —— 见 <a href="../modules/#difficultysetting">模块 · 难度设置</a></li><li><b>点 <code>Save</code> 保存</b>；难度名取顶层 <code>Name</code> 字段</li><li><b>进游戏验证</b> —— 没变化就去 <a href="../tips/">为什么没生效 · Debug</a></li></ol>
+<p id="b-x2-x2-enemycountmodifier">&gt; <b><code>x2</code> 是什么意思？</b> 难度名里的 <code>x2</code> 指的是<b>把基础档的 <code>EnemyCountModifier</code> 每个元素乘 2</b>，不是把某个数字换成 <code>2</code>。实测：<code>Hazard_6</code> 的 <code>[0.95, 1.05, 1.35, 1.65]</code> ×2 = <code>[1.9, 2.1, 2.7, 3.3]</code>，正是 <code>Hazard_6x2_60_Nitra</code> 里的值。也有作者手工改过的档不遵循这个倍率。</p>
 <h2 id="first-test">六、第一次测试</h2>
-<ul><li><b>先 Save，再进游戏。</b> 不建议进游戏之后再切难度。</li><li>想确认某个值到底是多少，可以用 <code>Vars</code> + <code>Watch</code> 把它显示在界面上。</li><li>改完<b>没有任何变化</b> → 直接进 <a href="../tips/">为什么没生效 · Debug</a>。</li></ul>
+<ul id="b-save-vars-watch"><li><b>先 Save，再进游戏。</b> 不建议进游戏之后再切难度。</li><li>想确认某个值到底是多少，可以用 <code>Vars</code> + <code>Watch</code> 把它显示在界面上。</li><li>改完<b>没有任何变化</b> → 直接进 <a href="../tips/">为什么没生效 · Debug</a>。</li></ul>
 <h2 id="vars">七、早点学会 Vars，会省下很多时间</h2>
-<p><b>⭐ 准备自己写机制时，建议尽早认识</b>——它不是「高级内容」，而是一个早点养成会省事的习惯。</p>
-<p><b>为什么值得学</b>：当你的 CD2 开始出现「先算一个值，再让另一个地方用这个值」的逻辑时，<code>Vars</code> 能把这些中间状态集中起来，而不是把所有东西塞进一大串 Mutator。</p>
-<p><b>它能帮你什么</b>：</p>
-<ul><li><b>看得见</b>：把想验证的表达式接进一个变量，打开 <code>Watch</code>，它的值就直接显示在游戏 UI 上。关键在于：<b>代码一旦写错，这个变量会什么都不显示</b>——「屏幕上找不到它」本身就是明确的报错信号。</li><li><b>写得短</b>：变量定义一次，之后就能在<b>任何</b>接受同类型值的地方用 <code>{"Var": "变量名"}</code> 引用。把重复出现的表达式抽成一个变量，代码会短很多，日后要改也只需要改一处。</li><li><b>连得通</b>：所有变量在同一时刻统一更新，因此不同模块里读到的值始终一致，可以用来做模块之间通信。</li></ul>
-<p><b>你什么时候真正需要它</b>：</p>
-<div class="table-wrap"><table><thead><tr><th>你现在在做的事</th><th class="tc">需要 Vars 吗</th></tr></thead><tbody><tr><td>只改一个数字（虫量、补给、上限）</td><td class="tc">不需要，跳过也没关系</td></tr><tr><td>开始写动态机制（按人数、按时间、按阶段变）</td><td class="tc">建议尽早认识</td></tr><tr><td>写复杂的 Mutator / Trigger / WaveSpawner</td><td class="tc">会越来越有价值</td></tr></tbody></table>
+<p id="b-66cd0c"><b>⭐ 准备自己写机制时，建议尽早认识</b>——它不是「高级内容」，而是一个早点养成会省事的习惯。</p>
+<p id="b-cd2-vars"><b>为什么值得学</b>：当你的 CD2 开始出现「先算一个值，再让另一个地方用这个值」的逻辑时，<code>Vars</code> 能把这些中间状态集中起来，而不是把所有东西塞进一大串 Mutator。</p>
+<p id="b-298a88"><b>它能帮你什么</b>：</p>
+<ul id="b-watch-ui"><li><b>看得见</b>：把想验证的表达式接进一个变量，打开 <code>Watch</code>，它的值就直接显示在游戏 UI 上。关键在于：<b>代码一旦写错，这个变量会什么都不显示</b>——「屏幕上找不到它」本身就是明确的报错信号。</li><li><b>写得短</b>：变量定义一次，之后就能在<b>任何</b>接受同类型值的地方用 <code>{"Var": "变量名"}</code> 引用。把重复出现的表达式抽成一个变量，代码会短很多，日后要改也只需要改一处。</li><li><b>连得通</b>：所有变量在同一时刻统一更新，因此不同模块里读到的值始终一致，可以用来做模块之间通信。</li></ul>
+<p id="b-a7ebb0"><b>你什么时候真正需要它</b>：</p>
+<div class="table-wrap" id="b-6f9fe5"><table><thead><tr><th>你现在在做的事</th><th class="tc">需要 Vars 吗</th></tr></thead><tbody><tr><td>只改一个数字（虫量、补给、上限）</td><td class="tc">不需要，跳过也没关系</td></tr><tr><td>开始写动态机制（按人数、按时间、按阶段变）</td><td class="tc">建议尽早认识</td></tr><tr><td>写复杂的 Mutator / Trigger / WaveSpawner</td><td class="tc">会越来越有价值</td></tr></tbody></table>
 </div>
-<p><b>用 Vars 最值得养成的习惯是「先观察，再继续写」</b>：写逻辑 → 把关键中间值放进 <code>Vars</code> → 用 <code>Watch</code> 看它 → 确认它按预期变化 → 再写下一层。改完没生效时，这条习惯也是 <a href="../tips/">Debug</a> 里最先推荐你做的一步。</p>
-<p>一个限制：变量之间<b>不能形成循环依赖</b>（细节见 Reference，新手阶段不用去画依赖图）。</p>
-<p><b>你现在不需要把 Vars 的全部细节学完。</b> 先知道它能保存 / 共享值、并且可以用 <code>Watch</code> 观察它，就够开始用了；需要深入时再查：</p>
-<p>→ 完整语法与字段：<a href="../modules/#Vars">模块 · 全局变量池 Vars</a> → 三种用法、限制与示例：<a href="../tips/#tips-watch">Debug 页 · 一、先用 Vars + watch 字段把逻辑调通</a></p>
+<p id="b-vars-vars-watch"><b>用 Vars 最值得养成的习惯是「先观察，再继续写」</b>：写逻辑 → 把关键中间值放进 <code>Vars</code> → 用 <code>Watch</code> 看它 → 确认它按预期变化 → 再写下一层。改完没生效时，这条习惯也是 <a href="../tips/">Debug</a> 里最先推荐你做的一步。</p>
+<p id="b-reference">一个限制：变量之间<b>不能形成循环依赖</b>（细节见 Reference，新手阶段不用去画依赖图）。</p>
+<p id="b-vars-watch"><b>你现在不需要把 Vars 的全部细节学完。</b> 先知道它能保存 / 共享值、并且可以用 <code>Watch</code> 观察它，就够开始用了；需要深入时再查：</p>
+<p id="b-vars-debug-vars-w">→ 完整语法与字段：<a href="../modules/#Vars">模块 · 全局变量池 Vars</a> → 三种用法、限制与示例：<a href="../tips/#tips-watch">Debug 页 · 一、先用 Vars + watch 字段把逻辑调通</a></p>
 <h2 id="next">八、接下来去哪</h2>
-<p>推荐顺序——<b>这是路线，不是门槛</b>，卡住或想跳都可以：</p>
-<p>改一个数字 → 改虫量上限 / 怪池 / 敌人 → 简单 Mutator（按人数、按时间）→ 条件逻辑（<code>If</code> / <code>IfFloat</code>）→ <code>Trigger</code>（条件 → 触发 → 持续）→ <code>WaveSpawner</code>（主动安排一波）→ <code>Vars</code> + <code>Mutators</code> + <code>Trigger</code> 组合</p>
+<p id="b-d17aec">推荐顺序——<b>这是路线，不是门槛</b>，卡住或想跳都可以：</p>
+<p id="b-mutator-if-iffloa">改一个数字 → 改虫量上限 / 怪池 / 敌人 → 简单 Mutator（按人数、按时间）→ 条件逻辑（<code>If</code> / <code>IfFloat</code>）→ <code>Trigger</code>（条件 → 触发 → 持续）→ <code>WaveSpawner</code>（主动安排一波）→ <code>Vars</code> + <code>Mutators</code> + <code>Trigger</code> 组合</p>
 <h2 id="exits">九、三条出路</h2>
-<div class="table-wrap"><table><thead><tr><th class="tc">你现在想做什么</th><th>去哪</th></tr></thead><tbody><tr><td class="tc">动手做一次具体改动</td><td><a href="../common-edits/">常见修改 · Cookbook</a></td></tr><tr><td class="tc">查某个字段到底怎么用</td><td><a href="../toc/">Reference · 查表</a>（<a href="../modules/">模块</a> / <a href="../mutators/">Mutators</a> / <a href="../enemies/">敌人配置</a>…）</td></tr><tr><td class="tc">改了没生效</td><td><a href="../tips/">为什么没生效 · Debug</a></td></tr><tr><td class="tc">想看一整套机制怎么拼起来</td><td><a href="../natural-selection/">案例拆解 · Case Study</a></td></tr></tbody></table>
+<div class="table-wrap" id="b-cookbook-reference"><table><thead><tr><th class="tc">你现在想做什么</th><th>去哪</th></tr></thead><tbody><tr><td class="tc">动手做一次具体改动</td><td><a href="../common-edits/">常见修改 · Cookbook</a></td></tr><tr><td class="tc">查某个字段到底怎么用</td><td><a href="../toc/">Reference · 查表</a>（<a href="../modules/">模块</a> / <a href="../mutators/">Mutators</a> / <a href="../enemies/">敌人配置</a>…）</td></tr><tr><td class="tc">改了没生效</td><td><a href="../tips/">为什么没生效 · Debug</a></td></tr><tr><td class="tc">想看一整套机制怎么拼起来</td><td><a href="../natural-selection/">案例拆解 · Case Study</a></td></tr></tbody></table>
 </div>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../toc/"><span class="dir">上一页</span><span class="title">目录 · Contents</span></a><a class="next" href="../basics/"><span class="dir">下一页</span><span class="title">基础部分 · The Basics of CD2</span></a></nav>
 </main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="what-is-cd2"><a href="#what-is-cd2">一、CD2 是什么</a></li><li class="lvl-2" data-h="what-is-a-cd2-file"><a href="#what-is-a-cd2-file">二、一个 CD2 就是一份 JSON</a></li><li class="lvl-2" data-h="two-parts"><a href="#two-parts">三、入门时，可以先把 CD2 理解成两部分</a></li><li class="lvl-2" data-h="five-words"><a href="#five-words">四、五个词就够了</a></li><li class="lvl-2" data-h="first-edit"><a href="#first-edit">五、第一次修改（6 步）</a></li><li class="lvl-2" data-h="first-test"><a href="#first-test">六、第一次测试</a></li><li class="lvl-2" data-h="vars"><a href="#vars">七、早点学会 Vars，会省下很多时间</a></li><li class="lvl-2" data-h="next"><a href="#next">八、接下来去哪</a></li><li class="lvl-2" data-h="exits"><a href="#exits">九、三条出路</a></li></ul></div></aside></div>
@@ -120,12 +121,17 @@
     </div>
     <div class="footer-col">
       <h3>声明</h3>
-      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+      <p>本项目为<b>非官方</b>中文参考站。<b>Reference 正文</b>（基础部分 / 模块 / 敌人配置 /
+      Direct / 波次生成器 / 发射物 / Mutators / 资源 / FAQ）译自上游英文文档；
+      <b>新手入门、常见修改 · Cookbook、案例拆解、为什么没生效 · Debug、目录</b>为本站
+      <b>原创撰写</b>（案例拆解取自作者的真实难度档；Cookbook 的 6 条新配方与 Mutators
+      用途索引整理自站内 Reference，<b>尚未在游戏内逐条实测</b>）。界面设计、排版结构与
+      原始内容版权归原作者所有。</p>
     </div>
   </div>
 </footer>
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
-<script src="../assets/js/site.js?v=e29631e0" defer></script>
+<script src="../assets/js/site.js?v=c6eff14d" defer></script>
 </body>
 </html>

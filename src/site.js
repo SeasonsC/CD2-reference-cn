@@ -213,6 +213,8 @@
     ];
     var data = null, index = null, loading = false, SECTIONS = [];
     var CACHE = [];
+    var BDATA = {}, BYPATH = {};      // R17 §S7：块级索引 + 路径→页面元数据
+    var BLK_READY = false, BLK_LOADING = false;   // R18 B：块索引懒加载状态
 
     function terms(s) {
       s = (s || '').toLowerCase();
@@ -227,7 +229,9 @@
     function build() {
       index = {};
       SECTIONS = [];
+      BYPATH = {};
       data.forEach(function (pg, pi) {
+        BYPATH[pg.path] = pg;
         var seen = {};
         var push = function (t) { if (!seen[t]) { seen[t] = 1; (index[t] = index[t] || []).push(pi); } };
         terms(pg.text + ' ' + (pg.kw || '')).forEach(push);  // R12：kw = 人话关键词
@@ -249,6 +253,22 @@
       var out = secOut.slice(0, 12).map(function (s) {
         return { type: 'section', title: s.text, path: s.page.path, id: s.id, page: s.page };
       });
+      if (out.length >= 12) return out;
+
+      /* R17 §S7：块级结果 —— 页面级索引只说「哪一页」，块级索引说「哪一段」。
+         命中标题 → 章节；命中正文 → 具体块（带锚点 + 查询词，落地自动高亮）。 */
+      var paths = Object.keys(BDATA), per = {};
+      for (var i = 0; i < paths.length && out.length < 12; i++) {
+        var arr = BDATA[paths[i]] || [];
+        for (var k = 0; k < arr.length; k++) {
+          if (arr[k][1].toLowerCase().indexOf(ql) < 0) continue;
+          if ((per[paths[i]] || 0) >= 2) break;          // 同页最多 2 条，避免刷屏
+          per[paths[i]] = (per[paths[i]] || 0) + 1;
+          out.push({ type: 'block', a: arr[k][0], text: arr[k][1],
+                     path: paths[i], page: BYPATH[paths[i]] });
+          if (out.length >= 12) break;
+        }
+      }
       if (out.length >= 12) return out;
 
       var ts = terms(q), ids = [];
@@ -274,8 +294,9 @@
       });
       return out.slice(0, 12);
     }
-    function snippet(pg, q) {
-      var t = pg.text || '', ql = q.toLowerCase(), i = t.toLowerCase().indexOf(ql);
+    function snippet(t, q) {
+      t = t || '';
+      var ql = q.toLowerCase(), i = t.toLowerCase().indexOf(ql);
       if (i < 0) return t.slice(0, 90);
       var a = Math.max(0, i - 34), b = Math.min(t.length, i + ql.length + 56);
       return (a ? '…' : '') + t.slice(a, b).replace(/\n/g, ' ') + (b < t.length ? '…' : '');
@@ -286,10 +307,18 @@
         return;
       }
       list.innerHTML = results.map(function (r, i) {
-        var href = siteUrl(r.path) + (r.id ? '#' + r.id : '');
-        /* R3 §2.2：章节结果副行显示所属页面中文名，不暴露 #hash */
-        var sub = r.type === 'section' ? (r.page.title_zh || r.page.title) : r.path;
-        var sn = r.type === 'page' ? snippet(r.page, q) : '';
+        var isSec = r.type === 'section', isBlk = r.type === 'block';
+        /* R17 §S7：块级结果 = 真实块锚点 + `?q=` 携带查询词。
+           独立审查原方案把查询词挂在 '#b5!enermypool' 里，但那样 fragment 匹配不到
+           任何元素 —— 按规范浏览器会当成「文档顶部」并滚回顶部，正好盖掉我们的定位。
+           拆成 query + 真锚点后：浏览器原生滚到块，落地再由 site.js 第 13 段高亮。 */
+        var href = siteUrl(r.path) + (isBlk
+          ? '?q=' + encodeURIComponent(q) + '#' + r.a
+          : (r.id ? '#' + r.id : ''));
+        /* R3 §2.2：章节/正文结果副行显示所属页面中文名，不暴露 #hash */
+        var pt = r.page ? (r.page.title_zh || r.page.title) : r.path;
+        var sub = (isSec || isBlk) ? pt : r.path;
+        var sn = isBlk ? snippet(r.text, q) : (r.type === 'page' ? snippet(r.page.text, q) : '');
         var mark = function (s) {
           if (!q) return esc(s);
           return esc(s).replace(new RegExp(escRe(q), 'ig'), function (m) { return '<mark>' + m + '</mark>'; });
@@ -299,8 +328,9 @@
           sn = sn.replace(/\u0001/g, '<mark>').replace(/\u0002/g, '</mark>');
         }
         return '<li><a href="' + href + '"' + (i === 0 ? ' class="active"' : '') + '>' +
-          '<span class="sr-title">' + mark(r.title) +
-          (r.type === 'section' ? '<span class="sr-badge">章节</span>' : '') + '</span>' +
+          '<span class="sr-title">' + mark(isBlk ? pt : r.title) +
+          (isSec ? '<span class="sr-badge">章节</span>'
+                 : (isBlk ? '<span class="sr-badge">正文</span>' : '')) + '</span>' +
           '<span class="sr-path">' + esc(sub) + '</span>' +
           (sn ? '<div class="sr-snippet">' + sn + '</div>' : '') + '</a></li>';
       }).join('');
@@ -325,18 +355,37 @@
       if (data || loading) return;
       loading = true;
       list.innerHTML = '<li class="empty-state">正在载入索引…</li>';
-      fetch(siteUrl('/search-index.json')).then(function (r) { return r.json(); }).then(function (j) {
-        data = j; build(); loading = false;
-        showSuggest();
-      }).catch(function () {
-        loading = false;
-        list.innerHTML = '<li class="empty-state">索引载入失败</li>';
-      });
+      /* R18 B：首搜只拉页面级索引（366KB）；块级索引（328KB）等读者真的开始输入再拉，
+         到货后自动补上块级结果 —— 首搜更快，不搜索的人完全不付这份流量。 */
+      fetch(siteUrl('/search-index.json')).then(function (r) { return r.json(); })
+        .then(function (j) {
+          data = j; build(); loading = false;
+          var q = input.value.trim();
+          if (q) render(search(q), q); else showSuggest();
+        }).catch(function () {
+          loading = false;
+          list.innerHTML = '<li class="empty-state">索引载入失败</li>';
+        });
+    }
+    function loadBlocks() {
+      if (BLK_READY || BLK_LOADING) return;
+      BLK_LOADING = true;
+      fetch(siteUrl('/search-blocks.json')).then(function (r) { return r.json(); })
+        .then(function (j) {
+          BDATA = j || {}; BLK_READY = true; BLK_LOADING = false;
+          var q = input.value.trim();
+          if (q) render(search(q), q);        // 块索引到货 → 补上块级结果
+        }).catch(function () { BLK_LOADING = false; });
     }
     function close() {
       panel.hidden = true;
       if (btn) btn.setAttribute('aria-expanded', 'false');
     }
+    /* R17：点结果就收起面板。跨页跳转会重新加载无所谓，但同页锚点跳转不会重载，
+       不显式关掉的话面板会一直挡着读者（独立审查 D①）。 */
+    list.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('a')) close();
+    });
     function move(d) {
       var as = $$('a', list);
       if (!as.length) return;
@@ -362,11 +411,15 @@
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
-      else if (e.key === 'Enter') { var a = $('a.active', list); if (a) location.href = a.getAttribute('href'); }
+      else if (e.key === 'Enter') {
+        var a = $('a.active', list);
+        if (a) { close(); location.href = a.getAttribute('href'); }
+      }
     });
     var timer = null;
     input.addEventListener('input', function () {
       var q = input.value.trim();
+      if (q) loadBlocks();                 // R18 B：一输入才去拉块索引（懒加载）
       clearTimeout(timer);
       timer = setTimeout(function () {
         if (!q) { showSuggest(); return; }
@@ -464,5 +517,48 @@
         if (q && n) c.open = true;      // 筛出来却折叠着等于没筛
       });
     });
+  })();
+
+  /* ── 13. 搜索落地高亮（R17 §S7）────────────────────────────────────
+     结果链接形态 `?q=<查询词>#<块锚点>`：锚点是真实的元素 id，所以浏览器会**原生**
+     滚到该块；查询词放在 query 里（若把查询词塞进 fragment，fragment 就匹配不到元素，
+     浏览器会按规范滚回文档顶部，反而把定位盖掉）。本段负责把命中的词包成
+     <mark class="hit"> 并居中。 */
+  (function () {
+    function run() {
+      var m = /[?&]q=([^&]*)/.exec(location.search || '');
+      var raw = (location.hash || '').slice(1);
+      var aid = raw;
+      try { aid = decodeURIComponent(raw); } catch (e) {}   // 非 ASCII 锚点的兜底
+      if (!m || !aid) return;
+      var el = doc.getElementById(aid);
+      var term = decodeURIComponent(m[1]);
+      if (!el || !term) return;
+      /* R17：命中块可能整个躺在**折叠**的 <details> 里 —— 案例拆解的「详解条」
+         （details.ns-dive）默认就是折叠的，滚过去也什么都看不到，读者只会觉得
+         「跳到了页首」。先把折叠的祖先展开，再高亮、再定位。 */
+      for (var d = el; d; d = d.parentElement) {
+        if (d.tagName === 'DETAILS' && !d.open) d.open = true;
+      }
+      var mk = el.querySelector('mark.hit');       // 幂等：hashchange + load 会各跑一次
+      if (!mk) {
+        var tl = term.toLowerCase(), w = doc.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), n;
+        while ((n = w.nextNode())) {
+          var i = n.nodeValue.toLowerCase().indexOf(tl);
+          if (i < 0) continue;
+          var r = doc.createRange();
+          r.setStart(n, i);
+          r.setEnd(n, i + term.length);
+          mk = doc.createElement('mark');
+          mk.className = 'hit';
+          try { r.surroundContents(mk); } catch (e) { return; }
+          break;
+        }
+      }
+      if (mk) setTimeout(function () { mk.scrollIntoView({ block: 'center' }); }, 0);
+    }
+    run();
+    addEventListener('hashchange', run);
+    addEventListener('load', run);
   })();
 })();

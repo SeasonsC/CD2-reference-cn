@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/basics/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=e29631e0">
+<link rel="stylesheet" href="../assets/css/site.css?v=c6eff14d">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -57,40 +57,40 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/" class="current" aria-current="page">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">入门 · 从这里开始</span> › 基础部分 · The Basics of CD2</nav>
 <h1>基础部分 · The Basics of CD2</h1>
-<p class="cn">CD2 基础知识</p>
+<p class="cn" id="b-33b025">CD2 基础知识</p>
 <h2 id="the-cd2-gui">CD2 界面 · The CD2 GUI</h2>
-<p class="cn">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI）。</p>
+<p class="cn" id="b-cd2-modhub-uui-unified-u">CD2 提供了一个简单的操作界面，兼容 ModHub 和 UUI（Unified UI）。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>CD2 features a simple GUI compatible with both ModHub and UUI:</p></div></details>
-<figure>
+<figure id="b-main-cd2-screen-in-modhu">
   <img loading="lazy" alt="CD2modhub" src="../assets/media/cd2-modhub.webp" width="1985" height="914">
   <figcaption>Main CD2 screen in Modhub.</figcaption>
   <p>Modhub 中的 CD2 主界面。</p>
 </figure>
 
-<p class="cn">你的难度可以在文本框中粘贴或编辑。点击 <code>Save</code>   后，该难度会根据顶层字段  <code>Name</code>    后面的部分命名保存。如果同名难度已存在，则会覆写旧难度。你保存的难度均存于模组配置中，可以通过下拉菜单查看。</p>
+<p class="cn" id="b-save-name">你的难度可以在文本框中粘贴或编辑。点击 <code>Save</code>   后，该难度会根据顶层字段  <code>Name</code>    后面的部分命名保存。如果同名难度已存在，则会覆写旧难度。你保存的难度均存于模组配置中，可以通过下拉菜单查看。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The files for your difficulties can be pasted and edited in the text box. After clicking <code>Save</code>, the file will be saved based on the name in the <code>Name</code> top level field; if the file already existed, it will be overwritten. Difficulties get saved inside your mod config. You can check all your difficulties by clicking on the drop-down menu.</p></div></details>
-<p class="cn"><code>Reset</code>    会将当前难度设为游戏启动时的默认难度。</p>
+<p class="cn" id="b-836712"><code>Reset</code>    会将当前难度设为游戏启动时的默认难度。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The <code>Reset</code> button sets a difficulty as a default upon starting the game.</p></div></details>
 <h2 id="the-cd2-files">CD2 难度文件要求 · The CD2 files</h2>
-<ul><li>CD2 文件使用   <a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener"> JSON</a>    格式。<details class="orig"><summary>英文原文</summary><div class="orig-body">CD2 files are in the <a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a> format.</div></details></li><li>CD1 难度文件与 CD2 不兼容。<details class="orig"><summary>英文原文</summary><div class="orig-body">CD1 files are not compatible with CD2.</div></details></li><li>文件的顶层字段就是各种具有不同功能的  <a href="../modules/"> Modules（模块部分）</a><details class="orig"><summary>英文原文</summary><div class="orig-body">The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</div></details></li><li>如果 CD2 文件中缺少某个模块或字段，则会使用  <code>BaseHazard</code>    中的默认值。<code>BaseHazard</code>    可以在  <code>DifficultySetting</code>    模块中指定。如果未指定，则默认使用 Hazard 5。<b>实测</b>：未写 <code>BaseHazard</code> 时，CD2 实际以<b>玩家在任务里选择的那个官难</b>为基准，而不是固定 Hazard 5——上面这句是上游原文的写法，与实测不符，以实测为准。<details class="orig"><summary>英文原文</summary><div class="orig-body">If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </div></details></li><li>一个内容仅为 <code>{}</code> 的文件就代表原版 Hazard 5。<b>待核实</b>：未写 <code>BaseHazard</code> 时基准取自玩家所选的官难（见上一条），所以本句是否成立取决于所选难度——此项尚未实测，先按待核实处理。<details class="orig"><summary>英文原文</summary><div class="orig-body">A file that is just <code>{}</code> represents vanilla Hazard 5. </div></details></li><li>大多数接受浮点数或整数的字段，也可以接受相同类型的数组：<details class="orig"><summary>英文原文</summary><div class="orig-body">Most fields that admit floats or ints accept also an array of the same type:</div></details></li></ul>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<ul id="b-cd2-json-cd1-cd2-modules"><li>CD2 文件使用   <a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener"> JSON</a>    格式。<details class="orig"><summary>英文原文</summary><div class="orig-body">CD2 files are in the <a href="https://en.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON</a> format.</div></details></li><li>CD1 难度文件与 CD2 不兼容。<details class="orig"><summary>英文原文</summary><div class="orig-body">CD1 files are not compatible with CD2.</div></details></li><li>文件的顶层字段就是各种具有不同功能的  <a href="../modules/"> Modules（模块部分）</a><details class="orig"><summary>英文原文</summary><div class="orig-body">The top level fields of the file are <a href="../modules/">modules</a> with different functionalities.</div></details></li><li>如果 CD2 文件中缺少某个模块或字段，则会使用  <code>BaseHazard</code>    中的默认值。<code>BaseHazard</code>    可以在  <code>DifficultySetting</code>    模块中指定。如果未指定，则默认使用 Hazard 5。<b>实测</b>：未写 <code>BaseHazard</code> 时，CD2 实际以<b>玩家在任务里选择的那个官难</b>为基准，而不是固定 Hazard 5——上面这句是上游原文的写法，与实测不符，以实测为准。<details class="orig"><summary>英文原文</summary><div class="orig-body">If a module or a field is missing from a CD2 file, the value from the <code>BaseHazard</code> for the file is taken. The <code>BaseHazard</code> can be specified inside the <code>DifficultySetting</code> module. If none is specified, the base hazard is Hazard 5. </div></details></li><li>一个内容仅为 <code>{}</code> 的文件就代表原版 Hazard 5。<b>待核实</b>：未写 <code>BaseHazard</code> 时基准取自玩家所选的官难（见上一条），所以本句是否成立取决于所选难度——此项尚未实测，先按待核实处理。<details class="orig"><summary>英文原文</summary><div class="orig-body">A file that is just <code>{}</code> represents vanilla Hazard 5. </div></details></li><li>大多数接受浮点数或整数的字段，也可以接受相同类型的数组：<details class="orig"><summary>英文原文</summary><div class="orig-body">Most fields that admit floats or ints accept also an array of the same type:</div></details></li></ul>
+<div class="code-block" id="b-caps-maxactiveenemies-90"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Caps&quot;: {
         &quot;MaxActiveEnemies&quot;: [90, 120, 180, 180]
     }
 }</code></pre></div>
-<p class="cn">例如上面这个例子，<code>MaxActiveEnemies</code>    会随着玩家人数（1~4 人）变化，依次使用数组中的数值。你也可以拓展这个数组，以适应 4 人以上的情况：</p>
+<p class="cn" id="b-maxactiveenemies-1-4">例如上面这个例子，<code>MaxActiveEnemies</code>    会随着玩家人数（1~4 人）变化，依次使用数组中的数值。你也可以拓展这个数组，以适应 4 人以上的情况：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>which means that <code>MaxActiveEnemies</code> scales with the number of players, 1 to 4, with the values specified inside. The arrays can be as large as desired to accomodate for 4+ player lobbies:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<div class="code-block" id="b-caps-maxactiveenemies-90-2"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Caps&quot;: {
         &quot;MaxActiveEnemies&quot;: [90, 120, 180, 180, 210, 210, 240, 240]
     }
 }</code></pre></div>
-<p class="cn">如果玩家人数超过数组长度，则会使用数组的最后一个值。</p>
+<p class="cn" id="b-aed51f">如果玩家人数超过数组长度，则会使用数组的最后一个值。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>If the lobby has more players than indices in the array, the last value is used.</p></div></details>
-<ul><li>大多数字段都可以使用   <a href="../mutators/"> Mutators</a>    根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。<details class="orig"><summary>英文原文</summary><div class="orig-body">Most fields can change based on gameplay conditions using <a href="../mutators/">mutators</a>. The best way to learn how to use them is to look at already existing difficulties and trying to understand what they do.</div></details></li></ul>
-<p class="cn">下面是一个 Hazard 5x2 难度的实例，即在 5 级难度的基础上，让敌人数量翻倍，且补给消耗为 60 硝石：</p>
+<ul id="b-mutators"><li>大多数字段都可以使用   <a href="../mutators/"> Mutators</a>    根据游戏条件动态变化。最好的学习方法是参考别人已经写好的难度文件来理解它们是怎么运用的。<details class="orig"><summary>英文原文</summary><div class="orig-body">Most fields can change based on gameplay conditions using <a href="../mutators/">mutators</a>. The best way to learn how to use them is to look at already existing difficulties and trying to understand what they do.</div></details></li></ul>
+<p class="cn" id="b-hazard-5x2-5-60">下面是一个 Hazard 5x2 难度的实例，即在 5 级难度的基础上，让敌人数量翻倍，且补给消耗为 60 硝石：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following is a very simple file for Hazard 5x2, that is, vanilla Hazard 5 with double enemies and a 60 nitra resupply cost:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<div class="code-block" id="b-name-hazard-5x2-caps-max"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
   &quot;Name&quot;: &quot;Hazard 5x2&quot;,
   &quot;Caps&quot;: {
     &quot;MaxActiveSwarmers&quot;: [ 90, 120, 180 ],
@@ -119,12 +119,17 @@
     </div>
     <div class="footer-col">
       <h3>声明</h3>
-      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+      <p>本项目为<b>非官方</b>中文参考站。<b>Reference 正文</b>（基础部分 / 模块 / 敌人配置 /
+      Direct / 波次生成器 / 发射物 / Mutators / 资源 / FAQ）译自上游英文文档；
+      <b>新手入门、常见修改 · Cookbook、案例拆解、为什么没生效 · Debug、目录</b>为本站
+      <b>原创撰写</b>（案例拆解取自作者的真实难度档；Cookbook 的 6 条新配方与 Mutators
+      用途索引整理自站内 Reference，<b>尚未在游戏内逐条实测</b>）。界面设计、排版结构与
+      原始内容版权归原作者所有。</p>
     </div>
   </div>
 </footer>
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
-<script src="../assets/js/site.js?v=e29631e0" defer></script>
+<script src="../assets/js/site.js?v=c6eff14d" defer></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/common-edits/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=e29631e0">
+<link rel="stylesheet" href="../assets/css/site.css?v=c6eff14d">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -57,12 +57,12 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/" class="current" aria-current="page">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">实战 · 学着做</span> › 常见修改 · Cookbook</nav>
 <h1>常见修改 · Cookbook</h1>
-<p>这一页只讲最常见的两种 CD2 改动——<b>让虫变多／变少</b>、<b>从难度里删掉某类敌人</b>。都是最小改动，<b>放进你自己的难度文件对应位置即可使用</b>（下面给的是片段，不是完整文件）。</p>
-<p><b>来源与实测状态</b>：前 2 条译自上游 Common Edits；后 6 条的字段与示例取自本站 Reference，<b>尚未在游戏内逐条实测</b>——若实际表现与这里不一致，以 Reference 与实际游戏行为为准。</p>
+<p id="b-f4c51c">这一页只讲最常见的两种 CD2 改动——<b>让虫变多／变少</b>、<b>从难度里删掉某类敌人</b>。都是最小改动，<b>放进你自己的难度文件对应位置即可使用</b>（下面给的是片段，不是完整文件）。</p>
+<p id="b-2-common-edits-6-referen"><b>来源与实测状态</b>：前 2 条译自上游 Common Edits；后 6 条的字段与示例取自本站 Reference，<b>尚未在游戏内逐条实测</b>——若实际表现与这里不一致，以 Reference 与实际游戏行为为准。</p>
 <h2 id="enemy-count">增加或减少敌人数量 · Increase or decrease the number of enemies</h2>
-<p>如果你喜欢某个难度，但觉得敌人太多或太少，只要一处极简单的改动就能按你的口味调整：找到 <code>DifficultySetting</code> 里的 <code>EnemyCountModifier</code>（下称 ECM）。ECM 是这个难度的<b>全局敌人数量倍率</b>，可以理解为整体放大或缩小虫量——想调大就调大、想调小就调小。下面这段来自 Hazard 6x2：</p>
-<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>If you enjoy a certain difficulty file but you think the number of enemies is either too small or too big, you can modify it to your taste with a very simple edit: look for the <code>EnemyCountModifier</code> (ECM) field inside <code>DifficultySettings</code>. The ECM works as a global multiplier for all spawn events in the difficulty, so you just need to increase it or decrease it however you like. As an example, the following snippet is from Hazard 6x2:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+<p id="b-difficultysetting">如果你喜欢某个难度，但觉得敌人太多或太少，只要一处极简单的改动就能按你的口味调整：找到 <code>DifficultySetting</code> 里的 <code>EnemyCountModifier</code>（下称 ECM）。ECM 是这个难度的<b>全局敌人数量倍率</b>，可以理解为整体放大或缩小虫量——想调大就调大、想调小就调小。下面这段来自 Hazard 6x2：</p>
+<details class="orig"><summary>英文原文</summary><div class="orig-body"><p>If you enjoy a certain difficulty file but you think the number of enemies is either too small or too big, you can modify it to your taste with a very simple edit: look for the <code>EnemyCountModifier</code> (ECM) field inside <code>DifficultySetting</code>. The ECM works as a global multiplier for all spawn events in the difficulty, so you just need to increase it or decrease it however you like. As an example, the following snippet is from Hazard 6x2:</p></div></details>
+<div class="code-block" id="b-difficultysetting-enemyc"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
 &quot;DifficultySetting&quot;: {
         &quot;EnemyCountModifier&quot;: [
             2,
@@ -72,9 +72,9 @@
         ]
 }
 ...,</code></pre></div>
-<p>如果你的目标只是把 <b>Hazard 6x2 的 ECM 整体翻倍</b>，可以改成：</p>
+<p id="b-hazard-6x2-ecm">如果你的目标只是把 <b>Hazard 6x2 的 ECM 整体翻倍</b>，可以改成：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>so if we wanted to create Hazard 6x4 we would double these values:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+<div class="code-block" id="b-difficultysetting-enemyc-2"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
 &quot;DifficultySetting&quot;: {
         &quot;EnemyCountModifier&quot;: [
             4,
@@ -84,10 +84,10 @@
         ]
 }
 ...,</code></pre></div>
-<p><b>注意</b>：这只是调整 ECM，并不等于完整定义一个「Hazard 6x4」的全部难度配置。</p>
-<p>想要多少敌人，还取决于 <code>Caps</code> 里的 <code>MaxActiveEnemies</code> 上限：</p>
+<p id="b-ecm-hazard-6x4"><b>注意</b>：这只是调整 ECM，并不等于完整定义一个「Hazard 6x4」的全部难度配置。</p>
+<p id="b-caps-maxactiveenemies">想要多少敌人，还取决于 <code>Caps</code> 里的 <code>MaxActiveEnemies</code> 上限：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Depending on how many enemies you want to get you might have to edit also the <code>MaxActiveEnemies</code> cap in <code>Caps</code>:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+<div class="code-block" id="b-caps-maxactivecritters-4"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
 &quot;Caps&quot;: {
         &quot;MaxActiveCritters&quot;: 40,
         &quot;MaxActiveSwarmers&quot;: [
@@ -104,17 +104,17 @@
         ]
     }
 ...,</code></pre></div>
-<p>当一局任务里的敌人数量超过 <code>MaxActiveEnemies</code> 时，游戏会 despawn 掉一部分——不过这个行为目前<b>还没有被完全弄明白</b>。另外要有心理准备：提高敌人上限会<b>拖低帧率</b>，不建议超过 300。</p>
+<p id="b-maxactiveenemies-despawn">当一局任务里的敌人数量超过 <code>MaxActiveEnemies</code> 时，游戏会 despawn 掉一部分——不过这个行为目前<b>还没有被完全弄明白</b>。另外要有心理准备：提高敌人上限会<b>拖低帧率</b>，不建议超过 300。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>When the number of enemies in a mission goes above <code>MaxActiveEnemies</code> the game will despawn some of them, although this behaviour is not completely understood. Take into account that increasing the enemy cap will negatively affect the frame rate and going above 300 is not recommended.</p></div></details>
-<p><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> ｜ <b>想深入了解</b>：<a href="../modules/#caps">模块 · 虫量上限 Caps</a> · <a href="../modules/#difficultysetting">模块 · 难度设置 DifficultySetting</a></p>
+<p id="b-debug-caps-diffi"><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../modules/#caps"><span class="rp">模块</span>虫量上限 Caps</a><a href="../modules/#difficultysetting"><span class="rp">模块</span>难度设置 DifficultySetting</a></span></p>
 <h2 id="remove-vanilla-enemies">从难度里移除原版敌人 · Removing vanilla enemies from a difficulty</h2>
-<p>你是独狼、讨厌 Stingtail 或 Stalker？还是想从盐坑（Salt Pits）里去掉 younglings？这是最常见的修改之一，而且非常容易。你需要两样东西：</p>
+<p id="b-stingtail-stalker-salt-p">你是独狼、讨厌 Stingtail 或 Stalker？还是想从盐坑（Salt Pits）里去掉 younglings？这是最常见的修改之一，而且非常容易。你需要两样东西：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Are you a solo player that hates stingtails or stalkers? Or maybe you want to remove younglings from Salt Pits? This is one of the most common edits and it's really easy to do. You will need two things:</p></div></details>
-<ul><li>1. 知道你想移除的敌人在游戏内的名字（也就是它的描述符名）<details class="orig"><summary>英文原文</summary><div class="orig-body">1. Know the in-game name of the enemy you want to remove (the descriptor's name)</div></details></li><li>2. 知道这个敌人默认属于哪个原版怪池<details class="orig"><summary>英文原文</summary><div class="orig-body">2. Know the vanilla pool the enemy is in by default</div></details></li></ul>
-<p><code>Pools</code> 的 <code>Remove</code> 是从<b>原有怪池</b>中移除敌人，所以你得先知道这个敌人原本属于哪个池，才能改对地方。</p>
-<p>第一项查 <a href="../resources/">Resources</a> 页的描述符表——举例，想移除 Stalker，你需要 <code>ED_Spider_Stalker</code>。第二项，在下表里找到你的敌人（这张表<b>不算完整</b>）：</p>
+<ul id="b-ffd3d7"><li>1. 知道你想移除的敌人在游戏内的名字（也就是它的描述符名）<details class="orig"><summary>英文原文</summary><div class="orig-body">1. Know the in-game name of the enemy you want to remove (the descriptor's name)</div></details></li><li>2. 知道这个敌人默认属于哪个原版怪池<details class="orig"><summary>英文原文</summary><div class="orig-body">2. Know the vanilla pool the enemy is in by default</div></details></li></ul>
+<p id="b-pools-remove"><code>Pools</code> 的 <code>Remove</code> 是从<b>原有怪池</b>中移除敌人，所以你得先知道这个敌人原本属于哪个池，才能改对地方。</p>
+<p id="b-resources-stalker-ed-spi">第一项查 <a href="../resources/">Resources</a> 页的描述符表——举例，想移除 Stalker，你需要 <code>ED_Spider_Stalker</code>。第二项，在下表里找到你的敌人（这张表<b>不算完整</b>）：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>For the first, check the table in Resources. As an example, if you wanted to remove stalkers the name you'd need is <code>ED_Spider_Stalker</code>. For the second, locate your enemy in the following (slightly incomplete) table:</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-pool-pools-module-field"><table>
 <thead>
 <tr>
 <th>Pool<br><span class="td-zh">怪池</span></th>
@@ -146,10 +146,10 @@
 </tbody>
 </table>
 </div>
-<p><b>注意</b>：上表只是常见敌人的示例，不是完整的敌人数据库；敌人名保持英文，与 <a href="../resources/">Resources</a> 页的描述符表一致。</p>
-<p>知道它原本在哪个池之后，把它移除就行。例如从一个难度里移除 Stalker 和 Septic（<code>ED_Spider_Lobber</code> = Glyphid Septic Spreader）：</p>
+<p id="b-resources"><b>注意</b>：上表只是常见敌人的示例，不是完整的敌人数据库；敌人名保持英文，与 <a href="../resources/">Resources</a> 页的描述符表一致。</p>
+<p id="b-stalker-septic-ed-spider">知道它原本在哪个池之后，把它移除就行。例如从一个难度里移除 Stalker 和 Septic（<code>ED_Spider_Lobber</code> = Glyphid Septic Spreader）：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Once you know the original pool where your enemy is, just remove it. For example, removing stalkers and septics from a difficulty:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
+<div class="code-block" id="b-pools-disruptiveenemies"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">...,
 &quot;Pools&quot;: {
     &quot;DisruptiveEnemies&quot;: {
         &quot;Remove&quot;: [&quot;ED_Spider_Stalker&quot;]
@@ -159,16 +159,16 @@
     }
 }
 ...,</code></pre></div>
-<p><b>没生效？</b>见 <a href="../tips/#debug-wrong-effect">Debug · 效果和想象不一样</a> ｜ <b>想深入了解</b>：<a href="../modules/#pools">模块 · 怪池 Pools</a> · <a href="../resources/">Resources · 敌人描述符表</a></p>
+<p id="b-debug-pools-resources"><b>没生效？</b>见 <a href="../tips/#debug-wrong-effect">Debug · 效果和想象不一样</a> <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../modules/#pools"><span class="rp">模块</span>怪池 Pools</a><a href="../resources/"><span class="rp">Resources</span>敌人描述符表</a></span></p>
 <h2 id="cb-supply-cost">修改补给成本 · Resupply cost</h2>
-<p><b>目标</b>：改一次补给要花多少硝石。<b>放在哪</b>：顶层模块 <code>Resupply</code>。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-resupply"><b>目标</b>：改一次补给要花多少硝石。<b>放在哪</b>：顶层模块 <code>Resupply</code>。</p>
+<div class="code-block" id="b-resupply-cost-40"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: 40
     }
 }</code></pre></div>
-<p><b>这段代码做了什么</b>：把一次补给的硝石消耗设成 40。</p>
-<div class="table-wrap"><table>
+<p id="b-bd9d77"><b>这段代码做了什么</b>：把一次补给的硝石消耗设成 40。</p>
+<div class="table-wrap" id="b-cost-mutator"><table>
 <thead>
 <tr><th class="tc">字段</th><th class="tc">填什么</th><th>作用</th></tr>
 </thead>
@@ -177,8 +177,8 @@
 </tbody>
 </table>
 </div>
-<p><b>可以怎么改</b>：<code>Cost</code> 能直接接一个 Mutator。比如「第一次补给免费，之后每次 40」：</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-cost-mutator-40"><b>可以怎么改</b>：<code>Cost</code> 能直接接一个 Mutator。比如「第一次补给免费，之后每次 40」：</p>
+<div class="code-block" id="b-resupply-cost-mutate-byr"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Resupply&quot;: {
         &quot;Cost&quot;: {
             &quot;Mutate&quot;: &quot;ByResuppliesCalled&quot;,
@@ -186,16 +186,16 @@
         }
     }
 }</code></pre></div>
-<p><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> ｜ <b>想深入了解</b>：<a href="../modules/#resupply">模块 · 补给 Resupply</a> · <a href="../mutators/#byresuppliescalled">Mutator · 根据呼叫补给次数</a></p>
+<p id="b-debug-resupply-mutator"><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../modules/#resupply"><span class="rp">模块</span>补给 Resupply</a><a href="../mutators/#byresuppliescalled"><span class="rp">Mutator</span>根据呼叫补给次数</a></span></p>
 <h2 id="cb-player-count">按玩家人数缩放难度 · By player count</h2>
-<p><b>目标</b>：同一个值，1 人时用一个数、2 人时用另一个数。<b>放在哪</b>：任何接受数字的字段都能直接写数组。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-7339a8"><b>目标</b>：同一个值，1 人时用一个数、2 人时用另一个数。<b>放在哪</b>：任何接受数字的字段都能直接写数组。</p>
+<div class="code-block" id="b-caps-maxactiveenemies-90"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Caps&quot;: {
         &quot;MaxActiveEnemies&quot;: [90, 120, 180, 180]
     }
 }</code></pre></div>
-<p><b>这段代码做了什么</b>：1 人时上限 90，2 人 120，3 人 180，4 人及以上 180——<b>人数超过数组长度时，用最后一个值</b>。</p>
-<div class="table-wrap"><table>
+<p id="b-1-90-2-120-3-180-4-180"><b>这段代码做了什么</b>：1 人时上限 90，2 人 120，3 人 180，4 人及以上 180——<b>人数超过数组长度时，用最后一个值</b>。</p>
+<div class="table-wrap" id="b-90-120-180-180-n-n"><table>
 <thead>
 <tr><th>写法</th><th>什么时候用</th><th>说明</th></tr>
 </thead>
@@ -205,15 +205,15 @@
 </tbody>
 </table>
 </div>
-<p><b>可以怎么改</b>：想在 Mutator 内部按人数取值时，写 <code>{"Mutate": "ByPlayerCount", "Values": [80, 120, 180, 180]}</code>。</p>
-<p><b>没生效？</b>见 <a href="../tips/#debug-mutator">Debug · Mutator 不工作或报错</a>（单人测试时很容易误判） ｜ <b>想深入了解</b>：<a href="../mutators/#byplayercount">Mutator · 根据玩家数量</a> · <a href="../basics/#the-cd2-files">基础部分 · 难度文件要求</a></p>
+<p id="b-mutator-mutate-byplayerc"><b>可以怎么改</b>：想在 Mutator 内部按人数取值时，写 <code>{"Mutate": "ByPlayerCount", "Values": [80, 120, 180, 180]}</code>。</p>
+<p id="b-debug-mutator-mutator"><b>没生效？</b>见 <a href="../tips/#debug-mutator">Debug · Mutator 不工作或报错</a>（单人测试时很容易误判） <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../mutators/#byplayercount"><span class="rp">Mutator</span>根据玩家数量</a><a href="../basics/#the-cd2-files"><span class="rp">基础部分</span>难度文件要求</a></span></p>
 <h2 id="cb-nitra">调整地图硝石数量 · Nitra on the map</h2>
-<p><b>目标</b>：让地图上长出来的硝石变多或变少。<b>放在哪</b>：顶层模块 <code>NitraMultiplier</code>。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-nitramultiplier"><b>目标</b>：让地图上长出来的硝石变多或变少。<b>放在哪</b>：顶层模块 <code>NitraMultiplier</code>。</p>
+<div class="code-block" id="b-nitramultiplier-2"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;NitraMultiplier&quot;: 2
 }</code></pre></div>
-<p><b>这段代码做了什么</b>：地图生成的硝石变成 2 倍。默认值是 1。</p>
-<div class="table-wrap"><table>
+<p id="b-688151"><b>这段代码做了什么</b>：地图生成的硝石变成 2 倍。默认值是 1。</p>
+<div class="table-wrap" id="b-nitramultiplier-1"><table>
 <thead>
 <tr><th class="tc">字段</th><th class="tc">填什么</th><th class="tc">作用</th></tr>
 </thead>
@@ -222,17 +222,17 @@
 </tbody>
 </table>
 </div>
-<p><b>可以怎么改</b>：它是个普通数字字段，所以也能写数组（按人数）或接 Mutator——例如「完成次要目标后硝石加成」。</p>
-<p><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> ｜ <b>想深入了解</b>：<a href="../modules/#nitramultiplier">模块 · NitraMultiplier</a></p>
+<p id="b-145a49"><b>可以怎么改</b>：它是个普通数字字段，所以也能写数组（按人数）或接 Mutator——例如「完成次要目标后硝石加成」。</p>
+<p id="b-debug-nitramultiplier"><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../modules/#nitramultiplier"><span class="rp">模块</span>NitraMultiplier</a></span></p>
 <h2 id="cb-dwarves">修改矮人属性 · Dwarves</h2>
-<p><b>目标</b>：改与玩家自身有关的参数（体型、摔落伤害、回血）。<b>放在哪</b>：顶层模块 <code>Dwarves</code>。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-b24d5d"><b>目标</b>：改与玩家自身有关的参数（体型、摔落伤害、回血）。<b>放在哪</b>：顶层模块 <code>Dwarves</code>。</p>
+<div class="code-block" id="b-dwarves-scale-1-5"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Dwarves&quot;: {
         &quot;Scale&quot;: 1.5
     }
 }</code></pre></div>
-<p><b>这段代码做了什么</b>：把玩家体型放大到 1.5 倍。</p>
-<div class="table-wrap"><table>
+<p id="b-ac60e7"><b>这段代码做了什么</b>：把玩家体型放大到 1.5 倍。</p>
+<div class="table-wrap" id="b-scale-falldamagemodifier"><table>
 <thead>
 <tr><th>字段</th><th class="tc">默认</th><th class="tc">作用</th></tr>
 </thead>
@@ -245,11 +245,11 @@
 </tbody>
 </table>
 </div>
-<p><b>可以怎么改</b>：把 <code>FallDamageModifier</code> 调到 0.05，摔落伤害就只剩不到三分之一；配合 <code>FallDamageStartVelocity</code> 调高，可以做出「摔得更狠才受伤」。</p>
-<p><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> ｜ <b>想深入了解</b>：<a href="../modules/#dwarves">模块 · 矮人属性 Dwarves</a></p>
+<p id="b-falldamagemodifier-0-05"><b>可以怎么改</b>：把 <code>FallDamageModifier</code> 调到 0.05，摔落伤害就只剩不到三分之一；配合 <code>FallDamageStartVelocity</code> 调高，可以做出「摔得更狠才受伤」。</p>
+<p id="b-debug-dwarves"><b>没生效？</b>见 <a href="../tips/#debug-no-change">Debug · 完全没有变化</a> <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../modules/#dwarves"><span class="rp">模块</span>矮人属性 Dwarves</a></span></p>
 <h2 id="cb-enemy-tune">给某类敌人改属性 · Enemies</h2>
-<p><b>目标</b>：单独改某一类敌人的速度、行为等。<b>放在哪</b>：顶层模块 <code>Enemies</code>，键是敌人的 <b>Descriptor</b> 名（例如 <code>ED_Spider_Exploder</code>）。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-enemies-descriptor-ed"><b>目标</b>：单独改某一类敌人的速度、行为等。<b>放在哪</b>：顶层模块 <code>Enemies</code>，键是敌人的 <b>Descriptor</b> 名（例如 <code>ED_Spider_Exploder</code>）。</p>
+<div class="code-block" id="b-enemies-ed-spider-explod"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Enemies&quot;: {
         &quot;ED_Spider_Exploder&quot;: {
             &quot;Movement&quot;: {
@@ -259,8 +259,8 @@
         }
     }
 }</code></pre></div>
-<p><b>这段代码做了什么</b>：只改自爆异虫（<code>ED_Spider_Exploder</code>）的移动——速度与加速度各放大 5 倍，其他敌人不动。</p>
-<div class="table-wrap"><table>
+<p id="b-ed-spider-exploder-5"><b>这段代码做了什么</b>：只改自爆异虫（<code>ED_Spider_Exploder</code>）的移动——速度与加速度各放大 5 倍，其他敌人不动。</p>
+<div class="table-wrap" id="b-enemies-descriptor-resou"><table>
 <thead>
 <tr><th class="tc">层级</th><th class="tc">填什么</th><th>说明</th></tr>
 </thead>
@@ -272,11 +272,11 @@
 </tbody>
 </table>
 </div>
-<p><b>可以怎么改</b>：同一层还能写别的控制块（例如 <code>Direct</code> 改底层数值、<code>Outline</code> 加描边）；想省事也可以只写一个字段。</p>
-<p><b>没生效？</b>见 <a href="../tips/#debug-wrong-effect">Debug · 效果和想象不一样</a>（先确认这个敌人在不在当前怪池里） ｜ <b>想深入了解</b>：<a href="../enemies/#enemy-controls">敌人配置 · 敌人控制项</a> · <a href="../enemies/#movement">敌人配置 · 移动</a></p>
+<p id="b-direct-outline"><b>可以怎么改</b>：同一层还能写别的控制块（例如 <code>Direct</code> 改底层数值、<code>Outline</code> 加描边）；想省事也可以只写一个字段。</p>
+<p id="b-561992"><b>没生效？</b>见 <a href="../tips/#debug-wrong-effect">Debug · 效果和想象不一样</a>（先确认这个敌人在不在当前怪池里） <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../enemies/#enemy-controls"><span class="rp">敌人配置</span>敌人控制项</a><a href="../enemies/#movement"><span class="rp">敌人配置</span>移动</a></span></p>
 <h2 id="cb-wavespawner">定时刷一波自定义怪 · WaveSpawner</h2>
-<p><b>目标</b>：每隔一段时间主动放一波指定的敌人，不等游戏自己刷。<b>放在哪</b>：顶层模块 <code>WaveSpawners</code>。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-wavespawners"><b>目标</b>：每隔一段时间主动放一波指定的敌人，不等游戏自己刷。<b>放在哪</b>：顶层模块 <code>WaveSpawners</code>。</p>
+<div class="code-block" id="b-wavespawners-enabled-tru"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;WaveSpawners&quot;: {
         &quot;Enabled&quot;: true,
         &quot;Interval&quot;: 90,
@@ -286,8 +286,8 @@
         &quot;Locations&quot;: 3
     }
 }</code></pre></div>
-<p><b>这段代码做了什么</b>：每 90 秒，在玩家周围 3 个位置刷一波难度总点数 100、只由战士异虫组成的<b>无宣告潮</b>。</p>
-<div class="table-wrap"><table>
+<p id="b-90-3-100"><b>这段代码做了什么</b>：每 90 秒，在玩家周围 3 个位置刷一波难度总点数 100、只由战士异虫组成的<b>无宣告潮</b>。</p>
+<div class="table-wrap" id="b-enabled-true-false-inter"><table>
 <thead>
 <tr><th class="tc">字段</th><th class="tc">填什么</th><th>作用</th></tr>
 </thead>
@@ -301,9 +301,9 @@
 </tbody>
 </table>
 </div>
-<p><b>可以怎么改</b>：把 <code>Enemies</code> 留空就交给怪池决定刷什么；想让它只在特定条件下开一波，可以配合 Mutator 与 <a href="../mutators/#trigger-mutators">触发类 Mutator</a>。</p>
-<p><b>没生效？</b>见 <a href="../tips/#debug-wavespawner">Debug · 写了 WaveSpawner 却没有生成</a> ｜ <b>想深入了解</b>：<a href="../wavespawners/">波次生成器 WaveSpawners</a></p>
-<p>想看的不是「改哪一行」，而是「一整套机制怎么拼起来」？→ <a href="../natural-selection/">案例拆解 · Case Study</a></p>
+<p id="b-enemies-mutator-m"><b>可以怎么改</b>：把 <code>Enemies</code> 留空就交给怪池决定刷什么；想让它只在特定条件下开一波，可以配合 Mutator 与 <a href="../mutators/#trigger-mutators">触发类 Mutator</a>。</p>
+<p id="b-debug-wavespawners"><b>没生效？</b>见 <a href="../tips/#debug-wavespawner">Debug · 该出现的没出现</a> <span class="sep">｜</span> <b>想深入了解</b>：<span class="reflinks"><a href="../wavespawners/">波次生成器 WaveSpawners</a></span></p>
+<p id="b-case-study">想看的不是「改哪一行」，而是「一整套机制怎么拼起来」？→ <a href="../natural-selection/">案例拆解 · Case Study</a></p>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../basics/"><span class="dir">上一页</span><span class="title">基础部分 · The Basics of CD2</span></a><a class="next" href="../natural-selection/"><span class="dir">下一页</span><span class="title">案例拆解 · Case Study</span></a></nav>
 </main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="enemy-count"><a href="#enemy-count">增加或减少敌人数量 · Increase or decrease the number of enemies</a></li><li class="lvl-2" data-h="remove-vanilla-enemies"><a href="#remove-vanilla-enemies">从难度里移除原版敌人 · Removing vanilla enemies from a difficulty</a></li><li class="lvl-2" data-h="cb-supply-cost"><a href="#cb-supply-cost">修改补给成本 · Resupply cost</a></li><li class="lvl-2" data-h="cb-player-count"><a href="#cb-player-count">按玩家人数缩放难度 · By player count</a></li><li class="lvl-2" data-h="cb-nitra"><a href="#cb-nitra">调整地图硝石数量 · Nitra on the map</a></li><li class="lvl-2" data-h="cb-dwarves"><a href="#cb-dwarves">修改矮人属性 · Dwarves</a></li><li class="lvl-2" data-h="cb-enemy-tune"><a href="#cb-enemy-tune">给某类敌人改属性 · Enemies</a></li><li class="lvl-2" data-h="cb-wavespawner"><a href="#cb-wavespawner">定时刷一波自定义怪 · WaveSpawner</a></li></ul></div></aside></div>
 <footer class="footer">
@@ -318,12 +318,17 @@
     </div>
     <div class="footer-col">
       <h3>声明</h3>
-      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+      <p>本项目为<b>非官方</b>中文参考站。<b>Reference 正文</b>（基础部分 / 模块 / 敌人配置 /
+      Direct / 波次生成器 / 发射物 / Mutators / 资源 / FAQ）译自上游英文文档；
+      <b>新手入门、常见修改 · Cookbook、案例拆解、为什么没生效 · Debug、目录</b>为本站
+      <b>原创撰写</b>（案例拆解取自作者的真实难度档；Cookbook 的 6 条新配方与 Mutators
+      用途索引整理自站内 Reference，<b>尚未在游戏内逐条实测</b>）。界面设计、排版结构与
+      原始内容版权归原作者所有。</p>
     </div>
   </div>
 </footer>
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
-<script src="../assets/js/site.js?v=e29631e0" defer></script>
+<script src="../assets/js/site.js?v=c6eff14d" defer></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 """自检：内链 / 锚点 / 图片 / 结构 / 相对路径 / 预算。按改进清单 §1 支持相对路径。"""
 import os, io, re, posixpath
 import urllib.parse
+import json
 import html as H
 from lxml import html as LH
 
@@ -10,7 +11,8 @@ SITE = os.path.join(ROOT, 'docs')
 OUT = os.path.join(ROOT, 'tools', 'verify_report.txt')
 # 预算上限（字节）。R16：CSS 从 30,720 抬到 32,768 —— 搜索面板 + Mutators 卡片索引
 # 是真实功能增长，靠清理死规则腾不出空间（全站只剩一条不可删的 .ns-impl 规则）。
-CSS_MAX, JS_MAX = 32768, 20480
+# R17：JS 从 20,480 抬到 28,672 —— 块级搜索（块锚点 + 落地高亮）是新增能力。
+CSS_MAX, JS_MAX = 32768, 28672
 L = []
 P = L.append
 
@@ -140,6 +142,18 @@ for bad in ('site.css', 'site.js', 'assets/'):
 css = io.open(os.path.join(SITE, 'assets/css/site.css'), encoding='utf-8').read()
 js = io.open(os.path.join(SITE, 'assets/js/site.js'), encoding='utf-8').read()
 raw_all = '\n'.join(io.open(p, encoding='utf-8').read() for p in pages)
+# R17 §S7 / R18 A：块级搜索会给每个块加 id（`b-<slug>`，兜底 `b-<n>`）。它只是锚点，
+# 不影响结构/样式，但会让原有的「字面量标签断言」失配 —— 因此做那些检查时先剥掉。
+# 已核：产物里 `id="b-` 开头的元素恰好等于块索引条数（973），不会误伤任何原生 id。
+_BID_RE = re.compile(r' id="b-[^"]*"')
+
+
+def pg(rel):
+    return _BID_RE.sub('', io.open(os.path.join(SITE, *rel.split('/')),
+                                   encoding='utf-8').read())
+
+
+raw_all = _BID_RE.sub('', raw_all)
 
 
 # R15 §P2-1：正文里「成句英文 + 中文」粘在同一行（= 上游把两种语言写在同一个 <li>/<td>）。
@@ -168,56 +182,106 @@ for _p in pages:
               for x in glued_lines(io.open(_p, encoding='utf-8').read())]
 
 
+# ── R17（独立审查 S5.4）：示例 JSON 语法断言 ────────────────────────────
+# 为什么需要：B-1/B-2 那类「示例 JSON 语法错误」能长期留存、而回归仍 126/126 全绿，
+# 就是因为缺这一条。跳过：片段（不以 { / [ 开头）、含 `...` 省略写法、含 Mutator1~4 占位。
+_JSON_PH = re.compile(r'"Mutator[1-4]"')
+JSON_BAD = []
+for _p in pages:
+    _t = io.open(_p, encoding='utf-8').read()
+    for _i, _m in enumerate(re.finditer(r'<pre><code class="language-json">(.*?)</code></pre>',
+                                        _t, re.S)):
+        _b = H.unescape(_m.group(1)).strip()
+        if not _b.startswith(('{', '[')) or '...' in _b or _JSON_PH.search(_b):
+            continue
+        try:
+            json.loads(_b)
+        except Exception as _e:
+            JSON_BAD.append('%s 块#%d %s'
+                            % (os.path.relpath(_p, SITE).replace('\\', '/'), _i, _e))
+
+
+# ── R17 §S7：块级搜索锚点一致性 ────────────────────────────────────────
+# 索引里的每个块锚点都必须在对应产物页面上真实存在，否则搜索结果会跳空。
+_BLKDATA = json.loads(io.open(os.path.join(SITE, 'search-blocks.json'),
+                              encoding='utf-8').read())
+BLK_TOTAL, BLK_MISSING = 0, []
+for _path, _arr in _BLKDATA.items():
+    _sub = _path.strip('/').replace('/', os.sep)
+    _f = os.path.join(SITE, _sub, 'index.html') if _sub else os.path.join(SITE, 'index.html')
+    if not os.path.exists(_f):
+        BLK_MISSING.append(_path + '（页面不存在）')
+        continue
+    _ids = set(re.findall(r'\bid="([^"]+)"', io.open(_f, encoding='utf-8').read()))
+    for _a, _x in _arr:
+        BLK_TOTAL += 1
+        if _a not in _ids:
+            BLK_MISSING.append('%s#%s' % (_path, _a))
+
+
+# ── R17 §S8：CSS 断言改为「空白无关」比对 ──────────────────────────────
+# 产物 CSS 现在做保守空白压缩（去掉缩进、结构符号周围空白、块内最后一条的分号），
+# 所以断言统一在「归一化后的文本」上做字面量匹配。
+def _cssnorm(frag):
+    return re.sub(r'\s+', '', frag).replace(';}', '}').rstrip(';')
+
+
+_CSS_N = _cssnorm(css)
+
+
+def incss(frag):
+    return _cssnorm(frag) in _CSS_N
+
 def count(pat, flags=0):
     return len(re.findall(pat, raw_all, flags))
 
 
 CHECKS = [
     # R3 §1 语言开关
-    ('R3 §1 语言开关胶囊内边距', 'gap:2px; padding:2px' in css),
-    ('R3 §1 激活段独立圆角块', 'padding:.28rem .75rem' in css and 'border-radius:999px' in css),
-    ('R3 §1 顶栏按钮间距 .35rem', 'align-items:center; gap:.35rem' in css),
+    ('R3 §1 语言开关胶囊内边距', incss('gap:2px; padding:2px')),
+    ('R3 §1 激活段独立圆角块', incss('padding:.28rem .75rem') and incss('border-radius:999px')),
+    ('R3 §1 顶栏按钮间距 .35rem', incss('align-items:center; gap:.35rem')),
     # R3 §2.1 目录筛选框
-    ('R3 §2.1 目录内筛选框已删', count(r'toc-filter') == 0 and '.toc-filter' not in css),
+    ('R3 §2.1 目录内筛选框已删', count(r'toc-filter') == 0 and not incss('.toc-filter')),
     ('R5 ③ 章节筛选框已整体移除', count(r'class="section-filter') == 0
-     and '.section-filter' not in css and 'section-filter' not in js),
+     and not incss('.section-filter') and 'section-filter' not in js),
     # R3 §2.2 搜索模态框（404 为自足页，不含搜索框）
     ('R3 §2.2 输入行 + 图标 + Esc', count(r'class="search-input-row"') == len(pages) - 1),
     ('R3 §2.2 底部快捷键提示条', count(r'class="search-foot"') == len(pages) - 1),
-    ('R3 §2.2 聚焦蓝线已杀', '.search-panel input:focus-visible{ outline:none; }' in css),
-    ('R3 §2.2 空态不再撑高', '.search-results .empty-state{ border:0' in css),
+    ('R3 §2.2 聚焦蓝线已杀', incss('.search-panel input:focus-visible{ outline:none; }')),
+    ('R3 §2.2 空态不再撑高', incss('.search-results .empty-state{ border:0')),
     ('R3 §2.2 章节结果不暴露 hash', 'r.page.title_zh || r.page.title' in js),
     # R3 §3 宽度阶梯
-    ('R3 §3 ≥1600 内容 960 / 目录 240', '--content-w:960px; --toc-w:240px' in css),
-    ('R3 §3 ≥1920 内容 1040', '--content-w:1040px' in css),
+    ('R3 §3 ≥1600 内容 960 / 目录 240', incss('--content-w:960px; --toc-w:240px')),
+    ('R3 §3 ≥1920 内容 1040', incss('--content-w:1040px')),
     # R3 §4 滚动条
-    ('R3 §4 横向条物理消除', 'overflow-y:auto; overflow-x:clip' in css),
-    ('R3 §4 纵向条平时隐形', 'scrollbar-color:transparent transparent' in css),
-    ('R3 §4 悬停才浮现', '.toc:hover .toc-list::-webkit-scrollbar-thumb' in css),
-    ('R3 §4 长键 anywhere 断行', 'overflow-wrap:anywhere' in css),
-    ('R3 §4 左导航纤细滚动条', '.drawer::-webkit-scrollbar-thumb' in css),
+    ('R3 §4 横向条物理消除', incss('overflow-y:auto; overflow-x:clip')),
+    ('R3 §4 纵向条平时隐形', incss('scrollbar-color:transparent transparent')),
+    ('R3 §4 悬停才浮现', incss('.toc:hover .toc-list::-webkit-scrollbar-thumb')),
+    ('R3 §4 长键 anywhere 断行', incss('overflow-wrap:anywhere')),
+    ('R3 §4 左导航纤细滚动条', incss('.drawer::-webkit-scrollbar-thumb')),
     # R3 §5.1 单元格中文行
     ('R3 §5.1 单元格中文行全部有 .td-zh',
      count(r'<br\s*/?>\s*(?!<span class="td-zh")[\u4e00-\u9fff]', re.I) == 0),
     # R3 §5.2 衬线
-    ('R3 §5.2 --font-serif token', '--font-serif:' in css),
-    ('R3 §5.2 正文整体衬线', '.content,.home-main{ font-family:var(--font-serif); }' in css),
-    ('R3 §5.2 标题/控件回归无衬线', '.content :is(h1,h2,h3,h4,h5,h6),' in css),
+    ('R3 §5.2 --font-serif token', incss('--font-serif:')),
+    ('R3 §5.2 正文整体衬线', incss('.content,.home-main{ font-family:var(--font-serif); }')),
+    ('R3 §5.2 标题/控件回归无衬线', incss('.content :is(h1,h2,h3,h4,h5,h6),')),
     # R3 §6 表头 / Default 前缀
     ('R3 §6 表头内无 td 残留', count(r'<thead>(?:(?!</thead>).)*?<td\b', re.S) == 0),
     ('R3 §6 Default: 前缀已剔除', count(r'>Default: ') == 0),
     # R3 §7 复制按钮
-    ('R3 §7 复制按钮悬停浮现', 'opacity:0; transition:opacity .15s' in css
-     and ':focus-within .copy-btn' in css),
-    ('R3 §7 触屏降级常显淡化', '@media (hover:none){ .copy-btn{ opacity:.55; } }' in css),
+    ('R3 §7 复制按钮悬停浮现', incss('opacity:0; transition:opacity .15s')
+     and incss(':focus-within .copy-btn')),
+    ('R3 §7 触屏降级常显淡化', incss('@media (hover:none){ .copy-btn{ opacity:.55; } }')),
     # R3 §8 单列名录
     ('R3 §8 单列表已转 name-grid', count(r'class="name-grid"') > 0),
     ('R3 §8 名录 CSS（grid + 断行）',
-     'display:grid; gap:.15rem .9rem' in css and 'overflow-wrap:anywhere' in css),
+     incss('display:grid; gap:.15rem .9rem') and incss('overflow-wrap:anywhere')),
     # R3 §9 审核补充
-    ('R3 §9.1 悬浮主题按钮已删', count(r'theme-fab') == 0 and 'theme-fab' not in css),
-    ('R3 §9.2 表内嵌套滚动已删', count(r'sticky-head') == 0 and 'sticky-head' not in css),
-    ('R4 §1 列表内折叠条不再吸附', 'li > details.orig{ margin:.25em 0 .2em; }' in css),
+    ('R3 §9.1 悬浮主题按钮已删', count(r'theme-fab') == 0 and not incss('theme-fab')),
+    ('R3 §9.2 表内嵌套滚动已删', count(r'sticky-head') == 0 and not incss('sticky-head')),
+    ('R4 §1 列表内折叠条不再吸附', incss('li > details.orig{ margin:.25em 0 .2em; }')),
     ('R3 §9.5 无空 href', count(r'href=""') == 0),
     ('R3 §9.6 description 无注记', count(r'name="description" content="[^"]*\[注') == 0),
     # R1/R2 无回归
@@ -227,20 +291,20 @@ CHECKS = [
 ]
 
 # ── R4 回归清单 ────────────────────────────────────────────────────────
-home_html = io.open(os.path.join(SITE, 'index.html'), encoding='utf-8').read()
-toc_html = io.open(os.path.join(SITE, 'toc', 'index.html'), encoding='utf-8').read()
+home_html = pg('index.html')
+toc_html = pg('toc/index.html')
 _stats = re.search(r'<div class="stats">(.*?)</div>', toc_html, re.S)
 _stats_b = _stats.group(1).count('<b>') if _stats else -1
 _toc_nav = re.search(r'class="drawer-list">(.*?)</ul>', home_html, re.S)
 _toc_nav_labels = re.findall(r'<a [^>]*>([^<]*)</a>', _toc_nav.group(1)) if _toc_nav else []
-res_html = io.open(os.path.join(SITE, 'resources', 'index.html'), encoding='utf-8').read()
-tut_html = io.open(os.path.join(SITE, 'tutorial', 'index.html'), encoding='utf-8').read()
-ce_html = io.open(os.path.join(SITE, 'common-edits', 'index.html'), encoding='utf-8').read()
-tips_html = io.open(os.path.join(SITE, 'tips', 'index.html'), encoding='utf-8').read()
-basics_html = io.open(os.path.join(SITE, 'basics', 'index.html'), encoding='utf-8').read()
-mods_html = io.open(os.path.join(SITE, 'modules', 'index.html'), encoding='utf-8').read()
-faq_html = io.open(os.path.join(SITE, 'faq', 'index.html'), encoding='utf-8').read()
-mut_html = io.open(os.path.join(SITE, 'mutators', 'index.html'), encoding='utf-8').read()
+res_html = pg('resources/index.html')
+tut_html = pg('tutorial/index.html')
+ce_html = pg('common-edits/index.html')
+tips_html = pg('tips/index.html')
+basics_html = pg('basics/index.html')
+mods_html = pg('modules/index.html')
+faq_html = pg('faq/index.html')
+mut_html = pg('mutators/index.html')
 # R16 ③：索引里的 chip 锚点必须覆盖该页全部 h2（无遗漏）
 _mut_anchors = set(re.findall(r'class="mut-chip" href="#([^"]*)"', mut_html))
 _mut_h2 = set(re.findall(r'<h2 id="([^"]+)"', mut_html)) - {'mutator-index'}
@@ -248,35 +312,35 @@ MUT_IDX_OK = bool(_mut_h2) and _mut_h2 <= _mut_anchors
 tzh_empty = [p['path'] for p in idx if not (p.get('title_zh') or '').strip()]
 CHECKS += [
     # §1 折叠条按钮化
-    ('R4 §1 折叠条 hover 有底色反馈', 'details.orig > summary:hover{ background:var(--panel)' in css),
-    ('R4 §1 summary 按钮化内边距', 'padding:.18rem .5rem; border-radius:5px' in css),
+    ('R4 §1 折叠条 hover 有底色反馈', incss('details.orig > summary:hover{ background:var(--panel)')),
+    ('R4 §1 summary 按钮化内边距', incss('padding:.18rem .5rem; border-radius:5px')),
     # §2.1 更新日志无孤儿英文条目
     ('R4 §2.1 首页无孤儿英文条目', len(re.findall(r'<li lang="en">', home_html)) == 0),
     # §2.2 行内代码 chips
-    ('R4 §2.2 行内代码调谐', 'padding:.12em .4em; font-size:.88em' in css),
+    ('R4 §2.2 行内代码调谐', incss('padding:.12em .4em; font-size:.88em')),
     # §2.3 字号补偿（R5 ⑥ 再次上调到 19px）
-    ('R5 ⑥ 正文 21px', 'font-size:21px; line-height:1.75' in css),
-    ('R4 §2.3 表格字号与正文同级', 'font-size:1.05em;' in css
-     and 'width:max-content; max-width:100%;' in css),
+    ('R5 ⑥ 正文 21px', incss('font-size:21px; line-height:1.75')),
+    ('R4 §2.3 表格字号与正文同级', incss('font-size:1.05em;')
+     and incss('width:max-content; max-width:100%;')),
     ('R5 字号全部相对正文（无 rem 字号）',
      len(re.findall(r'font-size:[\d.]+rem', css)) == 0),
-    ('R5 ⑤ 无列宽上限（内容不被压窄）', 'max-width:40ch' not in css),
-    ('R5 单元格中文行 .95em', '.td-zh{ font-size:.95em' in css),
+    ('R5 ⑤ 无列宽上限（内容不被压窄）', not incss('max-width:40ch')),
+    ('R5 单元格中文行 .95em', incss('.td-zh{ font-size:.95em')),
     # §3.1 搜索胶囊
     ('R4 §3.1 搜索是整体胶囊', count(r'class="search-btn-text"') == len(pages) - 1
-     and '.search-btn{\n  display:inline-flex' in css),
+     and incss('.search-btn{\n  display:inline-flex')),
     # §3.2 title_zh 已填
     ('R4 §3.2 索引 title_zh 全部非空', not tzh_empty),
     # §3.3 结果面板贴合 + 语言开关同高
     ('R15 结果面板贴合内容并内部滚动',
-     '.search-results{ list-style:none; margin:0; padding:.4rem; overflow-y:auto; flex:0 1 auto; }' in css
-     and 'max-height:60vh' in css),
-    ('R4 §3.3 语言开关与图标同高', 'min-height:34px; box-sizing:border-box' in css),
+     incss('.search-results{ list-style:none; margin:0; padding:.4rem; overflow-y:auto; flex:0 1 auto; }')
+     and incss('max-height:60vh')),
+    ('R4 §3.3 语言开关与图标同高', incss('min-height:34px; box-sizing:border-box')),
     # §4 名录扩展
     ('R4 §4 名录 ≥2 处（OBJ + ByMissionType）', count(r'class="name-grid"') >= 2),
     # §5 中文行配色 + 短列不换行
-    ('R4 §5 新增 --muted2 中间色', '--muted2:#b7c0ca' in css and '--muted2:#454f59' in css),
-    ('R5 ⑤ 中文行允许换行（keep-all）', 'td:not(:last-child) .td-zh{ word-break:keep-all; }' in css
+    ('R4 §5 新增 --muted2 中间色', incss('--muted2:#b7c0ca') and incss('--muted2:#454f59')),
+    ('R5 ⑤ 中文行允许换行（keep-all）', incss('td:not(:last-child) .td-zh{ word-break:keep-all; }')
      and 'white-space:nowrap' not in css.split('th,td{')[1].split('}')[0]),
     # §6 资源页中文行找回链接
     ('R4 §6 资源页中文行链接齐全', len(re.findall(r'<a href="https?://', res_html)) >= 7),
@@ -284,16 +348,16 @@ CHECKS += [
     ('R4 §7 首页导航首项 href="./"', 'href="./" class="current"' in home_html),
     # ── R4 Part 2 §8 美化拓展（404 为自足页，不含这些组件）──
     ('R4 §8.1 阅读进度条', count(r'class="read-progress"') == len(pages) - 1
-     and '.read-progress{' in css and 'read-progress' in js),
+     and incss('.read-progress{') and 'read-progress' in js),
     ('R5 ⑤ 三线表（无竖线无行线）',
-     'border:0; border-top:1.5px solid var(--strong); border-bottom:1.5px solid var(--strong);' in css
-     and 'border-bottom:1px solid var(--strong);' in css),
-    ('R5 ⑤ 表头跟随列对齐', 'thead th, tbody td{ text-align:left; }' in css
-     and 'th.tc, td.tc{ text-align:center; }' in css),
+     incss('border:0; border-top:1.5px solid var(--strong); border-bottom:1.5px solid var(--strong);')
+     and incss('border-bottom:1px solid var(--strong);')),
+    ('R5 ⑤ 表头跟随列对齐', incss('thead th, tbody td{ text-align:left; }')
+     and incss('th.tc, td.tc{ text-align:center; }')),
     ('R5 短列居中 class 已生成', count(r'class="tc"') > 20),
     ('R5 空表改成一行「无」', count(r'class="tbl-none">无<') >= 11
-     and 'p.tbl-none{' in css and 'td-none' not in css),
-    ('无斑马纹（用户决定不要）', 'nth-child(even)' not in css),
+     and incss('p.tbl-none{') and not incss('td-none')),
+    ('无斑马纹（用户决定不要）', not incss('nth-child(even)')),
     ('R5 ① 目录页统计条 3 项', _stats_b == 3),
     ('R5 目录页：首页无卡片无统计',
      not re.search(r'class="card"|class="stats"', home_html)),
@@ -317,26 +381,26 @@ CHECKS += [
     ('R6 media.json 有尺寸记录',
      len(json.load(io.open(os.path.join(ROOT, 'build', 'media.json'), encoding='utf-8'))) >= 4),
     ('R6 Salvage 表单独定列宽',
-     count(r'class="tbl-salvage"') == 1 and '.tbl-salvage th:nth-child(5)' in css),
-    ('R4 §8.4 h2 琥珀竖条', '.content h2{' in css and 'border-left:4px solid var(--brand)' in css),
-    ('R4 §8.5 返回顶部小圆钮', count(r'id="to-top"') == len(pages) - 1 and '.to-top.show{' in css
+     count(r'class="tbl-salvage"') == 1 and incss('.tbl-salvage th:nth-child(5)')),
+    ('R4 §8.4 h2 琥珀竖条', incss('.content h2{') and incss('border-left:4px solid var(--brand)')),
+    ('R4 §8.5 返回顶部小圆钮', count(r'id="to-top"') == len(pages) - 1 and incss('.to-top.show{')
      and 'to-top' in js),
     ('R4 §8.6 页脚三栏', count(r'class="footer-col"') == (len(pages) - 1) * 3
-     and '.footer-cols{' in css
+     and incss('.footer-cols{')
      and count(r'class="footer-links"') >= (len(pages) - 1) * 2),
     # ── R5 首批（视觉项）──
-    ('R5 ③ 表格中文行与正文同色', '.td-zh{ font-size:.95em; color:var(--strong); }' in css),
+    ('R5 ③ 表格中文行与正文同色', incss('.td-zh{ font-size:.95em; color:var(--strong); }')),
     ('R5 ⑨ 顶栏已删 GitHub 图标', count(r'aria-label="GitHub 仓库"') == 0),
-    ('R5 ⑨ 搜索居中拉长 960px', 'flex:0 1 960px' in css
+    ('R5 ⑨ 搜索居中拉长 960px', incss('flex:0 1 960px')
      and count(r'class="topbar-spacer"') == (len(pages) - 1) * 2),
     ('R6 Mutator 字段表 + 返回类型',
      count(r'<div class="mt-fields') >= 80
      and count(r'<table class="mf-table mf-fields">') >= 45
      and count(r'class="mf-ret"') >= 80
-     and '.mf-table{' in css and '<th>字段</th><th>填写</th><th>作用</th>' in raw_all),
-    ('R6 旧类型栏已移除', '<div class="mt-io">' not in raw_all and '.mt-io{' not in css),
+     and incss('.mf-table{') and '<th>字段</th><th>填写</th><th>作用</th>' in raw_all),
+    ('R6 旧类型栏已移除', '<div class="mt-io">' not in raw_all and not incss('.mt-io{')),
     ('R5 附 标题锚点 # 已移除',
-     '.anchor' not in css and '.anchor' not in js
+     not incss('.anchor') and '.anchor' not in js
      and 'class="anchor"' not in raw_all),
     # ── R5 第二批（提取器）──
     ('R5 ② 导航标签无「(客机…」', '敌人配置 · Enemies / EnemiesNoSync' in raw_all
@@ -407,7 +471,7 @@ CHECKS += [
      'faq/#faq-no-effect' in tips_html and 'faq/#faq-mutator-debug' in tips_html
      and 'faq/#faq-public-match' in tips_html and 'faq/#faq-cd1-conflict' in tips_html),
     ('R13 返回上一位置按钮', count(r'id="jump-back"') == len(pages) - 1
-     and 'jump-back' in js and '.jump-back{' in css),
+     and 'jump-back' in js and incss('.jump-back{')),
     ('R13 BaseHazard 口径已按实测修正',
      'BaseHazard' in tut_html and '默认使用 Hazard 5' not in tut_html
      and '玩家在任务里选择的那个官难' in basics_html
@@ -437,14 +501,14 @@ CHECKS += [
      and '难度实战拆解' not in raw_all and '案例拆解 · Case Study' in raw_all),
     # ── R15 §P0-1 搜索：原位展开 + 下拉结果面板 ──
     ('R15 搜索不再有遮罩层',
-     count(r'class="search-modal"') == 0 and '.search-modal' not in css),
+     count(r'class="search-modal"') == 0 and not incss('.search-modal')),
     ('R15 结果面板挂在搜索槽内（每页一份）',
      count(r'id="search-panel"') == len(pages) - 1
      and count(r'class="search-slot"') == len(pages) - 1),
     ('R15 面板锚定在搜索框正下方',
-     'top:calc(100% + 8px)' in css and 'translateX(-50%)' in css),
+     incss('top:calc(100% + 8px)') and incss('translateX(-50%)')),
     ('R15 窄屏退化为顶部结果页',
-     'top:var(--topbar-h)' in css),
+     incss('top:var(--topbar-h)')),
     ('R15 空态给常用入口 + 点面板外关闭',
      '常用入口' in js and 'SUGGEST' in js and '#search-slot' in js),
     ('R15 键盘行为保留（Ctrl K / 方向键 / Enter / Esc）',
@@ -463,8 +527,8 @@ CHECKS += [
     ('R16 侧栏加载后滚到当前项（只滚抽屉自身）',
      'drawer.scrollTop +=' in js and '#drawer .drawer-list a.current' in js),
     ('R16 链接不再区分访问态颜色',
-     'var(--visited)' not in css and '--visited:' not in css
-     and 'a:visited{ color:var(--link); }' in css),
+     not incss('var(--visited)') and not incss('--visited:')
+     and incss('a:visited{ color:var(--link); }')),
     ('R16 Mutators 索引：卡片 + chip + 筛选框',
      'class="mut-filter"' in mut_html and 'id="mut-filter"' in mut_html
      and 'details class="mut-card"' in mut_html and 'mut-chip' in mut_html
@@ -474,7 +538,36 @@ CHECKS += [
      all((f'>{x}<span class="en">' in mut_html) for x in
          ('加', '减', '乘', '除', '幂', '取模', '四舍五入', '向上取整', '向下取整',
           '锁定浮点数', '锁定布尔值', '锁定字符串'))),
+    # ── R17（独立审查）──
+    ('R17 示例 JSON 全部可解析', not JSON_BAD),
+    ('R17 代码块长行折行（不靠横滚）',
+     incss('.code-block pre code{ white-space:pre-wrap; overflow-wrap:anywhere; }')),
+    ('R17 窄屏三线表补行线',
+     incss('tbody td{ border-top:1px solid var(--border); }')),
+    ('R17 tips 页「深挖」七节已降级为 H3',
+     'id="debug-deepdive"' in tips_html
+     and len(re.findall(r'<h3[^>]*>\s*[一二三四五六七]、', tips_html)) == 7),
+    # ── R17 §S7 块级搜索 ──
+    ('R17 块级搜索锚点全部存在于产物中', BLK_TOTAL > 500 and not BLK_MISSING),
+    ('R18 块锚点是文本派生的稳定 slug（不是页内序号）',
+     all(a.startswith('b-') for _p, _arr in _BLKDATA.items() for a, _x in _arr)
+     and sum(1 for _p, _arr in _BLKDATA.items() for a, _x in _arr
+             if not re.match(r'^b-\d+$', a)) > 500),
+    ('R18「想深入了解」链接组已转成原子单元 + 灰色页面名前缀',
+     count(r'class="reflinks"') >= 12 and count(r'class="rp"') >= 25
+     and incss('.reflinks a + a::before{ content:"｜"')),
+    ('R18 那条断言没有漏成「链接之间仍是 · 」',
+     not re.search(r'想(?:深入|继续)(?:了解|实践)[^<>]*</b>\s*<a\b', raw_all)
+     and not re.search(r'<td\b[^>]*>\s*<a\b[^>]*>[^<]*</a>\s*·\s*<a\b', raw_all)),
+    ('R17 块级搜索已接通（索引 + 锚点链接 + 落地高亮 + 折叠块自动展开）',
+     'search-blocks.json' in js and '?q=' in js and 'createTreeWalker' in js
+     and incss('mark.hit{')
+     and "d.tagName === 'DETAILS' && !d.open" in js),
 ]
+if BLK_MISSING:
+    errors.extend('块锚点缺失：' + x for x in BLK_MISSING[:10])
+if JSON_BAD:
+    errors.extend('示例 JSON 语法错误：' + x for x in JSON_BAD[:10])
 if GLUED:
     errors.extend('EN/ZH 同行混排 %s → %s' % (f, t) for f, t in GLUED[:20])
 if xref_bad:

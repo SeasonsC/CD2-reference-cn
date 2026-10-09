@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/enemies/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=e29631e0">
+<link rel="stylesheet" href="../assets/css/site.css?v=c6eff14d">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -57,13 +57,13 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/" class="current" aria-current="page">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">Reference · 查表</span> › 敌人配置 · Enemies / EnemiesNoSync</nav>
 <h1>敌人配置 · Enemies / EnemiesNoSync</h1>
-<p>该模块包含敌人描述符。模块名称可以是  <code>Enemies</code>    或  <code>EnemiesNoSync</code>，但二者不可同时使用。具体选择取决于你是否希望自己的难度支持“公开匹配”，即允许未安装 CD2 的玩家加入游戏。</p>
+<p id="b-enemies-enemiesnosync">该模块包含敌人描述符。模块名称可以是  <code>Enemies</code>    或  <code>EnemiesNoSync</code>，但二者不可同时使用。具体选择取决于你是否希望自己的难度支持“公开匹配”，即允许未安装 CD2 的玩家加入游戏。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This module contains the enemy descriptors. The name of the module can be either <code>Enemies</code> or <code>EnemiesNoSync</code>, but never both at the same time. The choice of which to use depends on if you want your difficulty to be pubbable, that is, to be played with players that do not have CD2 installed:</p></div></details>
-<ul><li>CD2 的某些功能需要同步到客户端，例如敌人的缩放控制（<code>Scale</code>）或外观（材质）自定义。<code>Enemies</code>    可将这些特性同步至客户端，但会强制客户端必须安装 CD2，否则任务开始时将断开连接。<details class="orig"><summary>英文原文</summary><div class="orig-body">Some CD2 features require being replicated to the clients, such as the <code>Scale</code> enemy control or the customization of enemy looks (materials). <code>Enemies</code> can replicate these characteristics to players, but in exchange it will force the clients to use CD2 or they will suffer a disconnect upon mission start. </div></details></li><li><code>EnemiesNoSync</code>    不会向客户端同步任何数据。使用  <code>EnemiesNoSync</code>    的难度配置可兼容所有客户端，无论其是否安装了 CD1、CD2，或两者皆未安装。选择  <code>EnemiesNoSync</code>    即表示你未使用任何需要同步的功能。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>EnemiesNoSync</code> doesn't do replication to clients. A difficulty with <code>EnemiesNoSync</code> is compatible with all clients, regardless of whether they use CD1, CD2 or nothing at all. When you use <code>EnemiesNoSync</code> you are implicitly stating that you didn't use any features that require replication.</div></details></li></ul>
-<p>要查看哪些功能需要使用  <code>Enemies</code>    模块的，请参考@Spy 提供的以下指南：《<a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa" target="_blank" rel="noopener">On Pubbing With CD2</a>》。</p>
+<ul id="b-cd2-scale-enemies"><li>CD2 的某些功能需要同步到客户端，例如敌人的缩放控制（<code>Scale</code>）或外观（材质）自定义。<code>Enemies</code>    可将这些特性同步至客户端，但会强制客户端必须安装 CD2，否则任务开始时将断开连接。<details class="orig"><summary>英文原文</summary><div class="orig-body">Some CD2 features require being replicated to the clients, such as the <code>Scale</code> enemy control or the customization of enemy looks (materials). <code>Enemies</code> can replicate these characteristics to players, but in exchange it will force the clients to use CD2 or they will suffer a disconnect upon mission start. </div></details></li><li><code>EnemiesNoSync</code>    不会向客户端同步任何数据。使用  <code>EnemiesNoSync</code>    的难度配置可兼容所有客户端，无论其是否安装了 CD1、CD2，或两者皆未安装。选择  <code>EnemiesNoSync</code>    即表示你未使用任何需要同步的功能。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>EnemiesNoSync</code> doesn't do replication to clients. A difficulty with <code>EnemiesNoSync</code> is compatible with all clients, regardless of whether they use CD1, CD2 or nothing at all. When you use <code>EnemiesNoSync</code> you are implicitly stating that you didn't use any features that require replication.</div></details></li></ul>
+<p id="b-enemies-spy-on-pubbing-w">要查看哪些功能需要使用  <code>Enemies</code>    模块的，请参考@Spy 提供的以下指南：《<a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa" target="_blank" rel="noopener">On Pubbing With CD2</a>》。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>To see which features require the <code>Enemies</code> module, please check the following guide by @Spy: <a href="https://docs.google.com/document/d/1ShytNpPJF56XojjrTofA9DCkBXCzqBH2W-aFaLgbk30/edit?tab=t.0#heading=h.ithv7n4jcboa" target="_blank" rel="noopener">On Pubbing With CD2</a>.</p></div></details>
 <h2 id="descriptor-controls">Descriptor controls</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-canbeusedforco"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -131,9 +131,9 @@
 </table>
 </div>
 <h2 id="enemy-controls">Enemy controls</h2>
-<p>[[]]内的字段是特殊的子模块，可以在以下部分找到。</p>
+<p id="b-a42352">[[]]内的字段是特殊的子模块，可以在以下部分找到。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Fields inside [[]] are special submodules that can be found in the sections that follow.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-comments-alert"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -338,33 +338,33 @@
 </table>
 </div>
 <h3 id="heal-advanced-mode">Heal advanced mode</h3>
-<p><code>Heal</code>   模块可以接受以下高级设置：</p>
+<p id="b-d41600"><code>Heal</code>   模块可以接受以下高级设置：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Heal</code> can accept the following advanced settings:</p></div></details>
-<ul><li><code>InitialRate</code>：设置初始治疗量（如果为正）或初始流血量（如果为负）。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>InitialRate</code>: sets the initial healing if positive or bleed if negative. </div></details></li><li><code>FinalRate</code>：设置在  <code>SwitchAfter</code>    时间后使用的值。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>FinalRate</code>: sets the value that will be used after <code>SwitchAfter</code> time has passed.</div></details></li><li><code>SwitchAfter</code>：转换到 <code>FinalRate</code>   的时间，计时从敌人生成开始。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>SwitchAfter</code>: the time at which the <code>FinalRate</code> will be used. Starts counting on enemy spawn. </div></details></li></ul>
+<ul id="b-initialrate-finalrate-sw"><li><code>InitialRate</code>：设置初始治疗量（如果为正）或初始流血量（如果为负）。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>InitialRate</code>: sets the initial healing if positive or bleed if negative. </div></details></li><li><code>FinalRate</code>：设置在  <code>SwitchAfter</code>    时间后使用的值。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>FinalRate</code>: sets the value that will be used after <code>SwitchAfter</code> time has passed.</div></details></li><li><code>SwitchAfter</code>：转换到 <code>FinalRate</code>   的时间，计时从敌人生成开始。<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>SwitchAfter</code>: the time at which the <code>FinalRate</code> will be used. Starts counting on enemy spawn. </div></details></li></ul>
 <h3 id="outline-special-control">轮廓控制 · Outline special control</h3>
-<p>该模块允许为敌人设置一个永久的轮廓，就像有人标记了它一样。</p>
+<p id="b-1157a0">该模块允许为敌人设置一个永久的轮廓，就像有人标记了它一样。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This module allows to give a permanent outline to an enemy, as if someone had pinged it. </p></div></details>
-<p>通常用于标记危险的敌人，如饲育水母或远程威胁，以便你能穿墙看到它们。</p>
+<p id="b-344106">通常用于标记危险的敌人，如饲育水母或远程威胁，以便你能穿墙看到它们。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>It is usually used to mark dangerous enemies like breeders or ranged threats so you can see them through walls. </p></div></details>
-<p>它接受两个字段：<code>Enable</code>（true/false）和 <code>Type</code>，<code>Type</code>    接受以下字段之一：<code>Enemy</code>（红色轮廓，默认）、<code>Friendly</code>、<code>Neutral</code>   和 <code>Item</code>。</p>
+<p id="b-enable-true-false-type-t">它接受两个字段：<code>Enable</code>（true/false）和 <code>Type</code>，<code>Type</code>    接受以下字段之一：<code>Enemy</code>（红色轮廓，默认）、<code>Friendly</code>、<code>Neutral</code>   和 <code>Item</code>。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>It accepts two fields: <code>Enable</code>, which accepts a boolean, and <code>Type</code>, which accepts one of the following: <code>Enemy</code> (red outline, default), <code>Friendly</code>, <code>Neutral</code> and <code>Item</code>.</p></div></details>
-<p><b>提示</b>：<code>Type</code>    这个字段实际不太好用——即使你设置了它，轮廓显示的仍然是该敌人<b>本身</b>的种类。不要指望用它改变轮廓外观。</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
+<p id="b-a1b499"><b>提示</b>：<code>Type</code>    这个字段实际不太好用——即使你设置了它，轮廓显示的仍然是该敌人<b>本身</b>的种类。不要指望用它改变轮廓外观。</p>
+<div class="code-block" id="b-ed-spider-explodertank-o"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
     &quot;Outline&quot;: {
         &quot;Enabled&quot;: true,
         &quot;Type&quot;:&quot;Enemy&quot;
     }
 }</code></pre></div>
 <h3 id="direct-special-control">Direct special control 特殊控制</h3>
-<p><code>Direct</code>   允许直接更改 UE4 中定义的敌人属性。许多 CD2 未直接开放的属性可以通过 <code>Direct</code>   进行更改，比如：</p>
+<p id="b-direct-ue4-cd2-direct"><code>Direct</code>   允许直接更改 UE4 中定义的敌人属性。许多 CD2 未直接开放的属性可以通过 <code>Direct</code>   进行更改，比如：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Direct</code> allows to directly change enemy properties as defined in UE4. Many properties that are not directly exposed
 by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
+<div class="code-block" id="b-ed-spider-explodertank-d"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_ExploderTank&quot;: {
     &quot;Direct&quot;: {
         &quot;Int:NumClusterBombs&quot;: 200 
     }
 }</code></pre></div>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Exploder&quot;: {
+<div class="code-block" id="b-ed-spider-exploder-movem"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Exploder&quot;: {
   &quot;Movement&quot;: {
     &quot;MaxPawnSpeed&quot;: 5,
     &quot;MaxAcceleration&quot;: 5,
@@ -379,30 +379,30 @@ by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
   &quot;CanPlayerStandOn&quot;: true,
   &quot;Alert&quot;: true
 }</code></pre></div>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_JellyBreeder&quot;: {
+<div class="code-block" id="b-ed-jellybreeder-direct-b"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_JellyBreeder&quot;: {
   &quot;Direct&quot;: {
     &quot;Bool:Capsule.bHiddenInGame&quot;: false,
     &quot;PCol:Capsule&quot;: true
   },
   &quot;CanPlayerStandOn&quot;: true
 }</code></pre></div>
-<p>在  <a href="../direct/"> Direct</a>    页面，你可以找到虽然没有穷尽但仍比较完整的所有已知直接控制项的清单</p>
+<p id="b-e7451c">在  <a href="../direct/"> Direct</a>    页面，你可以找到虽然没有穷尽但仍比较完整的所有已知直接控制项的清单</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>In the <a href="../direct/">Direct</a> page you can find a non-exhaustive but fairly complete compilation of all the known direct controls.</p></div></details>
 <h3 id="elite-variants-for-all-enemies">让所有敌人都有精英变种 · Elite variants for all enemies</h3>
-<p>将 <code>Elite</code>   设置为 true 或某个浮点数，仅对原版已具备精英变种的敌人直接生效，如护卫、捕手蝇、禁卫、大自爆、速射和三颚等等。对于其他敌人，必须通过  <code>ForceEliteBase</code>    指定一个已有精英变种的敌人描述符作为模板。例如，以下代码片段创建了一个精英脓毒异虫，如果没有  <code>ForceEliteBase</code>    则无法生成其精英变种：</p>
+<p id="b-elite-true">将 <code>Elite</code>   设置为 true 或某个浮点数，仅对原版已具备精英变种的敌人直接生效，如护卫、捕手蝇、禁卫、大自爆、速射和三颚等等。对于其他敌人，必须通过  <code>ForceEliteBase</code>    指定一个已有精英变种的敌人描述符作为模板。例如，以下代码片段创建了一个精英脓毒异虫，如果没有  <code>ForceEliteBase</code>    则无法生成其精英变种：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Setting <code>Elite</code> to true or to some float number will only work directly for those enemies that have a vanilla elite variant: guards, grabbers, praetorians, bulks, menaces and trijaws. For the rest of the enemies, an elite base must be specified by setting <code>ForceEliteBase</code> to some existing ED that has an elite variant. As an example, the following snippet creates an elite septic spreader, which won't work without the <code>ForceEliteBase</code>:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Elite_Septic_Spreader&quot;: {
+<div class="code-block" id="b-ed-elite-septic-spreader"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Elite_Septic_Spreader&quot;: {
     &quot;Base&quot;: &quot;ED_Spider_Lobber&quot;,
     &quot;Elite&quot;: true,
     &quot;ForceEliteBase&quot;: &quot;ED_Grabber&quot;
 }</code></pre></div>
-<p>你选择的 ForceEliteBase 能够影响你想要自定义精英变种的敌人的属性，尽情尝试</p>
+<p id="b-forceelitebase">你选择的 ForceEliteBase 能够影响你想要自定义精英变种的敌人的属性，尽情尝试</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The type of elite specified as base can modify the characteristics of your custom elite descriptor, feel free to experiment. </p></div></details>
 <h3 id="veteran-control">变种控制 · Veteran control</h3>
-<p>变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过  <a href="../modules/"> DifficultySetting</a>   中的 <code>VeteranLarge</code>   设置以一定概率变异为暴君的）。CD2 改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
+<p id="b-difficultysetting">变种控制允许一些敌人变异为其他敌人。在原版游戏中，变种系统是固定的（例如，禁卫是通过  <a href="../modules/"> DifficultySetting</a>   中的 <code>VeteranLarge</code>   设置以一定概率变异为暴君的）。CD2 改进了该机制，允许玩家创建自定义的变种类别。目前有两种方式与变种系统进行交互：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Veterans allow some enemies to promote to other enemies. In vanilla the veteran classes are hardcoded (for example, oppressors are praetorians that got promoted with a probability given by the <code>VeteranLarge</code> setting in <a href="../modules/">DifficultySetting</a>). CD2 improves the system by allowing the player to create their own custom veteran classes. There are currently two ways to interact with the veteran system:</p></div></details>
-<ul><li><code>VeteranClasses</code>   接受一个描述符列表，以控制基础敌人可以变异为哪些敌人。<code>VeteranClasses</code>   使用  <code>VeteranNormal</code>    的概率，除非将  <code>UsesVeteranLarge</code>    设置为 true。以下代码片段展示了一个例子：<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>VeteranClasses</code> accepts a list of descriptors that the base descriptor can promote to. <code>VeteranClasses</code> uses <code>VeteranNormal</code> probablities unless <code>UsesVeteranLarge</code> is set to true. The following snippet shows an example:</div></details></li></ul>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;DifficultySetting&quot;: {
+<ul id="b-veteranclasses-veterancl"><li><code>VeteranClasses</code>   接受一个描述符列表，以控制基础敌人可以变异为哪些敌人。<code>VeteranClasses</code>   使用  <code>VeteranNormal</code>    的概率，除非将  <code>UsesVeteranLarge</code>    设置为 true。以下代码片段展示了一个例子：<details class="orig"><summary>英文原文</summary><div class="orig-body"><code>VeteranClasses</code> accepts a list of descriptors that the base descriptor can promote to. <code>VeteranClasses</code> uses <code>VeteranNormal</code> probablities unless <code>UsesVeteranLarge</code> is set to true. The following snippet shows an example:</div></details></li></ul>
+<div class="code-block" id="b-difficultysetting-vetera"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;DifficultySetting&quot;: {
     &quot;VeteranNormal&quot;: {
         [
         &quot;Weight&quot;: 1,
@@ -419,19 +419,19 @@ by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
         ]
     }
 }</code></pre></div>
-<p>通过此设置，小战士每次生成时都有 20%的概率变种为吐酸异虫/吐丝异虫。这种方法的一个缺点是，<code>VeteranNormal</code>    和  <code>VeteranLarge</code>    是全局设置（即所有使用该配置的都采用这个值）。</p>
+<p id="b-20-veterannormal">通过此设置，小战士每次生成时都有 20%的概率变种为吐酸异虫/吐丝异虫。这种方法的一个缺点是，<code>VeteranNormal</code>    和  <code>VeteranLarge</code>    是全局设置（即所有使用该配置的都采用这个值）。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>With these settings, Grunts will promote to acid and web spitters with a 20% chance each time they spawn. One disadvantage of this approach is that <code>VeternalNormal</code> and <code>VeteranLarge</code> are global.</p></div></details>
-<ul><li>第二种方式是  <code>CustomVeterans</code>，它绕过了 <code>VeteranNormal</code>   和 <code>VeteranLarge</code>   的设置，允许你单独指定变异率。以下代码片段功能与之前的完全相同，但现在概率仅作用于战士异虫，而非全局生效：<details class="orig"><summary>英文原文</summary><div class="orig-body">The second way is <code>CustomVeterans</code>, which bypasses the <code>VeternalNormal</code> and <code>VeteranLarge</code> settings and lets the user specify the probability directly. The following snippet whould work exactly as the one before, but now the probabilities are contained to the grunt descriptor instead of being global:</div></details></li></ul>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
+<ul id="b-customveterans-veteranno"><li>第二种方式是  <code>CustomVeterans</code>，它绕过了 <code>VeteranNormal</code>   和 <code>VeteranLarge</code>   的设置，允许你单独指定变异率。以下代码片段功能与之前的完全相同，但现在概率仅作用于战士异虫，而非全局生效：<details class="orig"><summary>英文原文</summary><div class="orig-body">The second way is <code>CustomVeterans</code>, which bypasses the <code>VeternalNormal</code> and <code>VeteranLarge</code> settings and lets the user specify the probability directly. The following snippet whould work exactly as the one before, but now the probabilities are contained to the grunt descriptor instead of being global:</div></details></li></ul>
+<div class="code-block" id="b-ed-spider-grunt-customve"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
      &quot;CustomVeterans&quot;: {
         &quot;ED_Spider_Grunt&quot;: 0.8,
         &quot;ED_Spider_Shooter&quot;: 0.1,
         &quot;ED_Spider_Spitter&quot;: 0.1
       }
     }</code></pre></div>
-<p><code>CustomVeterans</code>   还允许通过 Mutator 来决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
+<p id="b-customveterans-mutator"><code>CustomVeterans</code>   还允许通过 Mutator 来决定要生成哪些敌人，从而实现更精细的控制。一个典型用例是：限制某一类型的变种数量：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>CustomVeterans</code> also allows specifying a mutator to decide which enemies to spawn, which can give more control. One useful use case is to limit the amount of veterans of a certain type:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
+<div class="code-block" id="b-ed-spider-grunt-customve-2"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Grunt&quot;: {
       &quot;CustomVeterans&quot;: {
         &quot;Mutate&quot;: &quot;RandomChoice&quot;,
         &quot;Choices&quot;: [ &quot;ED_Spider_Buffer&quot;, &quot;ED_Spider_Grunt&quot;, &quot;ED_Spider_Grunt_Guard&quot;, &quot;ED_Spider_Grunt_Attacker&quot; ],
@@ -449,14 +449,14 @@ by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
         ]
       }
     },</code></pre></div>
-<p>当地图上典狱长数量未达到 5 只时，该代码片段会赋予其极高的生成概率；一旦达到 5 只，战士异虫变异为典狱长的概率将降至零。</p>
+<p id="b-ad84e2">当地图上典狱长数量未达到 5 只时，该代码片段会赋予其极高的生成概率；一旦达到 5 只，战士异虫变异为典狱长的概率将降至零。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>This snippet gives a very high chance of wardens to spawn until there are 5 of them in the map, at which point the probability to get more warden promotions will drop to 0.</p></div></details>
 <h3 id="custom-materials">自定义材质 · Custom materials</h3>
-<p>CD2 允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用  <code>Enemies</code>    模块，客户端才能看到变化。（未安装 CD2 的客户端不支持）</p>
+<p id="b-cd2-enemies">CD2 允许在每个敌人的描述符中指定一系列材质来定制敌人的外观。此功能需要使用  <code>Enemies</code>    模块，客户端才能看到变化。（未安装 CD2 的客户端不支持）</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>CD2 allows specifying a list of <code>Materials</code> in individual enemy descriptors to customize how the enemies look. This feature requires <code>Enemies</code> for clients to be able to see the changes.</p></div></details>
-<p>示例：创建一个橙色的脓毒异虫。</p>
+<p id="b-e034b6">示例：创建一个橙色的脓毒异虫。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: create an orange septic.</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<div class="code-block" id="b-enemies-ed-spider-lobber"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
     &quot;Enemies&quot;: {
         &quot;ED_Spider_Lobber&quot;: {
             &quot;Materials&quot;: [&quot;M_Halloween_Light_Orange&quot;, &quot;M_Halloween_Light_Orange&quot;]
@@ -467,13 +467,13 @@ by CD2 can be changed with <code>Direct</code>. For example:</p></div></details>
   <img loading="lazy" alt="CD2modhub" src="../assets/media/orange-septic.webp" width="677" height="599">
 </figure>
 
-<p>每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在<a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">沙盒工具</a>中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../assets/media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用<code>""</code>或 <code>Default</code>   都可以。</p>
+<p id="b-27b596">每个敌人有一定数量的材质槽位，游戏中有数百种可用的材质，但并非所有材质都能在敌人身上生效。测试并寻找新材质的最佳方式是，在<a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">沙盒工具</a>中生成敌人并进行更改，即可立刻看到变化。@TheBrain 在<a href="../assets/media/Materials-1.pdf">文档</a>中详细说明了操作流程，如果你希望将材质槽留空以使用默认材质，使用<code>""</code>或 <code>Default</code>   都可以。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Each enemy has a certain number of material slots. There are hundreds of available materials, but not all of them work when used in enemies. The best way to test and find new materials for your enemies is spawning the enemy in <a href="https://mod.io/g/drg/m/sandbox-utilities" target="_blank" rel="noopener">Sandbox Utilities</a> and changing them, and you will be able to see the change in real time. This procedure is explained in <a href="../assets/media/Materials-1.pdf">this document</a> by @TheBrain.
 If you wish to leave a slot with the default material, both <code>""</code> and <code>Default</code> work.</p></div></details>
 <h2 id="resistances">抗性 · Resistances</h2>
-<p>Resistances 模块的字段，这些控制项可以用来定义敌人对所有类型伤害的抗性，<code>DamageMultiplier</code>    是适用于所有伤害类型的通用设置。</p>
+<p id="b-resistances-damagemultip">Resistances 模块的字段，这些控制项可以用来定义敌人对所有类型伤害的抗性，<code>DamageMultiplier</code>    是适用于所有伤害类型的通用设置。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Fields for the resistances submodule. These controls can be used to define resistances to all types of damage in the game. <code>DamageMultiplier</code> is the catch-all for all damage types.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-invulnerableto"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -537,9 +537,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </table>
 </div>
 <h2 id="movement">移动 · Movement</h2>
-<p>以下值均为倍率，默认值为 1。描述由 @emctwo 提供。</p>
+<p id="b-1-emctwo">以下值均为倍率，默认值为 1。描述由 @emctwo 提供。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following values are all multipliers with defaults of 1. The following descriptions are provided by @emctwo. </p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-description-ma"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -612,9 +612,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </table>
 </div>
 <h2 id="caveleech">水蛭 · CaveLeech</h2>
-<p>水蛭的特殊控制</p>
+<p id="b-e77154">水蛭的特殊控制</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special controls for cave leeches.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-default-biteda"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -682,9 +682,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </table>
 </div>
 <h2 id="grabber">捕手异虫蝇 · Grabber</h2>
-<p>控制捕手异虫蝇</p>
+<p id="b-f060e8">控制捕手异虫蝇</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special controls for grabbers.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-default-wander"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -767,9 +767,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </table>
 </div>
 <h2 id="jellybreeder">水母 · JellyBreeder</h2>
-<p>控制水母</p>
+<p id="b-2b4c26">控制水母</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special controls for breeders.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-default-commen"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -860,8 +860,8 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tbody>
 </table>
 </div>
-<p>示例：</p>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
+<p id="b-614fc6">示例：</p>
+<div class="code-block" id="b-name-cd2-beta-6-test-bre"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{
   &quot;Name&quot;: &quot;CD2 Beta 6 Test - Breeder Update&quot;,
   &quot;Enemies&quot;: {
     &quot;ED_GruntBreeder&quot;: {
@@ -915,9 +915,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
   }
 }</code></pre></div>
 <h2 id="spawner">生成器 · Spawner</h2>
-<p> <code>Spawner</code>    是一个特殊子模块，允许任何敌人周期性生成其他敌人，并提供多种灵活的选项。它包含以下字段：</p>
+<p id="b-73fe8e"> <code>Spawner</code>    是一个特殊子模块，允许任何敌人周期性生成其他敌人，并提供多种灵活的选项。它包含以下字段：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p><code>Spawner</code> is a special submodule that allows any enemy to periodically spawn other enemies with different flexilibity options. It contains the following fields:</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-description-default"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -974,9 +974,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tbody>
 </table>
 </div>
-<p>以下代码片段展示了一个带有 Spawner 模块的蛭尾异虫。Spawner 将每秒生成 2 只蜂拥，直到存活 10 只为止，所有蜂拥会在蛭尾异虫死亡时一起死亡：</p>
+<p id="b-spawner-spawner-2-10">以下代码片段展示了一个带有 Spawner 模块的蛭尾异虫。Spawner 将每秒生成 2 只蜂拥，直到存活 10 只为止，所有蜂拥会在蛭尾异虫死亡时一起死亡：</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following snippet shows a stingtail descriptor with a swarmer module attached. The spawner will spawn 2 swarmers every second until 10 are alive and they will all die when the stingtail is killed:</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Stinger&quot;: {
+<div class="code-block" id="b-ed-spider-stinger-spawne"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">&quot;ED_Spider_Stinger&quot;: {
     &quot;Spawner&quot;: {
         &quot;ED&quot;: &quot;ED_Spider_Spawn&quot;,
         &quot;IntervalSpawnCount&quot;: 2,
@@ -986,12 +986,12 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
         &quot;OnDeathKillSpawns&quot;: true
     }
 }</code></pre></div>
-<p>所有  <code>Spawner</code>    模块内的字段可以被  <code>Mutator</code>    控制</p>
+<p id="b-spawner-mutator">所有  <code>Spawner</code>    模块内的字段可以被  <code>Mutator</code>    控制</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>All fields inside the <code>Spawner</code> can be mutated.</p></div></details>
 <h2 id="temperature">温度 · Temperature</h2>
-<p>特殊的温度控制，用于改变敌人对高温和低温的反应。</p>
+<p id="b-44ac40">特殊的温度控制，用于改变敌人对高温和低温的反应。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Special temperature controls to change how enemies react to heat and cold.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-name-type-dieiffrozen-bo"><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -1054,9 +1054,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 </tbody>
 </table>
 </div>
-<p>以下代码片段使用  <code>Temperature</code>    模块让 无畏异虫 变得可以点燃。</p>
+<p id="b-temperature">以下代码片段使用  <code>Temperature</code>    模块让 无畏异虫 变得可以点燃。</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Example: the following snippet use the <code>Temperature</code> module to make dreadnoughts ignitable.</p></div></details>
-<div class="code-block"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{ 
+<div class="code-block" id="b-enemies-ed-spider-boss-h"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">{ 
     &quot;Enemies&quot;: {
         &quot;ED_Spider_Boss_Heavy&quot;: {
           &quot;Resistances&quot;: {&quot;DamageMultiplier&quot;: 1.23, &quot;FireDamageMultiplier&quot;: 1.2},
@@ -1073,9 +1073,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
     }
 }</code></pre></div>
 <h2 id="DropResource">资源掉落 · DropResource</h2>
-<p>令敌人在被击杀时掉落资源。这些字段上的 Mutator 会在每次敌人死亡时进行计算</p>
+<p id="b-7f3d9d">令敌人在被击杀时掉落资源。这些字段上的 Mutator 会在每次敌人死亡时进行计算</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Enemies drop resources when they are killed.Mutators on these fields are evaluated between every enemy death.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-field-name-type-default"><table>
 <thead>
 <tr>
 <th>Field Name<br><span class="td-zh">字段名称</span></th>
@@ -1120,9 +1120,9 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
 
 </div>
 <h2 id="Goomba">踩踏击杀 · Goomba</h2>
-<p>允许矮人通过 跳到敌人身上 后造成伤害（马里奥）</p>
+<p id="b-f4d1f2">允许矮人通过 跳到敌人身上 后造成伤害（马里奥）</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>Allows dwarves to damage enemies by jumping/landing on top of the enemy.</p></div></details>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-field-name-type-default-2"><table>
   <thead>
     <tr>
       <th>Field name<br><span class="td-zh">字段名称</span></th>
@@ -1199,12 +1199,17 @@ If you wish to leave a slot with the default material, both <code>""</code> and 
     </div>
     <div class="footer-col">
       <h3>声明</h3>
-      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+      <p>本项目为<b>非官方</b>中文参考站。<b>Reference 正文</b>（基础部分 / 模块 / 敌人配置 /
+      Direct / 波次生成器 / 发射物 / Mutators / 资源 / FAQ）译自上游英文文档；
+      <b>新手入门、常见修改 · Cookbook、案例拆解、为什么没生效 · Debug、目录</b>为本站
+      <b>原创撰写</b>（案例拆解取自作者的真实难度档；Cookbook 的 6 条新配方与 Mutators
+      用途索引整理自站内 Reference，<b>尚未在游戏内逐条实测</b>）。界面设计、排版结构与
+      原始内容版权归原作者所有。</p>
     </div>
   </div>
 </footer>
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
-<script src="../assets/js/site.js?v=e29631e0" defer></script>
+<script src="../assets/js/site.js?v=c6eff14d" defer></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://seasonsc.github.io/CD2-reference-cn/direct/">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <script>!function(){try{var t=localStorage.getItem('cd2-theme')||'auto';document.documentElement.setAttribute('data-theme',t==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):t);var l=localStorage.getItem('cd2-lang')==='zh'?'zh':'both';document.documentElement.setAttribute('data-lang',l);}catch(e){document.documentElement.setAttribute('data-theme','dark');}}();</script>
-<link rel="stylesheet" href="../assets/css/site.css?v=e29631e0">
+<link rel="stylesheet" href="../assets/css/site.css?v=c6eff14d">
 </head>
 <body class="has-toc">
 <a class="skip-link" href="#main">跳到正文</a>
@@ -57,10 +57,10 @@
 <div class="layout has-toc"><nav class="drawer" id="drawer" aria-label="站点导航"><ul class="drawer-list"><li class="nav-head">入门 · 从这里开始</li><li><a href="../">首页 · Introduction</a></li><li><a href="../toc/">目录 · Contents</a></li><li><a href="../tutorial/">新手入门 · Getting Started</a></li><li><a href="../basics/">基础部分 · The Basics of CD2</a></li><li class="nav-head">实战 · 学着做</li><li><a href="../common-edits/">常见修改 · Cookbook</a></li><li><a href="../natural-selection/">案例拆解 · Case Study</a></li><li class="nav-head">Reference · 查表</li><li><a href="../modules/">模块 · Modules</a></li><li><a href="../enemies/">敌人配置 · Enemies / EnemiesNoSync</a></li><li><a href="../direct/" class="current" aria-current="page">Direct · 底层属性</a></li><li><a href="../wavespawners/">波次生成器 · WaveSpawners</a></li><li><a href="../projectiles/">发射物 · Projectiles</a></li><li><a href="../mutators/">动态参数与逻辑控制 · Mutators</a></li><li><a href="../resources/">资源 · Resources</a></li><li class="nav-head">排障 · 出问题</li><li><a href="../faq/">常见问题 · FAQ</a></li><li><a href="../tips/">为什么没生效 · Debug</a></li></ul></nav><main id="main" class="content">
 <nav class="breadcrumb" aria-label="面包屑"><a href="../">首页</a> › <span class="crumb-g">Reference · 查表</span> › Direct · 底层属性</nav>
 <h1>Direct · 底层属性</h1>
-<p>以下表格由 @TheBrain 汇总整理，它并不完全详尽，也不能保证所有字段能在局内生效</p>
+<p id="b-thebrain">以下表格由 @TheBrain 汇总整理，它并不完全详尽，也不能保证所有字段能在局内生效</p>
 <details class="orig"><summary>英文原文</summary><div class="orig-body"><p>The following list was compiled by @TheBrain. It is not exhaustive and it is not guaranteed for all fields to work in-game. </p></div></details>
 <h2 id="ed_pumpkinlootbug">ED_PumpkinLootBug · 掠夺虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -148,7 +148,7 @@
 </table>
 </div>
 <h2 id="ed_flea">ED_Flea · 脓蚤</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-2"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -272,7 +272,7 @@
 </table>
 </div>
 <h2 id="ed_spider_hoarder">ED_Spider_Hoarder · 嗜矿异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-3"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -404,7 +404,7 @@
 </table>
 </div>
 <h2 id="ed_prospector">ED_Prospector · 勘探无人机</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-in"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -740,7 +740,7 @@
 </table>
 </div>
 <h2 id="ed_barrageinfector">ED_BarrageInfector · 瘟疫霰射吐珠</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-4"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -848,7 +848,7 @@
 </table>
 </div>
 <h2 id="ed_caveleech">ED_CaveLeech · 洞穴水蛭</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-5"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -956,7 +956,7 @@
 </table>
 </div>
 <h2 id="ed_crawler">ED_Crawler · 匍行核岩孽生兽</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-6"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1060,7 +1060,7 @@
 </table>
 </div>
 <h2 id="ed_spiderspawner">ED_SpiderSpawner · 异虫母巢</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-in-2"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1192,9 +1192,9 @@
 </table>
 </div>
 <h2 id="ed_bomber">ED_Bomber · 粘液轰炸蝇</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2">无</p>
 <h2 id="ed_bomber_explosive">ED_Bomber_Explosive · 爆炸轰炸蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-7"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1218,9 +1218,9 @@
 </table>
 </div>
 <h2 id="ed_bomber_ice">ED_Bomber_Ice · 冰霜轰炸蝇</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-2">无</p>
 <h2 id="ed_grabber">ED_Grabber · 捕手异虫蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-8"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1288,7 +1288,7 @@
 </table>
 </div>
 <h2 id="ed_mactera_shooter_amber">ED_Mactera_Shooter_Amber · 氪化吐刺蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-9"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1328,7 +1328,7 @@
 </table>
 </div>
 <h2 id="ed_mactera_shooter_heavyveteran">ED_Mactera_Shooter_HeavyVeteran · 坚甲异虫蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-10"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1360,7 +1360,7 @@
 </table>
 </div>
 <h2 id="ed_mactera_shooter_normal">ED_Mactera_Shooter_Normal · 吐刺异虫蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-11"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1376,7 +1376,7 @@
 </table>
 </div>
 <h2 id="ed_mactera_tripleshooter">ED_Mactera_TripleShooter · 三颚异虫蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-12"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1416,7 +1416,7 @@
 </table>
 </div>
 <h2 id="ed_hydraweed">ED_HydraWeed · 科洛克王草</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-13"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1600,7 +1600,7 @@
 </table>
 </div>
 <h2 id="ed_infestationlarva">ED_InfestationLarva · 肉食幼虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-14"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1632,7 +1632,7 @@
 </table>
 </div>
 <h2 id="ed_jelly_spawn">ED_Jelly_Spawn · 纳多赛特幼体</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-15"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1652,11 +1652,11 @@
 </table>
 </div>
 <h2 id="ed_jelly_swarmer">ED_Jelly_Swarmer</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-3">无</p>
 <h2 id="ed_jellybreeder">ED_JellyBreeder · 纳多赛特饲育水母</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-4">无</p>
 <h2 id="ed_infectedmule">ED_InfectedMule · 战斗矿骡 BET-C</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-16"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -1924,7 +1924,7 @@
 </table>
 </div>
 <h2 id="ed_bomber_rockpox_plague">ED_Bomber_Rockpox_Plague · 岩痘轰炸蝇</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-17"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2024,7 +2024,7 @@
 </table>
 </div>
 <h2 id="ed_spider_grunt_rockpoxplague">ED_Spider_Grunt_RockpoxPlague · 岩痘战士异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-18"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2160,7 +2160,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_rockpoxplague">ED_Spider_Tank_RockpoxPlague · 岩痘禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-in-3"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2316,7 +2316,7 @@
 </table>
 </div>
 <h2 id="ed_jellybreeder_rockpoxplague">ED_JellyBreeder_RockpoxPlague · 岩痘纳多赛特饲育水母</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-19"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2504,7 +2504,7 @@
 </table>
 </div>
 <h2 id="ed_spider_exploder_rockpox_plague">ED_Spider_Exploder_Rockpox_Plague · 岩痘自爆异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-20"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2656,7 +2656,7 @@
 </table>
 </div>
 <h2 id="ed_plaguelarva">ED_PlagueLarva · 岩痘幼虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-21"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2700,7 +2700,7 @@
 </table>
 </div>
 <h2 id="ed_plagueshark">ED_PlagueShark · 成熟岩痘幼虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-22"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2816,7 +2816,7 @@
 </table>
 </div>
 <h2 id="ed_spider_shooter_rockpox_plague">ED_Spider_Shooter_Rockpox_Plague · 岩痘吐酸异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-23"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -2980,7 +2980,7 @@
 </table>
 </div>
 <h2 id="ed_walkingplagueheart">ED_WalkingPlagueheart · 岩痘腐化者</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-24"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -3764,7 +3764,7 @@
 </table>
 </div>
 <h2 id="ed_patrolbot">ED_PatrolBot · 巡逻机器人</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-25"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -3992,7 +3992,7 @@
 </table>
 </div>
 <h2 id="ed_patrolbot_caretaker">ED_PatrolBot_Caretaker · 看守者召唤的巡逻机器人</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-26"><table>
 <thead>
 <tr>
 <th class="tc">Control</th>
@@ -4008,7 +4008,7 @@
 </table>
 </div>
 <h2 id="ed_shredder">ED_Shredder · 粉碎者</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-bo"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4024,7 +4024,7 @@
 </table>
 </div>
 <h2 id="ed_terminator">ED_Terminator · 深渊复仇者</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-27"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4192,7 +4192,7 @@
 </table>
 </div>
 <h2 id="ed_shark">ED_Shark · 纳亚卡鲨虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-28"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4316,7 +4316,7 @@
 </table>
 </div>
 <h2 id="ed_shootingplant">ED_ShootingPlant · 瘟疫吐珠</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-29"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4404,7 +4404,7 @@
 </table>
 </div>
 <h2 id="ed_spider_buffer">ED_Spider_Buffer · 典狱长</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-30"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4492,7 +4492,7 @@
 </table>
 </div>
 <h2 id="ed_spider_charger">ED_Spider_Charger · 瞬移禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-31"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4556,7 +4556,7 @@
 </table>
 </div>
 <h2 id="ed_spider_exploder">ED_Spider_Exploder · 自爆异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-bo-2"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4640,9 +4640,9 @@
 </table>
 </div>
 <h2 id="ed_spider_exploder_warning">ED_Spider_Exploder_Warning · 自爆群袭生成的自爆异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-5">无</p>
 <h2 id="ed_spider_explodertank">ED_Spider_ExploderTank · 大自爆虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-32"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4810,7 +4810,7 @@
 </table>
 </div>
 <h2 id="ed_spider_explodertankghost">ED_Spider_ExploderTankGhost · 恐怖存在</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-33"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4866,7 +4866,7 @@
 </table>
 </div>
 <h2 id="ed_spider_explodertank_king">ED_Spider_ExploderTank_King · 自爆王虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-34"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -4958,7 +4958,7 @@
 </table>
 </div>
 <h2 id="ed_spider_drone">ED_Spider_Drone · 模型异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-35"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5002,7 +5002,7 @@
 </table>
 </div>
 <h2 id="ed_spider_grunt">ED_Spider_Grunt · 战士异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-36"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5018,7 +5018,7 @@
 </table>
 </div>
 <h2 id="ed_spider_grunttutorial">ED_Spider_GruntTutorial · 典狱长召唤的战士异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-37"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5034,11 +5034,11 @@
 </table>
 </div>
 <h2 id="ed_spider_grunt_ice">ED_Spider_Grunt_Ice · 冰封岩层的战士异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-6">无</p>
 <h2 id="ed_spider_grunt_mutated">ED_Spider_Grunt_Mutated · 放射性禁区的战士异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-7">无</p>
 <h2 id="ed_spider_grunt_attacker">ED_Spider_Grunt_Attacker · 刀锋异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-38"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5058,7 +5058,7 @@
 </table>
 </div>
 <h2 id="ed_spider_grunt_guard">ED_Spider_Grunt_Guard · 护卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-39"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5090,7 +5090,7 @@
 </table>
 </div>
 <h2 id="ed_spider_grunt_rock">ED_Spider_Grunt_Rock · 矿化战士异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-40"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5106,7 +5106,7 @@
 </table>
 </div>
 <h2 id="ed_spider_lobber">ED_Spider_Lobber · 脓毒异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-bo-3"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5122,7 +5122,7 @@
 </table>
 </div>
 <h2 id="ed_spider_rapidshooter">ED_Spider_RapidShooter · 速射酸虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-41"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5206,7 +5206,7 @@
 </table>
 </div>
 <h2 id="ed_spider_amber_shooter">ED_Spider_Amber_Shooter · 氪化吐酸异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-42"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5262,11 +5262,11 @@
 </table>
 </div>
 <h2 id="ed_spider_shooter">ED_Spider_Shooter · 吐酸异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-8">无</p>
 <h2 id="ed_spider_shooter_ground">ED_Spider_Shooter_Ground · 迫击吐酸异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-9">无</p>
 <h2 id="ed_spider_shooterqueen">ED_Spider_ShooterQueen · 酸液皇后</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-43"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5310,7 +5310,7 @@
 </table>
 </div>
 <h2 id="ed_spider_spitter">ED_Spider_Spitter · 吐丝异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-44"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5350,7 +5350,7 @@
 </table>
 </div>
 <h2 id="ed_spider_stalker">ED_Spider_Stalker · 潜行异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-45"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5370,7 +5370,7 @@
 </table>
 </div>
 <h2 id="ed_spider_stinger">ED_Spider_Stinger · 蛭尾异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-46"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5506,7 +5506,7 @@
 </table>
 </div>
 <h2 id="ed_spider_swarmer">ED_Spider_Swarmer · 蜂拥异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-47"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5566,9 +5566,9 @@
 </table>
 </div>
 <h2 id="ed_spider_swarmer_ice">ED_Spider_Swarmer_Ice · 冰封岩层的蜂拥异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-10">无</p>
 <h2 id="ed_spider_swarmer_mutated">ED_Spider_Swarmer_Mutated · 放射性禁区的蜂拥异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-48"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5636,9 +5636,9 @@
 </table>
 </div>
 <h2 id="ed_spider_swarmer_pheromone_nofx">ED_Spider_Swarmer_Pheromone_NOFX · 无畏异虫召唤的蜂拥异虫</h2>
-<p class="tbl-none">无</p>
+<p class="tbl-none" id="b-d81bb2-11">无</p>
 <h2 id="ed_spider_spawn">ED_Spider_Spawn · 异虫幼虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-49"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5662,7 +5662,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank">ED_Spider_Tank · 禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-50"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5690,7 +5690,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_ice">ED_Spider_Tank_Ice · 寒霜禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-51"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5718,7 +5718,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_mutated">ED_Spider_Tank_Mutated · 放射性禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-52"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5790,7 +5790,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_amber">ED_Spider_Tank_Amber · 氪化禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-53"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5846,7 +5846,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_rock">ED_Spider_Tank_Rock · 矿化禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-54"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5866,7 +5866,7 @@
 </table>
 </div>
 <h2 id="ed_spider_shieldtank">ED_Spider_ShieldTank · 暴君异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-55"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -5918,7 +5918,7 @@
 </table>
 </div>
 <h2 id="ed_spider_boss_heavy">ED_Spider_Boss_Heavy · 巢主无畏异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-56"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6058,7 +6058,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_heavyspawn">ED_Spider_Tank_HeavySpawn · 哨卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-57"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6138,7 +6138,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_boss">ED_Spider_Tank_Boss · 无畏异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-bo-4"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6286,7 +6286,7 @@
 </table>
 </div>
 <h2 id="ed_spider_boss_twina">ED_Spider_Boss_TwinA · 强弩无畏异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-58"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6322,7 +6322,7 @@
 </table>
 </div>
 <h2 id="ed_spider_boss_twinb">ED_Spider_Boss_TwinB · 重斧无畏异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-59"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6390,7 +6390,7 @@
 </table>
 </div>
 <h2 id="ed_tentacleplant">ED_TentaclePlant · 瓦托克鳞甲荆丛</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-60"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6498,7 +6498,7 @@
 </table>
 </div>
 <h2 id="ed_woodlouse">ED_Woodlouse · 丘罗那地虱</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-61"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6634,7 +6634,7 @@
 </table>
 </div>
 <h2 id="ed_woodlouse_youngling">ED_Woodlouse_Youngling · 丘罗那地虱幼体</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-62"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6686,7 +6686,7 @@
 </table>
 </div>
 <h2 id="ed_greategghunt_springbunny">ED_GreatEggHunt_SpringBunny · 春季兔兔</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-63"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6762,7 +6762,7 @@
 </table>
 </div>
 <h2 id="ed_halloween_skull">ED_Halloween_Skull · 万圣骷髅头</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-64"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6870,7 +6870,7 @@
 </table>
 </div>
 <h2 id="ed_nisse">ED_Nisse · 圣诞小精灵</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-65"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6950,7 +6950,7 @@
 </table>
 </div>
 <h2 id="ed_spider_grunt_rock_warning">ED_Spider_Grunt_Rock_Warning · 矿化爆发的矿化战士异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-66"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6966,7 +6966,7 @@
 </table>
 </div>
 <h2 id="ed_spider_tank_rock_warning">ED_Spider_Tank_Rock_Warning · 矿化爆发的矿化禁卫异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-67"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -6986,7 +6986,7 @@
 </table>
 </div>
 <h2 id="ed_flyingsmartrock">ED_FlyingSmartRock · 飞石</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-68"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7094,7 +7094,7 @@
 </table>
 </div>
 <h2 id="ed_facilityturret_barrier">ED_FacilityTurret_Barrier · 推斥炮塔</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-in-4"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7142,7 +7142,7 @@
 </table>
 </div>
 <h2 id="ed_facilityturret_burst">ED_FacilityTurret_Burst · 连射炮塔</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-69"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7254,7 +7254,7 @@
 </table>
 </div>
 <h2 id="ed_facilityturret_sniper">ED_FacilityTurret_Sniper · 狙击炮塔</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-70"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7430,7 +7430,7 @@
 </table>
 </div>
 <h2 id="ed_insectswarm_spawner">ED_InsectSwarm_Spawner · 雷鸣蜂巢</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-71"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7482,7 +7482,7 @@
 </table>
 </div>
 <h2 id="ed_eggspider">ED_EggSpider · 异虫蛋的蜂拥异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-72"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7542,7 +7542,7 @@
 </table>
 </div>
 <h2 id="ed_tunnelswarmer">ED_TunnelSwarmer · 异虫隧道生成的蜂拥异虫</h2>
-<div class="table-wrap"><table>
+<div class="table-wrap" id="b-control-default-value-fl-73"><table>
 <thead>
 <tr>
 <th>Control</th>
@@ -7616,12 +7616,17 @@
     </div>
     <div class="footer-col">
       <h3>声明</h3>
-      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+      <p>本项目为<b>非官方</b>中文参考站。<b>Reference 正文</b>（基础部分 / 模块 / 敌人配置 /
+      Direct / 波次生成器 / 发射物 / Mutators / 资源 / FAQ）译自上游英文文档；
+      <b>新手入门、常见修改 · Cookbook、案例拆解、为什么没生效 · Debug、目录</b>为本站
+      <b>原创撰写</b>（案例拆解取自作者的真实难度档；Cookbook 的 6 条新配方与 Mutators
+      用途索引整理自站内 Reference，<b>尚未在游戏内逐条实测</b>）。界面设计、排版结构与
+      原始内容版权归原作者所有。</p>
     </div>
   </div>
 </footer>
  <button class="btn jump-back" id="jump-back" type="button" aria-label="返回上一位置" hidden>&larr; 返回上一位置</button>
 <button class="to-top" id="to-top" type="button" aria-label="返回顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></button>
-<script src="../assets/js/site.js?v=e29631e0" defer></script>
+<script src="../assets/js/site.js?v=c6eff14d" defer></script>
 </body>
 </html>

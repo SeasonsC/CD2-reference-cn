@@ -8,7 +8,7 @@ CD2 参考文档 v2 · 静态站渲染器（M2 + 改进清单）
   · 改进清单 §6：meta description ≤120 字；首页 tagline 控断行
   · 方案 v2.1 §3.5：成对段落 → 中文 + <details class="orig"> 折叠英文
 """
-import os, io, re, json, html as H, sys, shutil
+import os, io, re, json, html as H, sys, shutil, hashlib
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import mtio2                                  # 「类型栏」→ 字段表 + 返回类型
@@ -142,8 +142,8 @@ HOME_PATHS = [
 
 HOME_STEPS = [
     '复制 <a href="/basics/#the-cd2-files">Hazard 5x2 最小示例</a>，粘进游戏里的 CD2 面板',
-    '把 <code>EnemyCountModifier</code> 里的 <code>1.7</code> 改成 <code>2</code>'
-    ' —— 见<a href="/modules/#difficultysetting">模块 · DifficultySetting</a>',
+    '挑 <code>EnemyCountModifier</code> 里的一个数字改大或改小——它是<b>按人数排列的数组</b>，'
+    '改的时候每个元素都要动；见<a href="/modules/#difficultysetting">模块 · DifficultySetting</a>',
     '点 <code>Save</code> 保存，再进游戏验证；没变化就去'
     '<a href="/tips/">为什么没生效 · Debug</a>',
 ]
@@ -280,6 +280,55 @@ def fold(en):
             f'<div class="orig-body">{en}</div></details>')
 
 
+# ── R17 §S7：块级搜索锚点 ───────────────────────────────────────────────
+# 每个可搜索块在渲染时拿到一个**页内唯一** id（b1、b2…），并同时登记一条块级索引。
+# 关键设计：id 与索引条目在**同一步**产生 → 天然一致，不存在「extract 与 render
+# 各写一套 slug 函数、对不上」的风险（独立审查 S7.4a 专门警告过这一点）。
+BLOCKS = []            # 块级搜索索引：[{p: 页面路径, a: 锚点 id, x: 文本}]
+_BID = [0]             # 页内序号（slug 重名去重与兜底用）
+_BID_USED = [set()]    # 本页已用锚点
+_CURPATH = ['/']       # 当前正在渲染的页面路径
+_TAG = re.compile(r'<[^>]+>')
+
+
+def _block_slug(text, n):
+    """R18 A：锚点由**块文本**派生（ASCII slug，重名追加 -2/-3）。
+
+    为什么不用页内序号：序号会随内容增删整体平移，读者之前分享出去的搜索结果链接
+    下次内容一改就可能指到别的块。为什么不用中文 slug：非 ASCII 的 fragment 会被
+    百分号编码，分享出去的链接又长又难看，还得在 JS 里解码；中文块改用短哈希兜底。
+    锚点只在该块**自身**文字变化时才变，别的块增删不影响它。
+    """
+    a = re.sub(r'[^0-9a-z]+', '-', (text or '')[:64].lower()).strip('-')[:24].strip('-')
+    if len(a) < 8:
+        a = hashlib.md5((text or '').encode('utf-8')).hexdigest()[:6]
+    used = _BID_USED[0]
+    base = 'b-' + a
+    if base not in used:
+        used.add(base)
+        return base
+    k = 2
+    while '%s-%d' % (base, k) in used:
+        k += 1
+    out = '%s-%d' % (base, k)
+    used.add(out)
+    return out
+
+
+def _block_text(b):
+    """块的可搜索纯文本（折叠的英文不算——纯中文模式下读者看不到它）。"""
+    t = b['t']
+    if t == 'p':
+        s = b.get('zh') or b.get('en') or ''
+    elif t == 'list':
+        s = ' '.join((it.get('zh') or it.get('en') or '') for it in b['items'])
+    elif t == 'code':
+        s = b.get('text') or ''
+    else:
+        s = b.get('html') or ''
+    return re.sub(r'\s+', ' ', H.unescape(_TAG.sub(' ', s))).strip()
+
+
 def list_items(b):
     out = []
     for it in b['items']:
@@ -312,7 +361,29 @@ def _skip_fold(zh, en):
     return False
 
 
+def _inject_id(html, bid):
+    """把 id 追加到首个标签**已有属性之后**（保持属性顺序，避免打乱既有断言与样式钩子）。"""
+    m = re.match(r'(\s*<[A-Za-z][\w-]*)((?:[^>"\']|"[^"]*"|\'[^\']*\')*)', html)
+    if not m:
+        return html
+    return m.group(1) + m.group(2).rstrip() + ' id="%s"' % bid + html[m.end():]
+
+
 def render_block(b, has_table=False, anchor=''):
+    """R17/R18：包一层——给块发**文本派生**的稳定锚点，并登记块级索引。
+    标题沿用原 id，不重复发号；正文整体为空的纯装饰块不发锚点。"""
+    html = _render_inner(b, has_table=has_table, anchor=anchor)
+    if b['t'] != 'h':
+        x = _block_text(b)
+        if x:
+            _BID[0] += 1
+            bid = _block_slug(x, _BID[0])
+            html = _inject_id(html, bid)
+            BLOCKS.append({'p': _CURPATH[0], 'a': bid, 'x': x})
+    return html
+
+
+def _render_inner(b, has_table=False, anchor=''):
     t = b['t']
     if t == 'h':
         lv = b['level']
@@ -488,7 +559,12 @@ def footer_html(nav):
     </div>
     <div class="footer-col">
       <h3>声明</h3>
-      <p>本项目为<b>非官方</b>的中文翻译项目，仅提供翻译工作；界面设计、排版结构与原始内容均为原作者所有。</p>
+      <p>本项目为<b>非官方</b>中文参考站。<b>Reference 正文</b>（基础部分 / 模块 / 敌人配置 /
+      Direct / 波次生成器 / 发射物 / Mutators / 资源 / FAQ）译自上游英文文档；
+      <b>新手入门、常见修改 · Cookbook、案例拆解、为什么没生效 · Debug、目录</b>为本站
+      <b>原创撰写</b>（案例拆解取自作者的真实难度档；Cookbook 的 6 条新配方与 Mutators
+      用途索引整理自站内 Reference，<b>尚未在游戏内逐条实测</b>）。界面设计、排版结构与
+      原始内容版权归原作者所有。</p>
     </div>
   </div>
 </footer>'''
@@ -507,6 +583,53 @@ def strip_dead_links(t):
             return m.group(2)
         return m.group(0)
     return re.sub(r'<a\b[^>]*href="([^"]*)"[^>]*>(.*?)</a>', rep, t, flags=re.S)
+
+
+# ── R18 E：正文里「想深入了解 / 想继续实践」那一行的链接组 ──────────────
+# 源里保持可读的写法：`<b>想深入了解</b>：<a>页面 · 小节</a> · <a>…</a>`；
+# 输出统一转成 `.reflinks` 结构 —— 每个目标是一个「原子」单元（不会被折行拆开），
+# 分隔符由 CSS 的 `a + a::before` 生成（所以永远不会有行尾落单的 ｜），
+# 「页面名 · 小节」里的 `·` 降级成灰色前缀，整行只剩一种分隔符。
+# 做在渲染管线里（而不是手改产物）：natural-selection 那几行是 md2page 生成的，
+# 手改会被下次生成覆盖。
+_REFLINK_HEAD = re.compile(
+    r'(<b>想(?:深入|继续)(?:了解|实践)：?</b>：?\s*)'
+    r'((?:<a\b[^>]*>[^<]*</a>)(?:\s*·\s*<a\b[^>]*>[^<]*</a>)*)', re.S)
+# 表格单元格里「只有链接 + · 」的情况（首页两张表、tutorial 的术语表、md2page 生成的表）
+# 注意链接文本用 [^<]* —— 否则 .*? 会跨过 </td><td> 把相邻单元格的链接吞进来。
+_REFLINK_CELL = re.compile(
+    r'(<td\b[^>]*>)((?:\s*<a\b[^>]*>[^<]*</a>\s*·\s*)+<a\b[^>]*>[^<]*</a>\s*)(</td>)', re.S)
+_REFLINK_SPLIT = re.compile(r'^(.*?)\s*·\s*(.+)$', re.S)
+
+
+def _reflink_group(group):
+    """把「<a>A · B</a> · <a>C · D</a>」转成 `.reflinks` 原子单元组。"""
+    # 不变量：匹配到的组必须落在**同一个**单元格/段落内。
+    # （跨 </td><td> 吞并相邻单元格的链接曾真实发生过，且它不改变链接总数。）
+    assert not re.search(r'</?(?:td|p)\b', group), 'reflinks 匹配跨了单元格/段落'
+    out = []
+    for a in re.findall(r'<a\b[^>]*>[^<]*</a>', group, re.S):
+        am = re.match(r'(<a\b[^>]*>)(.*?)(</a>)$', a, re.S)
+        if not am:
+            out.append(a)
+            continue
+        inner = am.group(2)
+        s = _REFLINK_SPLIT.match(inner)
+        if s:
+            inner = '<span class="rp">%s</span>%s' % (s.group(1).strip(), s.group(2))
+        out.append(am.group(1) + inner + am.group(3))
+    return '<span class="reflinks">' + ''.join(out) + '</span>'
+
+
+def format_reflinks(t):
+    t = _REFLINK_HEAD.sub(lambda m: m.group(1) + _reflink_group(m.group(2)), t)
+    # 外层那个 ｜（「没生效？」与「想深入了解」之间）同样弱化，保持整行一致
+    t = re.sub(r'｜\s*(<b>想(?:深入|继续)(?:了解|实践))',
+               r'<span class="sep">｜</span> \1', t)
+    # 窄单元格里多链接最容易糊成一片，同样处理
+    t = _REFLINK_CELL.sub(
+        lambda m: m.group(1) + _reflink_group(m.group(2)) + m.group(3), t)
+    return t
 
 
 # R6：资源版本号 —— 让 CSS/JS 更新后浏览器立即取新版，不再吃旧缓存
@@ -612,6 +735,9 @@ def content_page(page, nav):
             for k in range(a, z):
                 sec_tbl[k] = True
     cur_anchor = ''
+    _CURPATH[0] = page['path']          # R17：块锚点归属的页面路径
+    _BID[0] = 0
+    _BID_USED[0] = set()
     for i, b in enumerate(blks):
         if b['t'] == 'h' and b.get('level') == 2:
             cur_anchor = b.get('id') or ''
@@ -825,7 +951,17 @@ def stats_html(nav, pages):
 
 
 def _linx(pairs):
-    return ' · '.join(f'<a href="{h}">{esc(t)}</a>' for t, h in pairs)
+    """表格单元格里的「去哪看」链接组：同样用 R18 E 的原子单元 + 灰色页面名前缀。"""
+    if len(pairs) == 1:
+        t, h = pairs[0]
+        return f'<a href="{h}">{esc(t)}</a>'
+    out = []
+    for t, h in pairs:
+        s = _REFLINK_SPLIT.match(t)
+        inner = ('<span class="rp">%s</span>%s' % (esc(s.group(1).strip()), esc(s.group(2)))
+                 if s else esc(t))
+        out.append(f'<a href="{h}">{inner}</a>')
+    return '<span class="reflinks">' + ''.join(out) + '</span>'
 
 
 def home_entry_html():
@@ -849,6 +985,12 @@ def home_sections_html():
     return f'''<h2 id="first-edit">第一次修改：3 步，5 分钟</h2>
 <p>不需要先读完文档。改一个数字、看一眼游戏里的变化，你就入门了。</p>
 <ol class="home-steps">{steps}</ol>
+<p><b>补充说明</b>：<code>EnemyCountModifier</code> 常写成<b>按人数排列的数组</b>
+（如 <code>[1.7, 1.7, 2.5, 3]</code>，依次对应 1/2/3/4 人），所以改的时候每个元素都要动。
+难度名里的 <code>x2</code> 也是这个意思：<b>标准做法是把基础档的每个元素乘 2</b>——
+实测 <code>Hazard_6</code> 的 <code>[0.95, 1.05, 1.35, 1.65]</code> ×2 得到
+<code>[1.9, 2.1, 2.7, 3.3]</code>，正是 <code>Hazard_6x2_60_Nitra</code> 里的值。
+<b>它不是把某个数字换成 2。</b>（也有作者手工改过的档不遵循这个倍率。）</p>
 <p class="home-next">每一步的出处、以及之后该走哪条路，见
 <a href="/tutorial/">新手入门 · Getting Started</a>；想直接找事做，看下面的
 <a href="#what">「我想做什么？」</a>。</p>
@@ -871,6 +1013,14 @@ def home_page(nav, pages):
     home = pages.get('', {})
     intro, log, log_items = [], [], []
     state = 'intro'
+    _CURPATH[0] = '/'                   # R17：首页的块锚点归属
+    _BID[0] = 0
+    _BID_USED[0] = set()
+
+    def rb(blk):
+        """渲染首页块（发号逻辑已收进 render_block）。"""
+        return render_block(blk)
+
     for b in home.get('blocks', []):
         if b['t'] == 'h':
             raw = b.get('text_raw', '')
@@ -878,18 +1028,18 @@ def home_page(nav, pages):
                 state = 'sections'
                 continue
             state = 'log'
-            log.append(render_block(b))
+            log.append(rb(b))
             continue
         if state == 'intro':
-            intro.append(render_block(b))
+            intro.append(rb(b))
         elif state == 'sections':
             if b['t'] == 'figure':
-                intro.append(render_block(b))
+                intro.append(rb(b))
         else:
             if b['t'] == 'list':
                 log_items.extend(list_items(b))
             else:
-                log.append(render_block(b))
+                log.append(rb(b))
     # R11：三条入口插在引言之后、截图之前（不恢复 hero，也不用卡片）
     pos = next((k for k, h in enumerate(intro) if '<figure' in h), len(intro))
     intro.insert(pos, home_entry_html())
@@ -1075,15 +1225,15 @@ def main():
             continue
         d = os.path.join(SITE, slug)
         os.makedirs(d, exist_ok=True)
-        out = strip_dead_links(content_page(p, nav))
+        out = format_reflinks(strip_dead_links(content_page(p, nav)))
         wtext(os.path.join(d, 'index.html'), out)
         rows.append((slug, len(out), len(p['blocks'])))
 
     wtext(os.path.join(SITE, 'index.html'),
-          strip_dead_links(home_page(nav, pages)))
+          format_reflinks(strip_dead_links(home_page(nav, pages))))
     d = os.path.join(SITE, 'toc')
     os.makedirs(d, exist_ok=True)
-    out = strip_dead_links(toc_page(nav, pages))
+    out = format_reflinks(strip_dead_links(toc_page(nav, pages)))
     wtext(os.path.join(d, 'index.html'), out)
     rows.append(('toc', len(out), 0))
     wtext(os.path.join(SITE, '404.html'), strip_dead_links(notfound_page()))
@@ -1096,6 +1246,13 @@ def main():
         home_idx['headings'] = (home_idx.get('headings') or []) + HOME_SEARCH['headings']
     wtext(os.path.join(SITE, 'search-index.json'),
           json.dumps(idx, ensure_ascii=False, separators=(',', ':')))
+    # R17 §S7：块级搜索索引（锚点 + 截断文本）。按页面路径分组，减小前端查找表体积。
+    blk = {}
+    for x in BLOCKS:
+        blk.setdefault(x['p'], []).append([x['a'], x['x']])
+    wtext(os.path.join(SITE, 'search-blocks.json'),
+          json.dumps(blk, ensure_ascii=False, separators=(',', ':')))
+    print('block-anchors: %d 个（%d 页）' % (len(BLOCKS), len(blk)))
     write_sitemap(nav)
 
     L = ['%-14s %10s %8s' % ('slug', 'HTML字节', '区块数'), '-' * 36]

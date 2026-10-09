@@ -897,3 +897,23 @@ dl.sk>dt.sk-stage{
   color:var(--brand); border-top:0; padding-top:.9rem; margin-top:.4rem;
 }
 dl.sk>dd{ margin:0 0 .35rem; color:var(--text); font-size:.95em; }
+
+/* ==========================================================================
+   R17 · 独立审查 S3：代码块长行折行 + 窄屏三线表补行线
+   未采纳「sticky 表头」：.table-wrap 本身就是横向滚动容器，其中的 sticky 只相对
+   该容器定位，页面滚动时没有任何效果，还会覆盖 thead th 的 background:transparent。
+   ========================================================================== */
+.code-block pre{ overflow-wrap:anywhere; }
+.code-block pre code{ white-space:pre-wrap; overflow-wrap:anywhere; }
+/* R17 §S7：搜索落地后命中的词 */
+mark.hit{ background:var(--brand-soft); color:inherit; border-radius:2px; }
+/* R18 E：正文里「想深入了解」那一行的链接组 —— 原子换行 + 分隔符由 CSS 生成 */
+.reflinks{ display:inline-flex; flex-wrap:wrap; row-gap:.15rem; }
+.reflinks a{ display:inline-block; }
+.reflinks a + a::before{ content:"｜"; color:var(--muted); margin:0 .55em; font-weight:400; }
+.reflinks .rp{ color:var(--muted); font-size:.86em; margin-right:.4em; }
+.sep{ color:var(--muted); margin:0 .55em; }
+@media (max-width:768px){
+  tbody td{ border-top:1px solid var(--border); }
+  tbody tr:first-child td{ border-top:0; }
+}
