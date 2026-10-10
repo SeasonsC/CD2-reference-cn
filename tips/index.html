@@ -83,7 +83,7 @@
 <h2 id="debug-wrong-effect">数值变了，但效果和想象不一样</h2>
 <ul id="b-vars-cd2"><li><b>引用了 <code>Vars</code> 里不存在的变量，或变量之间循环依赖</b>：CD2 <b>不会报错</b>，但依赖它的那个单位 / 效果会<b>直接消失</b>。这类问题只能靠 <code>Watch</code> 看变量是不是取不到值——见<a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a>。</li><li>是不是被别处覆盖了：同一个值可能被多处写入，用 <code>Vars</code> 收敛成一个来源。</li><li><b>被「当前选择的官难」补了值</b>：部分内容 CD2 会去读<b>玩家当前选择的官方难度</b>来补默认值——所以你的改动可能被补值盖住。见<a href="../tutorial/#what-is-a-cd2-file">新手入门 · 一个难度文件里有什么</a>与<a href="../modules/#difficultysetting">模块 · 难度设置</a>。</li><li>改了敌人，但它不在任何池子里：先看<a href="../modules/#pools">模块 · 怪池</a>。</li><li>生成数量类字段容易多出一只：见<a href="#spawncount-plus-one">六、生成数量与点数</a>。</li></ul>
 <h2 id="debug-wavespawner">该出现的没出现：刷怪与波次</h2>
-<ul id="b-01d985"><li><b>整数字段写成了小数</b>：虫量上限之类的整数字段填小数会导致<b>敌人根本刷不出来</b>——见<a href="../modules/#caps">模块 · 虫量上限</a>。</li><li>条件根本没有成立：Trigger 要的是布尔信号，数值输出要先经 <code>TriggerOnChange</code>——见<a href="../mutators/#trigger-mutators">Mutator · 触发类</a>。</li><li>一次性的击杀事件是瞬时的，要先用 <code>TriggerFixedDuration</code> 拉成持续窗口：见<a href="#tips-momentary">五、「一瞬间」的布尔信号</a>。</li><li>Spawner 与难度点数的关系：见<a href="../enemies/#spawner">敌人生成器 Spawner</a> 与<a href="#spawncount-plus-one">六、生成数量与点数</a>。</li><li>被上限或冷却挡住：见<a href="../mutators/#enemycooldown">Mutator · 敌人生成冷却</a>。</li></ul>
+<ul id="b-166d64"><li><b>整数字段写成了小数</b>：虫量上限之类的整数字段填小数会导致<b>敌人根本刷不出来</b>——见<a href="../modules/#caps">模块 · 虫量上限</a>。</li><li>条件根本没有成立：Trigger 要的是布尔信号，数值输出要先经 <code>TriggerOnChange</code>——见<a href="../mutators/#trigger-mutators">Mutator · 触发类</a>。</li><li><b>只触发了一次，之后再也不触发</b>：多半是 <code>Or</code> 里混进了「一直为 true」的长信号，把输出钉死了——见<a href="#mistake-or-latch">七 ②</a>。</li><li>一次性的击杀事件是瞬时的，要先用 <code>TriggerFixedDuration</code> 拉成持续窗口：见<a href="#tips-momentary">五、「一瞬间」的布尔信号</a>。</li><li>Spawner 与难度点数的关系：见<a href="../enemies/#spawner">敌人生成器 Spawner</a> 与<a href="#spawncount-plus-one">六、生成数量与点数</a>。</li><li>被上限或冷却挡住：见<a href="../mutators/#enemycooldown">Mutator · 敌人生成冷却</a>。</li></ul>
 <h2 id="debug-mutator">不工作或报错 · Mutator</h2>
 <ul id="b-mutator-faq-mutator"><li>最常见的一条：把数值型 Mutator 直接喂给需要布尔信号的字段——见<a href="#mistake-boolean-input">七 ①</a> 与 <a href="../faq/#faq-mutator-debug">FAQ · 我写的 Mutator 没反应，怎么查</a>。</li><li>类型要对齐：Float / Int / Boolean / String / 数组，输出必须和下游字段的要求一致。</li><li>下标从 0 开始：见<a href="#index-from-zero">二、CD2 的下标从 0 开始</a>。</li><li>它<b>不是瞬时响应</b>的，别用一帧的结果判断对错：见<a href="#tips-polling">三、Mutator 不是瞬时响应的</a>。</li></ul>
 <h2 id="debug-mp">本地能玩，联机出问题</h2>
@@ -144,8 +144,39 @@
     &quot;RiseOnly&quot;: true,
     &quot;In&quot;: {&quot;Mutate&quot;: &quot;DwarvesDowns&quot;}
 }</code></pre></div>
+<h3 id="mistake-or-latch">② 把「一旦成立就一直为 true」的长信号直接 Or 进去</h3>
+<p id="b-0d0c2c">你想让 <code>A</code> 达成时触发一次、<code>B</code> 达成时再触发一次，于是把两者写进 <code>Or</code>——
+结果<b>只触发了第一次，之后再也没动静</b>。</p>
+<p id="b-or-secondaryfinished-tru"><b>为什么</b>：<code>Or</code> 输出的是<b>状态</b>，不是<b>事件</b>。像 <code>SecondaryFinished</code>
+这类信号一旦成立就<b>一直为 true</b>（直到任务结束）；它一进 <code>Or</code>，<code>Or</code> 的输出就被
+<b>永久钉在 true</b>——下游那种「只在 false→true 那一刻动作」的逻辑再也等不到第二次跳变，
+于是卡在「只能激活一次，不能再次进位」。</p>
+<div class="code-block" id="b-or-mutate-or-first-mutat"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">❌ &quot;Or&quot;: {
+    &quot;Mutate&quot;: &quot;Or&quot;,
+    &quot;First&quot;: {
+        &quot;Mutate&quot;: &quot;TriggerOnChange&quot;,
+        &quot;RiseOnly&quot;: true,
+        &quot;In&quot;: {&quot;Mutate&quot;: &quot;EnemiesKilled&quot;}
+    },
+    &quot;Second&quot;: {&quot;Mutate&quot;: &quot;SecondaryFinished&quot;}
+}</code></pre></div>
+<p id="b-triggerfixedduration-sec">✅ <b>先把长信号裁剪成一段窗口</b>再合并。<code>TriggerFixedDuration</code> 的官方示例讲的就是这件事：
+「<code>SecondaryFinished</code> 在次要目标完成后会一直保持 true 直到任务结束，而这个触发器把这段长信号
+裁剪成只有 20 秒的窗口」：</p>
+<div class="code-block" id="b-second-mutate-triggerfix"><div class="code-head"><span class="code-lang">json</span><button class="copy-btn" type="button" aria-label="复制代码">复制</button></div><pre><code class="language-json">✅ &quot;Second&quot;: {
+    &quot;Mutate&quot;: &quot;TriggerFixedDuration&quot;,
+    &quot;N&quot;: 20,
+    &quot;In&quot;: {&quot;Mutate&quot;: &quot;SecondaryFinished&quot;}
+}</code></pre></div>
+<p id="b-n-or-triggeronce-reset">✅ 如果你要的是「每轮只触发一次」或「最多 N 次」，<b>不要用 <code>Or</code> 去计数</b>：用
+<code>TriggerOnce</code>（再加 <code>Reset</code> 就能再次触发）或 <code>TriggerNTimes</code>（<code>N</code> 次）——
+它们本来就是处理 False → True 跳变的。</p>
+<p id="b-triggeronchange-in"><b>类型别弄反</b>（这里最容易错）：<code>TriggerOnChange</code> 的 <code>In</code> 只收<b>数值</b>，
+它负责把「击杀数变化」这类数值变化转成布尔脉冲，<b>不检测布尔信号的变化</b>；其余触发器的
+<code>In</code> 收<b>布尔</b>信号，数值必须先经 <code>TriggerOnChange</code> 转换。完整字段见
+<a href="../mutators/#trigger-mutators">Mutator · 触发类</a>。</p>
 <nav class="page-nav" aria-label="翻页"><a class="prev" href="../faq/"><span class="dir">上一页</span><span class="title">常见问题 · FAQ</span></a><span></span></nav>
-</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="debug-symptoms"><a href="#debug-symptoms">按症状排查：先定位，再深入</a></li><li class="lvl-2" data-h="debug-order"><a href="#debug-order">九步顺序排查</a></li><li class="lvl-2" data-h="debug-no-change"><a href="#debug-no-change">完全没有变化</a></li><li class="lvl-2" data-h="debug-wrong-effect"><a href="#debug-wrong-effect">数值变了，但效果和想象不一样</a></li><li class="lvl-2" data-h="debug-wavespawner"><a href="#debug-wavespawner">该出现的没出现：刷怪与波次</a></li><li class="lvl-2" data-h="debug-mutator"><a href="#debug-mutator">不工作或报错 · Mutator</a></li><li class="lvl-2" data-h="debug-mp"><a href="#debug-mp">本地能玩，联机出问题</a></li><li class="lvl-2" data-h="debug-deepdive"><a href="#debug-deepdive">深挖：七节常见坑</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#index-from-zero">二、CD2 的下标从 0 开始</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-polling">三、Mutator 不是瞬时响应的</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#random-mutators">四、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-momentary">五、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#spawncount-plus-one">六、生成数量与点数：两个容易踩的坑</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#maxplusone">实际会多刷一只 · MaxSpawnCount</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#parent-variant">用「母体 + 自定义变种」控制生成，而不是直接调敌人本身</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-mistakes">七、常见错误写法</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li></ul></div></aside></div>
+</main><aside class="toc" aria-label="本页目录"><div class="toc-inner"><div class="toc-title">本页目录</div><ul class="toc-list"><li class="lvl-2" data-h="debug-symptoms"><a href="#debug-symptoms">按症状排查：先定位，再深入</a></li><li class="lvl-2" data-h="debug-order"><a href="#debug-order">九步顺序排查</a></li><li class="lvl-2" data-h="debug-no-change"><a href="#debug-no-change">完全没有变化</a></li><li class="lvl-2" data-h="debug-wrong-effect"><a href="#debug-wrong-effect">数值变了，但效果和想象不一样</a></li><li class="lvl-2" data-h="debug-wavespawner"><a href="#debug-wavespawner">该出现的没出现：刷怪与波次</a></li><li class="lvl-2" data-h="debug-mutator"><a href="#debug-mutator">不工作或报错 · Mutator</a></li><li class="lvl-2" data-h="debug-mp"><a href="#debug-mp">本地能玩，联机出问题</a></li><li class="lvl-2" data-h="debug-deepdive"><a href="#debug-deepdive">深挖：七节常见坑</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-watch">一、先用 Vars + watch 字段把逻辑调通</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#index-from-zero">二、CD2 的下标从 0 开始</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-polling">三、Mutator 不是瞬时响应的</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#random-mutators">四、随机类 Mutator 的返回值是持续变化的</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-momentary">五、「一瞬间」的布尔信号能干什么</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#spawncount-plus-one">六、生成数量与点数：两个容易踩的坑</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#maxplusone">实际会多刷一只 · MaxSpawnCount</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#parent-variant">用「母体 + 自定义变种」控制生成，而不是直接调敌人本身</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#tips-mistakes">七、常见错误写法</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#mistake-boolean-input">① 把数值型 Mutator 直接喂给需要布尔信号的字段</a></li><li class="lvl-3" data-p="debug-deepdive"><a href="#mistake-or-latch">② 把「一旦成立就一直为 true」的长信号直接 Or 进去</a></li></ul></div></aside></div>
 <footer class="footer">
   <div class="footer-cols">
     <div class="footer-col">

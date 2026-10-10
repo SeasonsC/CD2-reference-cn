@@ -547,6 +547,9 @@ CHECKS += [
     ('R17 tips 页「深挖」七节已降级为 H3',
      'id="debug-deepdive"' in tips_html
      and len(re.findall(r'<h3[^>]*>\s*[一二三四五六七]、', tips_html)) == 7),
+    ('R18b Debug 页记录了「Or 被长信号钉死」这一坑（且症状页有指路）',
+     'id="mistake-or-latch"' in tips_html and 'href="#mistake-or-latch"' in tips_html
+     and 'SecondaryFinished' in tips_html),
     # ── R17 §S7 块级搜索 ──
     ('R17 块级搜索锚点全部存在于产物中', BLK_TOTAL > 500 and not BLK_MISSING),
     ('R18 块锚点是文本派生的稳定 slug（不是页内序号）',

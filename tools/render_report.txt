@@ -10,7 +10,7 @@ mutators          171,167      489
 natural-selection    268,588      214
 projectiles        23,662       18
 resources          19,814        9
-tips               20,378       58
+tips               22,794       66
 tutorial           16,303       41
 wavespawners       16,217        7
 toc                15,257        0
